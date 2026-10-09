@@ -1,0 +1,6 @@
+/* Preview-frame extras, appended to the library stylesheet by build-css.ts */
+html, body { background: transparent; }
+/* Windows are designed at 2×; narrow frames fall back to the game's native 1× */
+@media (max-width: 1040px) {
+  :root { --osrs-px: 1px; }
+}

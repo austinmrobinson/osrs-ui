@@ -139,6 +139,7 @@ export const sprites: SpriteEntry[] = [
   { kind: "single", group: "control", name: "tab-stone-bl", src: "tab/stone_bottom_left_selected.png" },
   { kind: "single", group: "control", name: "tab-stone-br", src: "tab/stone_bottom_right_selected.png" },
   { kind: "single", group: "control", name: "separator", src: "dialog/horizontal_separator_line.png" },
+  { kind: "single", group: "control", name: "drag-corner", src: "dialog/drag_corner_dots.png" },
 
   // Whole folders: these also become generated React sprite modules (scripts/build-sprites.ts)
   { kind: "folder", group: "prayer", dir: "prayer" },

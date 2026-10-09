@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "blume dev",
-    "build": "tsx scripts/export-assets.ts && pnpm registry:build && blume build",
+    "build": "tsx scripts/build-css.ts && tsx scripts/export-assets.ts && pnpm registry:build && blume build",
     "doctor": "blume doctor",
     "assets": "tsx scripts/build-assets.ts && tsx scripts/build-css.ts && tsx scripts/build-sprites.ts && tsx scripts/export-assets.ts",
     "verify:pixels": "tsx scripts/verify-pixels.ts",

@@ -29,7 +29,7 @@ export default function CollectionLogRecipe() {
   const [selected, setSelected] = React.useState("Barbarian Assault");
   return (
     <div className="osrs flex justify-center p-6">
-      <Window style={{ width: px(500), height: px(314) }}>
+      <Window draggable resizable style={{ width: px(500), height: px(314) }} minWidth={360} minHeight={220}>
         <WindowHeader start={<Button variant="metal" size="sm">☰</Button>} end={<WindowClose />}>
           Collection Log - 1210/1717
         </WindowHeader>

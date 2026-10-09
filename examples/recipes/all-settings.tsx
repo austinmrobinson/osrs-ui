@@ -17,7 +17,7 @@ const CATEGORIES = ["Activities", "Audio", "Chat", "Controls", "Display", "Gamep
 export default function AllSettingsRecipe() {
   return (
     <div className="osrs flex justify-center p-6">
-      <Window style={{ width: px(512), height: px(335) }}>
+      <Window draggable resizable style={{ width: px(512), height: px(335) }} minWidth={380} minHeight={240}>
         <WindowHeader start={<Button variant="metal" size="sm">Show more information</Button>} end={<WindowClose />}>
           Settings
         </WindowHeader>

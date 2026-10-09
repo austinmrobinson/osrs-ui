@@ -784,6 +784,14 @@
     "height": 12
   },
   {
+    "name": "drag-corner",
+    "group": "control",
+    "label": "Drag Corner",
+    "file": "control/drag-corner.svg",
+    "width": 8,
+    "height": 8
+  },
+  {
     "name": "activated-background",
     "group": "prayer",
     "label": "Activated Background",

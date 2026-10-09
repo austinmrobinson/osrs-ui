@@ -5,3 +5,5 @@ dist/
 reference/
 public/assets/
 public/r/
+site/examples.generated.css
+theme.css

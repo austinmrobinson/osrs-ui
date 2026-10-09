@@ -543,3 +543,17 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 .osrs-progress-flat-indicator { background: var(--osrs-progress-color); }
 /* Uniform frames: stretching is lossless and avoids hairline seams between repeated tiles */
 .osrs-frame-flat::before, .osrs-nav-item::before, .osrs-button-flat::before { border-image-repeat: stretch; }
+
+/* Window drag & resize */
+.osrs-window[data-draggable] { position: relative; }
+.osrs-window[data-resizable] { position: relative; min-width: 0; }
+.osrs-window-resize {
+  position: absolute;
+  right: calc(3 * var(--osrs-px));
+  bottom: calc(3 * var(--osrs-px));
+  cursor: nwse-resize;
+  touch-action: none;
+  z-index: 1;
+}
+/* Base UI marks overflow on the scrollbar: no thumb when the content fits */
+.osrs-scrollbar:not([data-has-overflow-y]) .osrs-scrollbar-thumb { visibility: hidden; }

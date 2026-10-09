@@ -1,0 +1,131 @@
+/*
+ * Docs-site skin: Blume's chrome drawn with the OSRS UI library.
+ * build-css.ts prepends the library stylesheet and writes the result to ./theme.css.
+ */
+
+:root, :root[data-theme="dark"], :root[data-theme="light"] {
+  --osrs-px: 2px;
+  --blume-background: #3e3529;
+  --blume-foreground: var(--osrs-orange);
+  --blume-muted: rgb(0 0 0 / 0.18);
+  --blume-muted-foreground: #c8b28c;
+  --blume-border: #2a241b;
+  --blume-accent: var(--osrs-orange);
+  --blume-accent-foreground: #000;
+  --blume-action: var(--osrs-yellow);
+  --blume-action-foreground: #000;
+  --blume-code-background: var(--osrs-well);
+  --blume-radius: 0px;
+  --blume-content-width: 48rem;
+  --blume-font-display: "RuneScape Bold 12", ui-monospace, monospace;
+  --blume-font-body: "RuneScape Plain 12", ui-monospace, monospace;
+  color-scheme: dark;
+}
+
+/* The whole site sits on interface stone */
+html body {
+  background-color: #3e3529;
+  background-image: var(--osrs-texture-side-panel);
+  background-size: calc(88 * var(--osrs-px)) calc(60 * var(--osrs-px));
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-synthesis: none;
+}
+
+/* Bitmap fonts are only crisp at multiples of 16px: snap Blume's text scale */
+html body :is(.text-xs, .text-sm, .text-base, .text-lg, p, li, td, th, dd, dt, label, input, button, a, span) {
+  font-size: 16px;
+  letter-spacing: 0;
+}
+html body :is(article, main) {
+  line-height: 1.375;
+}
+/* Interface text shadow on the stone */
+html body :is(main, header, aside, nav, footer) :where(:not(pre, pre *, code, .osrs-chatbox, .osrs-chatbox *, iframe)) {
+  text-shadow: 1px 1px 0 #000;
+}
+
+/* Headings: Bold 12 at 2× / 3× */
+html body :is(h1) { font-size: 48px !important; line-height: 1.1 !important; letter-spacing: 0 !important; color: var(--osrs-orange); }
+html body :is(h2) { font-size: 32px !important; line-height: 1.2 !important; letter-spacing: 0 !important; color: var(--osrs-orange); }
+html body :is(h3, h4, h5, h6) { font-size: 16px !important; letter-spacing: 0 !important; color: var(--osrs-white); font-family: var(--osrs-font-bold); }
+html body article p, html body article li { color: var(--osrs-orange); }
+html body article strong { color: var(--osrs-white); font-weight: 400; }
+
+/* Links: yellow, white on hover (like menu highlights) */
+html body article a:not([class*="osrs-"]) { color: var(--osrs-yellow); text-decoration: none; }
+html body article a:not([class*="osrs-"]):hover { color: var(--osrs-white); }
+
+/* Header: stone bar with a rivet strip underneath */
+html body > div header, html body header.sticky {
+  background-color: #3e3529 !important;
+  background-image: var(--osrs-texture-stone) !important;
+  background-size: calc(88 * var(--osrs-px)) calc(60 * var(--osrs-px)) !important;
+  backdrop-filter: none !important;
+  border-bottom: calc(6 * var(--osrs-px)) solid transparent;
+  border-image: var(--osrs-texture-rivets-horizontal) 15 0 15 0 / 0 0 calc(6 * var(--osrs-px)) 0 / 0 repeat;
+}
+
+/* Code: sunken wells, Plain 12 is not a code font so keep mono */
+html body pre, html body :not(pre) > code {
+  background: var(--osrs-well) !important;
+  border-radius: 0 !important;
+  box-shadow:
+    inset var(--osrs-px) var(--osrs-px) 0 var(--osrs-border-outer),
+    inset calc(-1 * var(--osrs-px)) calc(-1 * var(--osrs-px)) 0 var(--osrs-border-inner),
+    0 0 0 var(--osrs-px) #000;
+  border: 0 !important;
+}
+html body :not(pre) > code { color: var(--osrs-white); padding: 0 4px; }
+html body pre, html body pre * { -webkit-font-smoothing: auto; }
+
+/* Tables: striped rows like the World Switcher */
+html body article table { border-collapse: collapse; }
+html body article :is(th) { background: rgb(0 0 0 / 0.25); color: var(--osrs-white); font-family: var(--osrs-font-bold); font-weight: 400; }
+html body article tbody tr:nth-child(odd) { background: rgb(0 0 0 / 0.1); }
+html body article tbody tr:nth-child(even) { background: rgb(255 255 255 / 0.05); }
+html body article :is(td, th) { border-color: #2a241b; }
+
+/* Component preview frames sit in an interface well */
+html body [data-blume-example], html body .blume-example {
+  border-radius: 0 !important;
+}
+
+/* Scrollbars, site-wide */
+html body ::-webkit-scrollbar { width: 16px; height: 16px; }
+html body ::-webkit-scrollbar-track { background: var(--osrs-stone-dark); }
+html body ::-webkit-scrollbar-thumb {
+  background:
+    var(--osrs-control-scroll-thumb-top) top / 100% 5px no-repeat,
+    var(--osrs-control-scroll-thumb-bottom) bottom / 100% 5px no-repeat,
+    var(--osrs-control-scroll-thumb-middle) 0 0 / 100% 5px repeat-y;
+}
+html body ::selection { background: var(--osrs-highlight); color: var(--osrs-white); }
+
+/* Sidebar (site/Sidebar.tsx) */
+.osrs-site-nav { --osrs-px: 1px; display: flex; flex-direction: column; gap: 12px; padding-bottom: 24px; }
+.osrs-site-nav .osrs-section-title { min-height: 24px; justify-content: flex-start; padding: 0 6px; color: var(--osrs-white); }
+.osrs-site-nav-item { min-height: 24px; color: var(--osrs-orange); text-decoration: none; }
+.osrs-site-nav-item:hover { color: var(--osrs-white); }
+.osrs-site-nav-item[data-selected] { color: var(--osrs-white); }
+.osrs-site-callout { --osrs-px: 2px; }
+.osrs-site-callout-body > :first-child { margin-top: 0; }
+.osrs-site-callout-body > :last-child { margin-bottom: 0; }
+.osrs-site-callout-body p { color: inherit !important; }
+
+/* Code keeps a normal mono font with smoothing: thin mono glyphs vanish without it */
+html body :is(pre, code, kbd, samp), html body :is(pre, code) * {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  font-size: 14px;
+  text-shadow: none;
+}
+/* Heading self-links take the heading's size and colour */
+html body article :is(h1, h2, h3, h4, h5, h6) a { font-size: inherit !important; color: inherit !important; }
+
+/* Card links (site/Card.tsx) */
+.osrs-site-card { text-decoration: none !important; gap: 4px; }
+.osrs-site-card:hover { filter: brightness(1.15); }
+.osrs-site-card-title { font-family: var(--osrs-font-bold); color: var(--osrs-white); }
+.osrs-site-card-body, .osrs-site-card-body p { color: var(--osrs-orange) !important; margin: 0; }

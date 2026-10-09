@@ -1,6 +1,6 @@
 ---
 title: Window
-description: "The modern interface window (All Settings, Grand Exchange, Collection Log): thick tan border, header row, close button."
+description: "Draggable, resizable modern interface window (All Settings, Grand Exchange, Collection Log): thick tan border, header row, close button."
 ---
 
 <Component path="window/demo" />
@@ -21,3 +21,24 @@ npx shadcn@latest add {{registry}}/window.json
   <WindowBody>…</WindowBody>
 </Window>
 ```
+
+## Dragging, resizing and scrolling
+
+All three are opt-in. Drag by the header, resize from the game's drag-dots corner. Sizes and positions snap to whole game pixels, so the frame stays crisp at any size.
+
+```tsx
+<Window draggable resizable defaultSize={{ width: 440, height: 300 }} minWidth={240} minHeight={140}>
+  <WindowHeader end={<WindowClose />}>Quest List</WindowHeader>
+  <WindowBody scroll>…</WindowBody>
+</Window>
+```
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `draggable` | `boolean` | Drag the window by its header (buttons in the header still click). |
+| `resizable` | `boolean` | Show the corner drag dots and resize from them. |
+| `defaultPosition` | `{ x, y }` | Initial offset when draggable. |
+| `defaultSize` | `{ width, height }` | Initial size when resizable. |
+| `minWidth` / `minHeight` | `number` | Resize limits in CSS px. |
+| `onPositionChange` / `onSizeChange` | callbacks | Persist where the user left the window. |
+| `WindowBody scroll` | `boolean` | Wrap the body in the OSRS scroll area. |

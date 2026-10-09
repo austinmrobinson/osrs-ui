@@ -6,13 +6,15 @@ export default defineConfig({
   theme: {
     accent: "#ff981f",
     radius: "none",
+    mode: "dark",
   },
+  feedback: { enabled: false },
   variables: {
     // Change once the site has a real domain.
     registry: "https://osrs-ui.vercel.app/r",
   },
   examples: {
     source: "examples",
-    css: "registry/osrs/theme/osrs.css",
+    css: "site/examples.generated.css",
   },
 });

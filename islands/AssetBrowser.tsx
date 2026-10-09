@@ -2,6 +2,13 @@ import * as React from "react";
 import { zipSync, strToU8 } from "fflate";
 
 import { composeFrame, composeTexture, download, scaleSvg, svgSize, toPng, type Asset } from "../site/compose";
+import { Button } from "@/registry/osrs/ui/button";
+import { Card } from "@/registry/osrs/ui/card";
+import { Input } from "@/registry/osrs/ui/input";
+import { NumberField } from "@/registry/osrs/ui/number-field";
+import { Select as OsrsSelect, SelectContent, SelectItem, SelectTrigger } from "@/registry/osrs/ui/select";
+import { Tabs, TabsList, TabsTrigger } from "@/registry/osrs/ui/tabs";
+import { Window, WindowClose, WindowHeader } from "@/registry/osrs/ui/window";
 
 const GROUPS = [
   { id: "all", label: "All" },
@@ -52,45 +59,37 @@ function Select<T extends string | number>({
   onChange: (v: T) => void;
   options: { value: T; label: string }[];
 }) {
+  const items = Object.fromEntries(options.map((o) => [String(o.value), o.label]));
   return (
-    <label className="flex flex-col gap-1 text-xs font-medium opacity-80">
-      {label}
-      <select
-        className="rounded-md border border-current/20 bg-transparent px-2 py-1.5 text-sm"
+    <label className="flex flex-col gap-1">
+      <span className="osrs-text-small">{label}</span>
+      <OsrsSelect
         value={String(value)}
-        onChange={(e) => {
-          const raw = e.target.value;
-          onChange((typeof value === "number" ? Number(raw) : raw) as T);
-        }}
+        items={items}
+        onValueChange={(v) => onChange((typeof value === "number" ? Number(v) : v) as T)}
       >
-        {options.map((o) => (
-          <option key={String(o.value)} value={String(o.value)}>
-            {o.label}
-          </option>
-        ))}
-      </select>
+        <SelectTrigger className="min-w-[120px]" />
+        <SelectContent>
+          {options.map((o) => (
+            <SelectItem key={String(o.value)} value={String(o.value)}>
+              {o.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </OsrsSelect>
     </label>
   );
 }
 
 function NumberInput({ label, value, onChange, min = 1 }: { label: string; value: number; onChange: (n: number) => void; min?: number }) {
   return (
-    <label className="flex flex-col gap-1 text-xs font-medium opacity-80">
-      {label}
-      <input
-        type="number"
-        min={min}
-        className="w-24 rounded-md border border-current/20 bg-transparent px-2 py-1.5 text-sm"
-        value={value}
-        onChange={(e) => onChange(Math.max(min, Math.round(Number(e.target.value) || min)))}
-      />
+    <label className="flex flex-col gap-1">
+      <span className="osrs-text-small">{label}</span>
+      <NumberField value={value} min={min} onValueChange={(v) => onChange(Math.max(min, Math.round(v ?? min)))} />
     </label>
   );
 }
 
-const btn =
-  "rounded-md border border-current/20 px-3 py-1.5 text-sm font-medium hover:bg-current/5 disabled:opacity-40";
-const primaryBtn = "rounded-md bg-[#ff981f] px-3 py-1.5 text-sm font-semibold text-black hover:brightness-110 disabled:opacity-40";
 
 export default function AssetBrowser() {
   const { assets, svgs } = useAssets();
@@ -138,29 +137,21 @@ export default function AssetBrowser() {
   }
 
   return (
-    <div className="not-prose flex flex-col gap-4">
+    <div className="not-prose osrs-text flex flex-col gap-4" style={{ ["--osrs-px" as string]: "1px" }}>
       <div className="flex flex-wrap items-end gap-3">
-        <div className="flex flex-wrap gap-1">
-          {GROUPS.map((g) => (
-            <button
-              key={g.id}
-              type="button"
-              onClick={() => setGroup(g.id)}
-              className={`${btn} ${group === g.id ? "bg-current/10" : ""}`}
-            >
-              {g.label}
-            </button>
-          ))}
-        </div>
-        <input
-          placeholder="Search…"
-          className="min-w-40 flex-1 rounded-md border border-current/20 bg-transparent px-2 py-1.5 text-sm"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
+        <Tabs value={group} onValueChange={(v) => setGroup(String(v))} className="min-w-0 flex-1">
+          <TabsList>
+            {GROUPS.map((g) => (
+              <TabsTrigger key={g.id} value={g.id}>
+                {g.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
+        <Input placeholder="Search…" className="w-[200px]" value={query} onChange={(e) => setQuery(e.target.value)} />
       </div>
 
-      <div className="flex flex-wrap items-end gap-3 rounded-lg border border-current/15 p-3">
+      <Card variant="outline" className="flex-row flex-wrap items-end gap-3">
         <Select label="Format" value={format} onChange={setFormat} options={[{ value: "png", label: "PNG" }, { value: "svg", label: "SVG (vector)" }]} />
         <Select label="Scale" value={scale} onChange={setScale} options={SCALES.map((s) => ({ value: s, label: `${s}×` }))} />
         {format === "png" && (
@@ -170,27 +161,27 @@ export default function AssetBrowser() {
           </>
         )}
         <div className="ml-auto flex items-end gap-2">
-          <span className="pb-2 text-xs opacity-60">{visible.length} assets</span>
-          <button type="button" className={primaryBtn} disabled={!loaded || busy || !visible.length} onClick={downloadPack}>
+          <span className="osrs-text-small pb-2">{visible.length} assets</span>
+          <Button variant="metal" disabled={!loaded || busy || !visible.length} onClick={downloadPack}>
             {busy ? "Zipping…" : "Download pack (.zip)"}
-          </button>
+          </Button>
         </div>
-      </div>
+      </Card>
 
       {!loaded ? (
-        <p className="text-sm opacity-60">Loading assets…</p>
+        <p>Loading assets…</p>
       ) : (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-3">
           {visible.map((a) => {
             const svg = svgs[a.file];
             const fit = Math.max(1, Math.min(4, Math.floor(96 / Math.max(a.width, a.height))));
             return (
-              <div key={a.file} className="flex flex-col overflow-hidden rounded-lg border border-current/15">
+              <Card key={a.file} className="gap-1 p-1">
                 <button
                   type="button"
                   title={a.group === "frame" || a.group === "texture" ? "Open in composer" : a.label}
                   onClick={() => setSelected(a)}
-                  className="flex h-28 items-center justify-center bg-[#494034] bg-[repeating-conic-gradient(#0000_0_25%,#0001_0_50%)] bg-[length:16px_16px]"
+                  className="osrs-well flex h-28 cursor-pointer items-center justify-center border-0"
                 >
                   <img
                     alt={a.label}
@@ -200,18 +191,18 @@ export default function AssetBrowser() {
                     style={{ imageRendering: "pixelated", maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
                   />
                 </button>
-                <div className="flex items-center justify-between gap-2 px-2.5 py-2">
+                <div className="flex items-center justify-between gap-2 px-1">
                   <div className="min-w-0">
-                    <div className="truncate text-sm font-medium">{a.label}</div>
-                    <div className="text-xs opacity-60">
+                    <div className="truncate" style={{ color: "var(--osrs-white)" }}>{a.label}</div>
+                    <div className="osrs-text-small">
                       {a.width * scale}×{a.height * scale}
                     </div>
                   </div>
-                  <button type="button" aria-label={`Download ${a.label}`} className={btn} onClick={() => downloadOne(svg, `osrs-${a.group}-${a.name}`)}>
+                  <Button size="icon" aria-label={`Download ${a.label}`} onClick={() => downloadOne(svg, `osrs-${a.group}-${a.name}`)}>
                     ↓
-                  </button>
+                  </Button>
                 </div>
-              </div>
+              </Card>
             );
           })}
         </div>
@@ -271,13 +262,8 @@ function Composer({
   }
 
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-current/15 p-4">
-      <div className="flex items-center justify-between">
-        <h3 className="m-0 text-base font-semibold">{asset.label}</h3>
-        <button type="button" className={btn} onClick={onClose}>
-          Close
-        </button>
-      </div>
+    <Window className="gap-3">
+      <WindowHeader end={<WindowClose onClick={onClose} />}>{asset.label}</WindowHeader>
       {resizable && (
         <div className="flex flex-wrap items-end gap-3">
           <NumberInput label="Width (game px)" value={w} onChange={setW} />
@@ -296,10 +282,9 @@ function Composer({
               [1280, 720],
               [1080, 1080],
             ].map(([pw, ph]) => (
-              <button
+              <Button
                 key={`${pw}`}
-                type="button"
-                className={btn}
+                size="sm"
                 title={`Fits ${pw}×${ph} at ${scale}×`}
                 onClick={() => {
                   setW(Math.round(pw / scale));
@@ -307,12 +292,12 @@ function Composer({
                 }}
               >
                 {pw}×{ph}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
       )}
-      <div className="overflow-auto rounded-md bg-[repeating-conic-gradient(#0000_0_25%,#0001_0_50%)] bg-[length:16px_16px] p-3">
+      <div className="osrs-well overflow-auto p-3">
         <img
           alt=""
           src={dataUrl(svg)}
@@ -322,13 +307,13 @@ function Composer({
         />
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-sm opacity-70">
+        <span>
           Output: {size.width * scale}×{size.height * scale}px {format.toUpperCase()}
         </span>
-        <button type="button" className={primaryBtn} onClick={save}>
+        <Button variant="metal" onClick={save}>
           Download
-        </button>
+        </Button>
       </div>
-    </div>
+    </Window>
   );
 }
