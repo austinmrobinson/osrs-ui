@@ -230,7 +230,14 @@
 .osrs-close:hover, .osrs-close:focus-visible { --osrs-sprite: var(--osrs-control-close-hover); outline: none; }
 
 /* Tabs: slanted tab stones (3-slice) */
-.osrs-tabs-list { display: flex; align-items: flex-end; gap: 0; }
+.osrs-tabs-list {
+  display: flex; align-items: flex-end; gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.osrs-tabs-list::-webkit-scrollbar { display: none; }
 .osrs-tab {
   --osrs-frame-image: var(--osrs-frame-tab-small);
   --osrs-frame-slice: 1 4 1 4;
@@ -238,7 +245,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 1 1 0;
+  /* fill the row when there's room, but never squeeze below the label */
+  flex: 1 0 auto;
   height: calc(21 * var(--osrs-px));
   padding: 0 calc(6 * var(--osrs-px));
   white-space: nowrap;

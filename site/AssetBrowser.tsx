@@ -139,7 +139,7 @@ export default function AssetBrowser() {
     <div className="not-prose osrs-text flex flex-col gap-4" style={{ ["--osrs-px" as string]: "1px" }}>
       <div className="flex flex-wrap items-end gap-3">
         <Tabs value={group} onValueChange={(v) => setGroup(String(v))} className="min-w-0 basis-full">
-          <TabsList className="flex-wrap">
+          <TabsList>
             {groups.map((g) => (
               <TabsTrigger key={g.id} value={g.id}>
                 {g.label}

@@ -304,12 +304,7 @@ html body main > article::before {
 /* Page title reads as the window title, with a riveted divider under it */
 html body main > article > :is(header, div):first-child h1,
 html body main > article h1:first-of-type {
-  text-align: center;
   margin-bottom: 4px !important;
-}
-html body main > article h1:first-of-type + p,
-html body main > article header p {
-  text-align: center;
 }
 html body main > article h1:first-of-type::after {
   content: "";
