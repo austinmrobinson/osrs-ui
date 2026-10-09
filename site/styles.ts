@@ -9,9 +9,10 @@ export const cx = (...parts: (string | false | null | undefined)[]) => parts.fil
 export const textShadow = "text-shadow-[1px_1px_0_#000]";
 
 /** The page's stone: the interface tile at 2x under the nav list's darker tint, fixed to the viewport
- *  so every stone surface lines up as the page scrolls. */
+ *  so every stone surface lines up as the page scrolls. Repeat and position are set here too: Blume's
+ *  base styles give the body a single, centred background image. */
 export const stone =
-  "bg-rs-stone bg-[image:linear-gradient(rgb(0_0_0/0.14),rgb(0_0_0/0.14)),var(--osrs-texture-stone)] bg-[size:auto,176px_120px] bg-fixed";
+  "bg-rs-stone bg-[image:linear-gradient(rgb(0_0_0/0.14),rgb(0_0_0/0.14)),var(--osrs-texture-stone)] bg-[size:auto,176px_120px] bg-fixed bg-repeat bg-[position:0_0]";
 
 /** A darker stage on the stone (the playground and preview panels, code blocks, the search panes). */
 export const stage =

@@ -80,13 +80,14 @@ const chipArt = "relative me-[calc(3*var(--art-px))] inline-flex items-center al
 
 /** Chip: a sunken pill inside the headline holding a live component and a few words. Its explainer
  *  follows the pointer along the badge, and stays up while its art is clicked or dragged. */
-function Chip({ i, children, label, tip }: { i: number; children: React.ReactNode; label: React.ReactNode; tip: React.ReactNode }) {
+function Chip({ i, from, children, label, tip }: { i: number; from: number; children: React.ReactNode; label: React.ReactNode; tip: React.ReactNode }) {
+  const shift = useChipShift(from);
   return (
     <Tooltip trackCursorAxis="x">
-      <TooltipTrigger closeOnClick={false} render={<span className={chip} style={delay(i, 300)} />}>
+      <TooltipTrigger closeOnClick={false} render={<span className={chip} style={{ ...delay(i, 300), ...shift.style }} />}>
         <Pill />
         <span className={chipArt}>{children}</span>
-        {label}
+        <ChatEffect.Provider value={shift.value}>{label}</ChatEffect.Provider>
       </TooltipTrigger>
       <TooltipContent variant="interface" side="top" sideOffset={6} scale={1}>
         {tip}
@@ -331,9 +332,14 @@ const flip = "inline-block motion-safe:animate-[osrs-home-ready-flip_.32s_steps(
 /** Pop and type: the longest entry sizes the badge, so the headline never reflows. */
 const stack = "inline-grid align-baseline *:[grid-area:1/1] *:whitespace-nowrap";
 
+/** Where the badge's word sits in the headline's letters ("Old School … and ready for "). */
+const READY_FROM = 92;
+
 function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) {
   // changes only on click
   const [n, setN] = React.useState(0);
+  // the badge moves with the text effect as one piece; its word's letters move inside it
+  const shift = useChipShift(READY_FROM);
   const target = TARGETS[n];
   const next = () => setN((v) => (v + 1) % TARGETS.length);
   const longest = TARGETS.reduce((a, b) => (b.word.length > a.length ? b.word : a), "");
@@ -381,8 +387,10 @@ function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) 
             line (so the badge keeps the text baseline); the rows sit over it, each a full 1em so
             descenders never reach the next, clipped to one row */}
         <span
-          className="relative inline-block [clip-path:inset(0_-.2em_-.075em_0)] align-baseline whitespace-nowrap transition-[width] duration-500 ease-[cubic-bezier(.3,1.2,.5,1)] data-snap:transition-none"
+          className="relative inline-block [clip-path:inset(0_-.2em_-.075em_0)] align-baseline data-moving:[clip-path:inset(-.35em_-.2em_-.35em_0)] whitespace-nowrap transition-[width] duration-500 ease-[cubic-bezier(.3,1.2,.5,1)] data-snap:transition-none"
           data-snap={snap}
+          // a text effect moves letters up and down: the window opens a little to let them
+          data-moving={shift.value.motion ? "" : undefined}
           style={widths[pos.at] ? { width: widths[pos.at] } : undefined}
         >
           <span className="invisible inline-block w-0" aria-hidden="true">
@@ -394,9 +402,10 @@ function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) 
             style={{ ["--n" as string]: pos.at }}
           >
             {rows.map((k, j) => (
-              <span key={j} className="flex h-[1em] w-max items-center whitespace-nowrap" aria-hidden={j !== pos.at}>
+              <span key={j} className={cx("flex h-[1em] w-max items-center whitespace-nowrap", shift.value.motion && j !== pos.at && "invisible")}
+                aria-hidden={j !== pos.at}>
                 <span ref={(el) => void (rowRefs.current[j] = el)} className="inline-block">
-                  {TARGETS[k].word}
+                  {j === pos.at ? <Letters text={TARGETS[k].word} from={READY_FROM} /> : TARGETS[k].word}
                 </span>
               </span>
             ))}
@@ -413,7 +422,7 @@ function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) 
         </span>
         <span key={target.key}>
           <TargetIcon i={n} electrons className="motion-safe:animate-[osrs-home-ready-pop_.5s_cubic-bezier(.3,1.6,.5,1)_both]" />
-          <span className="inline-block motion-safe:animate-[osrs-home-ready-word_.4s_.08s_cubic-bezier(.2,.8,.2,1)_both]">{target.word}</span>
+          <span className="inline-block motion-safe:animate-[osrs-home-ready-word_.4s_.08s_cubic-bezier(.2,.8,.2,1)_both]"><Letters text={target.word} from={READY_FROM} /></span>
         </span>
       </span>
     );
@@ -435,7 +444,7 @@ function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) 
   }
 
   return (
-    <span className={chip} style={delay(order, 300)}>
+    <span className={chip} style={{ ...delay(order, 300), ...shift.style }}>
       <Pill />
       <Tooltip trackCursorAxis="x">
         <TooltipTrigger
@@ -451,7 +460,7 @@ function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) 
             />
           }
         >
-          {body}
+          <ChatEffect.Provider value={shift.value}>{body}</ChatEffect.Provider>
         </TooltipTrigger>
         <TooltipContent variant="interface" side="top" sideOffset={4} scale={1}>
           {target.tip}
@@ -486,7 +495,39 @@ function Typed({ text }: { text: string }) {
 
 /** The game's chat effects on the headline (Controls > Colour effect, Text effect): the clock's
  *  tick and the text effect, read by the headline's words. */
-const ChatEffect = React.createContext<{ t: number; motion: MotionEffect }>({ t: 0, motion: null });
+const ChatEffect = React.createContext<{ t: number; motion: MotionEffect; base: [number, number] }>({ t: 0, motion: null, base: [0, 0] });
+
+/** A chip moves with the text effect as one piece, at the place of its first letter in the line;
+ *  the letters inside it then move relative to it (`base`), so together they follow the effect. */
+function useChipShift(from: number) {
+  const ctx = React.useContext(ChatEffect);
+  const [x, y] = ctx.motion ? offsetAt(ctx.motion, from, 0, ctx.t) : [0, 0];
+  const value = React.useMemo(() => ({ t: ctx.t, motion: ctx.motion, base: [x, y] as [number, number] }), [ctx.t, ctx.motion, x, y]);
+  return {
+    style: x || y ? ({ translate: `calc(${x} * var(--osrs-px)) calc(${y} * var(--osrs-px))` } as React.CSSProperties) : undefined,
+    /** The context for the chip's contents, so its letters move relative to the chip. */
+    value,
+  };
+}
+
+/** Letters that follow the text effect (relative to their chip): the "ready for" destination word. */
+function Letters({ text, from }: { text: string; from: number }) {
+  const { t, motion, base } = React.useContext(ChatEffect);
+  if (!motion) return <>{text}</>;
+  return (
+    <>
+      {[...text].map((c, j) => {
+        const [ax, ay] = offsetAt(motion, from + j, 0, t);
+        const [x, y] = [ax - base[0], ay - base[1]];
+        return (
+          <span key={j} className="inline-block" style={x || y ? { translate: `calc(${x} * var(--osrs-px)) calc(${y} * var(--osrs-px))` } : undefined}>
+            {c}
+          </span>
+        );
+      })}
+    </>
+  );
+}
 
 /** Runs the chat-effect clock while an effect is on: a colour effect recolours the headline each
  *  tick (through --hero-colour on the hero); a text effect moves the words' letters. Only the words
@@ -510,14 +551,14 @@ function ChatEffectClock({
     if (!el) return;
     el.style.setProperty("--hero-colour", colour ? colourAt(colour, t) : restColour);
   }, [hero, colour, t, restColour]);
-  const value = React.useMemo(() => ({ t, motion }), [t, motion]);
+  const value = React.useMemo(() => ({ t, motion, base: [0, 0] as [number, number] }), [t, motion]);
   return <ChatEffect.Provider value={value}>{children}</ChatEffect.Provider>;
 }
 
 /** Words that rise in one after another; with a text effect on, each letter moves on its own.
  *  `from` is the index of the first letter in the whole headline, so the effect runs on across words. */
 function Words({ text, start, from, rises = true }: { text: string; start: number; from: number; rises?: boolean }) {
-  const { t, motion } = React.useContext(ChatEffect);
+  const { t, motion, base } = React.useContext(ChatEffect);
   // a chip's label with no effect on is plain text, so it keeps its place on the chip's baseline
   if (!rises && !motion) return <>{text}</>;
   let i = from;
@@ -528,7 +569,9 @@ function Words({ text, start, from, rises = true }: { text: string; start: numbe
           <span className={rises ? rise : "inline-block"} style={rises ? delay(start + k) : undefined}>
             {motion
               ? [...w].map((c, j) => {
-                  const [x, y] = offsetAt(motion, i++, 0, t);
+                  // inside a chip, letters move relative to the chip, which moves itself
+                  const [ax, ay] = offsetAt(motion, i++, 0, t);
+                  const [x, y] = [ax - base[0], ay - base[1]];
                   return (
                     <span key={j} className="inline-block" style={x || y ? { translate: `calc(${x} * var(--osrs-px)) calc(${y} * var(--osrs-px))` } : undefined}>
                       {c}
@@ -560,11 +603,11 @@ function SentenceHeadline({ titleRef, ready, style }: { titleRef: React.Ref<HTML
       style={style}
     >
       <Words text="Old School RuneScape's interface, traced" start={0} from={0} />
-      <Chip i={5} label={<Words text="pixel for pixel," start={0} from={41} rises={false} />} tip="Every sprite is traced from the game, one SVG rectangle per run of pixels, so it stays crisp at any size. Click for the next skill.">
+      <Chip i={5} from={41} label={<Words text="pixel for pixel," start={0} from={41} rises={false} />} tip="Every sprite is traced from the game, one SVG rectangle per run of pixels, so it stays crisp at any size. Click for the next skill.">
         <SkillChipArt />
       </Chip>{" "}
       <Words text="framed at" start={7} from={58} />
-      <Chip i={9} label={<Words text="any size," start={0} from={68} rises={false} />} tip="Frames are built from the game’s own edge sprites and tile to any width or height. Drag an edge or a corner.">
+      <Chip i={9} from={68} label={<Words text="any size," start={0} from={68} rises={false} />} tip="Frames are built from the game’s own edge sprites and tile to any width or height. Drag an edge or a corner.">
         <FrameChipArt />
       </Chip>{" "}
       <Words text="and ready for" start={11} from={78} />
