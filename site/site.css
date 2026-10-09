@@ -12,6 +12,8 @@
 :root, :root[data-theme="dark"], :root[data-theme="light"] {
   --osrs-px: 2px;
   --osrs-site-void: #2e281d;
+  --osrs-site-line-dark: #1f1a14;
+  --osrs-site-line-light: #5d5848;
   --osrs-site-stage: #221d15;
   --blume-background: var(--osrs-site-void);
   --blume-foreground: var(--osrs-orange);
@@ -31,10 +33,14 @@
   color-scheme: dark;
 }
 
-/* The page is the dark void around the game viewport; stone is reserved for UI
-   (header, sidebar, components) so the components always stand out. */
+/* The whole page is one interface window, like the in-game Settings: stone
+   everywhere, a single rivet frame around the viewport, plain bevelled dividers
+   inside. Previews and code sit in darker panels so components stay legible. */
 html body {
-  background-color: var(--osrs-site-void);
+  background-color: var(--osrs-stone);
+  background-image: var(--osrs-texture-stone);
+  background-size: 88px 60px;
+  padding: 6px;
   image-rendering: pixelated;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: unset;
@@ -168,30 +174,21 @@ html body ::-webkit-scrollbar-thumb {
 }
 html body ::selection { background: var(--osrs-highlight); color: var(--osrs-white); }
 
-/* Sidebar (site/Sidebar.tsx): the All Settings nav, as a rivet-framed stone panel.
-   The current page's button opens out of the panel into the page, like the
-   selected settings category joining its content. */
+/* Sidebar (site/Sidebar.tsx): the All Settings nav column. The current page's
+   button opens out of the column into the content, like the selected category. */
 .osrs-site-nav {
   --osrs-px: 1px;
-  position: relative;
-  isolation: isolate;
-  margin: 0 0 16px;
-  padding: 10px 0 14px 10px;
-  background-color: var(--osrs-stone);
-  background-image: var(--osrs-texture-side-panel);
-  background-size: 88px 60px;
+  margin: 0;
+  padding: 0 0 16px;
+  background: none;
   box-shadow: none;
-}
-.osrs-site-nav::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent;
-  border-width: 30px 25px 30px 25px;
-  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px 30px 25px / 0 repeat;
 }
 .osrs-site-nav .osrs-site-nav-item { min-height: 28px; justify-content: flex-start; padding-left: 10px; text-decoration: none; margin-right: 10px; }
 .osrs-site-nav .osrs-site-nav-item[aria-current="page"] {
-  margin-right: 0;
-  background: var(--osrs-site-void);
+  margin-right: -1px;
+  background-color: var(--osrs-stone);
+  background-image: var(--osrs-texture-stone);
+  background-size: 88px 60px;
   color: var(--osrs-white);
   box-shadow:
     0 -1px 0 #1f1a14,
@@ -200,11 +197,11 @@ html body ::selection { background: var(--osrs-highlight); color: var(--osrs-whi
     inset 0 1px 0 #2a241c;
 }
 .osrs-site-nav .osrs-site-nav-title {
-  margin: 10px 10px 2px 0;
+  margin: 4px 10px 2px 0;
   min-height: 24px;
   justify-content: flex-start;
   padding: 0 8px;
-  background: rgb(0 0 0 / 0.18);
+  background: none;
   color: var(--osrs-white);
 }
 .osrs-site-callout { --osrs-px: 2px; }
@@ -296,39 +293,26 @@ html body [data-blume-search-dialog] :is(div, footer) { border-color: #1f1a14 !i
 html body [data-blume-search-dialog] [role="option"][aria-selected="true"],
 html body [data-blume-search-dialog] [role="option"]:hover { background: rgb(255 255 255 / 0.12) !important; color: var(--osrs-white); }
 
-/* The article is an interface window: rivet frame on stone. Previews and code
-   sit in dark wells inside it, so components keep their contrast. */
+/* The article is plain content on the window's stone: no frame of its own. */
 html body main > article {
   --osrs-px: 1px;
-  position: relative;
-  isolation: isolate;
-  margin-top: 8px;
-  padding: 18px 28px 28px;
-  background-color: var(--osrs-stone);
-  background-image: var(--osrs-texture-stone);
-  background-size: 88px 60px;
+  margin-top: 4px;
+  padding: 0;
 }
-html body main > article::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent; border-width: 30px 25px;
-  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
-}
-/* Page title reads as the window title, with a riveted divider under it */
 html body main > article > :is(header, div):first-child h1,
 html body main > article h1:first-of-type {
   margin-bottom: 4px !important;
 }
-html body main > article h1:first-of-type::after {
-  content: "";
-  display: block;
-  height: 6px;
-  margin: 10px -22px 0;
-  background-image: var(--osrs-texture-rivets-horizontal);
-  background-size: 36px 36px;
-  background-position: 0 -15px;
-  background-repeat: repeat-x;
+/* Sections read like the Settings "Graphics" band: white bold title on a darker strip */
+html body main > article h2 {
+  margin-top: 40px !important;
+  padding: 6px 10px !important;
+  background: rgb(0 0 0 / 0.14);
+  color: var(--osrs-white) !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
 }
-html body main > article h2 { border-bottom: 1px solid #1f1a14; box-shadow: 0 1px 0 #5d5848; padding-bottom: 4px; }
+html body main > article h3 { color: var(--osrs-orange); }
 /* Light wells for inline code/tables inside the window */
 html body main > article table { background: rgb(0 0 0 / 0.12); }
 
@@ -337,21 +321,8 @@ html body main > article table { background: rgb(0 0 0 / 0.12); }
 .osrs-site-crumb-link { color: var(--osrs-orange); text-decoration: none; }
 .osrs-site-crumb-link:hover { color: var(--osrs-white); }
 
-/* On-this-page rail: rivet-framed stone panel with striped rows */
-.osrs-site-rail {
-  --osrs-px: 1px;
-  position: relative;
-  isolation: isolate;
-  padding: 8px;
-  background-color: var(--osrs-stone);
-  background-image: var(--osrs-texture-side-panel);
-  background-size: 88px 60px;
-}
-.osrs-site-rail::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent; border-width: 30px 25px;
-  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
-}
+/* On-this-page rail: striped rows under a section band, no frame */
+.osrs-site-rail { --osrs-px: 1px; }
 .osrs-site-rail .osrs-section-title { margin-bottom: 4px; }
 .osrs-site-toc-link { display: flex; min-height: 22px; color: var(--osrs-orange); text-decoration: none; }
 .osrs-site-toc-link:hover { color: var(--osrs-white); }
@@ -489,17 +460,9 @@ html body [data-blume-menu] a:hover, html body [data-blume-menu] a:focus-visible
 /* Concept switcher (site/Sidebar.tsx): side-panel tab stones with labels */
 .osrs-site-sidenav { --osrs-px: 1px; display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
 .osrs-site-concepts {
-  list-style: none; margin: 0; padding: 8px;
+  list-style: none; margin: 0 10px 0 0; padding: 0 0 10px;
   display: flex; flex-direction: column; gap: 2px;
-  position: relative; isolation: isolate;
-  background-color: var(--osrs-stone);
-  background-image: var(--osrs-texture-side-panel);
-  background-size: 88px 60px;
-}
-.osrs-site-concepts::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent; border-width: 30px 25px;
-  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
+  box-shadow: 0 1px 0 var(--osrs-site-line-dark), 0 2px 0 var(--osrs-site-line-light);
 }
 .osrs-site-concept {
   display: flex; align-items: center; gap: 10px;
@@ -541,3 +504,34 @@ html body [data-blume-menu] a:hover, html body [data-blume-menu] a:focus-visible
     html body main:has(> .osrs-site-toc-mobile) > article h1:first-of-type::after { margin-right: -222px; }
   }
 }
+
+
+/* ---------- One window: frame, header row, nav column, content, rail ---------- */
+html body::after {
+  content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none;
+  border-style: solid; border-color: transparent; border-width: 30px 25px;
+  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
+}
+/* Header row (keeps its riveted divider underneath) sits on the window stone */
+.osrs-site-header { background-color: transparent; background-image: none; }
+html body header.osrs-site-header { top: 6px; }
+/* Nav column: a darker strip down the left, divided from the content by a bevelled line */
+@media (min-width: 64rem) {
+  html body #blume-nav-drawer {
+    background: rgb(0 0 0 / 0.14) !important;
+    box-shadow: inset -1px 0 0 var(--osrs-site-line-dark), 1px 0 0 var(--osrs-site-line-light);
+    padding: 10px 0 24px 10px !important;
+    top: calc(4rem + 6px) !important;
+    height: calc(100dvh - 4rem - 12px) !important;
+  }
+  /* Right rail, divided the same way */
+  html body aside[data-blume-toc] {
+    box-shadow: inset 1px 0 0 var(--osrs-site-line-light), -1px 0 0 var(--osrs-site-line-dark);
+    top: calc(4rem + 6px) !important;
+    height: calc(100dvh - 4rem - 12px) !important;
+  }
+}
+/* The mobile drawer is the same darker column */
+html body #blume-nav-drawer { background-color: #3b3328 !important; border: 0 !important; }
+/* Footer sits inside the window */
+html body footer { --osrs-px: 1px; }
