@@ -1,8 +1,8 @@
 import { Button } from "@/registry/osrs/ui/button";
 import { EquipmentGrid } from "@/registry/osrs/ui/equipment-slot";
 import { SidePanel, SidePanelContent } from "@/registry/osrs/ui/side-panel";
-import { items } from "../data/items";
-import { BOTTOM_TABS, TOP_TABS } from "../data/game";
+import { items } from "@/site/demo-data/items";
+import { BOTTOM_TABS, TOP_TABS } from "@/site/demo-data/game";
 
 const I = (id: keyof typeof items) => {
   const { Icon, name } = items[id];

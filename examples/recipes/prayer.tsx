@@ -2,7 +2,7 @@
 
 import { PrayerButton, type PrayerName } from "@/registry/osrs/ui/prayer-button";
 import { SidePanel, SidePanelContent } from "@/registry/osrs/ui/side-panel";
-import { BOTTOM_TABS, TOP_TABS } from "../data/game";
+import { BOTTOM_TABS, TOP_TABS } from "@/site/demo-data/game";
 
 const PRAYERS: PrayerName[] = [
   "thickSkin", "burstOfStrength", "clarityOfThought", "sharpEye", "mysticWill",

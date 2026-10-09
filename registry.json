@@ -29,6 +29,10 @@
         {
           "path": "registry/osrs/lib/osrs.ts",
           "type": "registry:lib"
+        },
+        {
+          "path": "registry/osrs/lib/movable.ts",
+          "type": "registry:lib"
         }
       ]
     },
@@ -313,7 +317,9 @@
       "description": "Classic interface window: stone inside the iron-rivet frame.",
       "registryDependencies": [
         "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils"
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json",
+        "https://osrs-ui.vercel.app/r/window.json"
       ],
       "files": [
         {
@@ -758,7 +764,9 @@
       "description": "Modern interface window: stone inside the thick tan border, with a header row.",
       "registryDependencies": [
         "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils"
+        "utils",
+        "https://osrs-ui.vercel.app/r/scroll-area.json",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
       ],
       "files": [
         {

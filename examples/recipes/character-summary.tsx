@@ -1,7 +1,7 @@
 import { Card } from "@/registry/osrs/ui/card";
 import { glyphSprites } from "@/registry/osrs/ui/glyph-sprites";
 import { SidePanel, SidePanelContent } from "@/registry/osrs/ui/side-panel";
-import { BOTTOM_TABS, TOP_TABS } from "../data/game";
+import { BOTTOM_TABS, TOP_TABS } from "@/site/demo-data/game";
 
 const px = (n: number) => `calc(${n} * var(--osrs-px))`;
 

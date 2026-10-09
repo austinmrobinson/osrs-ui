@@ -1,5 +1,5 @@
 import { Inventory, ItemSlot } from "@/registry/osrs/ui/item-slot";
-import { items } from "../data/items";
+import { items } from "@/site/demo-data/items";
 
 export default function ItemSlotDemo() {
   const { Icon: Coins } = items["coins-10000"];

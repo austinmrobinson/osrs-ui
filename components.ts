@@ -5,6 +5,7 @@ export default defineComponents({
   mdx: {
     Callout: "./site/Callout.tsx",
     Card: "./site/Card.tsx",
+    AssetBrowser: { component: "./site/AssetBrowser.tsx", client: "load" },
   },
   layout: {
     Logo: "./site/Logo.tsx",

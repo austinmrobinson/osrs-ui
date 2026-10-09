@@ -1,20 +1,60 @@
+"use client";
+
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { MovableContext, useMovable, type MovableOptions } from "@/lib/movable";
+import { WindowResizeHandle } from "@/components/ui/window";
 
-/** The standard OSRS interface window: stone fill inside an iron-rivet steel frame. */
-function Interface({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * The classic OSRS interface (bank, shops, quest journal): stone fill inside an
+ * iron-rivet steel frame. Optionally draggable by its header and resizable.
+ */
+function Interface({
+  className,
+  style,
+  children,
+  draggable,
+  resizable,
+  defaultPosition,
+  defaultSize,
+  minWidth,
+  minHeight,
+  onPositionChange,
+  onSizeChange,
+  ...props
+}: React.ComponentProps<"div"> & MovableOptions) {
+  const m = useMovable({ draggable, resizable, defaultPosition, defaultSize, minWidth, minHeight, onPositionChange, onSizeChange });
   return (
-    <div
-      data-slot="interface"
-      className={cn("osrs-interface osrs-framed osrs-frame-iron-rivets osrs-text", className)}
-      {...props}
-    />
+    <MovableContext.Provider value={{ draggable: m.draggable, onDragStart: m.onDragStart }}>
+      <div
+        ref={m.ref}
+        data-slot="interface"
+        {...m.dataAttrs}
+        className={cn("osrs-interface osrs-framed osrs-frame-iron-rivets osrs-text", className)}
+        style={{ ...style, ...m.style }}
+        {...props}
+      >
+        {children}
+        {m.resizable ? <WindowResizeHandle onPointerDown={m.onResizeStart} /> : null}
+      </div>
+    </MovableContext.Provider>
   );
 }
 
-function InterfaceHeader({ className, ...props }: React.ComponentProps<"div">) {
-  return <div data-slot="interface-header" className={cn("osrs-interface-header", className)} {...props} />;
+function InterfaceHeader({ className, onPointerDown, ...props }: React.ComponentProps<"div">) {
+  const { draggable, onDragStart } = React.useContext(MovableContext);
+  return (
+    <div
+      data-slot="interface-header"
+      className={cn("osrs-interface-header", draggable && "cursor-move touch-none select-none", className)}
+      onPointerDown={(e) => {
+        onPointerDown?.(e);
+        onDragStart(e);
+      }}
+      {...props}
+    />
+  );
 }
 
 function InterfaceTitle({ className, ...props }: React.ComponentProps<"h2">) {

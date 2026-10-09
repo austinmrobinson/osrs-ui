@@ -1,6 +1,6 @@
 import { Inventory } from "@/registry/osrs/ui/item-slot";
 import { SidePanel, SidePanelContent } from "@/registry/osrs/ui/side-panel";
-import { BOTTOM_TABS, Item, TOP_TABS } from "../data/game";
+import { BOTTOM_TABS, Item, TOP_TABS } from "@/site/demo-data/game";
 
 export default function InventoryRecipe() {
   return (

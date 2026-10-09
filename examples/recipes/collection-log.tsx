@@ -8,7 +8,7 @@ import { List, ListItem } from "@/registry/osrs/ui/list";
 import { ScrollArea } from "@/registry/osrs/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/registry/osrs/ui/tabs";
 import { Window, WindowClose, WindowHeader } from "@/registry/osrs/ui/window";
-import { items, type ItemId } from "../data/items";
+import { items, type ItemId } from "@/site/demo-data/items";
 
 const px = (n: number) => `calc(${n} * var(--osrs-px))`;
 
@@ -28,7 +28,7 @@ const LOG: [ItemId, number | undefined][] = [
 export default function CollectionLogRecipe() {
   const [selected, setSelected] = React.useState("Barbarian Assault");
   return (
-    <div className="osrs flex justify-center p-6">
+    <div className="osrs flex items-start justify-start p-6">
       <Window draggable resizable style={{ width: px(500), height: px(314) }} minWidth={360} minHeight={220}>
         <WindowHeader start={<Button variant="metal" size="sm">☰</Button>} end={<WindowClose />}>
           Collection Log - 1210/1717

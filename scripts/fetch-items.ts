@@ -1,5 +1,5 @@
 // Demo-only item icons for the recipe screens, from the OSRS Wiki (CC BY-NC-SA 3.0).
-// Downloads to reference/items (gitignored) and writes examples/data/items.tsx via the same
+// Downloads to reference/items (gitignored) and writes site/demo-data/items.tsx via the same
 // pixel-exact converter. Not part of the registry.
 import fs from "node:fs";
 import path from "node:path";
@@ -7,7 +7,7 @@ import { readPng, toSvg } from "./lib/pixels";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const DIR = path.join(ROOT, "reference/items");
-const OUT = path.join(ROOT, "examples/data/items.tsx");
+const OUT = path.join(ROOT, "site/demo-data/items.tsx");
 const UA = "osrs-ui-docs/0.1 (+https://github.com/austinmrobinson/osrs-ui)";
 
 const ITEMS = [
@@ -55,4 +55,4 @@ ${map.join("\n")}
 export type ItemId = keyof typeof items;
 `,
 );
-console.log(`${rows.length}/${ITEMS.length} items -> examples/data/items.tsx`);
+console.log(`${rows.length}/${ITEMS.length} items -> site/demo-data/items.tsx`);

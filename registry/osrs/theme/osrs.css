@@ -607,8 +607,9 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 .osrs-frame-flat::before, .osrs-nav-item::before, .osrs-button-flat::before { border-image-repeat: stretch; }
 
 /* Window drag & resize */
-.osrs-window[data-draggable] { position: relative; }
-.osrs-window[data-resizable] { position: relative; min-width: 0; }
+:is(.osrs-window, .osrs-interface)[data-draggable],
+:is(.osrs-window, .osrs-interface)[data-resizable] { position: relative; min-width: 0; }
+.osrs-interface .osrs-window-resize { right: calc(6 * var(--osrs-px)); bottom: calc(6 * var(--osrs-px)); }
 .osrs-window-resize {
   position: absolute;
   right: calc(3 * var(--osrs-px));

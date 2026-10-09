@@ -1,7 +1,7 @@
 import * as React from "react";
 import { zipSync, strToU8 } from "fflate";
 
-import { composeFrame, composeTexture, download, scaleSvg, svgSize, toPng, type Asset } from "../site/compose";
+import { composeFrame, composeTexture, download, scaleSvg, svgSize, toPng, type Asset } from "./compose";
 import { Button } from "@/registry/osrs/ui/button";
 import { Card } from "@/registry/osrs/ui/card";
 import { Input } from "@/registry/osrs/ui/input";
@@ -10,13 +10,11 @@ import { Select as OsrsSelect, SelectContent, SelectItem, SelectTrigger } from "
 import { Tabs, TabsList, TabsTrigger } from "@/registry/osrs/ui/tabs";
 import { Window, WindowClose, WindowHeader } from "@/registry/osrs/ui/window";
 
-const GROUPS = [
-  { id: "all", label: "All" },
-  { id: "skill", label: "Skills" },
-  { id: "frame", label: "Frames" },
-  { id: "texture", label: "Textures" },
-  { id: "control", label: "Controls" },
-] as const;
+const GROUP_LABELS: Record<string, string> = {
+  skill: "Skills", frame: "Frames", texture: "Textures", control: "Controls", prayer: "Prayers", orb: "Orbs",
+  equipment: "Equipment", stats: "Stats", combat: "Combat", bank: "Bank", tab: "Tabs", icon: "Icons",
+  chatbox: "Chatbox", option: "Options", panel: "Panel", ge: "GE", chevron: "Chevrons", glyph: "Glyphs",
+};
 
 const SCALES = [1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 24, 32, 40];
 const BACKGROUNDS = [
@@ -102,6 +100,7 @@ export default function AssetBrowser() {
   const [selected, setSelected] = React.useState<Asset | null>(null);
   const [busy, setBusy] = React.useState(false);
 
+  const groups = [{ id: "all", label: "All" }, ...[...new Set(assets.map((a) => a.group))].map((g) => ({ id: g, label: GROUP_LABELS[g] ?? g }))];
   const background = BACKGROUNDS.find((b) => b.id === bg)?.value;
   const visible = assets.filter(
     (a) => (group === "all" || a.group === group) && (a.label + a.name).toLowerCase().includes(query.toLowerCase()),
@@ -139,9 +138,9 @@ export default function AssetBrowser() {
   return (
     <div className="not-prose osrs-text flex flex-col gap-4" style={{ ["--osrs-px" as string]: "1px" }}>
       <div className="flex flex-wrap items-end gap-3">
-        <Tabs value={group} onValueChange={(v) => setGroup(String(v))} className="min-w-0 flex-1">
-          <TabsList>
-            {GROUPS.map((g) => (
+        <Tabs value={group} onValueChange={(v) => setGroup(String(v))} className="min-w-0 basis-full">
+          <TabsList className="flex-wrap">
+            {groups.map((g) => (
               <TabsTrigger key={g.id} value={g.id}>
                 {g.label}
               </TabsTrigger>

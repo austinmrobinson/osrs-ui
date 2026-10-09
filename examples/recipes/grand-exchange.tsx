@@ -4,7 +4,7 @@ import { ItemSlot } from "@/registry/osrs/ui/item-slot";
 import { Progress } from "@/registry/osrs/ui/progress";
 import { Window, WindowClose, WindowHeader } from "@/registry/osrs/ui/window";
 import { geSprites } from "@/registry/osrs/ui/ge-sprites";
-import { items, type ItemId } from "../data/items";
+import { items, type ItemId } from "@/site/demo-data/items";
 
 const px = (n: number) => `calc(${n} * var(--osrs-px))`;
 

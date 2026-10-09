@@ -56,7 +56,7 @@ const items = fs
       if (i.startsWith("@base-ui/react")) deps.add("@base-ui/react");
       else if (i === "class-variance-authority") deps.add("class-variance-authority");
       else if (i === "@/lib/utils") regDeps.add("utils");
-      else if (i === "@/lib/sprite" || i === "@/lib/osrs") regDeps.add(url("osrs-lib"));
+      else if (i === "@/lib/sprite" || i === "@/lib/osrs" || i === "@/lib/movable") regDeps.add(url("osrs-lib"));
       else if (i.startsWith("@/components/ui/")) regDeps.add(url(i.slice("@/components/ui/".length)));
     }
     const sprites = name.endsWith("-sprites") || name === "skill-icons";
@@ -91,6 +91,7 @@ const registry = {
       files: [
         { path: "registry/osrs/lib/sprite.tsx", type: "registry:lib" },
         { path: "registry/osrs/lib/osrs.ts", type: "registry:lib" },
+        { path: "registry/osrs/lib/movable.ts", type: "registry:lib" },
       ],
     },
     ...items,

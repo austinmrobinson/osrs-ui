@@ -1,5 +1,5 @@
 import { EquipmentGrid, EquipmentSlot } from "@/registry/osrs/ui/equipment-slot";
-import { items } from "../data/items";
+import { items } from "@/site/demo-data/items";
 
 export default function EquipmentSlotDemo() {
   const { Icon: Whip } = items["abyssal-whip"];

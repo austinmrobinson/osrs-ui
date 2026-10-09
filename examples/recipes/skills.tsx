@@ -1,6 +1,6 @@
 import { SidePanel, SidePanelContent } from "@/registry/osrs/ui/side-panel";
 import { SkillTile, TotalLevelTile } from "@/registry/osrs/ui/skill-tile";
-import { BOTTOM_TABS, TOP_TABS } from "../data/game";
+import { BOTTOM_TABS, TOP_TABS } from "@/site/demo-data/game";
 
 const LEVELS = [
   ["attack", 99], ["hitpoints", 99], ["mining", 85],

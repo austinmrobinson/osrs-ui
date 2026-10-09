@@ -8,7 +8,7 @@ import { ItemSlot } from "@/registry/osrs/ui/item-slot";
 import { ScrollArea } from "@/registry/osrs/ui/scroll-area";
 import { Separator } from "@/registry/osrs/ui/separator";
 import { bankSprites } from "@/registry/osrs/ui/bank-sprites";
-import { items, type ItemId } from "../data/items";
+import { items, type ItemId } from "@/site/demo-data/items";
 
 const px = (n: number) => `calc(${n} * var(--osrs-px))`;
 
@@ -42,8 +42,8 @@ function Toggle2({ label, options }: { label: string; options: string[] }) {
 
 export default function BankRecipe() {
   return (
-    <div className="osrs flex justify-center p-6">
-      <Interface style={{ width: px(488), height: px(334) }}>
+    <div className="osrs flex items-start justify-start p-6">
+      <Interface draggable resizable style={{ width: px(488), height: px(334) }} minWidth={420} minHeight={240}>
         <InterfaceHeader>
           <span className="osrs-text-small absolute left-0 flex flex-col" style={{ lineHeight: px(11) }}>
             <span>{BANK.length}</span>

@@ -1,5 +1,5 @@
 import { SidePanel, SidePanelContent } from "@/registry/osrs/ui/side-panel";
-import { BOTTOM_TABS, TOP_TABS } from "../data/game";
+import { BOTTOM_TABS, TOP_TABS } from "@/site/demo-data/game";
 
 export default function SidePanelDemo() {
   return (
