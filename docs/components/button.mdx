@@ -1,6 +1,6 @@
 ---
 title: Button
-description: "The stone button from in-game interfaces. A 9-slice vector frame that stretches to any width."
+description: "Text and icon buttons in the four styles the game uses: stone, metal, square and flat. 9-slice vector frames that fit any size."
 ---
 
 <Component path="button/demo" />
@@ -11,17 +11,40 @@ description: "The stone button from in-game interfaces. A 9-slice vector frame t
 npx shadcn@latest add {{registry}}/button.json
 ```
 
+## Variants
+
+| Variant | Where the game uses it | Pressed state |
+| --- | --- | --- |
+| `stone` (default) | Text buttons on interface stone: bank Item / Note, dialog Yes / No | Brighter stone, white text |
+| `metal` | Metal-cornered buttons of modern windows: History, Show more information, header actions | Lighter fill |
+| `square` | Grey metal tiles: bank quantity 1 / 5 / All, deposit buttons, toggles | Red tile |
+| `flat` | Notched flat buttons: Settings categories, list actions | White text |
+
+## Sizes
+
+| Size | Use |
+| --- | --- |
+| `sm`, `default`, `lg` | Text buttons. `lg` wraps to two lines, like "Clear your highlighted NPCs". |
+| `icon-sm` (20px), `icon` (26px), `icon-lg` (36px) | Square icon-only buttons. Sizes are in game pixels and scale with `--osrs-px`. |
+
 ## Usage
 
 ```tsx
 import { Button } from "@/components/ui/button"
+import { bankSprites } from "@/components/ui/bank-sprites"
 
 <Button>Deposit inventory</Button>
-<Button variant="square" aria-pressed>Selected</Button>
+<Button variant="metal" size="sm">History</Button>
+<Button variant="square" aria-pressed={qty === "All"} onClick={() => setQty("All")}>All</Button>
+
+{/* Icon buttons: put any sprite (or SVG) inside and always give an aria-label */}
+<Button variant="square" size="icon-lg" aria-label="Deposit inventory">
+  <bankSprites.depositInventory />
+</Button>
 ```
 
 ## Notes
 
-- `variant`: `stone` (default) uses the `stone_small` frame on the interface stone; `square` uses the grey metal frame, which turns red when pressed or `aria-pressed`.
-- `size`: `default`, `sm`, `icon`.
-- Hover and disabled states swap to the game's own hover and disabled sprites.
+- Toggle buttons: set `aria-pressed` and the button shows its pressed sprite.
+- Non-sprite SVG icons (e.g. lucide) take the text colour and get the game's 1px drop shadow.
+- Use the `render` prop to render a link: `<Button render={<a href="/bank" />}>Bank</Button>`.

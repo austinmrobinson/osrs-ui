@@ -9,6 +9,7 @@ import { NumberField } from "@/registry/osrs/ui/number-field";
 import { Select as OsrsSelect, SelectContent, SelectItem, SelectTrigger } from "@/registry/osrs/ui/select";
 import { Tabs, TabsList, TabsTrigger } from "@/registry/osrs/ui/tabs";
 import { Window, WindowClose, WindowHeader } from "@/registry/osrs/ui/window";
+import { chevronSprites } from "@/registry/osrs/ui/chevron-sprites";
 
 const GROUP_LABELS: Record<string, string> = {
   skill: "Skills", frame: "Frames", texture: "Textures", control: "Controls", prayer: "Prayers", orb: "Orbs",
@@ -197,8 +198,8 @@ export default function AssetBrowser() {
                       {a.width * scale}×{a.height * scale}
                     </div>
                   </div>
-                  <Button size="icon" aria-label={`Download ${a.label}`} onClick={() => downloadOne(svg, `osrs-${a.group}-${a.name}`)}>
-                    ↓
+                  <Button variant="metal" size="icon" aria-label={`Download ${a.label}`} onClick={() => downloadOne(svg, `osrs-${a.group}-${a.name}`)}>
+                    <chevronSprites.yellowDownSingle />
                   </Button>
                 </div>
               </Card>

@@ -239,7 +239,16 @@
 .osrs-button[data-disabled] { --osrs-frame-image: var(--osrs-frame-stone-button-disabled); cursor: default; color: #9f9f9f; }
 .osrs-button:focus-visible { color: var(--osrs-yellow); }
 .osrs-button-sm { min-height: calc(16 * var(--osrs-px)); padding: calc(1 * var(--osrs-px)) calc(6 * var(--osrs-px)); }
-.osrs-button-icon { padding: calc(3 * var(--osrs-px)); aspect-ratio: 1; }
+/* Icon-only buttons: square, centred icon, sizes in game pixels */
+.osrs-button-icon {
+  width: calc(26 * var(--osrs-px)); height: calc(26 * var(--osrs-px));
+  min-height: 0; padding: 0; flex: none;
+}
+.osrs-button-icon-sm { width: calc(20 * var(--osrs-px)); height: calc(20 * var(--osrs-px)); }
+.osrs-button-icon-lg { width: calc(36 * var(--osrs-px)); height: calc(36 * var(--osrs-px)); }
+.osrs-button > svg, .osrs-button > .osrs-icon { flex: none; }
+/* Line icons (non-sprite SVGs) take the text colour with the game's drop shadow */
+.osrs-button > svg:not(.osrs-icon) { width: calc(12 * var(--osrs-px)); height: calc(12 * var(--osrs-px)); filter: drop-shadow(var(--osrs-px) var(--osrs-px) 0 #000); }
 
 /* Square (metal) button: grey, red when selected */
 .osrs-button-square {
@@ -251,6 +260,9 @@
   padding: calc(4 * var(--osrs-px)) calc(8 * var(--osrs-px));
 }
 .osrs-button-square:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-square-button); color: var(--osrs-white); }
+.osrs-button-square:disabled, .osrs-button-square[data-disabled] { --osrs-frame-image: var(--osrs-frame-square-button); opacity: 0.6; }
+.osrs-button-metal:disabled, .osrs-button-metal[data-disabled] { --osrs-frame-image: var(--osrs-frame-metal-button); opacity: 0.6; }
+.osrs-button-flat:disabled, .osrs-button-flat[data-disabled] { --osrs-frame-image: var(--osrs-frame-flat); opacity: 0.6; }
 .osrs-button-square:active:not(:disabled),
 .osrs-button-square[aria-pressed="true"],
 .osrs-button-square[data-pressed] { --osrs-frame-image: var(--osrs-frame-square-button-selected); background-image: none; }

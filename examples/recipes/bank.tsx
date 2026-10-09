@@ -30,12 +30,12 @@ function SquareButton({ pressed, onClick, label, children }: { pressed?: boolean
   return (
     <Button
       variant="square"
-      size="icon"
+      size="icon-lg"
       aria-label={label}
       title={label}
       aria-pressed={pressed}
       onClick={onClick}
-      style={{ width: px(36), height: px(32), minHeight: 0, padding: 0 }}
+      style={{ height: px(32) }}
     >
       {children}
     </Button>

@@ -12,6 +12,8 @@
 :root, :root[data-theme="dark"], :root[data-theme="light"] {
   --osrs-px: 2px;
   --osrs-site-void: #2e281d;
+  /* the interface stone tile at 2x, the scale the game draws its windows at */
+  --osrs-site-stone-size: 176px 120px;
   --osrs-site-line-dark: #1f1a14;
   --osrs-site-line-light: #5d5848;
   --osrs-site-stage: #221d15;
@@ -39,7 +41,7 @@
 html body {
   background-color: var(--osrs-stone);
   background-image: var(--osrs-texture-stone);
-  background-size: 88px 60px;
+  background-size: var(--osrs-site-stone-size);
   padding: 6px;
   image-rendering: pixelated;
   -webkit-font-smoothing: none;
@@ -61,7 +63,7 @@ html body :is(main, header, aside, nav, footer) :where(:not(pre, pre *, code, .o
 }
 
 /* Headings: Bold 12 at 2× / 3× */
-html body :is(h1) { font-size: 48px !important; line-height: 1.1 !important; letter-spacing: 0 !important; color: var(--osrs-orange); }
+html body :is(h1) { font-size: 48px !important; line-height: 1.1 !important; letter-spacing: 0 !important; color: var(--osrs-white); }
 html body :is(h2) { font-size: 32px !important; line-height: 1.2 !important; letter-spacing: 0 !important; color: var(--osrs-orange); }
 html body :is(h3, h4, h5, h6) { font-size: 16px !important; letter-spacing: 0 !important; color: var(--osrs-white); font-family: var(--osrs-font-bold); }
 html body article p, html body article li { color: var(--osrs-orange); }
@@ -183,12 +185,25 @@ html body ::selection { background: var(--osrs-highlight); color: var(--osrs-whi
   background: none;
   box-shadow: none;
 }
-.osrs-site-nav .osrs-site-nav-item { min-height: 28px; justify-content: flex-start; padding-left: 10px; text-decoration: none; margin-right: 10px; }
+.osrs-site-nav .osrs-site-nav-item {
+  min-height: 30px;
+  justify-content: center;
+  text-align: center;
+  padding: 0 8px;
+  margin-right: 12px;
+  text-decoration: none;
+  background: transparent;
+  box-shadow:
+    inset 1px 1px 0 #6c6050,
+    inset -1px -1px 0 #2a241b,
+    0 0 0 1px #1a1611;
+}
+.osrs-site-nav .osrs-site-nav-item:hover { background: rgb(255 255 255 / 0.04); }
 .osrs-site-nav .osrs-site-nav-item[aria-current="page"] {
   margin-right: -1px;
   background-color: var(--osrs-stone);
   background-image: var(--osrs-texture-stone);
-  background-size: 88px 60px;
+  background-size: var(--osrs-site-stone-size);
   color: var(--osrs-white);
   box-shadow:
     0 -1px 0 #1f1a14,
@@ -239,7 +254,7 @@ html body article :is(h1, h2, h3, h4, h5, h6) a { font-size: inherit !important;
   --osrs-px: 1px;
   background-color: var(--osrs-stone);
   background-image: var(--osrs-texture-stone);
-  background-size: 88px 60px;
+  background-size: var(--osrs-site-stone-size);
   border-bottom: 0;
   /* the same bevelled divider as the nav column's edge */
   box-shadow: 0 1px 0 var(--osrs-site-line-dark), 0 2px 0 var(--osrs-site-line-light);
@@ -248,23 +263,37 @@ html body article :is(h1, h2, h3, h4, h5, h6) a { font-size: inherit !important;
 .osrs-site-header-link { color: var(--osrs-orange); text-decoration: none; padding: 0 8px; }
 .osrs-site-header-link:hover { color: var(--osrs-white); }
 
-/* Search: a metal-cornered button and a rivet-framed dialog */
-html body [data-blume-search-open] {
+/* ---------- Buttons Blume renders itself, skinned as library Buttons ----------
+   Audit: header search, code-copy, page actions  -> Button variant="metal" (icon / full width)
+          search filter chips                     -> Button variant="stone" (toggle)
+          mobile nav toggle                       -> the game's hamburger sprite (components/blume/Header.astro)
+          pagination                              -> Button variant="metal" size="lg" (site/Pagination.tsx) */
+html body :is([data-blume-search-open], [data-blume-copy]) {
   --osrs-px: 1px;
   position: relative;
   isolation: isolate;
-  width: 34px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px !important; height: 30px !important;
+  padding: 0 !important;
+  border: 0 !important;
   border-radius: 0 !important;
   color: var(--osrs-orange) !important;
   background: rgb(0 0 0 / 0.15) !important;
+  cursor: pointer;
 }
-html body [data-blume-search-open]::before {
+html body :is([data-blume-search-open], [data-blume-copy])::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   border-style: solid; border-color: transparent; border-width: 9px;
   border-image: var(--osrs-frame-metal-button) 9 / 9px / 0 repeat;
+  image-rendering: pixelated;
 }
-html body [data-blume-search-open]:hover { color: var(--osrs-white) !important; }
-html body [data-blume-search-open]:hover::before { border-image-source: var(--osrs-frame-metal-button-hover); }
+html body :is([data-blume-search-open], [data-blume-copy]):hover { color: var(--osrs-white) !important; }
+html body :is([data-blume-search-open], [data-blume-copy]):hover::before { border-image-source: var(--osrs-frame-metal-button-hover); }
+html body :is([data-blume-search-open], [data-blume-copy]) svg { filter: drop-shadow(1px 1px 0 #000); }
+html body [data-blume-copy] svg[class*="text-green"] { color: var(--osrs-green) !important; }
+/* copy buttons keep Blume's placement in the code block's top-right corner */
+html body [data-blume-copy] { position: absolute !important; }
+
 html body [data-blume-search-dialog] {
   --osrs-px: 1px;
   isolation: isolate;
@@ -273,7 +302,7 @@ html body [data-blume-search-dialog] {
   padding: 8px !important;
   background-color: var(--osrs-stone) !important;
   background-image: var(--osrs-texture-stone);
-  background-size: 88px 60px;
+  background-size: var(--osrs-site-stone-size);
   backdrop-filter: none !important;
   color: var(--osrs-orange) !important;
 }
@@ -372,19 +401,35 @@ details:not([open]) > summary .osrs-site-accordion-minus { display: none; }
 /* Page actions in the rail (Copy page, etc.) */
 html body [data-blume-toc] :is(a, button) { font-family: var(--osrs-font); }
 
-/* Search dialog: filter chips and keys as bevelled OSRS buttons */
-html body [data-blume-search-dialog] button:not([data-blume-search-open]),
-html body [data-blume-search-dialog] kbd {
+/* Search dialog: filter chips are stone toggle buttons; key hints are small wells */
+html body [data-blume-search-dialog] button:not([data-blume-search-open]) {
+  position: relative;
+  isolation: isolate;
   border-radius: 0 !important;
   border: 0 !important;
-  background: #4b4135 !important;
+  padding: 2px 10px !important;
+  background-color: var(--osrs-stone) !important;
+  background-image: var(--osrs-texture-stone) !important;
+  background-size: var(--osrs-site-stone-size) !important;
   color: var(--osrs-orange) !important;
-  box-shadow: inset 1px 1px 0 #6c6050, inset -1px -1px 0 #2f281f, 0 0 0 1px #1f1a14 !important;
   font-family: var(--osrs-font) !important;
   font-size: 16px !important;
+  text-shadow: 1px 1px 0 #000;
 }
+html body [data-blume-search-dialog] button:not([data-blume-search-open])::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent; border-width: 5px;
+  border-image: var(--osrs-frame-stone-button) 5 / 5px / 0 repeat;
+}
+html body [data-blume-search-dialog] button:not([data-blume-search-open]):hover::before { border-image-source: var(--osrs-frame-stone-button-hover); }
 html body [data-blume-search-dialog] button:is(.bg-accent, [aria-pressed="true"], [aria-selected="true"]) {
-  background: var(--osrs-stone-bright) !important;
+  background-image: var(--osrs-texture-stone-bright) !important;
+  color: var(--osrs-white) !important;
+}
+html body [data-blume-search-dialog] kbd {
+  border-radius: 0 !important; border: 0 !important;
+  background: var(--osrs-well) !important;
+  box-shadow: inset 1px 1px 0 var(--osrs-border-outer), inset -1px -1px 0 var(--osrs-border-inner), 0 0 0 1px #000 !important;
   color: var(--osrs-white) !important;
 }
 html body [data-blume-search-dialog] mark { background: transparent; color: var(--osrs-yellow); }
@@ -536,7 +581,7 @@ html body header.osrs-site-header { top: 6px; }
 html body #blume-nav-drawer {
   background-color: var(--osrs-stone) !important;
   background-image: var(--osrs-texture-stone);
-  background-size: 88px 60px;
+  background-size: var(--osrs-site-stone-size);
   border: 0 !important;
 }
 /* Footer sits inside the window */
