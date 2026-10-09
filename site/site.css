@@ -88,8 +88,67 @@ html body article tbody tr:nth-child(odd) { background: rgb(0 0 0 / 0.1); }
 html body article tbody tr:nth-child(even) { background: rgb(255 255 255 / 0.05); }
 html body article :is(td, th) { border-color: #2a241b; }
 
-/* Component previews: a stage slightly lighter than the void, with a faint
-   game-pixel grid, so stone components read clearly. */
+/* ---------- Blume tabs (component previews, code groups, MDX tabs) as an OSRS window ----------
+   <blume-tabs> builds its tab buttons at runtime, so it is skinned here with the
+   library's sprite variables: rivet-framed stone panel, tab-stone tabs, inset wells. */
+html body blume-tabs.not-prose {
+  --osrs-px: 1px;
+  position: relative;
+  isolation: isolate;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 10px;
+  background-color: var(--osrs-stone) !important;
+  background-image: var(--osrs-texture-stone);
+  background-size: 88px 60px;
+}
+html body blume-tabs.not-prose::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent;
+  border-width: 30px 25px;
+  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
+}
+html body blume-tabs [data-blume-tablist] {
+  display: flex; align-items: flex-end;
+  gap: 0 !important; padding: 0 !important; border: 0 !important;
+}
+html body blume-tabs [role="tab"] {
+  --osrs-frame-image: var(--osrs-frame-tab-small);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 88px; height: 21px;
+  margin: 0 !important; padding: 0 14px !important;
+  border: 0 !important;
+  font-family: var(--osrs-font) !important; font-size: 16px !important; font-weight: 400 !important;
+  color: var(--osrs-orange) !important;
+  text-shadow: 1px 1px 0 #000;
+}
+html body blume-tabs [role="tab"]::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent;
+  border-width: 1px 4px;
+  border-image: var(--osrs-frame-image) 1 4 1 4 fill / 1px 4px / 0 repeat;
+  image-rendering: pixelated;
+}
+html body blume-tabs [role="tab"]:hover { --osrs-frame-image: var(--osrs-frame-tab-small-hover); }
+html body blume-tabs [role="tab"][aria-selected="true"] {
+  --osrs-frame-image: var(--osrs-frame-tab-small-selected);
+  color: var(--osrs-white) !important;
+}
+html body blume-tabs [role="tab"]:focus-visible { color: var(--osrs-yellow) !important; outline: none; }
+/* Panels sit in a sunken well under the tab stones */
+html body blume-tabs [data-blume-tab-panel] {
+  background: var(--osrs-well);
+  box-shadow:
+    inset 1px 1px 0 var(--osrs-border-outer),
+    inset -1px -1px 0 var(--osrs-border-inner),
+    0 0 0 1px #000;
+}
+html body blume-tabs [data-blume-tab-panel] pre { box-shadow: none !important; margin: 0 !important; }
+
+/* Component previews: a dark stage with a faint game-pixel grid, so stone components read clearly. */
 html body :has(> iframe[data-blume-example-frame]) {
   background-color: var(--osrs-site-stage);
   background-image:
