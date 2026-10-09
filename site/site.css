@@ -85,69 +85,71 @@ html body article tbody tr:nth-child(odd) { background: rgb(0 0 0 / 0.1); }
 html body article tbody tr:nth-child(even) { background: rgb(255 255 255 / 0.05); }
 html body article :is(td, th) { border-color: #2a241b; }
 
-/* ---------- Blume tabs (component previews, code groups, MDX tabs) as an OSRS window ----------
-   <blume-tabs> builds its tab buttons at runtime, so it is skinned here with the
-   library's sprite variables: rivet-framed stone panel, tab-stone tabs, inset wells. */
+/* ---------- Blume tabs (previews, code groups, MDX tabs): the in-game tab panel ----------
+   As in Combat Achievements' Overview/Difficulty: cut-corner tabs sitting on the stone,
+   the selected tab the same colour as its outlined panel so they read as one piece. */
 html body blume-tabs.not-prose {
-  --osrs-px: 1px;
-  position: relative;
-  isolation: isolate;
+  --osrs-tab-panel: #2f2920;
+  --osrs-tab-idle: #221d16;
+  --osrs-tab-line: #6c6050;
+  --osrs-tab-shadow: #1f1a14;
   overflow: visible !important;
   border: 0 !important;
   border-radius: 0 !important;
-  padding: 10px;
-  background-color: var(--osrs-stone) !important;
-  background-image: var(--osrs-texture-stone);
-  background-size: 88px 60px;
+  padding: 0;
+  background: transparent !important;
 }
-html body blume-tabs.not-prose::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent;
-  border-width: 30px 25px;
-  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
-}
+html body blume-tabs [data-blume-tablist],
+html body blume-tabs .overflow-x-auto:has(> [data-blume-tablist]) { overflow: visible !important; }
 html body blume-tabs [data-blume-tablist] {
   display: flex; align-items: flex-end;
-  gap: 0 !important; padding: 0 !important; border: 0 !important;
+  gap: 2px !important;
+  padding: 0 0 0 4px !important;
+  border: 0 !important;
 }
 html body blume-tabs [role="tab"] {
-  --osrs-frame-image: var(--osrs-frame-tab-small);
   position: relative;
-  isolation: isolate;
+  z-index: 0;
   display: inline-flex; align-items: center; justify-content: center;
-  min-width: 88px; height: 21px;
-  margin: 0 !important; padding: 0 14px !important;
+  min-width: 120px; height: 28px;
+  margin: 0 0 -1px !important;
+  padding: 0 18px !important;
   border: 0 !important;
+  background: var(--osrs-tab-idle) !important;
+  clip-path: polygon(5px 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%, 0 5px);
+  box-shadow: inset 1px 1px 0 var(--osrs-tab-line), inset -1px 0 0 var(--osrs-tab-shadow);
   font-family: var(--osrs-font) !important; font-size: 16px !important; font-weight: 400 !important;
   color: var(--osrs-orange) !important;
   text-shadow: 1px 1px 0 #000;
 }
 html body blume-tabs [role="tab"]::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent;
-  border-width: 1px 4px;
-  border-image: var(--osrs-frame-image) 1 4 1 4 fill / 1px 4px / 0 repeat;
-  image-rendering: pixelated;
+  /* the cut corners' diagonal edge */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(135deg, var(--osrs-tab-line) 0 4px, transparent 4px 100%) left top / 6px 6px no-repeat,
+    linear-gradient(225deg, var(--osrs-tab-shadow) 0 4px, transparent 4px 100%) right top / 6px 6px no-repeat;
 }
-html body blume-tabs [role="tab"]:hover { --osrs-frame-image: var(--osrs-frame-tab-small-hover); }
+html body blume-tabs [role="tab"]:hover { color: var(--osrs-white) !important; }
 html body blume-tabs [role="tab"][aria-selected="true"] {
-  --osrs-frame-image: var(--osrs-frame-tab-small-selected);
-  color: var(--osrs-white) !important;
+  z-index: 2;
+  height: 30px;
+  background: var(--osrs-tab-panel) !important;
 }
 html body blume-tabs [role="tab"]:focus-visible { color: var(--osrs-yellow) !important; outline: none; }
-/* Panels sit in a sunken well under the tab stones */
-html body blume-tabs [data-blume-tab-panel] {
-  background: var(--osrs-well);
-  box-shadow:
-    inset 1px 1px 0 var(--osrs-border-outer),
-    inset -1px -1px 0 var(--osrs-border-inner),
-    0 0 0 1px #000;
+/* The panel: thin bevelled outline, one piece with the selected tab */
+html body blume-tabs [data-blume-tab-content] {
+  position: relative;
+  z-index: 1;
+  background: var(--osrs-tab-panel);
+  box-shadow: 0 0 0 1px var(--osrs-tab-shadow), inset 0 0 0 1px var(--osrs-tab-line);
+  padding: 1px;
 }
-html body blume-tabs [data-blume-tab-panel] pre { box-shadow: none !important; margin: 0 !important; }
+html body blume-tabs [data-blume-tab-panel] { background: transparent; }
+html body blume-tabs [data-blume-tab-panel] pre { box-shadow: none !important; margin: 0 !important; background: var(--osrs-well) !important; }
 
 /* Component previews: a dark stage with a faint game-pixel grid, so stone components read clearly. */
 html body :has(> iframe[data-blume-example-frame]) {
-  background-color: var(--osrs-site-stage);
+  background-color: var(--osrs-tab-panel, var(--osrs-site-stage));
   background-image:
     linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px);
@@ -414,9 +416,75 @@ html body [data-blume-search-dialog] button:is(.bg-accent, [aria-pressed="true"]
   color: var(--osrs-white) !important;
 }
 html body [data-blume-search-dialog] mark { background: transparent; color: var(--osrs-yellow); }
-/* Rail page actions read as menu options */
-html body [data-blume-toc] :is(a, button):not(.osrs-site-toc-link) { color: var(--osrs-orange) !important; font-size: 16px; }
-html body [data-blume-toc] :is(a, button):not(.osrs-site-toc-link):hover { color: var(--osrs-white) !important; }
+/* Page actions (Scroll to top, Copy as Markdown, Open in chat): stacked metal-cornered buttons */
+html body [data-blume-page-actions] {
+  --osrs-px: 1px;
+  display: flex; flex-direction: column; gap: 6px;
+  border: 0 !important;
+  margin-top: 16px !important;
+  padding-top: 0 !important;
+}
+html body [data-blume-page-actions] > :is(button, details) { margin: 0 !important; }
+html body [data-blume-page-actions] > button,
+html body [data-blume-page-actions] > details > summary {
+  position: relative;
+  isolation: isolate;
+  justify-content: center;
+  min-height: 30px;
+  padding: 4px 14px !important;
+  background: rgb(0 0 0 / 0.12) !important;
+  color: var(--osrs-orange) !important;
+  font-family: var(--osrs-font) !important;
+  font-size: 16px !important;
+  text-shadow: 1px 1px 0 #000;
+}
+html body [data-blume-page-actions] > button::before,
+html body [data-blume-page-actions] > details > summary::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent; border-width: 9px;
+  border-image: var(--osrs-frame-metal-button) 9 fill / 9px / 0 repeat;
+  image-rendering: pixelated;
+}
+html body [data-blume-page-actions] > button:hover,
+html body [data-blume-page-actions] > details > summary:hover,
+html body [data-blume-page-actions] > details[open] > summary { color: var(--osrs-white) !important; }
+html body [data-blume-page-actions] > button:hover::before,
+html body [data-blume-page-actions] > details > summary:hover::before,
+html body [data-blume-page-actions] > details[open] > summary::before { border-image-source: var(--osrs-frame-metal-button-hover); }
+html body [data-blume-page-actions] svg { filter: drop-shadow(1px 1px 0 #000); }
+html body [data-blume-page-actions] > details > summary > svg:last-child { margin-inline-start: 0 !important; }
+
+/* "Open in chat" menu: the game's right-click menu */
+html body [data-blume-menu] {
+  --osrs-px: 1px;
+  right: 0 !important;
+  border-radius: 0 !important;
+  border: 1px solid #000 !important;
+  background: var(--osrs-menu) !important;
+  box-shadow: none !important;
+  padding: 0 0 2px !important;
+}
+html body [data-blume-menu]::before {
+  content: "Choose Option";
+  display: block;
+  margin: 1px;
+  padding: 0 4px;
+  background: #000;
+  color: var(--osrs-menu);
+  font-family: var(--osrs-font);
+  font-size: 16px;
+  line-height: 18px;
+}
+html body [data-blume-menu] a {
+  border-radius: 0 !important;
+  padding: 1px 6px !important;
+  color: var(--osrs-white) !important;
+  background: transparent !important;
+  font-family: var(--osrs-font) !important;
+  font-size: 16px !important;
+  text-shadow: 1px 1px 0 #000;
+}
+html body [data-blume-menu] a:hover, html body [data-blume-menu] a:focus-visible { color: var(--osrs-yellow) !important; }
 
 /* Concept switcher (site/Sidebar.tsx): side-panel tab stones with labels */
 .osrs-site-sidenav { --osrs-px: 1px; display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
