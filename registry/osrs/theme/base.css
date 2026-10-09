@@ -467,20 +467,41 @@
 .osrs-button-flat:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-flat); color: var(--osrs-white); }
 .osrs-button-lg { min-height: calc(36 * var(--osrs-px)); padding: calc(4 * var(--osrs-px)) calc(12 * var(--osrs-px)); }
 
-/* Vertical nav (All Settings categories) */
-.osrs-nav-list { display: flex; flex-direction: column; gap: calc(2 * var(--osrs-px)); }
+/* Vertical nav (All Settings categories): bevelled buttons in a darker column;
+   the selected button runs into the content panel like a tab. */
+.osrs-nav-list {
+  display: flex; flex-direction: column;
+  gap: calc(2 * var(--osrs-px));
+  padding: calc(6 * var(--osrs-px)) 0 calc(6 * var(--osrs-px)) calc(6 * var(--osrs-px));
+  background: rgb(0 0 0 / 0.14);
+  box-shadow: inset calc(-1 * var(--osrs-px)) 0 0 #1f1a14;
+}
 .osrs-nav-item {
-  --osrs-frame-image: var(--osrs-frame-flat);
-  --osrs-frame-slice: 5 5 5 5;
-  --osrs-frame-width: calc(5 * var(--osrs-px));
   display: flex; align-items: center; justify-content: center;
-  min-height: calc(24 * var(--osrs-px));
+  min-height: calc(30 * var(--osrs-px));
+  margin-right: calc(6 * var(--osrs-px));
   padding: 0 calc(6 * var(--osrs-px));
-  border: 0; background: transparent; cursor: pointer; outline: none;
+  border: 0; cursor: pointer; outline: none;
   color: var(--osrs-orange);
+  background: #4b4135;
+  box-shadow:
+    inset var(--osrs-px) var(--osrs-px) 0 #6c6050,
+    inset calc(-1 * var(--osrs-px)) calc(-1 * var(--osrs-px)) 0 #2f281f,
+    0 0 0 var(--osrs-px) #1f1a14;
 }
 .osrs-nav-item:hover { color: var(--osrs-white); }
-.osrs-nav-item[data-active] { color: var(--osrs-white); filter: brightness(1.18); }
+.osrs-nav-item[data-active], .osrs-nav-item[aria-current="page"] {
+  margin-right: 0;
+  padding-right: calc(12 * var(--osrs-px));
+  background: var(--osrs-stone);
+  box-shadow:
+    inset 0 var(--osrs-px) 0 #6c6050,
+    0 calc(-1 * var(--osrs-px)) 0 #1f1a14,
+    0 var(--osrs-px) 0 #1f1a14,
+    calc(-1 * var(--osrs-px)) 0 0 #1f1a14;
+  position: relative;
+  z-index: 1;
+}
 .osrs-nav-item:focus-visible { color: var(--osrs-yellow); }
 
 /* Striped lists (Collection Log, World Switcher, settings rows) */
@@ -513,6 +534,9 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
   padding: calc(2 * var(--osrs-px)) calc(5 * var(--osrs-px));
 }
 .osrs-setting-row:nth-of-type(odd) { background: rgb(0 0 0 / 0.1); }
+.osrs-setting-row[data-layout="stacked"] { flex-direction: column; justify-content: center; text-align: center; gap: calc(3 * var(--osrs-px)); padding: calc(5 * var(--osrs-px)) calc(24 * var(--osrs-px)); }
+.osrs-setting-title { font-family: var(--osrs-font-bold); color: var(--osrs-orange); }
+.osrs-setting-desc { color: #c9c0ad; }
 
 /* Select (dropdown) */
 .osrs-select-trigger {
@@ -542,7 +566,7 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 .osrs-progress-flat { background: #2b2620; box-shadow: inset 0 0 0 var(--osrs-px) #000; }
 .osrs-progress-flat-indicator { background: var(--osrs-progress-color); }
 /* Uniform frames: stretching is lossless and avoids hairline seams between repeated tiles */
-.osrs-frame-flat::before, .osrs-nav-item::before, .osrs-button-flat::before { border-image-repeat: stretch; }
+.osrs-frame-flat::before, .osrs-button-flat::before { border-image-repeat: stretch; }
 
 /* Window drag & resize */
 :is(.osrs-window, .osrs-interface)[data-draggable],
@@ -558,3 +582,76 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 }
 /* Base UI marks overflow on the scrollbar: no thumb when the content fits */
 .osrs-scrollbar:not([data-has-overflow-y]) .osrs-scrollbar-thumb { visibility: hidden; }
+
+/* ---------- Rivet-frame windows (current Combat Achievements, Collection Log, Bank) ---------- */
+.osrs-window[data-frame="rivets"] { padding: calc(6 * var(--osrs-px)); }
+.osrs-window[data-frame="rivets"] .osrs-window-header {
+  margin: 0;
+  padding: calc(2 * var(--osrs-px)) calc(3 * var(--osrs-px));
+  min-height: calc(25 * var(--osrs-px));
+  box-shadow: none;
+}
+.osrs-window[data-frame="rivets"] > [data-slot="window-body"],
+.osrs-window[data-frame="rivets"] > [data-slot="scroll-area"] { padding: calc(4 * var(--osrs-px)); }
+.osrs-window[data-frame="rivets"] .osrs-window-resize { right: calc(6 * var(--osrs-px)); bottom: calc(6 * var(--osrs-px)); }
+
+/* Riveted steel dividers, cut from the rivet strip sprites */
+.osrs-rivet-divider {
+  flex: none;
+  height: calc(6 * var(--osrs-px));
+  background-image: var(--osrs-texture-rivets-horizontal);
+  background-size: calc(36 * var(--osrs-px)) calc(36 * var(--osrs-px));
+  background-position: 0 calc(-15 * var(--osrs-px));
+  background-repeat: repeat-x;
+  image-rendering: pixelated;
+}
+.osrs-rivet-divider-v {
+  flex: none;
+  align-self: stretch;
+  width: calc(6 * var(--osrs-px));
+  background-image: var(--osrs-texture-rivets-vertical);
+  background-size: calc(36 * var(--osrs-px)) calc(36 * var(--osrs-px));
+  background-position: calc(-15 * var(--osrs-px)) 0;
+  background-repeat: repeat-y;
+  image-rendering: pixelated;
+}
+
+/* Hamburger view menu */
+.osrs-window-menu-trigger { border: 0; padding: 0; background: transparent; cursor: pointer; display: inline-flex; outline: none; }
+.osrs-window-menu {
+  display: flex; flex-direction: column;
+  min-width: calc(80 * var(--osrs-px));
+  padding: calc(6 * var(--osrs-px));
+  background-color: var(--osrs-stone);
+  background-image: var(--osrs-texture-stone);
+  background-size: calc(88 * var(--osrs-px)) calc(60 * var(--osrs-px));
+  outline: none;
+}
+.osrs-window-menu-item {
+  padding: calc(4 * var(--osrs-px)) calc(8 * var(--osrs-px));
+  text-align: center;
+  color: var(--osrs-orange);
+  cursor: pointer;
+  outline: none;
+}
+.osrs-window-menu-item[data-highlighted] { background: rgb(255 255 255 / 0.08); color: var(--osrs-white); }
+.osrs-window-menu-item[data-checked] { background: rgb(255 255 255 / 0.16); color: var(--osrs-white); }
+
+/* Metal-corner card (Combat Achievements tiers, boss cards) */
+.osrs-card-metal { padding: calc(4 * var(--osrs-px)) calc(6 * var(--osrs-px)); background: rgb(0 0 0 / 0.08); background-clip: padding-box; }
+
+/* Select: value centred with the arrow box on the right, like the game */
+.osrs-select-trigger { position: relative; justify-content: center; padding: 0 calc(18 * var(--osrs-px)) 0 calc(4 * var(--osrs-px)); }
+.osrs-select-trigger > .osrs-sprite { position: absolute; right: calc(2 * var(--osrs-px)); top: 50%; translate: 0 -50%; }
+
+/* Segmented progress (boss cards, tier cards) */
+.osrs-progress-segments::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(to right, transparent 0 calc(var(--osrs-seg) - var(--osrs-px)), #000 calc(var(--osrs-seg) - var(--osrs-px)) var(--osrs-seg));
+}
+
+/* Two-line rows (task lists) */
+.osrs-list-item-lg { min-height: calc(30 * var(--osrs-px)); padding: calc(3 * var(--osrs-px)) calc(4 * var(--osrs-px)); }
+.osrs-muted { color: #9f9f9f; }
+.osrs-setting-row[data-layout="stacked"] > [data-slot="slider"] { margin-top: calc(4 * var(--osrs-px)); }
+.osrs-setting-desc { line-height: calc(16 * var(--osrs-px)); }

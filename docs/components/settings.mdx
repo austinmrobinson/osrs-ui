@@ -18,3 +18,14 @@ npx shadcn@latest add {{registry}}/settings.json
   <SettingRow label="Hitsplat tinting"><Checkbox /></SettingRow>
 </SettingsSection>
 ```
+
+## Descriptions and stacked rows
+
+```tsx
+<SettingRow label="Hide roofs" description="When enabled, hides all roofs.">
+  <Checkbox variant="bordered" />
+</SettingRow>
+<SettingRow layout="stacked" label="Screen Brightness" description="Change the level of brightness…">
+  <Slider defaultValue={40} />
+</SettingRow>
+```

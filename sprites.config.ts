@@ -12,7 +12,7 @@ export type FrameSpec = {
 
 export type AssetGroup =
   | "skill" | "frame" | "texture" | "control"
-  | "prayer" | "panel" | "ge" | "chevron" | "glyph" | "orb" | "equipment" | "stats" | "combat" | "bank" | "tab" | "icon" | "chatbox" | "option";
+  | "prayer" | "panel" | "ge" | "chevron" | "glyph" | "button" | "orb" | "equipment" | "stats" | "combat" | "bank" | "tab" | "icon" | "chatbox" | "option";
 
 export type SpriteEntry =
   | { kind: "single"; group: AssetGroup; name: string; src: string; label?: string }
@@ -168,6 +168,7 @@ export const sprites: SpriteEntry[] = [
   { kind: "folder", group: "ge", dir: "ge", exclude: /^border_offer/ },
   { kind: "folder", group: "ge", dir: "ge", include: /^border_offer_(intersection|horizontal)/ },
   { kind: "folder", group: "chevron", dir: "chevron" },
+  { kind: "folder", group: "button", dir: "button", include: /^(menu|wrench|options_square|back_arrow|forward_arrow|left_arrow|enter_arrow|tutorial|friends|ignores|large_with_red_x|equipment_stats_icon|equipment_guide_prices|equipment_items_lost_on_death|equipment_call_follower)/ },
   { kind: "folder", group: "glyph", dir: "account_management" },
   { kind: "folder", group: "glyph", dir: "clans_tab" },
   { kind: "folder", group: "glyph", dir: "quests_tab" },

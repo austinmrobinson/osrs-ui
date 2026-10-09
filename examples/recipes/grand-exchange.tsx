@@ -23,7 +23,7 @@ const OFFERS: (Offer | null)[] = [
 export default function GrandExchangeRecipe() {
   return (
     <div className="osrs flex justify-center p-6">
-      <Window style={{ width: px(484), height: px(304) }}>
+      <Window frame="tan" style={{ width: px(484), height: px(304) }}>
         <WindowHeader start={<Button variant="metal" size="sm">History</Button>} end={<WindowClose />}>
           Grand Exchange
         </WindowHeader>

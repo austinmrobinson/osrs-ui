@@ -4,6 +4,8 @@ import * as React from "react";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 
 import { cn } from "@/lib/utils";
+import { useMovable, type MovableOptions } from "@/lib/movable";
+import { WindowResizeHandle } from "@/components/ui/window";
 
 function Dialog(props: DialogPrimitive.Root.Props) {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
@@ -27,32 +29,47 @@ function DialogOverlay({ className, ...props }: DialogPrimitive.Backdrop.Props) 
   );
 }
 
-/** Drawn as an OSRS interface window. Pass `title` for the centred bold header. */
+/** Drawn as an OSRS interface window. Pass `title` for the centred bold header; `draggable` / `resizable` to move it. */
 function DialogContent({
   className,
   children,
   title,
   showCloseButton = true,
+  style,
+  draggable,
+  resizable,
+  defaultPosition,
+  defaultSize,
+  minWidth,
+  minHeight,
+  onPositionChange,
+  onSizeChange,
   ...props
-}: DialogPrimitive.Popup.Props & { title?: React.ReactNode; showCloseButton?: boolean }) {
+}: DialogPrimitive.Popup.Props & MovableOptions & { title?: React.ReactNode; showCloseButton?: boolean }) {
+  const m = useMovable({ draggable, resizable, defaultPosition, defaultSize, minWidth, minHeight, onPositionChange, onSizeChange });
   return (
     <DialogPrimitive.Portal>
       <DialogOverlay />
       <DialogPrimitive.Popup
+        ref={m.ref}
         data-slot="dialog-content"
+        {...m.dataAttrs}
         className={cn(
-          "osrs-interface osrs-framed osrs-frame-iron-rivets osrs-text fixed top-1/2 left-1/2 z-50 w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 outline-none sm:max-w-[calc(240*var(--osrs-px))]",
+          // centred with margin auto so `translate` stays free for dragging
+          "osrs-interface osrs-framed osrs-frame-iron-rivets osrs-text fixed inset-0 z-50 m-auto h-fit w-full max-w-[calc(100%-2rem)] outline-none sm:max-w-[calc(240*var(--osrs-px))]",
           className,
         )}
+        style={{ ...(style as React.CSSProperties), ...m.style }}
         {...props}
       >
         {(title || showCloseButton) && (
-          <div className="osrs-interface-header">
+          <div className={cn("osrs-interface-header", m.draggable && "cursor-move touch-none select-none")} onPointerDown={m.onDragStart}>
             {title ? <DialogPrimitive.Title className="osrs-interface-title">{title}</DialogPrimitive.Title> : null}
             {showCloseButton ? <DialogPrimitive.Close aria-label="Close" className="osrs-close osrs-sprite" /> : null}
           </div>
         )}
         {children}
+        {m.resizable ? <WindowResizeHandle onPointerDown={m.onResizeStart} /> : null}
       </DialogPrimitive.Popup>
     </DialogPrimitive.Portal>
   );

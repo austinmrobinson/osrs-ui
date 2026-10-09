@@ -4080,6 +4080,190 @@
     "height": 16
   },
   {
+    "name": "back-arrow",
+    "group": "button",
+    "label": "Back Arrow",
+    "file": "button/back-arrow.svg",
+    "width": 45,
+    "height": 36
+  },
+  {
+    "name": "back-arrow-hovered",
+    "group": "button",
+    "label": "Back Arrow Hovered",
+    "file": "button/back-arrow-hovered.svg",
+    "width": 45,
+    "height": 36
+  },
+  {
+    "name": "enter-arrow",
+    "group": "button",
+    "label": "Enter Arrow",
+    "file": "button/enter-arrow.svg",
+    "width": 32,
+    "height": 21
+  },
+  {
+    "name": "enter-arrow-hovered",
+    "group": "button",
+    "label": "Enter Arrow Hovered",
+    "file": "button/enter-arrow-hovered.svg",
+    "width": 32,
+    "height": 21
+  },
+  {
+    "name": "equipment-call-follower",
+    "group": "button",
+    "label": "Equipment Call Follower",
+    "file": "button/equipment-call-follower.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "equipment-guide-prices",
+    "group": "button",
+    "label": "Equipment Guide Prices",
+    "file": "button/equipment-guide-prices.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "equipment-items-lost-on-death",
+    "group": "button",
+    "label": "Equipment Items Lost On Death",
+    "file": "button/equipment-items-lost-on-death.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "equipment-stats-icon",
+    "group": "button",
+    "label": "Equipment Stats Icon",
+    "file": "button/equipment-stats-icon.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "forward-arrow",
+    "group": "button",
+    "label": "Forward Arrow",
+    "file": "button/forward-arrow.svg",
+    "width": 45,
+    "height": 36
+  },
+  {
+    "name": "forward-arrow-hovered",
+    "group": "button",
+    "label": "Forward Arrow Hovered",
+    "file": "button/forward-arrow-hovered.svg",
+    "width": 45,
+    "height": 36
+  },
+  {
+    "name": "friends",
+    "group": "button",
+    "label": "Friends",
+    "file": "button/friends.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "ignores",
+    "group": "button",
+    "label": "Ignores",
+    "file": "button/ignores.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "large-with-red-x",
+    "group": "button",
+    "label": "Large With Red X",
+    "file": "button/large-with-red-x.svg",
+    "width": 90,
+    "height": 56
+  },
+  {
+    "name": "left-arrow",
+    "group": "button",
+    "label": "Left Arrow",
+    "file": "button/left-arrow.svg",
+    "width": 21,
+    "height": 21
+  },
+  {
+    "name": "left-arrow-hovered",
+    "group": "button",
+    "label": "Left Arrow Hovered",
+    "file": "button/left-arrow-hovered.svg",
+    "width": 21,
+    "height": 21
+  },
+  {
+    "name": "menu",
+    "group": "button",
+    "label": "Menu",
+    "file": "button/menu.svg",
+    "width": 21,
+    "height": 21
+  },
+  {
+    "name": "menu-selected",
+    "group": "button",
+    "label": "Menu Selected",
+    "file": "button/menu-selected.svg",
+    "width": 21,
+    "height": 21
+  },
+  {
+    "name": "options-square",
+    "group": "button",
+    "label": "Options Square",
+    "file": "button/options-square.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "name": "options-square-selected",
+    "group": "button",
+    "label": "Options Square Selected",
+    "file": "button/options-square-selected.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "name": "tutorial",
+    "group": "button",
+    "label": "Tutorial",
+    "file": "button/tutorial.svg",
+    "width": 21,
+    "height": 21
+  },
+  {
+    "name": "tutorial-hovered",
+    "group": "button",
+    "label": "Tutorial Hovered",
+    "file": "button/tutorial-hovered.svg",
+    "width": 21,
+    "height": 21
+  },
+  {
+    "name": "wrench",
+    "group": "button",
+    "label": "Wrench",
+    "file": "button/wrench.svg",
+    "width": 21,
+    "height": 21
+  },
+  {
+    "name": "wrench-hovered",
+    "group": "button",
+    "label": "Wrench Hovered",
+    "file": "button/wrench-hovered.svg",
+    "width": 21,
+    "height": 21
+  },
+  {
     "name": "account-tab-icon",
     "group": "glyph",
     "label": "Account Tab Icon",

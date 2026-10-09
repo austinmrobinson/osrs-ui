@@ -102,3 +102,22 @@ export function useMovable({
 
 export type MovableContextValue = { draggable: boolean; onDragStart: (e: React.PointerEvent) => void };
 export const MovableContext = React.createContext<MovableContextValue>({ draggable: false, onDragStart: () => {} });
+
+/** Measure an element in game pixels (its CSS size divided by --osrs-px), live. */
+export function useGameSize<T extends HTMLElement>(ref: React.RefObject<T | null>) {
+  const [size, setSize] = React.useState<Size | null>(null);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => {
+      const u = gamePixel(el);
+      const r = el.getBoundingClientRect();
+      setSize({ width: Math.round(r.width / u), height: Math.round(r.height / u) });
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [ref]);
+  return size;
+}

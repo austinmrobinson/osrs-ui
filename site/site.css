@@ -103,12 +103,18 @@ html body ::-webkit-scrollbar-thumb {
 }
 html body ::selection { background: var(--osrs-highlight); color: var(--osrs-white); }
 
-/* Sidebar (site/Sidebar.tsx) */
-.osrs-site-nav { --osrs-px: 1px; display: flex; flex-direction: column; gap: 12px; padding-bottom: 24px; }
-.osrs-site-nav .osrs-section-title { min-height: 24px; justify-content: flex-start; padding: 0 6px; color: var(--osrs-white); }
-.osrs-site-nav-item { min-height: 24px; color: var(--osrs-orange); text-decoration: none; }
-.osrs-site-nav-item:hover { color: var(--osrs-white); }
-.osrs-site-nav-item[data-selected] { color: var(--osrs-white); }
+/* Sidebar (site/Sidebar.tsx): the All Settings nav */
+.osrs-site-nav { --osrs-px: 1px; min-height: 100%; padding-bottom: 24px; }
+.osrs-site-nav .osrs-site-nav-item { min-height: 28px; justify-content: flex-start; padding-left: 10px; text-decoration: none; }
+.osrs-site-nav .osrs-site-nav-item[aria-current="page"] { background: #3e3529; }
+.osrs-site-nav .osrs-site-nav-title {
+  margin: 10px 6px 2px 0;
+  min-height: 24px;
+  justify-content: flex-start;
+  padding: 0 8px;
+  background: transparent;
+  color: var(--osrs-white);
+}
 .osrs-site-callout { --osrs-px: 2px; }
 .osrs-site-callout-body > :first-child { margin-top: 0; }
 .osrs-site-callout-body > :last-child { margin-bottom: 0; }

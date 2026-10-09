@@ -20,7 +20,7 @@ export default function WorldSwitcherRecipe() {
   const [current, setCurrent] = React.useState(339);
   return (
     <div className="osrs flex justify-center p-6">
-      <Window style={{ width: px(204), height: px(275) }}>
+      <Window frame="tan" style={{ width: px(204), height: px(275) }}>
         <WindowHeader end={<WindowClose />}>Current world - {current}</WindowHeader>
         <ScrollArea className="flex-1">
           <List className="osrs-text-small">

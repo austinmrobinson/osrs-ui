@@ -6,7 +6,7 @@ import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
 import { cn } from "@/lib/utils";
 import { px } from "@/lib/osrs";
 
-const FLAT = { orange: "#d27e14", green: "#065f06", red: "#8f0000", yellow: "#c8c800" } as const;
+const FLAT = { orange: "#d27e14", green: "#065f06", red: "#8f0000", yellow: "#ffff00", lime: "#00c000" } as const;
 
 /**
  * Progress bar. The default is the game's shaded green bar; `color` switches to the flat
@@ -17,8 +17,9 @@ function Progress({
   children,
   style,
   color,
+  segments,
   ...props
-}: ProgressPrimitive.Root.Props & { color?: keyof typeof FLAT }) {
+}: ProgressPrimitive.Root.Props & { color?: keyof typeof FLAT; /** Split a flat bar into this many cells. */ segments?: number }) {
   return (
     <ProgressPrimitive.Root
       data-slot="progress"
@@ -27,8 +28,16 @@ function Progress({
       {...props}
     >
       <ProgressPrimitive.Track
-        className={cn("absolute inset-0 overflow-hidden", color ? "osrs-progress-flat" : "osrs-progress-track")}
-        style={color ? ({ "--osrs-progress-color": FLAT[color] } as React.CSSProperties) : undefined}
+        className={cn(
+          "absolute inset-0 overflow-hidden",
+          color ? "osrs-progress-flat" : "osrs-progress-track",
+          segments && "osrs-progress-segments",
+        )}
+        style={
+          color
+            ? ({ "--osrs-progress-color": FLAT[color], "--osrs-seg": segments ? `${100 / segments}%` : undefined } as React.CSSProperties)
+            : undefined
+        }
       >
         <ProgressPrimitive.Indicator className={cn("absolute inset-y-0 left-0", color ? "osrs-progress-flat-indicator" : "osrs-progress-indicator")} />
       </ProgressPrimitive.Track>

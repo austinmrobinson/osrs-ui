@@ -10,7 +10,7 @@ function NavList({ className, ...props }: TabsPrimitive.List.Props) {
 }
 
 function NavItem({ className, ...props }: TabsPrimitive.Tab.Props) {
-  return <TabsPrimitive.Tab data-slot="nav-item" className={cn("osrs-nav-item osrs-framed osrs-text", className)} {...props} />;
+  return <TabsPrimitive.Tab data-slot="nav-item" className={cn("osrs-nav-item osrs-text", className)} {...props} />;
 }
 
 export { NavList, NavItem };

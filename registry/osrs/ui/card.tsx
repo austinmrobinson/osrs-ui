@@ -10,6 +10,8 @@ const cardVariants = cva("osrs-card osrs-framed osrs-text", {
       flat: "osrs-card-flat osrs-frame-flat",
       /** Grand Exchange offer slot, with a divided header */
       offer: "osrs-card-offer osrs-frame-ge-offer",
+      /** Metal-cornered card (Combat Achievements tiers and bosses) */
+      metal: "osrs-card-metal osrs-frame-metal-button",
       /** Thin tan border */
       outline: "osrs-card-flat osrs-frame-tan-border",
     },

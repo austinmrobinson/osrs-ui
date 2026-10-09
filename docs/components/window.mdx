@@ -42,3 +42,25 @@ All three are opt-in. Drag by the header, resize from the game's drag-dots corne
 | `minWidth` / `minHeight` | `number` | Resize limits in CSS px. |
 | `onPositionChange` / `onSizeChange` | callbacks | Persist where the user left the window. |
 | `WindowBody scroll` | `boolean` | Wrap the body in the OSRS scroll area. |
+
+## Frames, menu and dividers
+
+`frame="rivets"` (default) is the current steel frame used by Combat Achievements, the Collection Log and the Bank: the header gets a riveted divider automatically. `frame="tan"` is the brown border of the Grand Exchange.
+
+```tsx
+<Window frame="rivets">
+  <WindowHeader
+    start={<WindowMenu items={[{ value: "tasks", label: "Tasks" }, { value: "bosses", label: "Bosses" }]} value={view} onValueChange={setView} />}
+    end={<WindowClose />}
+  >
+    Combat Achievements - Tasks
+  </WindowHeader>
+  <div className="flex">
+    <Filters />
+    <WindowSeparator orientation="vertical" />
+    <Tasks />
+  </div>
+</Window>
+```
+
+`WindowMenu` is the hamburger view switcher; `WindowSeparator` is the riveted divider, horizontal or vertical.

@@ -1,7 +1,6 @@
-// Blume Sidebar slot, drawn with OSRS UI: section-title bands and striped list rows.
+// Blume Sidebar slot, in the All Settings nav style: bevelled buttons in a darker column,
+// the current page joined to the content like a tab. Groups get a section-title band.
 import * as React from "react";
-
-import { List } from "@/registry/osrs/ui/list";
 
 type NavNode =
   | { kind: "page"; label: string; route: string; badge?: string }
@@ -17,45 +16,26 @@ function Pages({ nodes, currentRoute }: { nodes: NavNode[]; currentRoute: string
           <a
             key={n.route}
             href={n.route}
-            role="listitem"
             aria-current={isActive(n.route, currentRoute) ? "page" : undefined}
-            data-selected={isActive(n.route, currentRoute) || undefined}
-            className="osrs-list-item osrs-site-nav-item"
+            className="osrs-nav-item osrs-text osrs-site-nav-item"
           >
             {n.label}
           </a>
         ) : (
-          <Group key={n.label} node={n} currentRoute={currentRoute} />
+          <React.Fragment key={n.label}>
+            <div className="osrs-section-title osrs-site-nav-title">{n.label}</div>
+            <Pages nodes={n.children} currentRoute={currentRoute} />
+          </React.Fragment>
         ),
       )}
     </>
   );
 }
 
-function Group({ node, currentRoute }: { node: Extract<NavNode, { kind: "group" }>; currentRoute: string }) {
-  return (
-    <div className="osrs-site-nav-group">
-      <div className="osrs-section-title">{node.label}</div>
-      <List>
-        <Pages nodes={node.children} currentRoute={currentRoute} />
-      </List>
-    </div>
-  );
-}
-
 export default function Sidebar({ items, currentRoute }: { items: NavNode[]; currentRoute: string }) {
-  const loose = items.filter((i) => i.kind === "page");
-  const groups = items.filter((i): i is Extract<NavNode, { kind: "group" }> => i.kind === "group");
   return (
-    <nav className="osrs-site-nav osrs-text">
-      {loose.length ? (
-        <List>
-          <Pages nodes={loose} currentRoute={currentRoute} />
-        </List>
-      ) : null}
-      {groups.map((g) => (
-        <Group key={g.label} node={g} currentRoute={currentRoute} />
-      ))}
+    <nav className="osrs-nav-list osrs-site-nav osrs-text">
+      <Pages nodes={items} currentRoute={currentRoute} />
     </nav>
   );
 }

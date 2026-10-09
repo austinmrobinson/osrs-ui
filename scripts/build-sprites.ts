@@ -17,6 +17,7 @@ export const MODULES: Record<string, [string, string, string]> = {
   ge: ["ge-sprites", "Ge", "geSprites"],
   chevron: ["chevron-sprites", "Chevron", "chevronSprites"],
   glyph: ["glyph-sprites", "Glyph2", "glyphSprites"],
+  button: ["button-sprites", "Btn", "buttonSprites"],
   equipment: ["equipment-sprites", "Equipment", "equipmentSprites"],
   stats: ["stats-sprites", "Stats", "statsSprites"],
   combat: ["combat-sprites", "Combat", "combatSprites"],
