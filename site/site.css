@@ -3,10 +3,16 @@
  * build-css.ts prepends the library stylesheet and writes the result to ./theme.css.
  */
 
+@font-face {
+  font-family: "Departure Mono";
+  src: url("/fonts/DepartureMono-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
 :root, :root[data-theme="dark"], :root[data-theme="light"] {
   --osrs-px: 2px;
-  --osrs-site-void: #110e0a;
-  --osrs-site-stage: #1a1611;
+  --osrs-site-void: #2e281d;
+  --osrs-site-stage: #221d15;
   --blume-background: var(--osrs-site-void);
   --blume-foreground: var(--osrs-orange);
   --blume-muted: rgb(255 255 255 / 0.04);
@@ -21,6 +27,7 @@
   --blume-content-width: 48rem;
   --blume-font-display: "RuneScape Bold 12", ui-monospace, monospace;
   --blume-font-body: "RuneScape Plain 12", ui-monospace, monospace;
+  --blume-font-mono: "Departure Mono", ui-monospace, monospace;
   color-scheme: dark;
 }
 
@@ -166,9 +173,8 @@ html body ::selection { background: var(--osrs-highlight); color: var(--osrs-whi
   --osrs-px: 1px;
   position: relative;
   isolation: isolate;
-  min-height: calc(100% - 16px);
-  margin: 8px 0;
-  padding: 10px 0 24px 10px;
+  margin: 0 0 16px;
+  padding: 10px 0 14px 10px;
   background-color: var(--osrs-stone);
   background-image: var(--osrs-texture-side-panel);
   background-size: 88px 60px;
@@ -204,11 +210,15 @@ html body ::selection { background: var(--osrs-highlight); color: var(--osrs-whi
 .osrs-site-callout-body > :last-child { margin-bottom: 0; }
 .osrs-site-callout-body p { color: inherit !important; }
 
-/* Code keeps a normal mono font with smoothing: thin mono glyphs vanish without it */
+/* Code: Departure Mono (Helena Zhang, SIL OFL 1.1), a pixel monospace. It's drawn on an
+   11px grid; 16.5px is exactly 3x that grid on 2x displays, so it stays crisp there. */
 html body :is(pre, code, kbd, samp), html body :is(pre, code) * {
-  -webkit-font-smoothing: auto;
-  -moz-osx-font-smoothing: auto;
-  font-size: 14px;
+  font-family: "Departure Mono", ui-monospace, monospace !important;
+  font-size: 16.5px;
+  line-height: 22px;
+  letter-spacing: 0;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
   text-shadow: none;
 }
 /* Heading self-links take the heading's size and colour */
@@ -407,3 +417,59 @@ html body [data-blume-search-dialog] mark { background: transparent; color: var(
 /* Rail page actions read as menu options */
 html body [data-blume-toc] :is(a, button):not(.osrs-site-toc-link) { color: var(--osrs-orange) !important; font-size: 16px; }
 html body [data-blume-toc] :is(a, button):not(.osrs-site-toc-link):hover { color: var(--osrs-white) !important; }
+
+/* Concept switcher (site/Sidebar.tsx): side-panel tab stones with labels */
+.osrs-site-sidenav { --osrs-px: 1px; display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
+.osrs-site-concepts {
+  list-style: none; margin: 0; padding: 8px;
+  display: flex; flex-direction: column; gap: 2px;
+  position: relative; isolation: isolate;
+  background-color: var(--osrs-stone);
+  background-image: var(--osrs-texture-side-panel);
+  background-size: 88px 60px;
+}
+.osrs-site-concepts::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent; border-width: 30px 25px;
+  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
+}
+.osrs-site-concept {
+  display: flex; align-items: center; gap: 10px;
+  padding: 2px 6px;
+  color: var(--osrs-orange);
+  text-decoration: none;
+}
+.osrs-site-concept:hover { color: var(--osrs-white); background: rgb(255 255 255 / 0.06); }
+.osrs-site-concept[aria-current="true"] { color: var(--osrs-white); }
+.osrs-site-concept-stone { position: relative; display: inline-flex; width: 33px; height: 36px; flex: none; }
+.osrs-site-concept-stone > svg { position: absolute; inset: 0; }
+
+/* "On this page" (below xl): inline at the right of the page title, opening over the content */
+@supports (anchor-name: --a) {
+  @media (min-width: 640px) and (max-width: 1279.98px) {
+    html body main > article { anchor-name: --osrs-article; }
+    html body main { position: relative; }
+    html body main > .osrs-site-toc-mobile {
+      position: absolute;
+      position-anchor: --osrs-article;
+      top: calc(anchor(top) + 34px);
+      right: calc(anchor(right) + 28px);
+      left: auto;
+      width: 180px;
+      max-width: none;
+      margin: 0 !important;
+      z-index: 20;
+    }
+    html body main > .osrs-site-toc-mobile > summary { gap: 8px; }
+    html body main > .osrs-site-toc-mobile[open] {
+      width: 260px;
+      max-height: 70vh;
+      overflow-y: auto;
+      background: var(--osrs-well);
+      box-shadow: 0 0 0 1px #000;
+    }
+    html body main > .osrs-site-toc-mobile[open] > :not(summary) { padding: 2px 6px 6px; }
+    html body main:has(> .osrs-site-toc-mobile) > article h1:first-of-type { padding-right: 200px; }
+    html body main:has(> .osrs-site-toc-mobile) > article h1:first-of-type::after { margin-right: -222px; }
+  }
+}
