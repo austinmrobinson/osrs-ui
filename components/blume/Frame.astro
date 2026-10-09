@@ -1,0 +1,58 @@
+---
+import { renderInlineMarkdown } from "blume/components/content/inline-markdown.ts";
+
+interface Props {
+  caption?: string;
+  hint?: string;
+}
+
+const { caption, hint } = Astro.props;
+
+const captionHtml = caption ? await renderInlineMarkdown(caption) : undefined;
+---
+
+<blume-frame class="not-prose my-6 block">
+  <figure class="m-0">
+    {
+      hint && (
+        <p class="osrs-text mb-2">
+          {hint}
+        </p>
+      )
+    }
+    <div
+      class="osrs-site-frame osrs-framed osrs-frame-tan-border flex justify-center p-6 [&>:first-child]:m-0! [&_img]:h-auto [&_img]:max-w-full [&_video]:h-auto [&_video]:max-w-full"
+    >
+      <slot />
+    </div>
+    {
+      captionHtml && (
+        <figcaption
+          class="osrs-text osrs-text-small mt-2 text-center"
+          set:html={captionHtml}
+        />
+      )
+    }
+  </figure>
+</blume-frame>
+
+<script>
+  class BlumeFrame extends HTMLElement {
+    connectedCallback() {
+      for (const video of this.querySelectorAll<HTMLVideoElement>(
+        "video[autoplay]"
+      )) {
+        video.playsInline = true;
+        video.loop = true;
+        video.muted = true;
+        video.setAttribute("playsinline", "");
+        video.setAttribute("loop", "");
+        video.setAttribute("muted", "");
+      }
+    }
+  }
+
+  if (!customElements.get("blume-frame")) {
+    customElements.define("blume-frame", BlumeFrame);
+  }
+</script>

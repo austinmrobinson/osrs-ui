@@ -1,0 +1,43 @@
+---
+import { newTabAttrs } from "blume/core/new-tab.ts";
+import Icon from "blume/components/Icon.astro";
+import { contentHref } from "blume/components/content/base-href.ts";
+
+const { description, href, title } = Astro.props;
+const Tag = href ? "a" : "div";
+const previewPattern =
+  "background-image:radial-gradient(circle at 1px 1px,color-mix(in oklab,currentColor 18%,transparent) 1px,transparent 0);background-size:18px 18px;";
+---
+
+<Tag
+  class="not-prose osrs-card osrs-card-flat osrs-framed osrs-frame-flat osrs-text osrs-site-tile block no-underline! hover:no-underline!"
+  data-blume-tile
+  href={href === undefined ? undefined : contentHref(href)}
+  {...newTabAttrs(href)}
+>
+  <div
+    class="osrs-well flex aspect-[16/9] min-h-32 items-center justify-center p-4 [&_img]:max-h-full [&_img]:max-w-full [&_svg]:max-h-full [&_svg]:max-w-full"
+    data-blume-narration="skip"
+    data-blume-tile-preview
+    style={previewPattern}
+  >
+    <slot />
+  </div>
+  <div class="p-4">
+    {
+      title && (
+        <p class="osrs-site-card-title m-0! mt-2! flex items-center gap-1.5">
+          {title}
+          {href && (
+            <Icon class="text-muted-foreground rtl:-scale-x-100" name="arrow-right" size={14} />
+          )}
+        </p>
+      )
+    }
+    {
+      description && (
+        <p class="mt-1! mb-0!">{description}</p>
+      )
+    }
+  </div>
+</Tag>

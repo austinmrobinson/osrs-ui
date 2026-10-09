@@ -1,0 +1,483 @@
+---
+import data from "blume:data";
+
+import { contentStrings } from "blume/components/content/content-strings.ts";
+
+interface Props {
+  borderBottom?: boolean;
+  defaultTabIndex?: number;
+  dropdown?: boolean;
+  hash?: boolean | "false" | "true";
+  /**
+   * Render borderless — a tab strip on a full-width rule with the content
+   * flowing beneath as prose — instead of the default bordered box. Reads as
+   * page-level navigation rather than an isolated widget; pair with `param` for
+   * shareable, multiple-per-page tabs.
+   */
+  inline?: boolean;
+  /**
+   * Sync the active tab to this URL query-param key instead of the hash. Each
+   * group owns its own param, so several `Tabs` can share a page and every
+   * selection is deep-linkable (`?install=windows`). Give each group a unique
+   * `param`; it takes precedence over `hash`.
+   */
+  param?: string;
+  sync?: boolean;
+  /**
+   * Sync tab selection only with other groups sharing the same key. Groups
+   * without a key form one page-wide pool (the default); keyed groups — like
+   * the generated ts2js dialect pairs — sync among themselves, so picking a
+   * tab there can't drag along an authored group with a same-titled tab.
+   */
+  syncKey?: string;
+}
+
+const {
+  borderBottom = true,
+  defaultTabIndex = 0,
+  dropdown = false,
+  hash = true,
+  inline = false,
+  param,
+  sync = true,
+  syncKey,
+} = Astro.props;
+
+// MDX string attributes (`hash="false"` from generated markup) must read as
+// their boolean meaning — the string "false" is truthy.
+const hashEnabled = String(hash) !== "false";
+// The dropdown (select) affordance belongs to the boxed layout; inline always
+// renders a tab strip.
+const useDropdown = dropdown && !inline;
+// The labels the client script builds the strip with, in the page's locale.
+const { content: strings } = contentStrings(data, Astro.currentLocale);
+---
+
+<blume-tabs
+  class:list={[
+    "my-6 block",
+    inline
+      ? ""
+      : "not-prose overflow-hidden rounded-blume border border-border bg-background",
+  ]}
+  data-border-bottom={borderBottom ? "true" : "false"}
+  data-default-tab-index={defaultTabIndex}
+  data-dropdown={useDropdown ? "true" : "false"}
+  data-hash={hashEnabled ? "true" : "false"}
+  data-i18n-select-tab={strings.selectTab}
+  data-i18n-tab={strings.tab}
+  data-param={param}
+  data-sync={sync ? "true" : "false"}
+  data-sync-key={syncKey}
+>
+  {/*
+    Header row: the scrolling tab strip (or the dropdown) grows, and an
+    actions slot sits fixed at the inline end, outside the scroller so it
+    never rides along with an overflowing strip. The docs layout fills it
+    with one copy button when every panel is a bare code block (CodeGroup,
+    ts2js pairs) — the strip is that group's chrome, so the button belongs
+    there rather than painted over the first line of each block. Empty
+    otherwise, and hidden so it adds no padding.
+  */}
+  <div class:list={["flex", inline ? "not-prose" : ""]}>
+    <div class:list={["min-w-0 grow", useDropdown ? "" : "overflow-x-auto"]}>
+      <div
+        class:list={[
+          useDropdown || borderBottom ? "border-border border-b" : "",
+          useDropdown ? "p-3" : inline ? "flex gap-4" : "flex gap-4 px-3",
+        ]}
+        data-blume-tablist
+        role={useDropdown ? undefined : "tablist"}
+      >
+      </div>
+    </div>
+    <div
+      class:list={[
+        "flex shrink-0 items-center gap-2 ps-2 empty:hidden",
+        inline ? "" : "pe-3",
+        useDropdown || borderBottom ? "border-border border-b" : "",
+      ]}
+      data-blume-tab-actions
+    >
+    </div>
+  </div>
+  <div
+    class:list={[inline ? "pt-4 [&>[data-blume-tab-panel]]:p-0!" : ""]}
+    data-blume-tab-content
+  >
+    <slot />
+  </div>
+</blume-tabs>
+
+<script>
+  import { languageLabel } from "blume/components/code-language.ts";
+
+  const TRIGGER_CLASS = "osrs-site-tab";
+  const SELECT_CLASS = "osrs-select-trigger osrs-well osrs-text w-full";
+  const SYNC_EVENT = "blume-tabs-change";
+
+  // Disambiguates generated trigger/panel ids when the same tab labels appear
+  // in several <Tabs> instances on one page.
+  let instanceCount = 0;
+
+  // An untitled code block (a CodeGroup fence) is named by its language, read
+  // from the fence's own id: the docs layout moves that to
+  // `data-blume-language` when it relabels `data-language` for the header.
+  const codeLanguage = (panel: HTMLElement) => {
+    const language = panel.matches("pre")
+      ? (panel.dataset.blumeLanguage ?? panel.dataset.language)
+      : undefined;
+    return language ? languageLabel(language) : undefined;
+  };
+
+  // Any other untitled panel is numbered with its group's localized `Tab {n}`.
+  const panelTitle = (panel: HTMLElement, index: number) =>
+    panel.dataset.title ??
+    codeLanguage(panel) ??
+    (
+      panel.closest<HTMLElement>("blume-tabs")?.dataset.i18nTab ?? "Tab {n}"
+    ).replace("{n}", String(index + 1));
+  const panelId = (panel: HTMLElement) => panel.dataset.tabId ?? panel.id;
+  const boundedIndex = (value: number, length: number) =>
+    Math.min(Math.max(value, 0), Math.max(length - 1, 0));
+  const appendTriggerContent = (
+    trigger: HTMLButtonElement,
+    panel: HTMLElement,
+    index: number
+  ) => {
+    const icon = panel.querySelector<HTMLTemplateElement>(
+      ":scope > template[data-blume-tab-icon]"
+    );
+    if (icon) {
+      trigger.appendChild(icon.content.cloneNode(true));
+    }
+    const label = document.createElement("span");
+    label.textContent = panelTitle(panel, index);
+    trigger.appendChild(label);
+  };
+
+  class BlumeTabs extends HTMLElement {
+    #panels: HTMLElement[] = [];
+    #triggers: HTMLButtonElement[] = [];
+    #select: HTMLSelectElement | null = null;
+
+    connectedCallback() {
+      const list = this.querySelector<HTMLElement>("[data-blume-tablist]");
+      // Nested groups (a generated ts2js pair inside a CodeGroup, say) own
+      // their panels; adopting a descendant group's panels here would leave
+      // both groups toggling the same elements.
+      let panels = Array.from(
+        this.querySelectorAll<HTMLElement>("[data-blume-tab-panel]")
+      ).filter((panel) => panel.closest("blume-tabs") === this);
+      // CodeGroup passes raw code fences instead of <Tab> elements, so adopt
+      // the content wrapper's direct code blocks as panels. The tab label comes
+      // from each block's title (the text after the language in the fence),
+      // or from its language when it has none.
+      // A ts2js fence arrives as its own TypeScript/JavaScript group; it is
+      // one panel too, labeled by the fence title both of its blocks carry.
+      if (panels.length === 0) {
+        const wrapper = this.querySelector<HTMLElement>(
+          ":scope > [data-blume-tab-content]"
+        );
+        const blocks = wrapper
+          ? Array.from(wrapper.children).filter(
+              (child): child is HTMLElement =>
+                child instanceof HTMLElement &&
+                child.matches("pre, figure, blume-tabs")
+            )
+          : [];
+        for (const block of blocks) {
+          block.setAttribute("data-blume-tab-panel", "");
+          const fenceTitle = block.matches("blume-tabs")
+            ? block.querySelector<HTMLElement>("pre[data-title]")?.dataset
+                .title
+            : undefined;
+          if (fenceTitle && !block.dataset.title) {
+            block.dataset.title = fenceTitle;
+          }
+        }
+        panels = blocks;
+      }
+      if (!list || panels.length === 0) {
+        return;
+      }
+      if (this.dataset.blumeTabsReady === "true") {
+        // The built DOM survives a move; the listeners removed by
+        // disconnectedCallback don't — re-attach them (addEventListener with
+        // the same reference is idempotent).
+        if (this.#syncEnabled()) {
+          document.addEventListener(SYNC_EVENT, this.#sync);
+        }
+        this.#addUrlListener();
+        return;
+      }
+      this.dataset.blumeTabsReady = "true";
+      this.#panels = panels;
+
+      if (this.dataset.dropdown === "true") {
+        this.#select = document.createElement("select");
+        this.#select.className = SELECT_CLASS;
+        // Neutral default: tab sets aren't necessarily code examples.
+        this.#select.setAttribute(
+          "aria-label",
+          this.dataset.i18nSelectTab ?? "Select tab"
+        );
+        panels.forEach((panel, index) => {
+          const option = document.createElement("option");
+          option.value = String(index);
+          option.textContent = panelTitle(panel, index);
+          this.#select?.appendChild(option);
+        });
+        this.#select.addEventListener("change", () => {
+          this.activate(Number(this.#select?.value ?? "0"), true, true);
+        });
+        list.appendChild(this.#select);
+      } else {
+        const instance = ++instanceCount;
+        panels.forEach((panel, index) => {
+          const trigger = document.createElement("button");
+          trigger.type = "button";
+          trigger.role = "tab";
+          trigger.className = TRIGGER_CLASS;
+          appendTriggerContent(trigger, panel, index);
+          trigger.tabIndex = index === 0 ? 0 : -1;
+          // Wire tab and panel both ways. An author-supplied panel id is kept;
+          // otherwise derive unique ids from the label slug per instance.
+          const slug = panelId(panel) || `tab-${index + 1}`;
+          if (!panel.id) {
+            panel.id = `blume-tabpanel-${slug}-${instance}`;
+          }
+          trigger.id = `blume-tab-${slug}-${instance}`;
+          trigger.setAttribute("aria-controls", panel.id);
+          // The role rides with the labelling tab: adopted panels (CodeGroup
+          // fences, ts2js pairs, nested groups) have none of their own, and
+          // dropdown mode renders no tabs, so its panels take no role.
+          panel.setAttribute("role", "tabpanel");
+          panel.setAttribute("aria-labelledby", trigger.id);
+          trigger.setAttribute(
+            "aria-selected",
+            index === 0 ? "true" : "false"
+          );
+          trigger.addEventListener("click", () => {
+            this.activate(index, true, true);
+          });
+          trigger.addEventListener("keydown", (event) => {
+            this.#onTriggerKeydown(event, index);
+          });
+          list.appendChild(trigger);
+          this.#triggers.push(trigger);
+          panel.classList.toggle("hidden", index !== 0);
+        });
+      }
+
+      this.activate(this.#initialIndex(), false, false);
+      if (this.#syncEnabled()) {
+        document.addEventListener(SYNC_EVENT, this.#sync);
+      }
+      this.#addUrlListener();
+    }
+
+    disconnectedCallback() {
+      document.removeEventListener(SYNC_EVENT, this.#sync);
+      window.removeEventListener("hashchange", this.#urlChange);
+      window.removeEventListener("popstate", this.#urlChange);
+    }
+
+    activate(index: number, sync: boolean, updateHash: boolean) {
+      const activePanel = this.#panels[index];
+      if (!activePanel) {
+        return;
+      }
+
+      this.#panels.forEach((panel, panelIndex) => {
+        panel.classList.toggle("hidden", panelIndex !== index);
+      });
+      this.#triggers.forEach((trigger, triggerIndex) => {
+        trigger.setAttribute(
+          "aria-selected",
+          triggerIndex === index ? "true" : "false"
+        );
+        trigger.tabIndex = triggerIndex === index ? 0 : -1;
+      });
+      if (this.#select) {
+        this.#select.value = String(index);
+      }
+      const id = panelId(activePanel);
+      if (updateHash && id) {
+        const param = this.#paramName();
+        if (param) {
+          // Query-param mode: write only this group's key, so several groups on
+          // one page each deep-link independently. replaceState (not push) keeps
+          // the shareable URL current without stacking a history entry per click.
+          const url = new URL(window.location.href);
+          url.searchParams.set(param, id);
+          history.replaceState(history.state, "", url);
+        } else if (this.#hashEnabled()) {
+          // Keep the entry's state here too: the client router ignores a
+          // popstate whose state is null, so Back would change only the URL.
+          history.replaceState(history.state, "", `#${encodeURIComponent(id)}`);
+        }
+      }
+      if (sync && this.#syncEnabled()) {
+        document.dispatchEvent(
+          new CustomEvent(SYNC_EVENT, {
+            detail: {
+              key: this.#syncKey(),
+              title: panelTitle(activePanel, index),
+            },
+          })
+        );
+      }
+    }
+
+    activateByTitle(title: string, sync: boolean) {
+      const index = this.#panels.findIndex((panel, panelIndex) => {
+        return panelTitle(panel, panelIndex) === title;
+      });
+      if (index !== -1) {
+        this.activate(index, sync, false);
+      }
+    }
+
+    /**
+     * Re-pick the tab from the current URL, as on first load. Neither syncs
+     * other groups nor writes history, exactly like the initial selection.
+     */
+    selectFromUrl() {
+      this.activate(this.#initialIndex(), false, false);
+    }
+
+    #activateByHash() {
+      if (!this.#hashEnabled()) {
+        return false;
+      }
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      if (!id) {
+        return false;
+      }
+      const index = this.#panels.findIndex((panel) => panelId(panel) === id);
+      if (index === -1) {
+        return false;
+      }
+
+      this.activate(index, false, false);
+      return true;
+    }
+
+    #activateByParam() {
+      const param = this.#paramName();
+      if (!param) {
+        return false;
+      }
+      const value = new URL(window.location.href).searchParams.get(param);
+      if (!value) {
+        return false;
+      }
+      const index = this.#panels.findIndex((panel) => panelId(panel) === value);
+      if (index === -1) {
+        return false;
+      }
+
+      this.activate(index, false, false);
+      return true;
+    }
+
+    #initialIndex() {
+      const activated = this.#paramName()
+        ? this.#activateByParam()
+        : this.#activateByHash();
+      if (activated) {
+        return this.#panels.findIndex((panel) => !panel.classList.contains("hidden"));
+      }
+      return boundedIndex(
+        Number(this.dataset.defaultTabIndex ?? "0"),
+        this.#panels.length
+      );
+    }
+
+    #onTriggerKeydown(event: KeyboardEvent, index: number) {
+      const lastIndex = this.#triggers.length - 1;
+      // The strip runs right to left under dir="rtl", so the arrows swap.
+      const rtl = getComputedStyle(this).direction === "rtl";
+      let nextIndex: number | undefined;
+      if (event.key === (rtl ? "ArrowLeft" : "ArrowRight")) {
+        nextIndex = index === lastIndex ? 0 : index + 1;
+      } else if (event.key === (rtl ? "ArrowRight" : "ArrowLeft")) {
+        nextIndex = index === 0 ? lastIndex : index - 1;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = lastIndex;
+      }
+      if (nextIndex === undefined) {
+        return;
+      }
+
+      event.preventDefault();
+      this.activate(nextIndex, true, true);
+      this.#triggers[nextIndex]?.focus();
+    }
+
+    #syncEnabled() {
+      return this.dataset.sync !== "false";
+    }
+
+    #syncKey() {
+      return this.dataset.syncKey ?? "";
+    }
+
+    #hashEnabled() {
+      return this.dataset.hash !== "false";
+    }
+
+    #paramName() {
+      return this.dataset.param || null;
+    }
+
+    // Query-param changes don't fire `hashchange`; they surface through history
+    // navigation (`popstate`). Listen to whichever channel this group syncs on.
+    #addUrlListener() {
+      if (this.#paramName()) {
+        window.addEventListener("popstate", this.#urlChange);
+      } else {
+        window.addEventListener("hashchange", this.#urlChange);
+      }
+    }
+
+    #sync = (event: Event) => {
+      const detail = (event as CustomEvent<{ key?: string; title?: string }>)
+        .detail;
+      // Only same-key groups sync: keyless groups form one page-wide pool,
+      // keyed groups (generated dialect pairs) their own.
+      if (detail?.title && (detail.key ?? "") === this.#syncKey()) {
+        this.activateByTitle(detail.title, false);
+      }
+    };
+
+    #urlChange = () => {
+      if (this.#paramName()) {
+        this.#activateByParam();
+      } else {
+        this.#activateByHash();
+      }
+    };
+  }
+
+  if (!customElements.get("blume-tabs")) {
+    customElements.define("blume-tabs", BlumeTabs);
+
+    // The client router inserts the next page (connecting its tabs, which
+    // read the URL then) before it moves history to that page's URL, so
+    // those tabs saw the previous page's hash and query. `astro:after-swap`
+    // fires once the URL is the new page's and before the reader can
+    // interact, so selecting again here honors `?install=windows` and
+    // `#windows` deep links as a full load does.
+    document.addEventListener("astro:after-swap", () => {
+      for (const tabs of document.querySelectorAll("blume-tabs")) {
+        if (tabs instanceof BlumeTabs) {
+          tabs.selectFromUrl();
+        }
+      }
+    });
+  }
+</script>

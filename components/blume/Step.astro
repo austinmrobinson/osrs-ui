@@ -1,0 +1,38 @@
+---
+import { isAssetIcon } from "blume/theme/icon-kind.ts";
+import { hasIcon } from "blume/theme/icons.ts";
+import Icon from "blume/components/Icon.astro";
+
+interface Props {
+  icon?: string;
+  title?: string;
+}
+
+const { icon, title } = Astro.props;
+const markerClass =
+  "osrs-site-step-marker osrs-button osrs-framed osrs-frame-stone-button osrs-text";
+const canRenderIcon =
+  icon !== undefined && (isAssetIcon(icon) || hasIcon(icon));
+---
+
+<div
+  class="relative [counter-increment:blume-step]"
+  data-blume-step
+>
+  <span class:list={[markerClass, !canRenderIcon && "before:[content:counter(blume-step)]"]}>
+    {canRenderIcon && <Icon name={icon} size={14} />}
+  </span>
+  {
+    // Consumes the `titleSize` variables set by <Steps>; the fallbacks match
+    // its "p" default (and the prose-inherited sizing) so a bare <Step>
+    // renders identically.
+    title && (
+      <p class="osrs-site-step-title mb-1.5">
+        {title}
+      </p>
+    )
+  }
+  <div class="[&>:first-child]:mt-0! [&>:last-child]:mb-0!">
+    <slot />
+  </div>
+</div>

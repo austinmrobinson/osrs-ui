@@ -1,0 +1,14 @@
+---
+interface Props {
+  cols?: number;
+}
+
+const { cols = 2 } = Astro.props;
+---
+
+<div
+  class="not-prose my-6 grid grid-cols-1 gap-4 sm:grid-cols-[repeat(var(--blume-cols),minmax(0,1fr))]"
+  style={`--blume-cols:${cols}`}
+>
+  <slot />
+</div>

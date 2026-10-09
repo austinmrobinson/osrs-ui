@@ -1,0 +1,401 @@
+---
+import Ask from "blume:ask";
+import data from "blume:data";
+import { withBase, withMountedBase } from "blume/components/islands/base-path.ts";
+import { newTabAttrs } from "blume/core/new-tab.ts";
+import type { ComponentOverride } from "blume/core/define-components.ts";
+import { EN_UI } from "blume/core/i18n-ui.ts";
+import type { UIStrings } from "blume/core/i18n-ui.ts";
+import type {
+  LocaleSwitchOption,
+  Navigation,
+  NavSelector as NavSelectorConfig,
+} from "blume/core/types.ts";
+import Icon from "blume/components/Icon.astro";
+import LanguageSwitcher from "blume/components/layout/LanguageSwitcher.astro";
+import Logo from "blume/components/layout/Logo.astro";
+import { currentTabForRoute } from "blume/components/layout/nav-utils.ts";
+import NavSelector from "blume/components/layout/NavSelector.astro";
+import NavTabMenu from "blume/components/layout/NavTabMenu.astro";
+import { resolveSlot } from "blume/components/layout/overrides.ts";
+import Search from "blume/components/layout/Search.astro";
+import { buttonSprites } from "@/registry/osrs/ui/button-sprites";
+
+interface Props {
+  site: { title: string };
+  logo?: {
+    svg?: string;
+    light?: string;
+    dark?: string;
+    alt: string;
+    href: string;
+    text?: string;
+  } | null;
+  navigation: Navigation;
+  route: string;
+  searchEnabled: boolean;
+  /**
+   * Active locale of the page, forwarded to the `Logo` slot so the brand link
+   * resolves to the locale's root like the tabs beside it.
+   */
+  locale?: string;
+  /**
+   * Whether the search modal offers a hand-off to the assistant. Defaults to whether
+   * the assistant is configured, so no page has to pass it; a layout can still opt a
+   * shell out explicitly.
+   */
+  assistantEnabled?: boolean;
+  /** Localized assistant strings for the active locale. */
+  assistantStrings?: UIStrings["assistant"];
+  // The mobile menu button toggles the docs sidebar drawer; custom pages
+  // without a sidebar (e.g. a landing page) pass `false` to hide it.
+  hasSidebar?: boolean;
+  /**
+   * Whether the layout renders a drawer for the nav toggle to open. A shell
+   * with no drawer at all (the Scalar reference layout) passes `false`, else
+   * the hamburger would lock page scroll with nothing appearing.
+   */
+  hasDrawer?: boolean;
+  searchStrings?: UIStrings["search"];
+  switcherStrings?: UIStrings["languageSwitcher"];
+  /** Localized chrome labels (nav toggle, sections, GitHub, theme toggle). */
+  navStrings?: UIStrings["nav"];
+  localeSwitch?: LocaleSwitchOption[];
+  /**
+   * Auto-populated version switcher, rendered ahead of the configured
+   * selectors. `null`/absent when versioning is off — or when the user
+   * declares their own `kind: "version"` selector, which then owns the UI.
+   */
+  versionSelector?: NavSelectorConfig | null;
+  /** Active locale for per-language search filtering. */
+  searchLocale?: string;
+  /** Viewed docs version for search filtering (`""` = current; `null`/absent = off). */
+  searchVersion?: string | null;
+  /**
+   * Layout-slot overrides forwarded from the root layout. The header honors
+   * `Logo` and `Search` here so those pieces can be replaced without swapping
+   * the whole header.
+   */
+  layout?: Record<string, ComponentOverride>;
+  /**
+   * Start the header see-through, with its chrome in white, so it can sit over
+   * a dark hero at the top of the page; it returns to the frosted bar as soon
+   * as the page scrolls (`PageLayout`'s `transparentHeader`).
+   */
+  transparent?: boolean;
+}
+
+const {
+  site,
+  logo,
+  navigation,
+  route,
+  searchEnabled,
+  locale,
+  // `config.assistant` is null whenever the assistant is off, so the header is the one place
+  // that has to know — the Ask trigger below and the search modal's hand-off to
+  // it both switch on this, and every page gets both for free.
+  assistantEnabled = Boolean(data.config.assistant),
+  assistantStrings,
+  hasSidebar = true,
+  hasDrawer = true,
+  searchStrings,
+  switcherStrings,
+  navStrings,
+  localeSwitch,
+  versionSelector,
+  searchLocale,
+  searchVersion = null,
+  layout = {},
+  transparent = false,
+} = Astro.props;
+
+// Merge over the English defaults so a label missing from a translation (or
+// from a not-yet-regenerated snapshot) still renders instead of coming out
+// blank — the PageActions pattern.
+const n = { ...EN_UI.nav, ...navStrings };
+
+const LogoSlot = resolveSlot(layout.Logo, Logo);
+const SearchSlot = resolveSlot(layout.Search, Search);
+
+// The mobile nav-toggle opens a drawer of navigation. On docs pages that drawer
+// is the sidebar tree (`hasSidebar`); on chrome-only pages (a landing page via
+// PageLayout) it's a tabs-only drawer the layout renders — so the button is also
+// needed whenever there are tabs to reveal.
+const showNavToggle = hasDrawer && (hasSidebar || navigation.tabs.length > 0);
+const activeTab = currentTabForRoute(navigation.tabs, route, navigation.root);
+// Where the header's inline tab bar appears. With a sidebar it shares the `md`
+// breakpoint with the docs drawer; without one, the tabs-only drawer is the sole
+// mobile nav below `lg`, so the inline tabs wait until `lg` to avoid duplicating
+// the drawer's links between `md` and `lg`.
+const tabsNavClass = hasSidebar
+  ? "hidden shrink-0 gap-1 md:flex"
+  : "hidden shrink-0 gap-1 lg:flex";
+
+const iconButton = "osrs-site-icon-button group inline-flex shrink-0 cursor-pointer items-center justify-center";
+
+// Below `lg`, where the sidebar is a drawer, the selectors, version selector,
+// and language switcher move into a row at the top of it (see
+// DrawerSwitchers.astro): they scope what the sidebar lists, and beside the
+// logo, tabs, search, and icon buttons they'd overflow a phone or tablet
+// header. With no drawer to open they have nowhere else to go, so they stay.
+// Nothing in the header shrinks except the logo, whose title truncates.
+const switcherClass = showNavToggle ? "hidden shrink-0 lg:block" : "shrink-0";
+
+// Header links: plain actions are secondary and hide below `sm`, where the
+// header has room for the logo and the drawer toggle and nothing else. The one
+// call to action hides there too — but only when a drawer toggle is actually
+// competing for the space. A page with no drawer (a PageLayout landing page
+// with no tabs) has nowhere else to surface it, so it stays. `withBase` passes
+// external, protocol-relative and fragment hrefs through untouched.
+const actionClass = "osrs-site-header-link hidden sm:inline-flex";
+const ctaClass = [
+  showNavToggle ? "hidden sm:inline-flex" : "inline-flex",
+  "osrs-button osrs-button-metal osrs-framed osrs-frame-metal-button osrs-text items-center gap-1",
+].join(" ");
+
+// Delegated handlers for the theme toggle, mobile nav drawer, and banner
+// dismiss. Living with the header means every page that renders it — docs pages
+// and custom pages alike — gets identical behavior from one source.
+//
+// Toggling the theme flips colors; without suppressing transitions the animated
+// styles fade while the non-animated ones snap, so we disable all transitions
+// for the swap (next-themes' disableTransitionOnChange trick), force a
+// synchronous style flush, then restore them on the next tick.
+//
+// Both the theme toggle and the banner dismiss change the page first and only
+// then remember the choice: localStorage throws where storage is blocked
+// (Safari "Block All Cookies", sandboxed iframes), and a throw before the DOM
+// change would leave the toggle dead with transitions switched off for good.
+// There the choice simply isn't remembered.
+//
+// The mobile drawer sits below the sticky header, but the banner above the
+// header has no fixed height (its text wraps), so the drawer's top offset can't
+// be static: on open we measure the header's on-screen bottom edge into
+// `--blume-drawer-top` (read by the drawer's `top`/`height`), lock page scroll
+// so the offset can't drift while open, and re-measure when a banner dismiss or
+// a resize/rotation moves the header. Crossing into the desktop breakpoint
+// (64rem, Tailwind `lg`) closes the drawer so the scroll lock can't outlive it.
+// The rest of the drawer's behavior — the toggle's `aria-expanded`, Escape to
+// close, and the inert page behind it — follows the same attribute from the
+// layouts' drawer-inert.ts.
+// Transparent header: flag the bar as scrolled once the page moves off the
+// top so the stylesheet below can swap it back to the frosted look. `sync`
+// re-queries the header each time, so the one listener a real load installs
+// keeps working across client-router swaps (and no-ops on pages without it).
+// The router re-runs this inline script on every swap into a transparent-header
+// page, so it syncs that page each time but installs the listeners only once
+// per real load, behind a window flag.
+const transparentScript = `(()=>{const sync=()=>{const h=document.querySelector("[data-blume-header-transparent]");if(h){h.toggleAttribute("data-blume-header-scrolled",scrollY>8);}};sync();if(window.__blumeTransparentHeader){return;}window.__blumeTransparentHeader=true;addEventListener("scroll",sync,{passive:true});document.addEventListener("astro:after-swap",sync);})();`;
+
+const clickScript = `(()=>{const dr=()=>{const h=document.querySelector("[data-blume-header]");if(h){document.documentElement.style.setProperty("--blume-drawer-top",h.getBoundingClientRect().bottom+"px");}};const save=(k,v)=>{try{localStorage.setItem(k,v);}catch{}};document.addEventListener("click",(e)=>{const t=e.target.closest("[data-blume-theme-toggle]");if(t){const d=document.documentElement;const next=d.dataset.theme==="dark"?"light":"dark";const s=document.createElement("style");s.appendChild(document.createTextNode("*,*::before,*::after{transition:none!important}"));document.head.appendChild(s);d.dataset.theme=next;window.getComputedStyle(d).opacity;setTimeout(()=>document.head.removeChild(s),1);save("blume-theme",next);}const n=e.target.closest("[data-blume-nav-toggle]");if(n){const d=document.documentElement;const open=d.toggleAttribute("data-blume-nav-open");if(open){dr();}}const b=e.target.closest("[data-blume-banner-dismiss]");if(b){document.documentElement.setAttribute("data-blume-banner-hidden","");requestAnimationFrame(dr);const bar=b.closest("[data-blume-banner]");const k=bar&&bar.getAttribute("data-banner-key");if(k){save("blume-banner:"+k,"1");}}});addEventListener("resize",()=>{const d=document.documentElement;if(!d.hasAttribute("data-blume-nav-open")){return;}if(matchMedia("(min-width:64rem)").matches){d.removeAttribute("data-blume-nav-open");}else{dr();}});})();`;
+---
+
+<header
+  class="osrs-site-header osrs-text sticky top-0 z-40 flex h-16 items-center gap-2 px-4 sm:gap-3 md:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(max-content,1fr)]"
+  data-blume-header
+  data-blume-header-transparent={transparent ? "" : undefined}
+>
+  {/* From `lg` the header is three columns, so the tabs sit at its center:
+      the logo side and the controls side share the rest equally. The logo
+      side may shrink to nothing (its title truncates, as on phones); the
+      controls never shrink, so when they need more than half, the tabs move
+      over rather than overlap. Below `lg` it's one row, tabs after the logo. */}
+  <div class="flex min-w-0 items-center gap-2 sm:gap-3 lg:col-start-1">
+    {
+      showNavToggle && (
+        <button
+          aria-controls="blume-nav-drawer"
+          aria-expanded="false"
+          aria-label={n.toggleNavigation}
+          class={`${iconButton} lg:hidden`}
+          data-blume-nav-toggle
+          type="button"
+        >
+          <buttonSprites.menu className="group-hover:hidden" />
+          <buttonSprites.menuSelected className="hidden group-hover:block" />
+        </button>
+      )
+    }
+    <LogoSlot locale={locale} logo={logo} site={site} />
+    {
+      navigation.selectors.length > 0 && (
+        <div class:list={["flex items-center gap-1.5", switcherClass]}>
+          {navigation.selectors.map((selector) => (
+            <NavSelector route={route} selector={selector} />
+          ))}
+        </div>
+      )
+    }
+  </div>
+  {
+    navigation.tabs.length > 0 && (
+      <nav aria-label={n.sections} class:list={[tabsNavClass, "lg:col-start-2"]}>
+        {navigation.tabs.map((tab) =>
+          tab.items && tab.items.length > 0 ? (
+            <NavTabMenu
+              active={tab === activeTab}
+              route={route}
+              tab={tab}
+              variant="bar"
+            />
+          ) : (
+            <a
+              aria-current={tab === activeTab ? "page" : undefined}
+              class="osrs-site-tab inline-flex items-center gap-1.5"
+              href={withMountedBase(tab.href ?? tab.path)}
+            >
+              {tab.icon && (
+                <Icon class="shrink-0" name={tab.icon} size={14} />
+              )}
+              {tab.label}
+            </a>
+          )
+        )}
+      </nav>
+    )
+  }
+  <div class="flex-1 lg:hidden"></div>
+  {/* Everything on the right sits in one group with a tight gap: the version
+      and language pickers, the header links, and the icon buttons. Below `lg`
+      the spacer absorbs its width, so pages without a version selector (blog,
+      generated references) keep the logo and tabs in place — no layout shift
+      when crossing into the docs. */}
+  <div class="flex shrink-0 items-center gap-1 lg:col-start-3 lg:justify-self-end">
+    {
+      versionSelector && (
+        <div class={switcherClass}>
+          <NavSelector align="end" route={route} selector={versionSelector} />
+        </div>
+      )
+    }
+    {
+      localeSwitch && localeSwitch.length > 1 && (
+        <div class={switcherClass}>
+          <LanguageSwitcher
+            label={switcherStrings?.label ?? "Language"}
+            options={localeSwitch}
+            untranslatedLabel={switcherStrings?.untranslated ?? "Not translated"}
+          />
+        </div>
+      )
+    }
+    {
+      /* Plain links first, then the one filled button: the reader's eye lands
+         on the button because nothing beside it competes. */
+      (navigation.actions ?? []).map((action) => (
+        <a
+          class={actionClass}
+          href={withBase(action.href)}
+          {...newTabAttrs(action.href)}
+        >
+          {action.label}
+        </a>
+      ))
+    }
+    {
+      navigation.cta && (
+        <a
+          class={ctaClass}
+          href={withBase(navigation.cta.href)}
+          {...newTabAttrs(navigation.cta.href)}
+        >
+          {navigation.cta.label}
+          <Icon name="chevron-right" size={14} />
+        </a>
+      )
+    }
+    {
+      /* The icon buttons, each named by a tooltip. The site's repository and
+         social profiles live in the footer. */
+      searchEnabled && (
+        <SearchSlot
+          assistantEnabled={assistantEnabled}
+          locale={searchLocale}
+          navigation={navigation}
+          popularPages={data.config.search.popular}
+          strings={searchStrings}
+          version={searchVersion}
+        />
+      )
+    }
+    {assistantEnabled && <Ask strings={assistantStrings} />}
+  </div>
+</header>
+<script is:inline set:html={clickScript} />
+{transparent && <script is:inline set:html={transparentScript} />}
+
+<style is:global>
+  /* The header's icon buttons are named by a tooltip below them, shown on hover
+     (where there is one) and on keyboard focus. It hangs from the button's end
+     edge, so the last button's tooltip never runs past the viewport, and it
+     keeps the page's own colors under a transparent header. */
+  [data-blume-tooltip] {
+    position: relative;
+  }
+  [data-blume-tooltip]::after {
+    content: attr(data-blume-tooltip);
+    position: absolute;
+    top: calc(100% + 0.375rem);
+    inset-inline-end: 0;
+    z-index: 50;
+    padding: 1px 4px;
+    border: 1px solid #000;
+    background-color: var(--osrs-tooltip);
+    color: #000;
+    font-family: var(--osrs-font);
+    font-size: 16px;
+    line-height: 15px;
+    text-shadow: none;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 120ms ease,
+      visibility 0s linear 120ms;
+  }
+  [data-blume-tooltip]:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 120ms ease;
+  }
+  @media (hover: hover) {
+    [data-blume-tooltip]:hover::after {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 120ms ease 400ms;
+    }
+  }
+  /* Transparent header (PageLayout `transparentHeader`): at the top of the
+     page the bar has no background and its chrome renders in white so it can
+     sit over a dark hero; once scrolled it is the frosted bar again. The color
+     tokens are re-declared on the header so every utility inside follows, and
+     the search dialog gets the page's own values back so it isn't inverted. */
+  :root {
+    --blume-header-background: var(--blume-background);
+    --blume-header-foreground: var(--blume-foreground);
+    --blume-header-muted: var(--blume-muted);
+    --blume-header-muted-foreground: var(--blume-muted-foreground);
+    --blume-header-border: var(--blume-border);
+  }
+  [data-blume-header-transparent] {
+    transition: background-color 200ms;
+  }
+  [data-blume-header-transparent]:not([data-blume-header-scrolled]) {
+    --blume-background: transparent;
+    --blume-foreground: #fff;
+    --blume-muted: rgb(255 255 255 / 0.12);
+    --blume-muted-foreground: rgb(255 255 255 / 0.75);
+    --blume-border: rgb(255 255 255 / 0.25);
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+  [data-blume-header-transparent]:not([data-blume-header-scrolled]) dialog {
+    --blume-background: var(--blume-header-background);
+    --blume-foreground: var(--blume-header-foreground);
+    --blume-muted: var(--blume-header-muted);
+    --blume-muted-foreground: var(--blume-header-muted-foreground);
+    --blume-border: var(--blume-header-border);
+  }
+</style>

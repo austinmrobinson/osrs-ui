@@ -1,0 +1,176 @@
+---
+import { newTabAttrs } from "blume/core/new-tab.ts";
+import { contentHref } from "blume/components/content/base-href.ts";
+import { unwrapParagraph } from "blume/components/content/inline-markdown.ts";
+import { tooltipId as tooltipIdFor } from "blume/components/content/tooltip-id.ts";
+
+interface Props {
+  cta?: string;
+  headline?: string;
+  href?: string;
+  tip: string;
+}
+
+const { cta, headline, href, tip } = Astro.props;
+
+const labelHtml = Astro.slots.has("default")
+  ? unwrapParagraph(await Astro.slots.render("default"))
+  : "";
+// Derived from the content, so an unchanged page rebuilds byte-identical.
+const tooltipId = tooltipIdFor(Astro.locals, [
+  labelHtml,
+  headline,
+  tip,
+  cta,
+  href,
+]);
+---
+
+<span
+  class="not-prose relative inline-flex cursor-help items-baseline"
+  data-blume-tooltip
+>
+  <span
+    aria-describedby={tooltipId}
+    class="underline decoration-dotted underline-offset-4"
+    data-blume-tooltip-trigger
+    tabindex="0"
+    set:html={labelHtml}
+  />
+  <span
+    class="absolute bottom-full left-1/2 z-20 mb-2 w-max max-w-[min(20rem,calc(100vw-1rem))] -translate-x-1/2 rounded-blume border border-border bg-background p-3 text-start font-sans text-foreground text-sm shadow-lg"
+    data-blume-narration="skip"
+    data-blume-tooltip-panel
+    id={tooltipId}
+    role="tooltip"
+  >
+    {headline && <span class="mb-1 block font-semibold">{headline}</span>}
+    <span class="block text-muted-foreground leading-5">{tip}</span>
+    {
+      cta && href && (
+        <a
+          class="mt-2 inline-flex font-medium text-accent text-xs hover:underline"
+          href={contentHref(href)}
+          {...newTabAttrs(href)}
+        >
+          {cta}
+        </a>
+      )
+    }
+  </span>
+</span>
+
+<style>
+  /* Out of layout while hidden, not just invisible: a hidden panel past the
+     inline end of a line would otherwise still widen the page. */
+  [data-blume-tooltip-panel] {
+    display: none;
+  }
+
+  /* Focus anywhere inside keeps it open, so a keyboard reader can Tab from
+     the trigger to the call-to-action link without the panel vanishing. */
+  [data-blume-tooltip]:hover [data-blume-tooltip-panel],
+  [data-blume-tooltip]:focus-within [data-blume-tooltip-panel] {
+    display: block;
+  }
+
+  /* Bridge the gap down to the trigger, so the pointer keeps the tooltip
+     hovered on its way to the panel's link (WCAG 1.4.13). The extra pixel is
+     the bottom border, which top: 100% starts inside. */
+  [data-blume-tooltip-panel]::after {
+    content: "";
+    height: calc(0.5rem + 1px);
+    inset-inline: 0;
+    position: absolute;
+    top: 100%;
+  }
+
+  /* Escape hides it until the pointer or focus leaves (WCAG 1.4.13). */
+  [data-blume-tooltip][data-dismissed] [data-blume-tooltip-panel] {
+    display: none;
+  }
+</style>
+
+<script>
+  // Delegated from the document, so tooltips a client-router swap brings in
+  // are covered without re-binding; the module runs once per real load.
+  const TOOLTIP = "[data-blume-tooltip]";
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") {
+      return;
+    }
+    for (const tooltip of document.querySelectorAll(TOOLTIP)) {
+      if (tooltip.matches(":hover, :focus-within")) {
+        tooltip.setAttribute("data-dismissed", "");
+      }
+    }
+  });
+
+  // Leaving the tooltip re-arms it for the next hover or focus.
+  const rearm = (event: FocusEvent | PointerEvent) => {
+    const tooltip =
+      event.target instanceof Element ? event.target.closest(TOOLTIP) : null;
+    const { relatedTarget } = event;
+    if (
+      tooltip &&
+      !(relatedTarget instanceof Node && tooltip.contains(relatedTarget))
+    ) {
+      tooltip.removeAttribute("data-dismissed");
+    }
+  };
+  document.addEventListener("focusout", rearm);
+  document.addEventListener("pointerout", rearm);
+
+  // The panel centers over its trigger, so near either edge of the viewport
+  // it would run off-screen. As it shows, shift it in by the overhang.
+  const VIEWPORT_MARGIN = 8;
+  const place = (tooltip: Element) => {
+    const panel = tooltip.querySelector<HTMLElement>(
+      "[data-blume-tooltip-panel]"
+    );
+    if (!panel) {
+      return true;
+    }
+    // Measure it parked off the side the page can't scroll toward: a panel
+    // laid out past the viewport's end even for a moment leaves WebKit's page
+    // scroll width stuck wide.
+    const rtl = getComputedStyle(document.documentElement).direction === "rtl";
+    panel.style.marginLeft = rtl ? "100vw" : "-100vw";
+    const { width } = panel.getBoundingClientRect();
+    // Zero width: not showing (yet, or any more).
+    if (width === 0) {
+      return false;
+    }
+    const anchor = tooltip.getBoundingClientRect();
+    const left = anchor.left + anchor.width / 2 - width / 2;
+    const end = document.documentElement.clientWidth - VIEWPORT_MARGIN;
+    let shift = 0;
+    if (left < VIEWPORT_MARGIN) {
+      shift = VIEWPORT_MARGIN - left;
+    } else if (left + width > end) {
+      shift = end - left - width;
+    }
+    panel.style.marginLeft = `${shift}px`;
+    return true;
+  };
+
+  // Hover and focus styles already apply when these events fire; should the
+  // panel not show yet, place it in the next frame, before it paints.
+  const show = (event: FocusEvent | PointerEvent) => {
+    const tooltip =
+      event.target instanceof Element ? event.target.closest(TOOLTIP) : null;
+    const { relatedTarget } = event;
+    if (
+      tooltip &&
+      !(relatedTarget instanceof Node && tooltip.contains(relatedTarget)) &&
+      !place(tooltip)
+    ) {
+      requestAnimationFrame(() => {
+        place(tooltip);
+      });
+    }
+  };
+  document.addEventListener("focusin", show);
+  document.addEventListener("pointerover", show);
+</script>

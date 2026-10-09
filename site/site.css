@@ -58,16 +58,6 @@ html body article strong { color: var(--osrs-white); font-weight: 400; }
 html body article a:not([class*="osrs-"]) { color: var(--osrs-yellow); text-decoration: none; }
 html body article a:not([class*="osrs-"]):hover { color: var(--osrs-white); }
 
-/* Header: stone bar with a rivet strip underneath */
-html body > div header, html body header.sticky {
-  background-color: #3e3529 !important;
-  background-image: var(--osrs-texture-stone) !important;
-  background-size: calc(88 * var(--osrs-px)) calc(60 * var(--osrs-px)) !important;
-  backdrop-filter: none !important;
-  border-bottom: calc(6 * var(--osrs-px)) solid transparent;
-  border-image: var(--osrs-texture-rivets-horizontal) 15 0 15 0 / 0 0 calc(6 * var(--osrs-px)) 0 / 0 repeat;
-}
-
 /* Code: sunken wells, Plain 12 is not a code font so keep mono */
 html body pre, html body :not(pre) > code {
   background: var(--osrs-well) !important;
@@ -229,3 +219,196 @@ html body article :is(h1, h2, h3, h4, h5, h6) a { font-size: inherit !important;
 .osrs-site-card:hover { filter: brightness(1.15); }
 .osrs-site-card-title { font-family: var(--osrs-font-bold); color: var(--osrs-white); }
 .osrs-site-card-body, .osrs-site-card-body p { color: var(--osrs-orange) !important; margin: 0; }
+
+
+/* =========================================================================
+ * Migrated Blume chrome (components/blume/*.astro), drawn with the library
+ * ========================================================================= */
+
+/* Header: a stone bar with a riveted steel strip underneath */
+.osrs-site-header {
+  --osrs-px: 1px;
+  background-color: var(--osrs-stone);
+  background-image: var(--osrs-texture-stone);
+  background-size: 88px 60px;
+  border-bottom: 6px solid transparent;
+  border-image: var(--osrs-texture-rivets-horizontal) 15 0 15 0 / 0 0 6px 0 / 0 repeat;
+}
+.osrs-site-icon-button { border: 0; padding: 0; background: transparent; color: var(--osrs-orange); }
+.osrs-site-header-link { color: var(--osrs-orange); text-decoration: none; padding: 0 8px; }
+.osrs-site-header-link:hover { color: var(--osrs-white); }
+
+/* Search: a metal-cornered button and a rivet-framed dialog */
+html body [data-blume-search-open] {
+  --osrs-px: 1px;
+  position: relative;
+  isolation: isolate;
+  width: 34px; height: 30px;
+  border-radius: 0 !important;
+  color: var(--osrs-orange) !important;
+  background: rgb(0 0 0 / 0.15) !important;
+}
+html body [data-blume-search-open]::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent; border-width: 9px;
+  border-image: var(--osrs-frame-metal-button) 9 / 9px / 0 repeat;
+}
+html body [data-blume-search-open]:hover { color: var(--osrs-white) !important; }
+html body [data-blume-search-open]:hover::before { border-image-source: var(--osrs-frame-metal-button-hover); }
+html body [data-blume-search-dialog] {
+  --osrs-px: 1px;
+  isolation: isolate;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 8px !important;
+  background-color: var(--osrs-stone) !important;
+  background-image: var(--osrs-texture-stone);
+  background-size: 88px 60px;
+  backdrop-filter: none !important;
+  color: var(--osrs-orange) !important;
+}
+html body [data-blume-search-dialog]::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent; border-width: 30px 25px;
+  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
+}
+html body [data-blume-search-dialog]::backdrop { background: rgb(0 0 0 / 0.55); }
+html body [data-blume-search-dialog] > div:first-child {
+  background: var(--osrs-well);
+  box-shadow: inset 1px 1px 0 var(--osrs-border-outer), inset -1px -1px 0 var(--osrs-border-inner), 0 0 0 1px #000;
+  border: 0 !important;
+  margin-bottom: 6px;
+}
+html body [data-blume-search-input] { color: var(--osrs-white) !important; font-family: var(--osrs-font); font-size: 16px !important; }
+html body [data-blume-search-dialog] :is(div, footer) { border-color: #1f1a14 !important; }
+html body [data-blume-search-dialog] [role="option"][aria-selected="true"],
+html body [data-blume-search-dialog] [role="option"]:hover { background: rgb(255 255 255 / 0.12) !important; color: var(--osrs-white); }
+
+/* The article is an interface window: rivet frame on stone. Previews and code
+   sit in dark wells inside it, so components keep their contrast. */
+html body main > article {
+  --osrs-px: 1px;
+  position: relative;
+  isolation: isolate;
+  margin-top: 8px;
+  padding: 18px 28px 28px;
+  background-color: var(--osrs-stone);
+  background-image: var(--osrs-texture-stone);
+  background-size: 88px 60px;
+}
+html body main > article::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent; border-width: 30px 25px;
+  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
+}
+/* Page title reads as the window title, with a riveted divider under it */
+html body main > article > :is(header, div):first-child h1,
+html body main > article h1:first-of-type {
+  text-align: center;
+  margin-bottom: 4px !important;
+}
+html body main > article h1:first-of-type + p,
+html body main > article header p {
+  text-align: center;
+}
+html body main > article h1:first-of-type::after {
+  content: "";
+  display: block;
+  height: 6px;
+  margin: 10px -22px 0;
+  background-image: var(--osrs-texture-rivets-horizontal);
+  background-size: 36px 36px;
+  background-position: 0 -15px;
+  background-repeat: repeat-x;
+}
+html body main > article h2 { border-bottom: 1px solid #1f1a14; box-shadow: 0 1px 0 #5d5848; padding-bottom: 4px; }
+/* Light wells for inline code/tables inside the window */
+html body main > article table { background: rgb(0 0 0 / 0.12); }
+
+/* Breadcrumbs */
+.osrs-site-crumbs { --osrs-px: 1px; color: var(--osrs-orange); }
+.osrs-site-crumb-link { color: var(--osrs-orange); text-decoration: none; }
+.osrs-site-crumb-link:hover { color: var(--osrs-white); }
+
+/* On-this-page rail: rivet-framed stone panel with striped rows */
+.osrs-site-rail {
+  --osrs-px: 1px;
+  position: relative;
+  isolation: isolate;
+  padding: 8px;
+  background-color: var(--osrs-stone);
+  background-image: var(--osrs-texture-side-panel);
+  background-size: 88px 60px;
+}
+.osrs-site-rail::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent; border-width: 30px 25px;
+  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
+}
+.osrs-site-rail .osrs-section-title { margin-bottom: 4px; }
+.osrs-site-toc-link { display: flex; min-height: 22px; color: var(--osrs-orange); text-decoration: none; }
+.osrs-site-toc-link:hover { color: var(--osrs-white); }
+.osrs-site-toc-link[aria-current="location"] { background: rgb(255 255 255 / 0.18) !important; color: var(--osrs-white); }
+html body [data-blume-toc] { font-size: 16px; }
+html body [data-blume-toc] a:not(.osrs-site-toc-link) { color: var(--osrs-orange); }
+html body [data-blume-toc] a:not(.osrs-site-toc-link):hover { color: var(--osrs-white); }
+.osrs-site-toc-mobile { --osrs-px: 1px; }
+.osrs-site-toc-mobile[open] > summary { margin-bottom: 4px; }
+.osrs-site-toc-mobile .osrs-list { background: var(--osrs-well); }
+
+/* Header nav tabs, Tabs triggers outside previews */
+.osrs-site-tab { color: var(--osrs-orange); text-decoration: none; }
+.osrs-site-tab[aria-current="page"] { color: var(--osrs-white); }
+
+/* Steps: riveted rail with stone-button numbers */
+.osrs-site-steps { --osrs-px: 1px; position: relative; padding-left: 44px; }
+.osrs-site-steps::before {
+  content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 6px;
+  background-image: var(--osrs-texture-rivets-vertical);
+  background-size: 36px 36px; background-position: -15px 0; background-repeat: repeat-y;
+}
+.osrs-site-step-marker {
+  position: absolute; left: -44px; top: -2px;
+  width: 30px; min-height: 26px !important; padding: 0 !important;
+  font-size: 16px;
+}
+.osrs-site-step-title { font-family: var(--osrs-font-bold); color: var(--osrs-white); }
+
+/* Badge */
+.osrs-site-badge { --osrs-px: 1px; padding: 2px 8px; color: var(--osrs-yellow); font-size: 16px; }
+
+/* Tiles, frames, accordions */
+.osrs-site-tile { --osrs-px: 2px; text-decoration: none !important; }
+.osrs-site-tile:hover { filter: brightness(1.12); }
+.osrs-site-frame { --osrs-px: 2px; background: var(--osrs-well); }
+.osrs-site-accordion { --osrs-px: 2px; padding: 4px; }
+.osrs-site-accordion > details + details { box-shadow: 0 -1px 0 #1f1a14, inset 0 1px 0 #5d5848; }
+.osrs-site-accordion-summary { padding: 8px 10px; font-family: var(--osrs-font-bold); color: var(--osrs-orange); }
+.osrs-site-accordion-summary:hover { color: var(--osrs-white); }
+.osrs-site-accordion-icon { --osrs-px: 1px; display: inline-flex; }
+details[open] > summary .osrs-site-accordion-plus,
+details:not([open]) > summary .osrs-site-accordion-minus { display: none; }
+.osrs-site-accordion-body { padding: 0 10px 10px; }
+
+/* Page actions in the rail (Copy page, etc.) */
+html body [data-blume-toc] :is(a, button) { font-family: var(--osrs-font); }
+
+/* Search dialog: filter chips and keys as bevelled OSRS buttons */
+html body [data-blume-search-dialog] button:not([data-blume-search-open]),
+html body [data-blume-search-dialog] kbd {
+  border-radius: 0 !important;
+  border: 0 !important;
+  background: #4b4135 !important;
+  color: var(--osrs-orange) !important;
+  box-shadow: inset 1px 1px 0 #6c6050, inset -1px -1px 0 #2f281f, 0 0 0 1px #1f1a14 !important;
+  font-family: var(--osrs-font) !important;
+  font-size: 16px !important;
+}
+html body [data-blume-search-dialog] button:is(.bg-accent, [aria-pressed="true"], [aria-selected="true"]) {
+  background: var(--osrs-stone-bright) !important;
+  color: var(--osrs-white) !important;
+}
+html body [data-blume-search-dialog] mark { background: transparent; color: var(--osrs-yellow); }
+/* Rail page actions read as menu options */
+html body [data-blume-toc] :is(a, button):not(.osrs-site-toc-link) { color: var(--osrs-orange) !important; font-size: 16px; }
+html body [data-blume-toc] :is(a, button):not(.osrs-site-toc-link):hover { color: var(--osrs-white) !important; }
