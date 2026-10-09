@@ -1,0 +1,19 @@
+---
+title: Chatbox
+description: "The parchment chatbox, chat filter tabs, NPC dialogue and Select an Option."
+---
+
+<Component path="chatbox/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/chatbox.json
+```
+
+## Usage
+
+```tsx
+<NpcDialogue name="Hans" onContinue={next}>Hello. What are you doing here?</NpcDialogue>
+<OptionDialogue options={["Yes", "No"]} onSelect={choose} />
+```

@@ -1,0 +1,23 @@
+---
+title: Select
+description: "A dropdown on Base UI Select, drawn as a sunken field with the scroll-arrow button."
+---
+
+<Component path="select/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/select.json
+```
+
+## Usage
+
+```tsx
+<Select defaultValue="exact" items={{ exact: "Exact Value" }}>
+  <SelectTrigger />
+  <SelectContent>
+    <SelectItem value="exact">Exact Value</SelectItem>
+  </SelectContent>
+</Select>
+```

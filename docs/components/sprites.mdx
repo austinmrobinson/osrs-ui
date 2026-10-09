@@ -1,0 +1,21 @@
+---
+title: Sprites
+description: "Every sprite group as generated React components: tabs, prayers, combat styles, bank, orbs, GE, glyphs and chevrons."
+---
+
+<Component path="sprites/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/prayer-sprites.json
+```
+
+## Usage
+
+```tsx
+import { prayerSprites, PietyPrayer } from "@/components/ui/prayer-sprites"
+
+<PietyPrayer scale={2} />
+{Object.entries(prayerSprites).map(([name, Sprite]) => <Sprite key={name} />)}
+```

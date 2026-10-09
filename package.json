@@ -6,7 +6,7 @@
     "dev": "blume dev",
     "build": "tsx scripts/export-assets.ts && pnpm registry:build && blume build",
     "doctor": "blume doctor",
-    "assets": "tsx scripts/build-assets.ts && tsx scripts/build-css.ts && tsx scripts/build-icons.ts && tsx scripts/export-assets.ts",
+    "assets": "tsx scripts/build-assets.ts && tsx scripts/build-css.ts && tsx scripts/build-sprites.ts && tsx scripts/export-assets.ts",
     "verify:pixels": "tsx scripts/verify-pixels.ts",
     "registry:build": "tsx scripts/build-registry.ts && shadcn build -o public/r",
     "typecheck": "tsc -p .",

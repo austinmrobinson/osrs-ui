@@ -1,0 +1,23 @@
+---
+title: Nav List
+description: "The vertical category buttons from the All Settings window."
+---
+
+<Component path="nav-list/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/nav-list.json
+```
+
+## Usage
+
+```tsx
+<Tabs orientation="vertical" defaultValue="audio">
+  <NavList>
+    <NavItem value="audio">Audio</NavItem>
+  </NavList>
+  <TabsContent value="audio">…</TabsContent>
+</Tabs>
+```

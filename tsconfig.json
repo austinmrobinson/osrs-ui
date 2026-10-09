@@ -10,9 +10,24 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "paths": {
-      "@/lib/*": ["./registry/osrs/lib/*"],
-      "@/*": ["./*"]
+      "@/lib/*": [
+        "./registry/osrs/lib/*"
+      ],
+      "@/components/ui/*": [
+        "./registry/osrs/ui/*"
+      ],
+      "@/*": [
+        "./*"
+      ]
     }
   },
-  "include": ["registry", "scripts", "islands", "site", "examples", "sprites.config.ts", "blume.config.ts"]
+  "include": [
+    "registry",
+    "scripts",
+    "islands",
+    "site",
+    "examples",
+    "sprites.config.ts",
+    "blume.config.ts"
+  ]
 }

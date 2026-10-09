@@ -1,0 +1,19 @@
+---
+title: Skill Tile
+description: "Stats-tab tiles with current and base levels, plus the total-level tile."
+---
+
+<Component path="skill-tile/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/skill-tile.json
+```
+
+## Usage
+
+```tsx
+<SkillTile skill="strength" level={99} boosted={118} />
+<TotalLevelTile total={2277} />
+```

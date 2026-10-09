@@ -560,8 +560,52 @@
     "group": "texture",
     "label": "Side panel stone",
     "file": "texture/side-panel.svg",
-    "width": 190,
-    "height": 261
+    "width": 88,
+    "height": 60
+  },
+  {
+    "name": "chatbox",
+    "group": "frame",
+    "label": "Chatbox frame",
+    "file": "frame/chatbox.svg",
+    "width": 66,
+    "height": 66,
+    "slice": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "border": [
+      9,
+      9,
+      9,
+      9
+    ]
+  },
+  {
+    "name": "progress-green",
+    "group": "texture",
+    "label": "Progress bar (green)",
+    "file": "texture/progress-green.svg",
+    "width": 1,
+    "height": 27
+  },
+  {
+    "name": "progress-grey",
+    "group": "texture",
+    "label": "Progress bar (grey)",
+    "file": "texture/progress-grey.svg",
+    "width": 1,
+    "height": 27
+  },
+  {
+    "name": "progress-notch",
+    "group": "texture",
+    "label": "Progress bar notch",
+    "file": "texture/progress-notch.svg",
+    "width": 10,
+    "height": 31
   },
   {
     "name": "rivets-horizontal",
@@ -738,5 +782,3845 @@
     "file": "control/separator.svg",
     "width": 12,
     "height": 12
+  },
+  {
+    "name": "activated-background",
+    "group": "prayer",
+    "label": "Activated Background",
+    "file": "prayer/activated-background.svg",
+    "width": 34,
+    "height": 34
+  },
+  {
+    "name": "augury",
+    "group": "prayer",
+    "label": "Augury",
+    "file": "prayer/augury.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "augury-disabled",
+    "group": "prayer",
+    "label": "Augury Disabled",
+    "file": "prayer/augury-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "burst-of-strength",
+    "group": "prayer",
+    "label": "Burst Of Strength",
+    "file": "prayer/burst-of-strength.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "burst-of-strength-disabled",
+    "group": "prayer",
+    "label": "Burst Of Strength Disabled",
+    "file": "prayer/burst-of-strength-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "chivalry",
+    "group": "prayer",
+    "label": "Chivalry",
+    "file": "prayer/chivalry.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "chivalry-disabled",
+    "group": "prayer",
+    "label": "Chivalry Disabled",
+    "file": "prayer/chivalry-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "clarity-of-thought",
+    "group": "prayer",
+    "label": "Clarity Of Thought",
+    "file": "prayer/clarity-of-thought.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "clarity-of-thought-disabled",
+    "group": "prayer",
+    "label": "Clarity Of Thought Disabled",
+    "file": "prayer/clarity-of-thought-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "deadeye",
+    "group": "prayer",
+    "label": "Deadeye",
+    "file": "prayer/deadeye.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "deadeye-disabled",
+    "group": "prayer",
+    "label": "Deadeye Disabled",
+    "file": "prayer/deadeye-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "eagle-eye",
+    "group": "prayer",
+    "label": "Eagle Eye",
+    "file": "prayer/eagle-eye.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "eagle-eye-disabled",
+    "group": "prayer",
+    "label": "Eagle Eye Disabled",
+    "file": "prayer/eagle-eye-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "hawk-eye",
+    "group": "prayer",
+    "label": "Hawk Eye",
+    "file": "prayer/hawk-eye.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "hawk-eye-disabled",
+    "group": "prayer",
+    "label": "Hawk Eye Disabled",
+    "file": "prayer/hawk-eye-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "icon-small",
+    "group": "prayer",
+    "label": "Icon Small",
+    "file": "prayer/icon-small.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "improved-reflexes",
+    "group": "prayer",
+    "label": "Improved Reflexes",
+    "file": "prayer/improved-reflexes.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "improved-reflexes-disabled",
+    "group": "prayer",
+    "label": "Improved Reflexes Disabled",
+    "file": "prayer/improved-reflexes-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "incredible-reflexes",
+    "group": "prayer",
+    "label": "Incredible Reflexes",
+    "file": "prayer/incredible-reflexes.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "incredible-reflexes-disabled",
+    "group": "prayer",
+    "label": "Incredible Reflexes Disabled",
+    "file": "prayer/incredible-reflexes-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "mystic-lore",
+    "group": "prayer",
+    "label": "Mystic Lore",
+    "file": "prayer/mystic-lore.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "mystic-lore-disabled",
+    "group": "prayer",
+    "label": "Mystic Lore Disabled",
+    "file": "prayer/mystic-lore-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "mystic-might",
+    "group": "prayer",
+    "label": "Mystic Might",
+    "file": "prayer/mystic-might.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "mystic-might-disabled",
+    "group": "prayer",
+    "label": "Mystic Might Disabled",
+    "file": "prayer/mystic-might-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "mystic-vigour",
+    "group": "prayer",
+    "label": "Mystic Vigour",
+    "file": "prayer/mystic-vigour.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "mystic-vigour-disabled",
+    "group": "prayer",
+    "label": "Mystic Vigour Disabled",
+    "file": "prayer/mystic-vigour-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "mystic-will",
+    "group": "prayer",
+    "label": "Mystic Will",
+    "file": "prayer/mystic-will.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "mystic-will-disabled",
+    "group": "prayer",
+    "label": "Mystic Will Disabled",
+    "file": "prayer/mystic-will-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "piety",
+    "group": "prayer",
+    "label": "Piety",
+    "file": "prayer/piety.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "piety-disabled",
+    "group": "prayer",
+    "label": "Piety Disabled",
+    "file": "prayer/piety-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "preserve",
+    "group": "prayer",
+    "label": "Preserve",
+    "file": "prayer/preserve.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "preserve-disabled",
+    "group": "prayer",
+    "label": "Preserve Disabled",
+    "file": "prayer/preserve-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "protect-from-magic",
+    "group": "prayer",
+    "label": "Protect From Magic",
+    "file": "prayer/protect-from-magic.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "protect-from-magic-disabled",
+    "group": "prayer",
+    "label": "Protect From Magic Disabled",
+    "file": "prayer/protect-from-magic-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "protect-from-melee",
+    "group": "prayer",
+    "label": "Protect From Melee",
+    "file": "prayer/protect-from-melee.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "protect-from-melee-disabled",
+    "group": "prayer",
+    "label": "Protect From Melee Disabled",
+    "file": "prayer/protect-from-melee-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "protect-from-missiles",
+    "group": "prayer",
+    "label": "Protect From Missiles",
+    "file": "prayer/protect-from-missiles.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "protect-from-missiles-disabled",
+    "group": "prayer",
+    "label": "Protect From Missiles Disabled",
+    "file": "prayer/protect-from-missiles-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "protect-item",
+    "group": "prayer",
+    "label": "Protect Item",
+    "file": "prayer/protect-item.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "protect-item-disabled",
+    "group": "prayer",
+    "label": "Protect Item Disabled",
+    "file": "prayer/protect-item-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "rapid-heal",
+    "group": "prayer",
+    "label": "Rapid Heal",
+    "file": "prayer/rapid-heal.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "rapid-heal-disabled",
+    "group": "prayer",
+    "label": "Rapid Heal Disabled",
+    "file": "prayer/rapid-heal-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "rapid-restore",
+    "group": "prayer",
+    "label": "Rapid Restore",
+    "file": "prayer/rapid-restore.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "rapid-restore-disabled",
+    "group": "prayer",
+    "label": "Rapid Restore Disabled",
+    "file": "prayer/rapid-restore-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "redemption",
+    "group": "prayer",
+    "label": "Redemption",
+    "file": "prayer/redemption.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "redemption-disabled",
+    "group": "prayer",
+    "label": "Redemption Disabled",
+    "file": "prayer/redemption-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "retribution",
+    "group": "prayer",
+    "label": "Retribution",
+    "file": "prayer/retribution.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "retribution-disabled",
+    "group": "prayer",
+    "label": "Retribution Disabled",
+    "file": "prayer/retribution-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "rigour",
+    "group": "prayer",
+    "label": "Rigour",
+    "file": "prayer/rigour.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "rigour-disabled",
+    "group": "prayer",
+    "label": "Rigour Disabled",
+    "file": "prayer/rigour-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "rock-skin",
+    "group": "prayer",
+    "label": "Rock Skin",
+    "file": "prayer/rock-skin.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "rock-skin-disabled",
+    "group": "prayer",
+    "label": "Rock Skin Disabled",
+    "file": "prayer/rock-skin-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "sharp-eye",
+    "group": "prayer",
+    "label": "Sharp Eye",
+    "file": "prayer/sharp-eye.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "sharp-eye-disabled",
+    "group": "prayer",
+    "label": "Sharp Eye Disabled",
+    "file": "prayer/sharp-eye-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "smite",
+    "group": "prayer",
+    "label": "Smite",
+    "file": "prayer/smite.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "smite-disabled",
+    "group": "prayer",
+    "label": "Smite Disabled",
+    "file": "prayer/smite-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "steel-skin",
+    "group": "prayer",
+    "label": "Steel Skin",
+    "file": "prayer/steel-skin.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "steel-skin-disabled",
+    "group": "prayer",
+    "label": "Steel Skin Disabled",
+    "file": "prayer/steel-skin-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "superhuman-strength",
+    "group": "prayer",
+    "label": "Superhuman Strength",
+    "file": "prayer/superhuman-strength.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "superhuman-strength-disabled",
+    "group": "prayer",
+    "label": "Superhuman Strength Disabled",
+    "file": "prayer/superhuman-strength-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "thick-skin",
+    "group": "prayer",
+    "label": "Thick Skin",
+    "file": "prayer/thick-skin.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "thick-skin-disabled",
+    "group": "prayer",
+    "label": "Thick Skin Disabled",
+    "file": "prayer/thick-skin-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "ultimate-strength",
+    "group": "prayer",
+    "label": "Ultimate Strength",
+    "file": "prayer/ultimate-strength.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "ultimate-strength-disabled",
+    "group": "prayer",
+    "label": "Ultimate Strength Disabled",
+    "file": "prayer/ultimate-strength-disabled.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "activity-adviser",
+    "group": "orb",
+    "label": "Activity Adviser",
+    "file": "orb/activity-adviser.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "activity-adviser-icon",
+    "group": "orb",
+    "label": "Activity Adviser Icon",
+    "file": "orb/activity-adviser-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "empty",
+    "group": "orb",
+    "label": "Empty",
+    "file": "orb/empty.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "frame",
+    "group": "orb",
+    "label": "Frame",
+    "file": "orb/frame.svg",
+    "width": 57,
+    "height": 34
+  },
+  {
+    "name": "frame-flashing",
+    "group": "orb",
+    "label": "Frame Flashing",
+    "file": "orb/frame-flashing.svg",
+    "width": 57,
+    "height": 34
+  },
+  {
+    "name": "frame-hovered",
+    "group": "orb",
+    "label": "Frame Hovered",
+    "file": "orb/frame-hovered.svg",
+    "width": 57,
+    "height": 34
+  },
+  {
+    "name": "frame-small",
+    "group": "orb",
+    "label": "Frame Small",
+    "file": "orb/frame-small.svg",
+    "width": 34,
+    "height": 34
+  },
+  {
+    "name": "frame-small-hovered",
+    "group": "orb",
+    "label": "Frame Small Hovered",
+    "file": "orb/frame-small-hovered.svg",
+    "width": 34,
+    "height": 34
+  },
+  {
+    "name": "hitpoints",
+    "group": "orb",
+    "label": "Hitpoints",
+    "file": "orb/hitpoints.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "hitpoints-disease",
+    "group": "orb",
+    "label": "Hitpoints Disease",
+    "file": "orb/hitpoints-disease.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "hitpoints-icon",
+    "group": "orb",
+    "label": "Hitpoints Icon",
+    "file": "orb/hitpoints-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "hitpoints-low-life-icon",
+    "group": "orb",
+    "label": "Hitpoints Low Life Icon",
+    "file": "orb/hitpoints-low-life-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "hitpoints-poison",
+    "group": "orb",
+    "label": "Hitpoints Poison",
+    "file": "orb/hitpoints-poison.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "hitpoints-venom",
+    "group": "orb",
+    "label": "Hitpoints Venom",
+    "file": "orb/hitpoints-venom.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "prayer",
+    "group": "orb",
+    "label": "Prayer",
+    "file": "orb/prayer.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "prayer-activated",
+    "group": "orb",
+    "label": "Prayer Activated",
+    "file": "orb/prayer-activated.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "prayer-corruption",
+    "group": "orb",
+    "label": "Prayer Corruption",
+    "file": "orb/prayer-corruption.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "prayer-corruption-activated",
+    "group": "orb",
+    "label": "Prayer Corruption Activated",
+    "file": "orb/prayer-corruption-activated.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "prayer-greater-corruption-icon",
+    "group": "orb",
+    "label": "Prayer Greater Corruption Icon",
+    "file": "orb/prayer-greater-corruption-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "prayer-icon",
+    "group": "orb",
+    "label": "Prayer Icon",
+    "file": "orb/prayer-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "prayer-icon-activated",
+    "group": "orb",
+    "label": "Prayer Icon Activated",
+    "file": "orb/prayer-icon-activated.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "prayer-lesser-corruption-icon",
+    "group": "orb",
+    "label": "Prayer Lesser Corruption Icon",
+    "file": "orb/prayer-lesser-corruption-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "run",
+    "group": "orb",
+    "label": "Run",
+    "file": "orb/run.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "run-activated",
+    "group": "orb",
+    "label": "Run Activated",
+    "file": "orb/run-activated.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "run-icon",
+    "group": "orb",
+    "label": "Run Icon",
+    "file": "orb/run-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "run-icon-activated",
+    "group": "orb",
+    "label": "Run Icon Activated",
+    "file": "orb/run-icon-activated.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "run-icon-slowed-depletion",
+    "group": "orb",
+    "label": "Run Icon Slowed Depletion",
+    "file": "orb/run-icon-slowed-depletion.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "soulreaper-axe-icon",
+    "group": "orb",
+    "label": "Soulreaper Axe Icon",
+    "file": "orb/soulreaper-axe-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "special",
+    "group": "orb",
+    "label": "Special",
+    "file": "orb/special.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "special-activated",
+    "group": "orb",
+    "label": "Special Activated",
+    "file": "orb/special-activated.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "special-icon",
+    "group": "orb",
+    "label": "Special Icon",
+    "file": "orb/special-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "store",
+    "group": "orb",
+    "label": "Store",
+    "file": "orb/store.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "store-icon",
+    "group": "orb",
+    "label": "Store Icon",
+    "file": "orb/store-icon.svg",
+    "width": 26,
+    "height": 26
+  },
+  {
+    "name": "world-map-frame",
+    "group": "orb",
+    "label": "World Map Frame",
+    "file": "orb/world-map-frame.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "world-map-planet",
+    "group": "orb",
+    "label": "World Map Planet",
+    "file": "orb/world-map-planet.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "world-map-planet-hovered",
+    "group": "orb",
+    "label": "World Map Planet Hovered",
+    "file": "orb/world-map-planet-hovered.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "xp",
+    "group": "orb",
+    "label": "Xp",
+    "file": "orb/xp.svg",
+    "width": 27,
+    "height": 27
+  },
+  {
+    "name": "xp-activated",
+    "group": "orb",
+    "label": "Xp Activated",
+    "file": "orb/xp-activated.svg",
+    "width": 27,
+    "height": 27
+  },
+  {
+    "name": "xp-activated-hovered",
+    "group": "orb",
+    "label": "Xp Activated Hovered",
+    "file": "orb/xp-activated-hovered.svg",
+    "width": 27,
+    "height": 27
+  },
+  {
+    "name": "xp-hovered",
+    "group": "orb",
+    "label": "Xp Hovered",
+    "file": "orb/xp-hovered.svg",
+    "width": 27,
+    "height": 27
+  },
+  {
+    "name": "slot-ammunition",
+    "group": "equipment",
+    "label": "Slot Ammunition",
+    "file": "equipment/slot-ammunition.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-cape",
+    "group": "equipment",
+    "label": "Slot Cape",
+    "file": "equipment/slot-cape.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-feet",
+    "group": "equipment",
+    "label": "Slot Feet",
+    "file": "equipment/slot-feet.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-hands",
+    "group": "equipment",
+    "label": "Slot Hands",
+    "file": "equipment/slot-hands.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-head",
+    "group": "equipment",
+    "label": "Slot Head",
+    "file": "equipment/slot-head.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-legs",
+    "group": "equipment",
+    "label": "Slot Legs",
+    "file": "equipment/slot-legs.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-neck",
+    "group": "equipment",
+    "label": "Slot Neck",
+    "file": "equipment/slot-neck.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-ring",
+    "group": "equipment",
+    "label": "Slot Ring",
+    "file": "equipment/slot-ring.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-selected",
+    "group": "equipment",
+    "label": "Slot Selected",
+    "file": "equipment/slot-selected.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "slot-shield",
+    "group": "equipment",
+    "label": "Slot Shield",
+    "file": "equipment/slot-shield.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-tile",
+    "group": "equipment",
+    "label": "Slot Tile",
+    "file": "equipment/slot-tile.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "slot-torso",
+    "group": "equipment",
+    "label": "Slot Torso",
+    "file": "equipment/slot-torso.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "slot-weapon",
+    "group": "equipment",
+    "label": "Slot Weapon",
+    "file": "equipment/slot-weapon.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "weight",
+    "group": "equipment",
+    "label": "Weight",
+    "file": "equipment/weight.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "new-tile-left",
+    "group": "stats",
+    "label": "New Tile Left",
+    "file": "stats/new-tile-left.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "new-tile-left-black",
+    "group": "stats",
+    "label": "New Tile Left Black",
+    "file": "stats/new-tile-left-black.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "new-tile-middle-black",
+    "group": "stats",
+    "label": "New Tile Middle Black",
+    "file": "stats/new-tile-middle-black.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "new-tile-right-black",
+    "group": "stats",
+    "label": "New Tile Right Black",
+    "file": "stats/new-tile-right-black.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "new-tile-right-with-slash",
+    "group": "stats",
+    "label": "New Tile Right With Slash",
+    "file": "stats/new-tile-right-with-slash.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "tile-half-left",
+    "group": "stats",
+    "label": "Tile Half Left",
+    "file": "stats/tile-half-left.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "tile-half-left-black",
+    "group": "stats",
+    "label": "Tile Half Left Black",
+    "file": "stats/tile-half-left-black.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "tile-half-left-selected",
+    "group": "stats",
+    "label": "Tile Half Left Selected",
+    "file": "stats/tile-half-left-selected.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "tile-half-right",
+    "group": "stats",
+    "label": "Tile Half Right",
+    "file": "stats/tile-half-right.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "tile-half-right-black",
+    "group": "stats",
+    "label": "Tile Half Right Black",
+    "file": "stats/tile-half-right-black.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "tile-half-right-selected",
+    "group": "stats",
+    "label": "Tile Half Right Selected",
+    "file": "stats/tile-half-right-selected.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "tile-half-right-with-slash",
+    "group": "stats",
+    "label": "Tile Half Right With Slash",
+    "file": "stats/tile-half-right-with-slash.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "tile-half-right-with-slash-selected",
+    "group": "stats",
+    "label": "Tile Half Right With Slash Selected",
+    "file": "stats/tile-half-right-with-slash-selected.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "auto-retaliate",
+    "group": "combat",
+    "label": "Auto Retaliate",
+    "file": "combat/auto-retaliate.svg",
+    "width": 26,
+    "height": 39
+  },
+  {
+    "name": "auto-retaliate-selected",
+    "group": "combat",
+    "label": "Auto Retaliate Selected",
+    "file": "combat/auto-retaliate-selected.svg",
+    "width": 26,
+    "height": 39
+  },
+  {
+    "name": "style-axe-block",
+    "group": "combat",
+    "label": "Style Axe Block",
+    "file": "combat/style-axe-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-axe-chop",
+    "group": "combat",
+    "label": "Style Axe Chop",
+    "file": "combat/style-axe-chop.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-axe-hack",
+    "group": "combat",
+    "label": "Style Axe Hack",
+    "file": "combat/style-axe-hack.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-axe-smash",
+    "group": "combat",
+    "label": "Style Axe Smash",
+    "file": "combat/style-axe-smash.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-bow-accurate",
+    "group": "combat",
+    "label": "Style Bow Accurate",
+    "file": "combat/style-bow-accurate.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-bow-longrange",
+    "group": "combat",
+    "label": "Style Bow Longrange",
+    "file": "combat/style-bow-longrange.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-bow-rapid",
+    "group": "combat",
+    "label": "Style Bow Rapid",
+    "file": "combat/style-bow-rapid.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-chinchompa-long-fuse",
+    "group": "combat",
+    "label": "Style Chinchompa Long Fuse",
+    "file": "combat/style-chinchompa-long-fuse.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-chinchompa-medium-fuse",
+    "group": "combat",
+    "label": "Style Chinchompa Medium Fuse",
+    "file": "combat/style-chinchompa-medium-fuse.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-chinchompa-short-fuse",
+    "group": "combat",
+    "label": "Style Chinchompa Short Fuse",
+    "file": "combat/style-chinchompa-short-fuse.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-claws-block",
+    "group": "combat",
+    "label": "Style Claws Block",
+    "file": "combat/style-claws-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-claws-chop",
+    "group": "combat",
+    "label": "Style Claws Chop",
+    "file": "combat/style-claws-chop.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-claws-lunge",
+    "group": "combat",
+    "label": "Style Claws Lunge",
+    "file": "combat/style-claws-lunge.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-claws-slash",
+    "group": "combat",
+    "label": "Style Claws Slash",
+    "file": "combat/style-claws-slash.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-crossbow-accurate",
+    "group": "combat",
+    "label": "Style Crossbow Accurate",
+    "file": "combat/style-crossbow-accurate.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-crossbow-longrange",
+    "group": "combat",
+    "label": "Style Crossbow Longrange",
+    "file": "combat/style-crossbow-longrange.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-crossbow-rapid",
+    "group": "combat",
+    "label": "Style Crossbow Rapid",
+    "file": "combat/style-crossbow-rapid.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-defensive-casting-shield",
+    "group": "combat",
+    "label": "Style Defensive Casting Shield",
+    "file": "combat/style-defensive-casting-shield.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "style-halberd-block",
+    "group": "combat",
+    "label": "Style Halberd Block",
+    "file": "combat/style-halberd-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-halberd-jab",
+    "group": "combat",
+    "label": "Style Halberd Jab",
+    "file": "combat/style-halberd-jab.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-halberd-swipe",
+    "group": "combat",
+    "label": "Style Halberd Swipe",
+    "file": "combat/style-halberd-swipe.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-hammer-block",
+    "group": "combat",
+    "label": "Style Hammer Block",
+    "file": "combat/style-hammer-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-hammer-pound",
+    "group": "combat",
+    "label": "Style Hammer Pound",
+    "file": "combat/style-hammer-pound.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-hammer-pummel",
+    "group": "combat",
+    "label": "Style Hammer Pummel",
+    "file": "combat/style-hammer-pummel.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-hammer-pummel-dinhs",
+    "group": "combat",
+    "label": "Style Hammer Pummel Dinhs",
+    "file": "combat/style-hammer-pummel-dinhs.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-mace-block",
+    "group": "combat",
+    "label": "Style Mace Block",
+    "file": "combat/style-mace-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-mace-pound",
+    "group": "combat",
+    "label": "Style Mace Pound",
+    "file": "combat/style-mace-pound.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-mace-pummel",
+    "group": "combat",
+    "label": "Style Mace Pummel",
+    "file": "combat/style-mace-pummel.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-mace-spike",
+    "group": "combat",
+    "label": "Style Mace Spike",
+    "file": "combat/style-mace-spike.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-magic-accurate",
+    "group": "combat",
+    "label": "Style Magic Accurate",
+    "file": "combat/style-magic-accurate.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-magic-longrange",
+    "group": "combat",
+    "label": "Style Magic Longrange",
+    "file": "combat/style-magic-longrange.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-magic-rapid",
+    "group": "combat",
+    "label": "Style Magic Rapid",
+    "file": "combat/style-magic-rapid.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-pickaxe-block",
+    "group": "combat",
+    "label": "Style Pickaxe Block",
+    "file": "combat/style-pickaxe-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-pickaxe-impale",
+    "group": "combat",
+    "label": "Style Pickaxe Impale",
+    "file": "combat/style-pickaxe-impale.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-pickaxe-smash",
+    "group": "combat",
+    "label": "Style Pickaxe Smash",
+    "file": "combat/style-pickaxe-smash.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-pickaxe-spike",
+    "group": "combat",
+    "label": "Style Pickaxe Spike",
+    "file": "combat/style-pickaxe-spike.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-salamander-blaze",
+    "group": "combat",
+    "label": "Style Salamander Blaze",
+    "file": "combat/style-salamander-blaze.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-salamander-flare",
+    "group": "combat",
+    "label": "Style Salamander Flare",
+    "file": "combat/style-salamander-flare.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-salamander-scorch",
+    "group": "combat",
+    "label": "Style Salamander Scorch",
+    "file": "combat/style-salamander-scorch.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-scythe-block",
+    "group": "combat",
+    "label": "Style Scythe Block",
+    "file": "combat/style-scythe-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-scythe-chop",
+    "group": "combat",
+    "label": "Style Scythe Chop",
+    "file": "combat/style-scythe-chop.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-scythe-jab",
+    "group": "combat",
+    "label": "Style Scythe Jab",
+    "file": "combat/style-scythe-jab.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-scythe-reap",
+    "group": "combat",
+    "label": "Style Scythe Reap",
+    "file": "combat/style-scythe-reap.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-spear-block",
+    "group": "combat",
+    "label": "Style Spear Block",
+    "file": "combat/style-spear-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-spear-lunge",
+    "group": "combat",
+    "label": "Style Spear Lunge",
+    "file": "combat/style-spear-lunge.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-spear-pound",
+    "group": "combat",
+    "label": "Style Spear Pound",
+    "file": "combat/style-spear-pound.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-spear-swipe",
+    "group": "combat",
+    "label": "Style Spear Swipe",
+    "file": "combat/style-spear-swipe.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-staff-bash",
+    "group": "combat",
+    "label": "Style Staff Bash",
+    "file": "combat/style-staff-bash.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-staff-block",
+    "group": "combat",
+    "label": "Style Staff Block",
+    "file": "combat/style-staff-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-staff-pound",
+    "group": "combat",
+    "label": "Style Staff Pound",
+    "file": "combat/style-staff-pound.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-sword-block",
+    "group": "combat",
+    "label": "Style Sword Block",
+    "file": "combat/style-sword-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-sword-chop",
+    "group": "combat",
+    "label": "Style Sword Chop",
+    "file": "combat/style-sword-chop.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-sword-slash",
+    "group": "combat",
+    "label": "Style Sword Slash",
+    "file": "combat/style-sword-slash.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-sword-stab",
+    "group": "combat",
+    "label": "Style Sword Stab",
+    "file": "combat/style-sword-stab.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-unarmed-block",
+    "group": "combat",
+    "label": "Style Unarmed Block",
+    "file": "combat/style-unarmed-block.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-unarmed-kick",
+    "group": "combat",
+    "label": "Style Unarmed Kick",
+    "file": "combat/style-unarmed-kick.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-unarmed-punch",
+    "group": "combat",
+    "label": "Style Unarmed Punch",
+    "file": "combat/style-unarmed-punch.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-whip-flick",
+    "group": "combat",
+    "label": "Style Whip Flick",
+    "file": "combat/style-whip-flick.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "style-whip-lash",
+    "group": "combat",
+    "label": "Style Whip Lash",
+    "file": "combat/style-whip-lash.svg",
+    "width": 34,
+    "height": 24
+  },
+  {
+    "name": "deposit-equipment",
+    "group": "bank",
+    "label": "Deposit Equipment",
+    "file": "bank/deposit-equipment.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "deposit-inventory",
+    "group": "bank",
+    "label": "Deposit Inventory",
+    "file": "bank/deposit-inventory.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "deposit-looting-bag",
+    "group": "bank",
+    "label": "Deposit Looting Bag",
+    "file": "bank/deposit-looting-bag.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "gim-storage",
+    "group": "bank",
+    "label": "Gim Storage",
+    "file": "bank/gim-storage.svg",
+    "width": 28,
+    "height": 28
+  },
+  {
+    "name": "incinerator",
+    "group": "bank",
+    "label": "Incinerator",
+    "file": "bank/incinerator.svg",
+    "width": 28,
+    "height": 28
+  },
+  {
+    "name": "insert-items",
+    "group": "bank",
+    "label": "Insert Items",
+    "file": "bank/insert-items.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "noted-items",
+    "group": "bank",
+    "label": "Noted Items",
+    "file": "bank/noted-items.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "placeholders-lock",
+    "group": "bank",
+    "label": "Placeholders Lock",
+    "file": "bank/placeholders-lock.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "potion-storage",
+    "group": "bank",
+    "label": "Potion Storage",
+    "file": "bank/potion-storage.svg",
+    "width": 28,
+    "height": 28
+  },
+  {
+    "name": "search",
+    "group": "bank",
+    "label": "Search",
+    "file": "bank/search.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "send-to-bank",
+    "group": "bank",
+    "label": "Send To Bank",
+    "file": "bank/send-to-bank.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "send-to-inventory",
+    "group": "bank",
+    "label": "Send To Inventory",
+    "file": "bank/send-to-inventory.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "send-to-trash",
+    "group": "bank",
+    "label": "Send To Trash",
+    "file": "bank/send-to-trash.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "shuffle-items-up",
+    "group": "bank",
+    "label": "Shuffle Items Up",
+    "file": "bank/shuffle-items-up.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "swap-items",
+    "group": "bank",
+    "label": "Swap Items",
+    "file": "bank/swap-items.svg",
+    "width": 29,
+    "height": 22
+  },
+  {
+    "name": "tab",
+    "group": "bank",
+    "label": "Tab",
+    "file": "bank/tab.svg",
+    "width": 41,
+    "height": 40
+  },
+  {
+    "name": "tab-add-icon",
+    "group": "bank",
+    "label": "Tab Add Icon",
+    "file": "bank/tab-add-icon.svg",
+    "width": 36,
+    "height": 32
+  },
+  {
+    "name": "tab-all-items-icon",
+    "group": "bank",
+    "label": "Tab All Items Icon",
+    "file": "bank/tab-all-items-icon.svg",
+    "width": 36,
+    "height": 32
+  },
+  {
+    "name": "tab-empty",
+    "group": "bank",
+    "label": "Tab Empty",
+    "file": "bank/tab-empty.svg",
+    "width": 41,
+    "height": 40
+  },
+  {
+    "name": "tab-hovered",
+    "group": "bank",
+    "label": "Tab Hovered",
+    "file": "bank/tab-hovered.svg",
+    "width": 41,
+    "height": 40
+  },
+  {
+    "name": "tab-selected",
+    "group": "bank",
+    "label": "Tab Selected",
+    "file": "bank/tab-selected.svg",
+    "width": 41,
+    "height": 40
+  },
+  {
+    "name": "tag-down-arrow",
+    "group": "bank",
+    "label": "Tag Down Arrow",
+    "file": "bank/tag-down-arrow.svg",
+    "width": 39,
+    "height": 20
+  },
+  {
+    "name": "tag-new-tab",
+    "group": "bank",
+    "label": "Tag New Tab",
+    "file": "bank/tag-new-tab.svg",
+    "width": 39,
+    "height": 40
+  },
+  {
+    "name": "tag-tab",
+    "group": "bank",
+    "label": "Tag Tab",
+    "file": "bank/tag-tab.svg",
+    "width": 39,
+    "height": 40
+  },
+  {
+    "name": "tag-tab-active",
+    "group": "bank",
+    "label": "Tag Tab Active",
+    "file": "bank/tag-tab-active.svg",
+    "width": 39,
+    "height": 40
+  },
+  {
+    "name": "tag-up-arrow",
+    "group": "bank",
+    "label": "Tag Up Arrow",
+    "file": "bank/tag-up-arrow.svg",
+    "width": 39,
+    "height": 20
+  },
+  {
+    "name": "worn-items",
+    "group": "bank",
+    "label": "Worn Items",
+    "file": "bank/worn-items.svg",
+    "width": 28,
+    "height": 28
+  },
+  {
+    "name": "account-management",
+    "group": "tab",
+    "label": "Account Management",
+    "file": "tab/account-management.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "clan-channel",
+    "group": "tab",
+    "label": "Clan Channel",
+    "file": "tab/clan-channel.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "clan-chat",
+    "group": "tab",
+    "label": "Clan Chat",
+    "file": "tab/clan-chat.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "combat",
+    "group": "tab",
+    "label": "Combat",
+    "file": "tab/combat.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "combat-achievements",
+    "group": "tab",
+    "label": "Combat Achievements",
+    "file": "tab/combat-achievements.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "emotes",
+    "group": "tab",
+    "label": "Emotes",
+    "file": "tab/emotes.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "equipment",
+    "group": "tab",
+    "label": "Equipment",
+    "file": "tab/equipment.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "friends",
+    "group": "tab",
+    "label": "Friends",
+    "file": "tab/friends.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "guest-clan-channel",
+    "group": "tab",
+    "label": "Guest Clan Channel",
+    "file": "tab/guest-clan-channel.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "hardcore-group-ironman",
+    "group": "tab",
+    "label": "Hardcore Group Ironman",
+    "file": "tab/hardcore-group-ironman.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "ignores",
+    "group": "tab",
+    "label": "Ignores",
+    "file": "tab/ignores.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "inventory",
+    "group": "tab",
+    "label": "Inventory",
+    "file": "tab/inventory.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "leagues",
+    "group": "tab",
+    "label": "Leagues",
+    "file": "tab/leagues.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "logout",
+    "group": "tab",
+    "label": "Logout",
+    "file": "tab/logout.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "magic",
+    "group": "tab",
+    "label": "Magic",
+    "file": "tab/magic.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "magic-spellbook-ancient-magicks",
+    "group": "tab",
+    "label": "Magic Spellbook Ancient Magicks",
+    "file": "tab/magic-spellbook-ancient-magicks.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "magic-spellbook-arceuus",
+    "group": "tab",
+    "label": "Magic Spellbook Arceuus",
+    "file": "tab/magic-spellbook-arceuus.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "magic-spellbook-lunar",
+    "group": "tab",
+    "label": "Magic Spellbook Lunar",
+    "file": "tab/magic-spellbook-lunar.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "music",
+    "group": "tab",
+    "label": "Music",
+    "file": "tab/music.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "options",
+    "group": "tab",
+    "label": "Options",
+    "file": "tab/options.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "prayer",
+    "group": "tab",
+    "label": "Prayer",
+    "file": "tab/prayer.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "quests",
+    "group": "tab",
+    "label": "Quests",
+    "file": "tab/quests.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "quests-brown-raiding-party",
+    "group": "tab",
+    "label": "Quests Brown Raiding Party",
+    "file": "tab/quests-brown-raiding-party.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "quests-green-achievement-diaries",
+    "group": "tab",
+    "label": "Quests Green Achievement Diaries",
+    "file": "tab/quests-green-achievement-diaries.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "quests-orange-paths",
+    "group": "tab",
+    "label": "Quests Orange Paths",
+    "file": "tab/quests-orange-paths.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "quests-purple-kourend",
+    "group": "tab",
+    "label": "Quests Purple Kourend",
+    "file": "tab/quests-purple-kourend.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "quests-red-minigames",
+    "group": "tab",
+    "label": "Quests Red Minigames",
+    "file": "tab/quests-red-minigames.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "regular-group-ironman",
+    "group": "tab",
+    "label": "Regular Group Ironman",
+    "file": "tab/regular-group-ironman.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "sailing",
+    "group": "tab",
+    "label": "Sailing",
+    "file": "tab/sailing.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "stats",
+    "group": "tab",
+    "label": "Stats",
+    "file": "tab/stats.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "unranked-group-ironman",
+    "group": "tab",
+    "label": "Unranked Group Ironman",
+    "file": "tab/unranked-group-ironman.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "tab-stone-middle",
+    "group": "tab",
+    "label": "Tab Stone Middle",
+    "file": "tab/tab-stone-middle.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "tab-stone-middle-selected",
+    "group": "tab",
+    "label": "Tab Stone Middle Selected",
+    "file": "tab/tab-stone-middle-selected.svg",
+    "width": 33,
+    "height": 36
+  },
+  {
+    "name": "side-panel-edge-left",
+    "group": "panel",
+    "label": "Side Panel Edge Left",
+    "file": "panel/side-panel-edge-left.svg",
+    "width": 26,
+    "height": 261
+  },
+  {
+    "name": "side-panel-edge-right",
+    "group": "panel",
+    "label": "Side Panel Edge Right",
+    "file": "panel/side-panel-edge-right.svg",
+    "width": 26,
+    "height": 261
+  },
+  {
+    "name": "tabs-bottom-row",
+    "group": "panel",
+    "label": "Tabs Bottom Row",
+    "file": "panel/tabs-bottom-row.svg",
+    "width": 241,
+    "height": 37
+  },
+  {
+    "name": "tabs-top-row",
+    "group": "panel",
+    "label": "Tabs Top Row",
+    "file": "panel/tabs-top-row.svg",
+    "width": 241,
+    "height": 37
+  },
+  {
+    "name": "arrow-green",
+    "group": "icon",
+    "label": "Arrow Green",
+    "file": "icon/arrow-green.svg",
+    "width": 12,
+    "height": 10
+  },
+  {
+    "name": "checkmark-green",
+    "group": "icon",
+    "label": "Checkmark Green",
+    "file": "icon/checkmark-green.svg",
+    "width": 13,
+    "height": 13
+  },
+  {
+    "name": "checkmark-red",
+    "group": "icon",
+    "label": "Checkmark Red",
+    "file": "icon/checkmark-red.svg",
+    "width": 13,
+    "height": 13
+  },
+  {
+    "name": "inventory-new",
+    "group": "icon",
+    "label": "Inventory New",
+    "file": "icon/inventory-new.svg",
+    "width": 32,
+    "height": 36
+  },
+  {
+    "name": "minus",
+    "group": "icon",
+    "label": "Minus",
+    "file": "icon/minus.svg",
+    "width": 11,
+    "height": 11
+  },
+  {
+    "name": "minus-hovered",
+    "group": "icon",
+    "label": "Minus Hovered",
+    "file": "icon/minus-hovered.svg",
+    "width": 11,
+    "height": 11
+  },
+  {
+    "name": "plus",
+    "group": "icon",
+    "label": "Plus",
+    "file": "icon/plus.svg",
+    "width": 11,
+    "height": 11
+  },
+  {
+    "name": "plus-hovered",
+    "group": "icon",
+    "label": "Plus Hovered",
+    "file": "icon/plus-hovered.svg",
+    "width": 11,
+    "height": 11
+  },
+  {
+    "name": "stack",
+    "group": "icon",
+    "label": "Stack",
+    "file": "icon/stack.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "unstack",
+    "group": "icon",
+    "label": "Unstack",
+    "file": "icon/unstack.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "minus-icon",
+    "group": "icon",
+    "label": "Minus Icon",
+    "file": "icon/minus-icon.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "minus-icon-hovered",
+    "group": "icon",
+    "label": "Minus Icon Hovered",
+    "file": "icon/minus-icon-hovered.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "orange-down-arrow",
+    "group": "icon",
+    "label": "Orange Down Arrow",
+    "file": "icon/orange-down-arrow.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "orange-left-arrow",
+    "group": "icon",
+    "label": "Orange Left Arrow",
+    "file": "icon/orange-left-arrow.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "orange-right-arrow",
+    "group": "icon",
+    "label": "Orange Right Arrow",
+    "file": "icon/orange-right-arrow.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "orange-up-arrow",
+    "group": "icon",
+    "label": "Orange Up Arrow",
+    "file": "icon/orange-up-arrow.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "plus-icon",
+    "group": "icon",
+    "label": "Plus Icon",
+    "file": "icon/plus-icon.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "plus-icon-hovered",
+    "group": "icon",
+    "label": "Plus Icon Hovered",
+    "file": "icon/plus-icon-hovered.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "refresh-icon",
+    "group": "icon",
+    "label": "Refresh Icon",
+    "file": "icon/refresh-icon.svg",
+    "width": 19,
+    "height": 17
+  },
+  {
+    "name": "selector-arrow",
+    "group": "icon",
+    "label": "Selector Arrow",
+    "file": "icon/selector-arrow.svg",
+    "width": 27,
+    "height": 16
+  },
+  {
+    "name": "spell-requirement-lock-blue",
+    "group": "icon",
+    "label": "Spell Requirement Lock Blue",
+    "file": "icon/spell-requirement-lock-blue.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "spell-requirement-lock-green",
+    "group": "icon",
+    "label": "Spell Requirement Lock Green",
+    "file": "icon/spell-requirement-lock-green.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "spell-requirement-lock-orange",
+    "group": "icon",
+    "label": "Spell Requirement Lock Orange",
+    "file": "icon/spell-requirement-lock-orange.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "spell-requirement-lock-red",
+    "group": "icon",
+    "label": "Spell Requirement Lock Red",
+    "file": "icon/spell-requirement-lock-red.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "stash-units-green-check-mark",
+    "group": "icon",
+    "label": "Stash Units Green Check Mark",
+    "file": "icon/stash-units-green-check-mark.svg",
+    "width": 17,
+    "height": 17
+  },
+  {
+    "name": "wilderness-danger-icon",
+    "group": "icon",
+    "label": "Wilderness Danger Icon",
+    "file": "icon/wilderness-danger-icon.svg",
+    "width": 19,
+    "height": 19
+  },
+  {
+    "name": "button",
+    "group": "chatbox",
+    "label": "Button",
+    "file": "chatbox/button.svg",
+    "width": 56,
+    "height": 22
+  },
+  {
+    "name": "button-hovered",
+    "group": "chatbox",
+    "label": "Button Hovered",
+    "file": "chatbox/button-hovered.svg",
+    "width": 56,
+    "height": 22
+  },
+  {
+    "name": "button-new-messages",
+    "group": "chatbox",
+    "label": "Button New Messages",
+    "file": "chatbox/button-new-messages.svg",
+    "width": 56,
+    "height": 22
+  },
+  {
+    "name": "button-selected",
+    "group": "chatbox",
+    "label": "Button Selected",
+    "file": "chatbox/button-selected.svg",
+    "width": 56,
+    "height": 22
+  },
+  {
+    "name": "button-selected-hovered",
+    "group": "chatbox",
+    "label": "Button Selected Hovered",
+    "file": "chatbox/button-selected-hovered.svg",
+    "width": 56,
+    "height": 22
+  },
+  {
+    "name": "buttons-background-stones",
+    "group": "chatbox",
+    "label": "Buttons Background Stones",
+    "file": "chatbox/buttons-background-stones.svg",
+    "width": 519,
+    "height": 23
+  },
+  {
+    "name": "report-button",
+    "group": "chatbox",
+    "label": "Report Button",
+    "file": "chatbox/report-button.svg",
+    "width": 79,
+    "height": 22
+  },
+  {
+    "name": "report-button-hovered",
+    "group": "chatbox",
+    "label": "Report Button Hovered",
+    "file": "chatbox/report-button-hovered.svg",
+    "width": 79,
+    "height": 22
+  },
+  {
+    "name": "sword-pointed-left",
+    "group": "chatbox",
+    "label": "Sword Pointed Left",
+    "file": "chatbox/sword-pointed-left.svg",
+    "width": 57,
+    "height": 13
+  },
+  {
+    "name": "sword-pointed-right",
+    "group": "chatbox",
+    "label": "Sword Pointed Right",
+    "file": "chatbox/sword-pointed-right.svg",
+    "width": 57,
+    "height": 13
+  },
+  {
+    "name": "round-check-box",
+    "group": "option",
+    "label": "Round Check Box",
+    "file": "option/round-check-box.svg",
+    "width": 17,
+    "height": 17
+  },
+  {
+    "name": "round-check-box-checked",
+    "group": "option",
+    "label": "Round Check Box Checked",
+    "file": "option/round-check-box-checked.svg",
+    "width": 17,
+    "height": 17
+  },
+  {
+    "name": "round-check-box-checked-green",
+    "group": "option",
+    "label": "Round Check Box Checked Green",
+    "file": "option/round-check-box-checked-green.svg",
+    "width": 17,
+    "height": 17
+  },
+  {
+    "name": "round-check-box-crossed",
+    "group": "option",
+    "label": "Round Check Box Crossed",
+    "file": "option/round-check-box-crossed.svg",
+    "width": 17,
+    "height": 17
+  },
+  {
+    "name": "round-check-box-crossed2",
+    "group": "option",
+    "label": "Round Check Box Crossed2",
+    "file": "option/round-check-box-crossed2.svg",
+    "width": 17,
+    "height": 17
+  },
+  {
+    "name": "slider-new-dot-blue",
+    "group": "option",
+    "label": "Slider New Dot Blue",
+    "file": "option/slider-new-dot-blue.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-dot-darker",
+    "group": "option",
+    "label": "Slider New Dot Darker",
+    "file": "option/slider-new-dot-darker.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-dot-gray",
+    "group": "option",
+    "label": "Slider New Dot Gray",
+    "file": "option/slider-new-dot-gray.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-dot-green",
+    "group": "option",
+    "label": "Slider New Dot Green",
+    "file": "option/slider-new-dot-green.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-dot-lighter",
+    "group": "option",
+    "label": "Slider New Dot Lighter",
+    "file": "option/slider-new-dot-lighter.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-dot-red",
+    "group": "option",
+    "label": "Slider New Dot Red",
+    "file": "option/slider-new-dot-red.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-dot-regular",
+    "group": "option",
+    "label": "Slider New Dot Regular",
+    "file": "option/slider-new-dot-regular.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-empty",
+    "group": "option",
+    "label": "Slider New Empty",
+    "file": "option/slider-new-empty.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-half-dot-left",
+    "group": "option",
+    "label": "Slider New Half Dot Left",
+    "file": "option/slider-new-half-dot-left.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-half-dot-right",
+    "group": "option",
+    "label": "Slider New Half Dot Right",
+    "file": "option/slider-new-half-dot-right.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-just-dot",
+    "group": "option",
+    "label": "Slider New Just Dot",
+    "file": "option/slider-new-just-dot.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-left-caret",
+    "group": "option",
+    "label": "Slider New Left Caret",
+    "file": "option/slider-new-left-caret.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "slider-new-right-caret",
+    "group": "option",
+    "label": "Slider New Right Caret",
+    "file": "option/slider-new-right-caret.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "square-bordered-checkbox",
+    "group": "option",
+    "label": "Square Bordered Checkbox",
+    "file": "option/square-bordered-checkbox.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "square-bordered-checkbox-checked",
+    "group": "option",
+    "label": "Square Bordered Checkbox Checked",
+    "file": "option/square-bordered-checkbox-checked.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "square-bordered-checkbox-disabled",
+    "group": "option",
+    "label": "Square Bordered Checkbox Disabled",
+    "file": "option/square-bordered-checkbox-disabled.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "square-bordered-checkbox-disabled-checked",
+    "group": "option",
+    "label": "Square Bordered Checkbox Disabled Checked",
+    "file": "option/square-bordered-checkbox-disabled-checked.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "square-bordered-checkbox-locked",
+    "group": "option",
+    "label": "Square Bordered Checkbox Locked",
+    "file": "option/square-bordered-checkbox-locked.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "zoom-slider-thumb",
+    "group": "option",
+    "label": "Zoom Slider Thumb",
+    "file": "option/zoom-slider-thumb.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "flat",
+    "group": "frame",
+    "label": "Flat button",
+    "file": "frame/flat.svg",
+    "width": 15,
+    "height": 15,
+    "slice": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "border": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  {
+    "name": "metal-button",
+    "group": "frame",
+    "label": "Metal-corner button",
+    "file": "frame/metal-button.svg",
+    "width": 27,
+    "height": 27,
+    "slice": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "border": [
+      9,
+      9,
+      9,
+      9
+    ]
+  },
+  {
+    "name": "metal-button-hover",
+    "group": "frame",
+    "label": "Metal-corner button (hover)",
+    "file": "frame/metal-button-hover.svg",
+    "width": 27,
+    "height": 27,
+    "slice": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "border": [
+      9,
+      9,
+      9,
+      9
+    ]
+  },
+  {
+    "name": "skill-guide",
+    "group": "frame",
+    "label": "Skill guide button",
+    "file": "frame/skill-guide.svg",
+    "width": 12,
+    "height": 12,
+    "slice": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "border": [
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  {
+    "name": "skill-guide-hover",
+    "group": "frame",
+    "label": "Skill guide button (hover)",
+    "file": "frame/skill-guide-hover.svg",
+    "width": 12,
+    "height": 12,
+    "slice": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "border": [
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  {
+    "name": "equipment-metal",
+    "group": "frame",
+    "label": "Equipment metal button",
+    "file": "frame/equipment-metal.svg",
+    "width": 27,
+    "height": 27,
+    "slice": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "border": [
+      9,
+      9,
+      9,
+      9
+    ]
+  },
+  {
+    "name": "equipment-metal-hover",
+    "group": "frame",
+    "label": "Equipment metal button (hover)",
+    "file": "frame/equipment-metal-hover.svg",
+    "width": 27,
+    "height": 27,
+    "slice": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "border": [
+      9,
+      9,
+      9,
+      9
+    ]
+  },
+  {
+    "name": "ge-offer",
+    "group": "frame",
+    "label": "Grand Exchange offer card",
+    "file": "frame/ge-offer.svg",
+    "width": 96,
+    "height": 96,
+    "slice": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "border": [
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  {
+    "name": "back-arrow-button",
+    "group": "ge",
+    "label": "Back Arrow Button",
+    "file": "ge/back-arrow-button.svg",
+    "width": 30,
+    "height": 23
+  },
+  {
+    "name": "button",
+    "group": "ge",
+    "label": "Button",
+    "file": "ge/button.svg",
+    "width": 35,
+    "height": 35
+  },
+  {
+    "name": "button-hovered",
+    "group": "ge",
+    "label": "Button Hovered",
+    "file": "ge/button-hovered.svg",
+    "width": 35,
+    "height": 35
+  },
+  {
+    "name": "cancel-offer-button",
+    "group": "ge",
+    "label": "Cancel Offer Button",
+    "file": "ge/cancel-offer-button.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "name": "cancel-offer-button-hovered",
+    "group": "ge",
+    "label": "Cancel Offer Button Hovered",
+    "file": "ge/cancel-offer-button-hovered.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "name": "collection-box-offer-buy",
+    "group": "ge",
+    "label": "Collection Box Offer Buy",
+    "file": "ge/collection-box-offer-buy.svg",
+    "width": 20,
+    "height": 18
+  },
+  {
+    "name": "collection-box-offer-sell",
+    "group": "ge",
+    "label": "Collection Box Offer Sell",
+    "file": "ge/collection-box-offer-sell.svg",
+    "width": 20,
+    "height": 18
+  },
+  {
+    "name": "decrement-button",
+    "group": "ge",
+    "label": "Decrement Button",
+    "file": "ge/decrement-button.svg",
+    "width": 20,
+    "height": 18
+  },
+  {
+    "name": "fast-decrement-arrow",
+    "group": "ge",
+    "label": "Fast Decrement Arrow",
+    "file": "ge/fast-decrement-arrow.svg",
+    "width": 20,
+    "height": 18
+  },
+  {
+    "name": "fast-increment-arrow",
+    "group": "ge",
+    "label": "Fast Increment Arrow",
+    "file": "ge/fast-increment-arrow.svg",
+    "width": 20,
+    "height": 18
+  },
+  {
+    "name": "guide-price",
+    "group": "ge",
+    "label": "Guide Price",
+    "file": "ge/guide-price.svg",
+    "width": 20,
+    "height": 18
+  },
+  {
+    "name": "increment-button",
+    "group": "ge",
+    "label": "Increment Button",
+    "file": "ge/increment-button.svg",
+    "width": 20,
+    "height": 18
+  },
+  {
+    "name": "make-offer-buy",
+    "group": "ge",
+    "label": "Make Offer Buy",
+    "file": "ge/make-offer-buy.svg",
+    "width": 35,
+    "height": 35
+  },
+  {
+    "name": "make-offer-buy-hovered",
+    "group": "ge",
+    "label": "Make Offer Buy Hovered",
+    "file": "ge/make-offer-buy-hovered.svg",
+    "width": 35,
+    "height": 35
+  },
+  {
+    "name": "make-offer-sell",
+    "group": "ge",
+    "label": "Make Offer Sell",
+    "file": "ge/make-offer-sell.svg",
+    "width": 35,
+    "height": 35
+  },
+  {
+    "name": "make-offer-sell-hovered",
+    "group": "ge",
+    "label": "Make Offer Sell Hovered",
+    "file": "ge/make-offer-sell-hovered.svg",
+    "width": 35,
+    "height": 35
+  },
+  {
+    "name": "modify-offer-button",
+    "group": "ge",
+    "label": "Modify Offer Button",
+    "file": "ge/modify-offer-button.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "name": "modify-offer-button-hovered",
+    "group": "ge",
+    "label": "Modify Offer Button Hovered",
+    "file": "ge/modify-offer-button-hovered.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "name": "number-field-edge-left",
+    "group": "ge",
+    "label": "Number Field Edge Left",
+    "file": "ge/number-field-edge-left.svg",
+    "width": 4,
+    "height": 20
+  },
+  {
+    "name": "number-field-edge-right",
+    "group": "ge",
+    "label": "Number Field Edge Right",
+    "file": "ge/number-field-edge-right.svg",
+    "width": 4,
+    "height": 20
+  },
+  {
+    "name": "number-field-middle",
+    "group": "ge",
+    "label": "Number Field Middle",
+    "file": "ge/number-field-middle.svg",
+    "width": 4,
+    "height": 20
+  },
+  {
+    "name": "search",
+    "group": "ge",
+    "label": "Search",
+    "file": "ge/search.svg",
+    "width": 20,
+    "height": 18
+  },
+  {
+    "name": "selected-item-box",
+    "group": "ge",
+    "label": "Selected Item Box",
+    "file": "ge/selected-item-box.svg",
+    "width": 40,
+    "height": 36
+  },
+  {
+    "name": "selected-item-box-glowing",
+    "group": "ge",
+    "label": "Selected Item Box Glowing",
+    "file": "ge/selected-item-box-glowing.svg",
+    "width": 40,
+    "height": 36
+  },
+  {
+    "name": "border-offer-horizontal",
+    "group": "ge",
+    "label": "Border Offer Horizontal",
+    "file": "ge/border-offer-horizontal.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "border-offer-intersection-left",
+    "group": "ge",
+    "label": "Border Offer Intersection Left",
+    "file": "ge/border-offer-intersection-left.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "border-offer-intersection-right",
+    "group": "ge",
+    "label": "Border Offer Intersection Right",
+    "file": "ge/border-offer-intersection-right.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "gray-down-double",
+    "group": "chevron",
+    "label": "Gray Down Double",
+    "file": "chevron/gray-down-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-down-single",
+    "group": "chevron",
+    "label": "Gray Down Single",
+    "file": "chevron/gray-down-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-down-stop",
+    "group": "chevron",
+    "label": "Gray Down Stop",
+    "file": "chevron/gray-down-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-left-double",
+    "group": "chevron",
+    "label": "Gray Left Double",
+    "file": "chevron/gray-left-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-left-single",
+    "group": "chevron",
+    "label": "Gray Left Single",
+    "file": "chevron/gray-left-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-left-stop",
+    "group": "chevron",
+    "label": "Gray Left Stop",
+    "file": "chevron/gray-left-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-right-double",
+    "group": "chevron",
+    "label": "Gray Right Double",
+    "file": "chevron/gray-right-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-right-single",
+    "group": "chevron",
+    "label": "Gray Right Single",
+    "file": "chevron/gray-right-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-right-stop",
+    "group": "chevron",
+    "label": "Gray Right Stop",
+    "file": "chevron/gray-right-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-up-double",
+    "group": "chevron",
+    "label": "Gray Up Double",
+    "file": "chevron/gray-up-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-up-single",
+    "group": "chevron",
+    "label": "Gray Up Single",
+    "file": "chevron/gray-up-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "gray-up-stop",
+    "group": "chevron",
+    "label": "Gray Up Stop",
+    "file": "chevron/gray-up-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-down-double",
+    "group": "chevron",
+    "label": "Green Down Double",
+    "file": "chevron/green-down-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-down-single",
+    "group": "chevron",
+    "label": "Green Down Single",
+    "file": "chevron/green-down-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-down-stop",
+    "group": "chevron",
+    "label": "Green Down Stop",
+    "file": "chevron/green-down-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-left-double",
+    "group": "chevron",
+    "label": "Green Left Double",
+    "file": "chevron/green-left-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-left-single",
+    "group": "chevron",
+    "label": "Green Left Single",
+    "file": "chevron/green-left-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-left-stop",
+    "group": "chevron",
+    "label": "Green Left Stop",
+    "file": "chevron/green-left-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-right-double",
+    "group": "chevron",
+    "label": "Green Right Double",
+    "file": "chevron/green-right-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-right-single",
+    "group": "chevron",
+    "label": "Green Right Single",
+    "file": "chevron/green-right-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-right-stop",
+    "group": "chevron",
+    "label": "Green Right Stop",
+    "file": "chevron/green-right-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-up-double",
+    "group": "chevron",
+    "label": "Green Up Double",
+    "file": "chevron/green-up-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-up-single",
+    "group": "chevron",
+    "label": "Green Up Single",
+    "file": "chevron/green-up-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "green-up-stop",
+    "group": "chevron",
+    "label": "Green Up Stop",
+    "file": "chevron/green-up-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-down-double",
+    "group": "chevron",
+    "label": "Red Down Double",
+    "file": "chevron/red-down-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-down-single",
+    "group": "chevron",
+    "label": "Red Down Single",
+    "file": "chevron/red-down-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-down-stop",
+    "group": "chevron",
+    "label": "Red Down Stop",
+    "file": "chevron/red-down-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-left-double",
+    "group": "chevron",
+    "label": "Red Left Double",
+    "file": "chevron/red-left-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-left-single",
+    "group": "chevron",
+    "label": "Red Left Single",
+    "file": "chevron/red-left-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-left-stop",
+    "group": "chevron",
+    "label": "Red Left Stop",
+    "file": "chevron/red-left-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-right-double",
+    "group": "chevron",
+    "label": "Red Right Double",
+    "file": "chevron/red-right-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-right-single",
+    "group": "chevron",
+    "label": "Red Right Single",
+    "file": "chevron/red-right-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-right-stop",
+    "group": "chevron",
+    "label": "Red Right Stop",
+    "file": "chevron/red-right-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-up-double",
+    "group": "chevron",
+    "label": "Red Up Double",
+    "file": "chevron/red-up-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-up-single",
+    "group": "chevron",
+    "label": "Red Up Single",
+    "file": "chevron/red-up-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "red-up-stop",
+    "group": "chevron",
+    "label": "Red Up Stop",
+    "file": "chevron/red-up-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-down-double",
+    "group": "chevron",
+    "label": "Yellow Down Double",
+    "file": "chevron/yellow-down-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-down-single",
+    "group": "chevron",
+    "label": "Yellow Down Single",
+    "file": "chevron/yellow-down-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-down-stop",
+    "group": "chevron",
+    "label": "Yellow Down Stop",
+    "file": "chevron/yellow-down-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-left-double",
+    "group": "chevron",
+    "label": "Yellow Left Double",
+    "file": "chevron/yellow-left-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-left-single",
+    "group": "chevron",
+    "label": "Yellow Left Single",
+    "file": "chevron/yellow-left-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-left-stop",
+    "group": "chevron",
+    "label": "Yellow Left Stop",
+    "file": "chevron/yellow-left-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-right-double",
+    "group": "chevron",
+    "label": "Yellow Right Double",
+    "file": "chevron/yellow-right-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-right-single",
+    "group": "chevron",
+    "label": "Yellow Right Single",
+    "file": "chevron/yellow-right-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-right-stop",
+    "group": "chevron",
+    "label": "Yellow Right Stop",
+    "file": "chevron/yellow-right-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-up-double",
+    "group": "chevron",
+    "label": "Yellow Up Double",
+    "file": "chevron/yellow-up-double.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-up-single",
+    "group": "chevron",
+    "label": "Yellow Up Single",
+    "file": "chevron/yellow-up-single.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "yellow-up-stop",
+    "group": "chevron",
+    "label": "Yellow Up Stop",
+    "file": "chevron/yellow-up-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "account-tab-icon",
+    "group": "glyph",
+    "label": "Account Tab Icon",
+    "file": "glyph/account-tab-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "archive-icon",
+    "group": "glyph",
+    "label": "Archive Icon",
+    "file": "glyph/archive-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "bond-icon",
+    "group": "glyph",
+    "label": "Bond Icon",
+    "file": "glyph/bond-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "community-tab-icon",
+    "group": "glyph",
+    "label": "Community Tab Icon",
+    "file": "glyph/community-tab-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "inbox-icon",
+    "group": "glyph",
+    "label": "Inbox Icon",
+    "file": "glyph/inbox-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "links-tab-icon",
+    "group": "glyph",
+    "label": "Links Tab Icon",
+    "file": "glyph/links-tab-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "name-changer-icon",
+    "group": "glyph",
+    "label": "Name Changer Icon",
+    "file": "glyph/name-changer-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "newspost-icon",
+    "group": "glyph",
+    "label": "Newspost Icon",
+    "file": "glyph/newspost-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "poll-history-icon",
+    "group": "glyph",
+    "label": "Poll History Icon",
+    "file": "glyph/poll-history-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "poll-icon",
+    "group": "glyph",
+    "label": "Poll Icon",
+    "file": "glyph/poll-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "store-icon",
+    "group": "glyph",
+    "label": "Store Icon",
+    "file": "glyph/store-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "upgrade-now-icon",
+    "group": "glyph",
+    "label": "Upgrade Now Icon",
+    "file": "glyph/upgrade-now-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "view-benefits-icon",
+    "group": "glyph",
+    "label": "View Benefits Icon",
+    "file": "glyph/view-benefits-icon.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "chat-channel",
+    "group": "glyph",
+    "label": "Chat Channel",
+    "file": "glyph/chat-channel.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "clan-channel",
+    "group": "glyph",
+    "label": "Clan Channel",
+    "file": "glyph/clan-channel.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "guest-clan-channel",
+    "group": "glyph",
+    "label": "Guest Clan Channel",
+    "file": "glyph/guest-clan-channel.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "hardcore-group-ironman",
+    "group": "glyph",
+    "label": "Hardcore Group Ironman",
+    "file": "glyph/hardcore-group-ironman.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "home-world",
+    "group": "glyph",
+    "label": "Home World",
+    "file": "glyph/home-world.svg",
+    "width": 13,
+    "height": 13
+  },
+  {
+    "name": "lives",
+    "group": "glyph",
+    "label": "Lives",
+    "file": "glyph/lives.svg",
+    "width": 13,
+    "height": 13
+  },
+  {
+    "name": "people",
+    "group": "glyph",
+    "label": "People",
+    "file": "glyph/people.svg",
+    "width": 13,
+    "height": 13
+  },
+  {
+    "name": "refresh",
+    "group": "glyph",
+    "label": "Refresh",
+    "file": "glyph/refresh.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "regular-group-ironman",
+    "group": "glyph",
+    "label": "Regular Group Ironman",
+    "file": "glyph/regular-group-ironman.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "unranked-group-ironman",
+    "group": "glyph",
+    "label": "Unranked Group Ironman",
+    "file": "glyph/unranked-group-ironman.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "blue-quests-icon",
+    "group": "glyph",
+    "label": "Blue Quests Icon",
+    "file": "glyph/blue-quests-icon.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "combat-achievements-collections-logged",
+    "group": "glyph",
+    "label": "Combat Achievements Collections Logged",
+    "file": "glyph/combat-achievements-collections-logged.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "combat-achievements-combat-level",
+    "group": "glyph",
+    "label": "Combat Achievements Combat Level",
+    "file": "glyph/combat-achievements-combat-level.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "combat-achievements-icon",
+    "group": "glyph",
+    "label": "Combat Achievements Icon",
+    "file": "glyph/combat-achievements-icon.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "combat-achievements-tasks-completed",
+    "group": "glyph",
+    "label": "Combat Achievements Tasks Completed",
+    "file": "glyph/combat-achievements-tasks-completed.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "combat-achievements-total-level",
+    "group": "glyph",
+    "label": "Combat Achievements Total Level",
+    "file": "glyph/combat-achievements-total-level.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "combat-achievements-xp",
+    "group": "glyph",
+    "label": "Combat Achievements Xp",
+    "file": "glyph/combat-achievements-xp.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "green-achievement-diaries-icon",
+    "group": "glyph",
+    "label": "Green Achievement Diaries Icon",
+    "file": "glyph/green-achievement-diaries-icon.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "orange-leagues-icon",
+    "group": "glyph",
+    "label": "Orange Leagues Icon",
+    "file": "glyph/orange-leagues-icon.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "orange-paths-icon",
+    "group": "glyph",
+    "label": "Orange Paths Icon",
+    "file": "glyph/orange-paths-icon.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "purple-kourend-icon",
+    "group": "glyph",
+    "label": "Purple Kourend Icon",
+    "file": "glyph/purple-kourend-icon.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "red-minigames-icon",
+    "group": "glyph",
+    "label": "Red Minigames Icon",
+    "file": "glyph/red-minigames-icon.svg",
+    "width": 17,
+    "height": 18
+  },
+  {
+    "name": "armadyl-godsword-large",
+    "group": "glyph",
+    "label": "Armadyl Godsword Large",
+    "file": "glyph/armadyl-godsword-large.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "armadyl-godsword-small",
+    "group": "glyph",
+    "label": "Armadyl Godsword Small",
+    "file": "glyph/armadyl-godsword-small.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "black-sword-large",
+    "group": "glyph",
+    "label": "Black Sword Large",
+    "file": "glyph/black-sword-large.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "black-sword-small",
+    "group": "glyph",
+    "label": "Black Sword Small",
+    "file": "glyph/black-sword-small.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "bronze-sword-large",
+    "group": "glyph",
+    "label": "Bronze Sword Large",
+    "file": "glyph/bronze-sword-large.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "bronze-sword-small",
+    "group": "glyph",
+    "label": "Bronze Sword Small",
+    "file": "glyph/bronze-sword-small.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "dragon-sword-large",
+    "group": "glyph",
+    "label": "Dragon Sword Large",
+    "file": "glyph/dragon-sword-large.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "dragon-sword-small",
+    "group": "glyph",
+    "label": "Dragon Sword Small",
+    "file": "glyph/dragon-sword-small.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "rune-sword-large",
+    "group": "glyph",
+    "label": "Rune Sword Large",
+    "file": "glyph/rune-sword-large.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "rune-sword-small",
+    "group": "glyph",
+    "label": "Rune Sword Small",
+    "file": "glyph/rune-sword-small.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "steel-sword-large",
+    "group": "glyph",
+    "label": "Steel Sword Large",
+    "file": "glyph/steel-sword-large.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "steel-sword-small",
+    "group": "glyph",
+    "label": "Steel Sword Small",
+    "file": "glyph/steel-sword-small.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "colored-hitsplats",
+    "group": "glyph",
+    "label": "Colored Hitsplats",
+    "file": "glyph/colored-hitsplats.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "data-orbs",
+    "group": "glyph",
+    "label": "Data Orbs",
+    "file": "glyph/data-orbs.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "health-overlay",
+    "group": "glyph",
+    "label": "Health Overlay",
+    "file": "glyph/health-overlay.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "prayer-tooltips",
+    "group": "glyph",
+    "label": "Prayer Tooltips",
+    "file": "glyph/prayer-tooltips.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "roofs",
+    "group": "glyph",
+    "label": "Roofs",
+    "file": "glyph/roofs.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "scrollbar-position",
+    "group": "glyph",
+    "label": "Scrollbar Position",
+    "file": "glyph/scrollbar-position.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "side-panels",
+    "group": "glyph",
+    "label": "Side Panels",
+    "file": "glyph/side-panels.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "special-attack-tooltip",
+    "group": "glyph",
+    "label": "Special Attack Tooltip",
+    "file": "glyph/special-attack-tooltip.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "transparent-chatbox",
+    "group": "glyph",
+    "label": "Transparent Chatbox",
+    "file": "glyph/transparent-chatbox.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "transparent-side-panel",
+    "group": "glyph",
+    "label": "Transparent Side Panel",
+    "file": "glyph/transparent-side-panel.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "wiki",
+    "group": "glyph",
+    "label": "Wiki",
+    "file": "glyph/wiki.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "xp-to-next-level",
+    "group": "glyph",
+    "label": "Xp To Next Level",
+    "file": "glyph/xp-to-next-level.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "arrow-left",
+    "group": "glyph",
+    "label": "Arrow Left",
+    "file": "glyph/arrow-left.svg",
+    "width": 32,
+    "height": 16
+  },
+  {
+    "name": "arrow-left-hovered",
+    "group": "glyph",
+    "label": "Arrow Left Hovered",
+    "file": "glyph/arrow-left-hovered.svg",
+    "width": 32,
+    "height": 16
+  },
+  {
+    "name": "arrow-right",
+    "group": "glyph",
+    "label": "Arrow Right",
+    "file": "glyph/arrow-right.svg",
+    "width": 32,
+    "height": 16
+  },
+  {
+    "name": "arrow-right-hovered",
+    "group": "glyph",
+    "label": "Arrow Right Hovered",
+    "file": "glyph/arrow-right-hovered.svg",
+    "width": 32,
+    "height": 16
+  },
+  {
+    "name": "bond",
+    "group": "glyph",
+    "label": "Bond",
+    "file": "glyph/bond.svg",
+    "width": 39,
+    "height": 34
+  },
+  {
+    "name": "bond-passcode",
+    "group": "glyph",
+    "label": "Bond Passcode",
+    "file": "glyph/bond-passcode.svg",
+    "width": 39,
+    "height": 34
+  },
+  {
+    "name": "gold-pouch",
+    "group": "glyph",
+    "label": "Gold Pouch",
+    "file": "glyph/gold-pouch.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "inventory",
+    "group": "glyph",
+    "label": "Inventory",
+    "file": "glyph/inventory.svg",
+    "width": 30,
+    "height": 30
+  },
+  {
+    "name": "name-change",
+    "group": "glyph",
+    "label": "Name Change",
+    "file": "glyph/name-change.svg",
+    "width": 39,
+    "height": 34
+  },
+  {
+    "name": "vault",
+    "group": "glyph",
+    "label": "Vault",
+    "file": "glyph/vault.svg",
+    "width": 30,
+    "height": 30
   }
 ]

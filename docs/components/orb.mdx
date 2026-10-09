@@ -1,0 +1,19 @@
+---
+title: Orb
+description: "Minimap orbs for hitpoints, prayer, run energy and special attack, with poison and venom states."
+---
+
+<Component path="orb/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/orb.json
+```
+
+## Usage
+
+```tsx
+<Orb kind="hitpoints" value={71} max={99} />
+<Orb kind="prayer" value={23} max={77} active />
+```

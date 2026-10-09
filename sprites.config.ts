@@ -10,13 +10,19 @@ export type FrameSpec = {
   bl: Piece; b: Piece; br: Piece;
 };
 
-export type AssetGroup = "skill" | "frame" | "texture" | "control";
+export type AssetGroup =
+  | "skill" | "frame" | "texture" | "control"
+  | "prayer" | "panel" | "ge" | "chevron" | "glyph" | "orb" | "equipment" | "stats" | "combat" | "bank" | "tab" | "icon" | "chatbox" | "option";
 
 export type SpriteEntry =
   | { kind: "single"; group: AssetGroup; name: string; src: string; label?: string }
   | { kind: "frame"; group: "frame"; name: string; frame: FrameSpec; label?: string }
   /** Horizontal 3-slice: `cap` columns [0, capWidth) on the left, mirrored on the right, `middle` between. */
-  | { kind: "hcap"; group: "frame"; name: string; cap: string; capWidth: number; middle: string; label?: string };
+  | { kind: "hcap"; group: "frame"; name: string; cap: string; capWidth: number; middle: string; label?: string }
+  /** Every PNG in `dir` matching `include` (and not `exclude`) becomes a single asset named after its file. */
+  | { kind: "folder"; group: AssetGroup; dir: string; include?: RegExp; exclude?: RegExp; strip?: RegExp }
+  /** 9-slice cut from one big sprite: corners of size `slice`, edges cropped to `edge` px, middle left transparent. */
+  | { kind: "crop9"; group: "frame"; name: string; src: string; slice: number; edge: number; label?: string };
 
 const SKILLS = [
   "attack", "hitpoints", "mining", "strength", "agility", "smithing", "defence", "herblore",
@@ -26,6 +32,15 @@ const SKILLS = [
 ];
 
 const trimmed = (src: string): Piece => ({ src, trim: true });
+
+type NineNames = Partial<Record<keyof FrameSpec, string>> & Omit<Record<keyof FrameSpec, string>, "m">;
+/** Build a FrameSpec from a filename prefix, per-piece names and an optional state suffix. */
+const nine = (prefix: string, names: NineNames, suffix = "", trim = false): FrameSpec =>
+  Object.fromEntries(
+    Object.entries(names).map(([k, v]) => [k, trim ? { src: `${prefix}${v}${suffix}.png`, trim: true } : `${prefix}${v}${suffix}.png`]),
+  ) as FrameSpec;
+const EDGES: NineNames = { tl: "corner_top_left", t: "edge_top", tr: "corner_top_right", l: "edge_left", r: "edge_right", bl: "corner_bottom_left", b: "edge_bottom", br: "corner_bottom_right" };
+const METAL: NineNames = { tl: "corner_top_left", t: "edge_top", tr: "corner_top_right", l: "edge_left", r: "edge_right", bl: "corner_bottom_left", b: "edge_bottom", br: "corner_bottom_right" };
 
 const stoneSmall = (suffix = ""): FrameSpec => ({
   tl: `button/stone_small_top_left${suffix}.png`,
@@ -95,7 +110,11 @@ export const sprites: SpriteEntry[] = [
 
   { kind: "single", group: "texture", name: "stone", label: "Interface stone", src: "dialog/background.png" },
   { kind: "single", group: "texture", name: "stone-bright", label: "Interface stone (bright)", src: "dialog/background_brighter.png" },
-  { kind: "single", group: "texture", name: "side-panel", label: "Side panel stone", src: "fixed_mode/side_panel_background.png" },
+  { kind: "single", group: "texture", name: "side-panel", label: "Side panel stone", src: "resizeable_mode/side_panel_background.png" },
+  { kind: "crop9", group: "frame", name: "chatbox", label: "Chatbox frame", src: "chatbox/background.png", slice: 9, edge: 48 },
+  { kind: "single", group: "texture", name: "progress-green", label: "Progress bar (green)", src: "dialog/progress_bar_green.png" },
+  { kind: "single", group: "texture", name: "progress-grey", label: "Progress bar (grey)", src: "dialog/progress_bar_grey.png" },
+  { kind: "single", group: "texture", name: "progress-notch", label: "Progress bar notch", src: "dialog/progress_bar_notch.png" },
   { kind: "single", group: "texture", name: "rivets-horizontal", label: "Rivet divider (horizontal)", src: "dialog/iron_rivets_horizontal.png" },
   { kind: "single", group: "texture", name: "rivets-vertical", label: "Rivet divider (vertical)", src: "dialog/iron_rivets_vertical_middle.png" },
 
@@ -120,4 +139,38 @@ export const sprites: SpriteEntry[] = [
   { kind: "single", group: "control", name: "tab-stone-bl", src: "tab/stone_bottom_left_selected.png" },
   { kind: "single", group: "control", name: "tab-stone-br", src: "tab/stone_bottom_right_selected.png" },
   { kind: "single", group: "control", name: "separator", src: "dialog/horizontal_separator_line.png" },
+
+  // Whole folders: these also become generated React sprite modules (scripts/build-sprites.ts)
+  { kind: "folder", group: "prayer", dir: "prayer" },
+  { kind: "folder", group: "orb", dir: "other", include: /^minimap_orb_/, strip: /^minimap_orb_/ },
+  { kind: "folder", group: "equipment", dir: "equipment" },
+  { kind: "folder", group: "stats", dir: "stats" },
+  { kind: "folder", group: "combat", dir: "combat" },
+  { kind: "folder", group: "bank", dir: "bank", exclude: /^pin_marble/ },
+  { kind: "folder", group: "tab", dir: "tab", exclude: /^(small|medium|large|side_border|stone|transparent|stash|logout_small)/ },
+  { kind: "folder", group: "tab", dir: "resizeable_mode", include: /^tab_stone_middle/ },
+  { kind: "folder", group: "panel", dir: "resizeable_mode", include: /^(tabs_|side_panel_edge)/ },
+  { kind: "folder", group: "icon", dir: "icon" },
+  { kind: "folder", group: "icon", dir: "other", include: /^(plus_icon|minus_icon|orange_.*_arrow|spell_requirement_lock|wilderness_danger_icon|stash_units_green_check_mark|selector_arrow|refresh_icon)/ },
+  { kind: "folder", group: "chatbox", dir: "chatbox", include: /^(button|report_button|sword_pointed)/ },
+  { kind: "folder", group: "option", dir: "options", include: /^(round_check_box|square_bordered_checkbox|slider_new|zoom_slider_thumb)/ },
+
+  // Modern-interface frames
+  { kind: "frame", group: "frame", name: "flat", label: "Flat button", frame: nine("button/flat_5x5_", { tl: "top_left", t: "top", tr: "top_right", l: "left", m: "middle", r: "right", bl: "bottom_left", b: "bottom", br: "bottom_right" }) },
+  { kind: "frame", group: "frame", name: "metal-button", label: "Metal-corner button", frame: nine("chatbox/make_all_button_metal_", METAL) },
+  { kind: "frame", group: "frame", name: "metal-button-hover", label: "Metal-corner button (hover)", frame: nine("chatbox/make_all_button_metal_", METAL, "_hovered") },
+  { kind: "frame", group: "frame", name: "skill-guide", label: "Skill guide button", frame: nine("button/skill_guide_unselected_", EDGES) },
+  { kind: "frame", group: "frame", name: "skill-guide-hover", label: "Skill guide button (hover)", frame: nine("button/skill_guide_hovered_", EDGES) },
+  { kind: "frame", group: "frame", name: "equipment-metal", label: "Equipment metal button", frame: nine("button/equipment_", { tl: "metal_corner_top_left", t: "edge_top", tr: "metal_corner_top_right", l: "edge_left", r: "edge_right", bl: "metal_corner_bottom_left", b: "edge_bottom", br: "metal_corner_bottom_right" }) },
+  { kind: "frame", group: "frame", name: "equipment-metal-hover", label: "Equipment metal button (hover)", frame: nine("button/equipment_", { tl: "metal_corner_top_left", t: "edge_top", tr: "metal_corner_top_right", l: "edge_left", r: "edge_right", bl: "metal_corner_bottom_left", b: "edge_bottom", br: "metal_corner_bottom_right" }, "_hovered") },
+  { kind: "frame", group: "frame", name: "ge-offer", label: "Grand Exchange offer card", frame: nine("ge/border_offer_", { tl: "corner_top_left", t: "top", tr: "corner_top_right", l: "left", r: "right", bl: "corner_bottom_left", b: "bottom", br: "corner_bottom_right" }, "", true) },
+  { kind: "folder", group: "ge", dir: "ge", exclude: /^border_offer/ },
+  { kind: "folder", group: "ge", dir: "ge", include: /^border_offer_(intersection|horizontal)/ },
+  { kind: "folder", group: "chevron", dir: "chevron" },
+  { kind: "folder", group: "glyph", dir: "account_management" },
+  { kind: "folder", group: "glyph", dir: "clans_tab" },
+  { kind: "folder", group: "glyph", dir: "quests_tab" },
+  { kind: "folder", group: "glyph", dir: "combat_achievements" },
+  { kind: "folder", group: "glyph", dir: "advanced_options" },
+  { kind: "folder", group: "glyph", dir: "bonds_pouch", exclude: /^banner/ },
 ];

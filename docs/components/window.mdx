@@ -1,0 +1,23 @@
+---
+title: Window
+description: "The modern interface window (All Settings, Grand Exchange, Collection Log): thick tan border, header row, close button."
+---
+
+<Component path="window/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/window.json
+```
+
+## Usage
+
+```tsx
+<Window>
+  <WindowHeader start={<Button variant="metal" size="sm">History</Button>} end={<WindowClose />}>
+    Grand Exchange
+  </WindowHeader>
+  <WindowBody>…</WindowBody>
+</Window>
+```

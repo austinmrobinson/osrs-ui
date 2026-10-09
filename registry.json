@@ -17,17 +17,48 @@
       ]
     },
     {
+      "name": "osrs-lib",
+      "type": "registry:lib",
+      "title": "OSRS helpers",
+      "description": "createSprite, px() and quantity/colour helpers used by the components.",
+      "files": [
+        {
+          "path": "registry/osrs/lib/sprite.tsx",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/osrs/lib/osrs.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "bank-sprites",
+      "type": "registry:ui",
+      "title": "Bank Sprites",
+      "description": "Pixel-exact bank sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/bank-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
-      "description": "Stone and square buttons.",
+      "description": "Stone, square, metal and flat buttons.",
       "dependencies": [
         "@base-ui/react",
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
       ],
       "files": [
         {
@@ -37,17 +68,124 @@
       ]
     },
     {
-      "name": "interface",
+      "name": "card",
       "type": "registry:ui",
-      "title": "Interface",
-      "description": "Interface window: stone inside the iron-rivet frame.",
+      "title": "Card",
+      "description": "Notched, Grand Exchange offer, and outline cards.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
       ],
       "files": [
         {
-          "path": "registry/osrs/ui/interface.tsx",
+          "path": "registry/osrs/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chatbox-sprites",
+      "type": "registry:ui",
+      "title": "Chatbox Sprites",
+      "description": "Pixel-exact chatbox sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/chatbox-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chatbox",
+      "type": "registry:ui",
+      "title": "Chatbox",
+      "description": "Chatbox, chat filter tabs, NPC and option dialogues.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json",
+        "https://osrs-ui.vercel.app/r/chatbox-sprites.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/chatbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Settings checkbox.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chevron-sprites",
+      "type": "registry:ui",
+      "title": "Chevron Sprites",
+      "description": "Pixel-exact chevron sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/chevron-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combat-sprites",
+      "type": "registry:ui",
+      "title": "Combat Sprites",
+      "description": "Pixel-exact combat sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/combat-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Right-click \"Choose Option\" menu.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/context-menu.tsx",
           "type": "registry:ui"
         }
       ]
@@ -61,12 +199,516 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
       ],
       "files": [
         {
           "path": "registry/osrs/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "equipment-slot",
+      "type": "registry:ui",
+      "title": "Equipment Slot",
+      "description": "Equipment slots and the worn-equipment grid.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json",
+        "https://osrs-ui.vercel.app/r/equipment-sprites.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/equipment-slot.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "equipment-sprites",
+      "type": "registry:ui",
+      "title": "Equipment Sprites",
+      "description": "Pixel-exact equipment sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/equipment-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "ge-sprites",
+      "type": "registry:ui",
+      "title": "Ge Sprites",
+      "description": "Pixel-exact ge sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/ge-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "glyph-sprites",
+      "type": "registry:ui",
+      "title": "Glyph Sprites",
+      "description": "Pixel-exact glyph sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/glyph-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon-sprites",
+      "type": "registry:ui",
+      "title": "Icon Sprites",
+      "description": "Pixel-exact icon sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/icon-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Sunken text field.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "interface",
+      "type": "registry:ui",
+      "title": "Interface",
+      "description": "Classic interface window: stone inside the iron-rivet frame.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/interface.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item-slot",
+      "type": "registry:ui",
+      "title": "Item Slot",
+      "description": "Item slot with stack quantities, and the 28-slot inventory grid.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/item-slot.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "type": "registry:ui",
+      "title": "List",
+      "description": "Striped, selectable list rows.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "nav-list",
+      "type": "registry:ui",
+      "title": "Nav List",
+      "description": "Vertical category nav (All Settings).",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/nav-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-field",
+      "type": "registry:ui",
+      "title": "Number Field",
+      "description": "Grand Exchange number field.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/ge-sprites.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/number-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "option-sprites",
+      "type": "registry:ui",
+      "title": "Option Sprites",
+      "description": "Pixel-exact option sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/option-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "orb-sprites",
+      "type": "registry:ui",
+      "title": "Orb Sprites",
+      "description": "Pixel-exact orb sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/orb-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "orb",
+      "type": "registry:ui",
+      "title": "Orb",
+      "description": "Minimap stat orbs.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json",
+        "https://osrs-ui.vercel.app/r/orb-sprites.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/orb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "panel-sprites",
+      "type": "registry:ui",
+      "title": "Panel Sprites",
+      "description": "Pixel-exact panel sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/panel-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "prayer-button",
+      "type": "registry:ui",
+      "title": "Prayer Button",
+      "description": "Prayer-book toggle.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json",
+        "https://osrs-ui.vercel.app/r/prayer-sprites.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/prayer-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "prayer-sprites",
+      "type": "registry:ui",
+      "title": "Prayer Sprites",
+      "description": "Pixel-exact prayer sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/prayer-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Interface progress bars.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Round settings radio buttons.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/option-sprites.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "In-game scrollbar.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Dropdown select.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Two-tone interface rule.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "settings",
+      "type": "registry:ui",
+      "title": "Settings",
+      "description": "Settings sections and rows.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/settings.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "side-panel",
+      "type": "registry:ui",
+      "title": "Side Panel",
+      "description": "Resizable-mode side panel with tab stones.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json",
+        "https://osrs-ui.vercel.app/r/panel-sprites.json",
+        "https://osrs-ui.vercel.app/r/tab-sprites.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/side-panel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skill-icons",
+      "type": "registry:ui",
+      "title": "Skill Icons",
+      "description": "Pixel-exact skill sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/skill-icons.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skill-tile",
+      "type": "registry:ui",
+      "title": "Skill Tile",
+      "description": "Stats-tab skill tiles.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json",
+        "https://osrs-ui.vercel.app/r/stats-sprites.json",
+        "https://osrs-ui.vercel.app/r/skill-icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/skill-tile.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Settings slider.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json",
+        "https://osrs-ui.vercel.app/r/option-sprites.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stats-sprites",
+      "type": "registry:ui",
+      "title": "Stats Sprites",
+      "description": "Pixel-exact stats sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/stats-sprites.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tab-sprites",
+      "type": "registry:ui",
+      "title": "Tab Sprites",
+      "description": "Pixel-exact tab sprites as React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/tab-sprites.tsx",
           "type": "registry:ui"
         }
       ]
@@ -80,8 +722,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
       ],
       "files": [
         {
@@ -99,8 +741,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
       ],
       "files": [
         {
@@ -110,111 +752,34 @@
       ]
     },
     {
-      "name": "context-menu",
+      "name": "window",
       "type": "registry:ui",
-      "title": "Context Menu",
-      "description": "Right-click \"Choose Option\" menu.",
-      "dependencies": [
-        "@base-ui/react"
-      ],
+      "title": "Window",
+      "description": "Modern interface window: stone inside the thick tan border, with a header row.",
       "registryDependencies": [
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
       ],
       "files": [
         {
-          "path": "registry/osrs/ui/context-menu.tsx",
+          "path": "registry/osrs/ui/window.tsx",
           "type": "registry:ui"
         }
       ]
     },
     {
-      "name": "checkbox",
+      "name": "xp-drop",
       "type": "registry:ui",
-      "title": "Checkbox",
-      "description": "Settings checkbox.",
-      "dependencies": [
-        "@base-ui/react"
-      ],
+      "title": "Xp Drop",
+      "description": "XP drops.",
       "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
         "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+        "https://osrs-ui.vercel.app/r/skill-icons.json"
       ],
       "files": [
         {
-          "path": "registry/osrs/ui/checkbox.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "scroll-area",
-      "type": "registry:ui",
-      "title": "Scroll Area",
-      "description": "In-game scrollbar.",
-      "dependencies": [
-        "@base-ui/react"
-      ],
-      "registryDependencies": [
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/scroll-area.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "input",
-      "type": "registry:ui",
-      "title": "Input",
-      "description": "Sunken text field.",
-      "dependencies": [
-        "@base-ui/react"
-      ],
-      "registryDependencies": [
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/input.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "separator",
-      "type": "registry:ui",
-      "title": "Separator",
-      "description": "Two-tone interface rule.",
-      "dependencies": [
-        "@base-ui/react"
-      ],
-      "registryDependencies": [
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/separator.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "skill-icons",
-      "type": "registry:ui",
-      "title": "Skill Icons",
-      "description": "All 24 skill icons plus total level as vector React components.",
-      "registryDependencies": [
-        "https://osrs-ui.vercel.app/r/osrs-theme.json"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/icons/skill-icons.tsx",
+          "path": "registry/osrs/ui/xp-drop.tsx",
           "type": "registry:ui"
         }
       ]

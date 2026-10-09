@@ -1,4 +1,4 @@
-import { skillIcons } from "@/registry/osrs/icons/skill-icons";
+import { skillIcons } from "@/registry/osrs/ui/skill-icons";
 
 export default function SkillIconsDemo() {
   return (

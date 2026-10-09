@@ -71,13 +71,48 @@ const hcap = (capSrc: string, capWidth: number, middleSrc: string) => {
   };
 };
 
+const crop9 = (src: string, k: number, e: number) => {
+  const img = readPng(path.join(REF, src));
+  const W = k * 2 + e, H = k * 2 + e;
+  const out = blank(W, H);
+  const put = (sx: number, sy: number, w: number, h: number, dx: number, dy: number) =>
+    blit(out, crop(img, { x: sx, y: sy, w, h }), dx, dy);
+  put(0, 0, k, k, 0, 0); // corners
+  put(img.width - k, 0, k, k, W - k, 0);
+  put(0, img.height - k, k, k, 0, H - k);
+  put(img.width - k, img.height - k, k, k, W - k, H - k);
+  put(k, 0, e, k, k, 0); // edges: first `e` px after each corner
+  put(k, img.height - k, e, k, k, H - k);
+  put(0, k, k, e, 0, k);
+  put(img.width - k, k, k, e, W - k, k);
+  return { bmp: out, slice: [k, k, k, k] as [number, number, number, number], border: [k, k, k, k] as [number, number, number, number] };
+};
+
+// Expand folder entries into single sprites
+type Single = Extract<(typeof sprites)[number], { kind: "single" }>;
+const expanded = sprites.flatMap((s) => {
+  if (s.kind !== "folder") return [s];
+  return fs
+    .readdirSync(path.join(REF, s.dir))
+    .filter((f) => f.endsWith(".png"))
+    .filter((f) => (!s.include || s.include.test(f)) && (!s.exclude || !s.exclude.test(f)))
+    .sort()
+    .map((f): Single => ({
+      kind: "single",
+      group: s.group,
+      name: f.replace(/\.png$/, "").replace(s.strip ?? /^$/, "").replace(/_/g, "-"),
+      src: `${s.dir}/${f}`,
+    }));
+});
+
 const manifest: ManifestEntry[] = [];
-for (const s of sprites) {
+for (const s of expanded) {
   let bmp: Bitmap;
   let extra: Partial<ManifestEntry> = {};
   if (s.kind === "single") bmp = readPng(path.join(REF, s.src));
   else {
-    const c = s.kind === "hcap" ? hcap(s.cap, s.capWidth, s.middle) : compose(s.frame);
+    const c =
+      s.kind === "hcap" ? hcap(s.cap, s.capWidth, s.middle) : s.kind === "crop9" ? crop9(s.src, s.slice, s.edge) : compose(s.frame);
     bmp = c.bmp;
     extra = { slice: c.slice, border: c.border };
   }

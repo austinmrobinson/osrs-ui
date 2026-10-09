@@ -8,10 +8,13 @@ const buttonVariants = cva("osrs-button osrs-framed osrs-frame-stone-button osrs
     variant: {
       stone: "",
       square: "osrs-button-square",
+      metal: "osrs-button-metal",
+      flat: "osrs-button-flat",
     },
     size: {
       default: "",
       sm: "osrs-button-sm",
+      lg: "osrs-button-lg",
       icon: "osrs-button-icon",
     },
   },
