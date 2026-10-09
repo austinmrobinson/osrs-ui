@@ -1,0 +1,23 @@
+---
+title: Sprite Button
+description: "A button drawn by one of the game's own button sprites, lit on hover and while the window it opens is open."
+---
+
+<Component path="sprite-button/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/sprite-button.json
+```
+
+## Usage
+
+```tsx
+import { SpriteButton } from "@/components/ui/sprite-button"
+import { buttonSprites } from "@/components/ui/button-sprites"
+
+<SpriteButton sprite={buttonSprites.wrench} activeSprite={buttonSprites.wrenchHovered} aria-label="Settings" />
+```
+
+`activeSprite` shows on hover, while `aria-pressed` is true, and while the menu or popover it triggers is open. Sprite buttons have no text, so always give one an `aria-label`. For a framed button with a sprite inside, use [Button](/components/button)'s icon sizes instead.

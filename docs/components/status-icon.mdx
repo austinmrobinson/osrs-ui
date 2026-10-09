@@ -1,0 +1,21 @@
+---
+title: Status Icon
+description: "The game's matched round marks: a green check for done or on, a red cross for not done or off."
+---
+
+<Component path="status-icon/playground" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/status-icon.json
+```
+
+## Usage
+
+```tsx
+<StatusIcon status="done" />
+<StatusIcon status="failed" label="Not ready" />
+```
+
+Each is announced to screen readers ("Yes" / "No" by default; set `label`).

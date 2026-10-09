@@ -1,0 +1,30 @@
+---
+title: Split Button
+description: "Two buttons in one metal frame: the main action, and a menu of related ones."
+---
+
+<Component path="split-button/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/split-button.json
+```
+
+## Usage
+
+```tsx
+import { SplitButton } from "@/components/ui/split-button"
+
+<SplitButton>
+  <Button>Download all</Button>
+  <DropdownMenu>
+    <DropdownMenuTrigger render={<Button size="icon" aria-label="Download a category" />}>
+      <chevronSprites.yellowDownSingle />
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="end">…</DropdownMenuContent>
+  </DropdownMenu>
+</SplitButton>
+```
+
+The halves drop their own frames and share one; a separator goes between them. The first takes the spare width, and hovering either darkens only its own fill.

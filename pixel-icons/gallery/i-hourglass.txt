@@ -1,0 +1,41 @@
+name: Hourglass
+kind: item
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+w #5e7f8f
+x #7fa3b3
+y #a3c6d3
+z #cfe6ee
+1 #8a6a2c
+2 #b38c42
+3 #d8b25e
+---
+....dddddd
+.dddddddddddd
+dddddddddddddd
+dddddddddddddd
+dddddddddddddd
+cddddddddddddb
+cccddddddddcbb
+.ccddddcccccb
+..dxdddcccx.d
+..dwxcbxxxw.d
+..d.wcbxxw..d
+..d..cbxw...d
+..d..cbx....d
+..d..cby....d
+..d..cbzx...d
+..d.ycbzyx..d
+..dxzcbzyyx.d
+..dyzcbzzyx.d
+.dyzzcbzzyyxd
+ddyzzcbzzyyxdd
+ddyzzcbzzyyxdd
+ddyyzcbzyyyxdd
+cdddycbyyydddb
+cccddedddddcbb
+.ccddddcccccb
+....dddccc

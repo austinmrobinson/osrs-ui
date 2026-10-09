@@ -1,0 +1,23 @@
+---
+title: Toggle
+description: "A single on/off tile, red while pressed, as in the bank's footer."
+---
+
+<Component path="toggle/playground" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/toggle.json
+```
+
+## Usage
+
+```tsx
+<Toggle aria-label="Always set placeholders" defaultPressed>
+  <bankSprites.placeholdersLock />
+</Toggle>
+<Toggle size="default">Note</Toggle>
+```
+
+Sizes match [Button](/components/button): icon tiles by default (`icon-sm`, `icon`, `icon-lg`), or `sm`, `default` and `lg` for text. For a row where one choice stays pressed, use [Toggle Group](/components/toggle-group).

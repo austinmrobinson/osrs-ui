@@ -1,38 +1,9 @@
 ---
 title: OSRS UI
 description: "Pixel-exact, vector Old School RuneScape interface components and icons for shadcn/ui."
+mode: center
 ---
 
-OSRS UI recreates the Old School RuneScape interface as a [shadcn/ui](https://ui.shadcn.com) registry. Every frame, texture and icon is a **vector SVG traced pixel for pixel from the game's sprites**. They stay sharp at any integer scale, and a check in CI confirms they still match the original pixels exactly.
+<LandingHero />
 
-<Component path="interface/demo" />
-
-## Recipes
-
-Whole game screens built only from the library.
-
-<CardGroup cols={3}>
-  <Card title="Bank" href="/recipes/bank">Tabs, item grid, withdraw options.</Card>
-  <Card title="All Settings" href="/recipes/all-settings">Nav, sections, toggles, dropdowns.</Card>
-  <Card title="Grand Exchange" href="/recipes/grand-exchange">Offer cards and progress.</Card>
-  <Card title="Inventory" href="/recipes/inventory">Side panel and 28 slots.</Card>
-  <Card title="Collection Log" href="/recipes/collection-log">Tabs, lists, item grid.</Card>
-  <Card title="NPC Dialogue" href="/recipes/dialogue">Chatbox dialogue flow.</Card>
-</CardGroup>
-
-## What's different
-
-<IconList>
-  <IconListItem icon="vector" title="Vector, not screenshots" label="Traced">every sprite pixel for pixel into merged SVG rectangles, one path per colour</IconListItem>
-  <IconListItem icon="frames" title="Frames that resize" label="Fits">any width or height: buttons, windows and tabs repeat the game's own edge sprites</IconListItem>
-  <IconListItem icon="scale" title="One scale knob" label="Set">`--osrs-px` to 1px, 2px or 3px and every frame, font and gap follows</IconListItem>
-  <IconListItem icon="downloads" title="Free downloads" label="Formats">SVG or PNG at any size from the [Assets](/assets) page, for thumbnails and overlays</IconListItem>
-</IconList>
-
-## Credits
-
-Fonts are the [RuneStar OSRS fonts](https://github.com/RuneStar/fonts) (CC0). Reference sprites come from the vanilla pack in [melkypie/resource-packs](https://github.com/melkypie/resource-packs).
-
-<Callout type="info">
-Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan Content Policy. This content is not endorsed by or affiliated with Jagex.
-</Callout>
+<HomeBelow />

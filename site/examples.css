@@ -4,3 +4,24 @@ html, body { background: transparent; }
 @media (max-width: 1040px) {
   :root { --osrs-px: 1px; }
 }
+/* Demos sit straight on the docs' stone panel: drop the stone box each demo draws for itself,
+   so a preview isn't a frame inside a frame */
+:is(body > div, astro-island) > .osrs-texture-stone { background-image: none !important; background-color: transparent !important; }
+
+/* Playgrounds fill the preview frame edge to edge, so the props panel sits flush against its
+   top, right and bottom (the frame's body padding and centring margin are for plain demos) */
+body:has(.osrs-playground) { padding: 0 !important; }
+body:has(.osrs-playground) > div { margin: 0 !important; width: 100%; max-width: none; }
+.osrs-playground { align-items: stretch; }
+/* The playground's props panel is site chrome, so it wears the site's background (stone with the
+   nav tint, at the site's 2x tile), not the darkened preview stone */
+.osrs-playground > aside {
+  background-color: var(--osrs-stone);
+  background-image: linear-gradient(rgb(0 0 0 / 0.14), rgb(0 0 0 / 0.14)), var(--osrs-texture-stone);
+  background-size: auto, 176px 120px;
+}
+/* Popups (menus, selects) portal into <body>; Blume makes it a flex row, which would squeeze the
+   playground sideways when one opens. A plain block body keeps portals out of the layout. */
+body:has(.osrs-playground) { display: block !important; }
+/* Props panel: the band and rows run edge to edge; the spacing lives inside each row */
+.osrs-playground > aside .osrs-setting-row { padding: 6px 10px; }

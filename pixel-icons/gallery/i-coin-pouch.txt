@@ -1,0 +1,40 @@
+name: Coin pouch
+kind: item
+a #3a2410
+b #55351a
+c #704622
+d #8a5a2c
+e #a46f3a
+f #bd864b
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+u #2a1a0c
+v #5a3a1c
+w #8c6034
+---
+......ewwwwwe
+.....evwwwwwwe
+.....evvwwwwve
+......eveewee
+......vbbbbe
+......dwwwwv
+....cdcdeueced
+...deeedddcceddc
+..deefffffffeeddc
+.deeefffffffeeddcc
+.deeffffffffeeeddc
+deeffffffffffeeddcb
+deeffffffffffeeddcc
+deeffffffffffeeddcb
+deeffffffffffeeddcb
+cdeeffffffffeeedccb533
+.cdeeeffffeeeddccb56653
+..cddeeeeeedddcbb..665433
+...bccdddddccbbb.....542
+.....bbbbbbbbb.55555
+...............555555
+...............555552

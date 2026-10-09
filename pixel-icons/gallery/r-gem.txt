@@ -1,0 +1,12 @@
+name: Gem rank
+kind: rank
+a #9cf07a
+b #4cc83c
+c #1e8a24
+---
+..aab..
+.aabbc.
+aabbbcc
+.bbbcc.
+..bcc..
+...c...

@@ -1,28 +1,34 @@
-name: Recipes (a cooking pot)
+name: Recipes (a bowl of stew and a spoon)
 kind: tab
-s #f2f2ee
-t #b9b9b2
-o #d8761c
-O #a44e0c
-h #9a9a94
-l #73736d
-m #53534e
-d #34342f
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+u #6a3a12
+v #8a5018
+w #b06a22
+q #d08a3a
+P #7a5a1a
+Q #a07a2a
+R #c89a3a
+S #e8be5a
 ---
-.....t......t......
-....s......s.......
-....s.......s......
-.....s......s......
-....t......t.......
-...................
-..hhhhhhhhhhhhhhh..
-.hoOoooOooooOoooOm.
-.hhlllllllllllllmd.
-hhlllllllllllllmmdd
-hlhlmmmmmmmmmmmmdmd
-hhlmmmmmmmmmmmmmmdd
-..lmmmmmmmmmmmmmmd.
-..lmmmmmmmmmmmmmdd.
-...mmmmmmmmmmmmmd..
-....mmmmmmmmmmmd...
-.....ddddddddddd...
+........eeeeee....SQ
+.....eebccccccceeSR
+...eebcqqqqqqqqcSRe
+..ebbqqqqqqqqqqSRcce
+.ebqqqqqqqqqqqSSqqqce
+eeqqqqqqqqqqqRSqqqqqee
+ebqqqqqqqqqqQSQqqqqqce
+eqqqqqqqqqRSSSRqqqqqqe
+eqqqqqqqqqSSSSPqqqqqqe
+eqqqqqqqqqqqqqqqqqqqqe
+eqqqqqqqqqqqqqqqqqqqqe
+beqqqqqqqqqqqqqqqqqqeb
+.eeqqqqqqqqqqqqqqqqed
+..ceqqqqqqqqqqqqqqeb
+..bbeeqqqqqqqqqqeebb
+...bbbeeeeeeeeeebbb
+.....bbbbbbbbbbbb
+.......bbbbbbbb

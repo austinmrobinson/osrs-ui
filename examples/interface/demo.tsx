@@ -1,19 +1,48 @@
 import { Interface, InterfaceClose, InterfaceContent, InterfaceHeader, InterfaceTitle } from "@/registry/osrs/ui/interface";
-import { Button } from "@/registry/osrs/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "@/registry/osrs/ui/toggle-group";
+import { Item } from "@/site/demo-data/game";
+import type { ItemId } from "@/site/demo-data/items";
+
+const px = (n: number) => `calc(${n} * var(--osrs-px))`;
+const ITEMS: [ItemId, number][] = [
+  ["coins-10000", 2_450_000],
+  ["shark", 412],
+  ["prayer-potion-4", 96],
+  ["law-rune", 3_200],
+  ["dragon-bones", 840],
+  ["magic-logs", 1_206],
+];
 
 export default function InterfaceDemo() {
   return (
     <div className="osrs flex justify-center p-6">
-      <Interface className="w-[calc(220*var(--osrs-px))]">
+      <Interface style={{ width: px(260) }}>
         <InterfaceHeader>
           <InterfaceTitle>The Bank of Gielinor</InterfaceTitle>
           <InterfaceClose />
         </InterfaceHeader>
-        <InterfaceContent className="gap-[calc(6*var(--osrs-px))]">
-          <p>Interfaces tile the stone texture and repeat the rivet frame, so they can be any size.</p>
-          <div className="flex justify-end gap-[calc(4*var(--osrs-px))]">
-            <Button variant="tile" size="sm">Item</Button>
-            <Button variant="tile" size="sm">Note</Button>
+        <InterfaceContent className="osrs-text" style={{ gap: px(8) }}>
+          <div className="grid grid-cols-6" style={{ gap: px(2) }}>
+            {ITEMS.map(([id, q]) => (
+              <Item key={id} id={id} quantity={q} />
+            ))}
+          </div>
+          <div className="flex items-center justify-between">
+            <ToggleGroup defaultValue={["item"]} style={{ gap: px(2) }}>
+              <ToggleGroupItem value="item" size="sm">
+                Item
+              </ToggleGroupItem>
+              <ToggleGroupItem value="note" size="sm">
+                Note
+              </ToggleGroupItem>
+            </ToggleGroup>
+            <ToggleGroup defaultValue={["1"]} style={{ gap: px(2) }}>
+              {["1", "5", "10", "All"].map((v) => (
+                <ToggleGroupItem key={v} value={v} size="icon-sm">
+                  {v}
+                </ToggleGroupItem>
+              ))}
+            </ToggleGroup>
           </div>
         </InterfaceContent>
       </Interface>

@@ -1,31 +1,39 @@
 name: Frames that resize (a frame and a resize arrow)
 kind: item
-h #c4beb0
-l #a29c8e
-m #837d70
-d #5c564b
-a #ffff00
-A #b8b800
+g #3a3833
+h #55524b
+i #6f6b62
+j #8a857a
+k #a6a094
+l #c2bcae
+Y #7a6a00
+Z #a89200
+1 #d4bc00
+2 #f0dc10
+a #ffff40
 ---
-hhhhhhhhhhhhhhhhhhhh
-hlllllllllllllllllld
-hlmmmmmmmmmmmmmmmmmd
-hlmddddddddddddddmmd
-hlmd.............mmd
-hlmd.............mmd
-hlmd.............mmd
-hlmd.............mmd
-hlmd.............mmd
-hlmd.............mmd
-hlmd.............mmd
-hlmd.............mmd
-hlmd.............mmd
-hlmd.............mmd
-hlmd..........aA.mmd
-hlmd...........aAmmd
-hlmd............aAmd.A
-hlmmmmmmmmmmmmmmmaAd.A
-hlmmmmmmmmmmmmmmmmaA.A
-hddddddddddddddddddaAA
-....................aA
-................aaaaaA
+.................jj
+...........jjjjklkjj
+.....jjjjklkjjjjjjjj
+kjjkkjjjjjjjjjjjjjjj
+ijjjjjjjjjjjjjjjjjjj
+ijjjjjjjjjjjj...ijjj
+ijjjjjj.........ijjj
+ijjj............ijjj
+ijjj............ijjj
+ijjj............ijjj
+ijjj............ijjj
+ijjj............ijjj
+ijjj............ijjj
+ijjj............ijjj
+ijjj............ijjj
+ijjj............ijjj
+ijjj............ijjj
+ijjj.........jjjaajj
+ijjj...jjjjjjjjaaaaj
+ijjjjjjjjjjjjjjaaaaa..a
+ijjjjjjjjjjjjjjjaaaaaaaZ
+ijjjjjjjjjjjjji..aaaaaa1
+ijjjjjjjh.........aaaaa2
+.jh...............aaaaa2
+.................aaaaaaa

@@ -1,0 +1,38 @@
+name: Iron Skin (a gilded shield)
+kind: prayer
+outline: #c8981e
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+g #2e3236
+h #464b50
+i #60666b
+j #7d8388
+k #9ca2a6
+l #c3c8cb
+---
+3444444444444444444442
+3455555555555555555542
+3455555555555555555542
+3455kkkkkkkkkkkkkk5542
+3455kkkkkkkkkkkkkj5542
+3455kkkkkkkkkkkkkj5542
+3455kkkkkkkkkkkkkj5542
+3455kkkkkkkkkkkkkj5542
+3455jkkkkkkkkkkkkj5542
+.455jkkkkkkkkkkkki543
+.345ijkkkkkkkkkkjh542
+.2455jkkkkkkkkkki5432
+..345ijkkkkkkkkjh542
+..2455jkkkkkkkki5432
+...345ijkkkkkkih542
+...2445ijkkkkii5432
+....23455jkji55432
+.....23455ii55432
+......2345555432
+.......23455432
+........234422
+..........32

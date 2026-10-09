@@ -1,0 +1,39 @@
+name: Map pin
+kind: item
+a #4a0c0a
+b #6e1410
+c #931c16
+d #b8281e
+e #d8402e
+f #ef6a50
+x #1a0504
+y #2a0a08
+z #3a100c
+---
+.......dddd
+.....deeeeedd
+...deeefffeeddc
+..ceeffffffeeddb
+..deffffffffeedc
+.cdeffffffffeedcb
+.deeffffffffeedcb
+.deefff....eeddcb
+.cdeefxyyyyyeddcb
+dcdeeexyyyyyddccbd
+dcddeexyyyyyddcbbd
+bddddddyyyyddccddb
+.bcccccyyyyccbbbb
+.bcccccccccccbbbb
+..bccccccccccbbb
+..bcccccccccbbbb
+...bccccccccbbb
+....ccccccccbb
+....bccccccbbb
+.....ccccccbb
+.....bcccccbb
+......cccccb
+......bcccbb
+.......cccb
+.......bccb
+........cc
+........cb

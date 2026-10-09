@@ -2,11 +2,13 @@
  * OSRS UI theme — hand-written part. scripts/build-css.ts appends the generated
  * asset variables and writes the combined, self-contained osrs.css.
  * Fonts: RuneStar fonts (CC0); build-css.ts inlines them as data URIs.
+ * RuneScape-Plain-12-Light.otf is derived from Plain 12 by scripts/build-font-light.ts.
  */
 
 @font-face { font-family: "RuneScape Plain 11"; src: url("/fonts/osrs/RuneScape-Plain-11.ttf") format("truetype"); font-display: block; }
 @font-face { font-family: "RuneScape Plain 12"; src: url("/fonts/osrs/RuneScape-Plain-12.ttf") format("truetype"); font-display: block; }
 @font-face { font-family: "RuneScape Bold 12"; src: url("/fonts/osrs/RuneScape-Bold-12.ttf") format("truetype"); font-display: block; }
+@font-face { font-family: "RuneScape Plain Light"; src: url("/fonts/osrs/RuneScape-Plain-12-Light.otf") format("opentype"); font-display: block; }
 @font-face { font-family: "RuneScape Quill 8"; src: url("/fonts/osrs/RuneScape-Quill-8.ttf") format("truetype"); font-display: block; }
 
 :root {
@@ -41,6 +43,8 @@
   --osrs-font-small: "RuneScape Plain 11", ui-monospace, monospace;
   --osrs-font-bold: "RuneScape Bold 12", ui-monospace, monospace;
   --osrs-font-quill: "RuneScape Quill 8", serif;
+  /* Lighter Plain 12 for large display text (scripts/build-font-light.ts) */
+  --osrs-font-light: "RuneScape Plain Light", ui-monospace, monospace;
 }
 
 /* shadcn tokens, so stock shadcn components pick up the palette too */
@@ -234,8 +238,9 @@
 .osrs-tabs-list::-webkit-scrollbar { display: none; }
 .osrs-tab {
   --osrs-frame-image: var(--osrs-frame-tab-small);
-  --osrs-frame-slice: 1 4 1 4;
-  --osrs-frame-width: var(--osrs-px) calc(4 * var(--osrs-px));
+  /* the top slice holds the slanted shoulders, so a taller tab repeats only the straight sides */
+  --osrs-frame-slice: 4 4 1 4;
+  --osrs-frame-width: calc(4 * var(--osrs-px)) calc(4 * var(--osrs-px)) var(--osrs-px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -255,7 +260,7 @@
 .osrs-tab-medium { height: calc(21 * var(--osrs-px)); --osrs-frame-image: var(--osrs-frame-tab-medium); }
 .osrs-tab-medium:hover { --osrs-frame-image: var(--osrs-frame-tab-medium-hover); }
 .osrs-tab-medium[data-active], .osrs-tab-medium:active { --osrs-frame-image: var(--osrs-frame-tab-medium-selected); }
-.osrs-tab-large { height: calc(26 * var(--osrs-px)); --osrs-frame-image: var(--osrs-frame-tab-large); }
+.osrs-tab-large { height: calc(26 * var(--osrs-px)); --osrs-frame-image: var(--osrs-frame-tab-large); --osrs-frame-slice: 5 4 1 4; --osrs-frame-width: calc(5 * var(--osrs-px)) calc(4 * var(--osrs-px)) var(--osrs-px); }
 .osrs-tab-large:hover { --osrs-frame-image: var(--osrs-frame-tab-large-hover); }
 .osrs-tab-large[data-active], .osrs-tab-large:active { --osrs-frame-image: var(--osrs-frame-tab-large-selected); }
 
@@ -378,8 +383,12 @@
     linear-gradient(to bottom, #b3a586, #bfae8c 70%, #c1b08f);
   background-clip: padding-box;
 }
-.osrs-dialogue-continue:hover, .osrs-dialogue-continue:focus-visible { color: var(--osrs-white) !important; outline: none; }
 .osrs-dialogue-option { color: #000; }
+/* Text on the parchment chatbox is drawn without the drop shadow used on stone (buttons and
+   cards placed on it keep theirs) */
+.osrs-chatbox .osrs-text { text-shadow: none; }
+.osrs-chatbox :is(.osrs-button, .osrs-card),
+.osrs-chatbox :is(.osrs-button, .osrs-card) .osrs-text { text-shadow: var(--osrs-px) var(--osrs-px) 0 var(--osrs-shadow); }
 .osrs-dialogue-option:hover, .osrs-dialogue-option:focus-visible { color: var(--osrs-white); outline: none; }
 
 /* Progress bar: tiled 1px-wide gradient columns */
@@ -444,6 +453,17 @@
 }
 .osrs-card-flat { padding: calc(4 * var(--osrs-px)) calc(6 * var(--osrs-px)); }
 .osrs-card-offer { padding: calc(3 * var(--osrs-px)); }
+:root { --osrs-frame-flat-muted: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 15 15' shape-rendering='crispEdges'%3E%3Cpath fill='%231c1c1c' d='M3 0h9v1h-9zM3 1h1v2h-1zM11 1h1v2h-1zM2 2h1v2h-1zM12 2h1v2h-1zM0 3h2v1h-2zM13 3h2v1h-2zM0 4h1v8h-1zM14 4h1v8h-1zM1 11h2v1h-2zM12 11h2v1h-2zM2 12h2v1h-2zM11 12h2v1h-2zM3 13h1v2h-1zM11 13h1v2h-1zM4 14h7v1h-7z'/%3E%3Cpath fill='%237e7163' d='M4 1h7v1h-7zM4 2h1v2h-1zM10 2h1v2h-1zM3 3h1v2h-1zM11 3h1v2h-1zM1 4h2v1h-2zM12 4h2v1h-2zM1 5h1v6h-1zM13 5h1v6h-1zM2 10h2v1h-2zM11 10h2v1h-2zM3 11h2v1h-2zM10 11h2v1h-2zM4 12h1v2h-1zM10 12h1v2h-1zM5 13h5v1h-5z'/%3E%3C/svg%3E"); }
+/* muted: the flat card's notched edge with the base (metal) button's fill instead of the solid
+   brown: the stone behind, lifted 5% at rest and darkened 15% on hover / press. The fill is the
+   element's own background, clipped to the frame's notched outline. */
+.osrs-card-muted {
+  --osrs-frame-image: var(--osrs-frame-flat-muted);
+  background-color: rgb(255 255 255 / 0.05);
+  clip-path: polygon(calc(3 * var(--osrs-px)) 0, calc(100% - 3 * var(--osrs-px)) 0, calc(100% - 3 * var(--osrs-px)) calc(2 * var(--osrs-px)), calc(100% - 2 * var(--osrs-px)) calc(2 * var(--osrs-px)), calc(100% - 2 * var(--osrs-px)) calc(3 * var(--osrs-px)), 100% calc(3 * var(--osrs-px)), 100% calc(100% - 3 * var(--osrs-px)), calc(100% - 2 * var(--osrs-px)) calc(100% - 3 * var(--osrs-px)), calc(100% - 2 * var(--osrs-px)) calc(100% - 2 * var(--osrs-px)), calc(100% - 3 * var(--osrs-px)) calc(100% - 2 * var(--osrs-px)), calc(100% - 3 * var(--osrs-px)) 100%, calc(3 * var(--osrs-px)) 100%, calc(3 * var(--osrs-px)) calc(100% - 2 * var(--osrs-px)), calc(2 * var(--osrs-px)) calc(100% - 2 * var(--osrs-px)), calc(2 * var(--osrs-px)) calc(100% - 3 * var(--osrs-px)), 0 calc(100% - 3 * var(--osrs-px)), 0 calc(3 * var(--osrs-px)), calc(2 * var(--osrs-px)) calc(3 * var(--osrs-px)), calc(2 * var(--osrs-px)) calc(2 * var(--osrs-px)), calc(3 * var(--osrs-px)) calc(2 * var(--osrs-px)));
+}
+a.osrs-card.osrs-card-muted:hover:not([data-disabled]), button.osrs-card.osrs-card-muted:hover:not([data-disabled]),
+a.osrs-card.osrs-card-muted:active, button.osrs-card.osrs-card-muted:active { background-color: rgb(0 0 0 / 0.15); }
 
 /* Button variants (audited against in-game screenshots)
  *
@@ -478,6 +498,9 @@
 }
 /* tone="white": white label at rest too (Collection Log, Combat Achievements, Settings header) */
 .osrs-button-metal-white { color: var(--osrs-white); }
+/* Confirm / cancel pairs: the label keeps its colour in every state; the frame shows hover */
+.osrs-button.osrs-button-positive:not(:disabled):not([data-disabled]) { color: #0dc10d; }
+.osrs-button.osrs-button-destructive:not(:disabled):not([data-disabled]) { color: #ff3030; }
 .osrs-button-metal:disabled, .osrs-button-metal[data-disabled] {
   --osrs-frame-image: var(--osrs-frame-equipment-metal);
   background-color: rgb(255 255 255 / 0.05);
@@ -586,6 +609,82 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 .osrs-list-item-detail-value { color: #c9c0ad; }
 .osrs-list-item-detail:not(:has(.osrs-list-item-detail-label)) .osrs-list-item-detail-value { color: inherit; }
 
+/* Group box: titled inset ("Pouch", "Bank Fillers") */
+.osrs-group-box {
+  margin: 0; min-width: 0;
+  padding: calc(4 * var(--osrs-px)) calc(6 * var(--osrs-px)) calc(6 * var(--osrs-px));
+  border: 0;
+  background: rgb(0 0 0 / 0.1);
+  box-shadow:
+    inset 0 0 0 var(--osrs-px) var(--osrs-border-inner),
+    0 0 0 var(--osrs-px) var(--osrs-border-outer);
+}
+/* FieldSet legends: the group box's orange centred title, or the settings section's white band */
+.osrs-group-box > .osrs-field-legend {
+  float: left; width: 100%;           /* keep the legend inside the box, as the game draws it */
+  padding: 0 0 calc(4 * var(--osrs-px));
+  text-align: center;
+  color: var(--osrs-orange);
+}
+.osrs-field-section { margin: 0; padding: 0; border: 0; min-width: 0; }
+.osrs-field-section > .osrs-field-legend {
+  float: left; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  min-height: calc(22 * var(--osrs-px));
+  padding: 0;
+  background: rgb(0 0 0 / 0.14);
+  font-family: var(--osrs-font-bold);
+  color: var(--osrs-white);
+}
+.osrs-field-legend + * { clear: both; }
+
+/* Status marks */
+.osrs-status-icon { display: inline-flex; flex: none; vertical-align: middle; }
+
+/* Stat: labelled values */
+.osrs-stat-boxed {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: calc(2 * var(--osrs-px));
+  padding: calc(4 * var(--osrs-px)) calc(8 * var(--osrs-px));
+  background: #000;
+  box-shadow: inset 0 0 0 var(--osrs-px) #5a5245;
+}
+.osrs-stat-boxed .osrs-stat-label { font-family: var(--osrs-font-bold); color: var(--osrs-orange); }
+.osrs-stat-boxed .osrs-stat-value { color: var(--osrs-orange); }
+.osrs-stat-inline { display: inline-flex; align-items: baseline; gap: calc(4 * var(--osrs-px)); }
+.osrs-stat-inline .osrs-stat-label { color: var(--osrs-orange); }
+.osrs-stat-inline .osrs-stat-value { color: var(--osrs-white); }
+
+/* Description list: label left orange, value right white */
+.osrs-dl { margin: 0; display: flex; flex-direction: column; }
+.osrs-dl-item { display: flex; align-items: center; justify-content: space-between; gap: calc(8 * var(--osrs-px)); min-height: calc(20 * var(--osrs-px)); padding: 0 calc(6 * var(--osrs-px)); }
+.osrs-dl-item dt { color: var(--osrs-orange); }
+.osrs-dl-item dd { margin: 0; color: var(--osrs-white); text-align: right; }
+.osrs-dl[data-striped] .osrs-dl-item:nth-child(odd) { background: rgb(0 0 0 / 0.1); }
+.osrs-dl[data-striped] .osrs-dl-item:nth-child(even) { background: rgb(255 255 255 / 0.04); }
+
+/* Toggle group: a row of tiles */
+.osrs-toggle-group { display: inline-flex; gap: calc(4 * var(--osrs-px)); }
+
+/* Selectable cards */
+.osrs-card[data-selected]::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  box-shadow: inset 0 0 0 var(--osrs-px) var(--osrs-orange);
+}
+/* On the notched flat frame, the frame's own light ring turns orange, so the outline follows the
+   notched corners instead of cutting across them */
+.osrs-card.osrs-frame-flat[data-selected]::after {
+  box-shadow: none;
+  border-style: solid; border-color: transparent;
+  border-width: calc(5 * var(--osrs-px));
+  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 15 15' shape-rendering='crispEdges'%3E%3Cpath fill='%23ff981f' d='M4 1h7v1h-7zM4 2h1v2h-1zM10 2h1v2h-1zM3 3h1v2h-1zM11 3h1v2h-1zM1 4h2v1h-2zM12 4h2v1h-2zM1 5h1v6h-1zM13 5h1v6h-1zM2 10h2v1h-2zM11 10h2v1h-2zM3 11h2v1h-2zM10 11h2v1h-2zM4 12h1v2h-1zM10 12h1v2h-1zM5 13h5v1h-5z'/%3E%3C/svg%3E") 5 / calc(5 * var(--osrs-px)) stretch;
+  image-rendering: pixelated;
+}
+.osrs-card[data-disabled] { color: #8a8378; }
+.osrs-card[data-disabled] :is(svg, img) { opacity: 0.45; filter: grayscale(0.6); }
+button.osrs-card, a.osrs-card { cursor: pointer; text-align: inherit; }
+button.osrs-card:hover:not([data-disabled]), a.osrs-card:hover:not([data-disabled]) { background-color: rgb(255 255 255 / 0.05); }
+
 /* Settings sections */
 .osrs-section-title {
   display: flex; align-items: center; justify-content: center;
@@ -629,8 +728,32 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 }
 .osrs-number-step { border: 0; padding: 0; background: transparent; cursor: pointer; }
 .osrs-number-step:hover { filter: brightness(1.2); }
+/* inset variant: one well holding the value between the − (left) and + (right) buttons */
+.osrs-number-field-inset {
+  display: inline-flex; align-items: center; gap: var(--osrs-px);
+  height: calc(20 * var(--osrs-px)); padding: 0 calc(2 * var(--osrs-px));
+}
+.osrs-number-field-inset .osrs-number-input { flex: 1; min-width: 0; background: transparent; box-shadow: none; }
+.osrs-number-arrow { display: inline-flex; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.osrs-number-arrow:hover { filter: brightness(1.2); }
+.osrs-number-arrow:disabled { opacity: 0.5; cursor: default; }
 .osrs-progress-flat { background: #2b2620; box-shadow: inset 0 0 0 var(--osrs-px) #000; }
 .osrs-progress-flat-indicator { background: var(--osrs-progress-color); }
+/* Shaded (the default for coloured bars): a sunken well and a bar lit from above, as in the
+   minigame and collection panels. `flat` keeps the Grand Exchange's plain fill. */
+.osrs-progress-flat[data-shaded] {
+  background: linear-gradient(to bottom, #120f0b 0 var(--osrs-px), #241f19 var(--osrs-px) calc(100% - var(--osrs-px)), #3d352a calc(100% - var(--osrs-px)));
+  box-shadow: 0 0 0 var(--osrs-px) #000;
+}
+.osrs-progress-flat[data-shaded] .osrs-progress-flat-indicator {
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--osrs-progress-color) 55%, #fff) 0 var(--osrs-px),
+    color-mix(in srgb, var(--osrs-progress-color) 85%, #fff) var(--osrs-px) calc(2 * var(--osrs-px)),
+    var(--osrs-progress-color) calc(2 * var(--osrs-px)) 55%,
+    color-mix(in srgb, var(--osrs-progress-color) 80%, #000) 55% calc(100% - var(--osrs-px)),
+    color-mix(in srgb, var(--osrs-progress-color) 50%, #000) calc(100% - var(--osrs-px)));
+  box-shadow: var(--osrs-px) 0 0 #000;
+}
 /* Uniform frames: stretching is lossless and avoids hairline seams between repeated tiles */
 .osrs-frame-flat::before { border-image-repeat: stretch; }
 
@@ -684,6 +807,11 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 
 /* Hamburger view menu */
 .osrs-window-menu-trigger { border: 0; padding: 0; background: transparent; cursor: pointer; display: inline-flex; outline: none; }
+.osrs-window-menu-scroll {
+  display: flex; flex-direction: column; min-height: 0;
+  max-height: calc(var(--available-height, 100vh) - 12 * var(--osrs-px));
+  overflow-y: auto; overscroll-behavior: contain;
+}
 .osrs-window-menu {
   display: flex; flex-direction: column;
   min-width: calc(80 * var(--osrs-px));
@@ -701,6 +829,7 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
   outline: none;
 }
 .osrs-window-menu-item[data-highlighted] { background: rgb(255 255 255 / 0.08); color: var(--osrs-white); }
+.osrs-window-menu-separator { height: var(--osrs-px); margin: calc(3 * var(--osrs-px)) 0; background: #1f1a14; box-shadow: 0 var(--osrs-px) 0 #5d5848; }
 .osrs-window-menu-item[data-checked] { background: rgb(255 255 255 / 0.16); color: var(--osrs-white); }
 
 /* Metal-corner card (Combat Achievements tiers, boss cards) */
@@ -726,39 +855,49 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 /* ---------- Panel tabs (Account Management, Combat Achievements boss view) ----------
    Cut-corner tabs on a bevelled panel. Idle tabs are dark, hover is a mid tone, and
    pressed looks the same as selected: the panel's colour, merged into the panel. */
-.osrs-tabs-panel { --osrs-tab-panel: #3d3529; --osrs-tab-hover: #332c22; --osrs-tab-idle: #262019; }
-.osrs-tabs-list-panel { gap: calc(2 * var(--osrs-px)); padding-left: calc(2 * var(--osrs-px)); }
+/* Panel tabs, measured from the Collection Log: tabs abut, separated by 3px window-coloured
+   pillars whose tops flare (each tab's top corners are chamfered 3px); 1px #5d5848 edges; dark
+   idle fill, the panel's stone fill when active; one #585040 rule runs under the whole strip. */
+.osrs-tabs-panel { --osrs-tab-panel: #3e3529; --osrs-tab-hover: #332d24; --osrs-tab-idle: #28251e; --osrs-tab-edge: #5d5848; }
+.osrs-tabs-list-panel {
+  gap: calc(3 * var(--osrs-px));
+  padding: 0 calc(1 * var(--osrs-px));
+  box-shadow: inset 0 calc(-1 * var(--osrs-px)) 0 #585040;
+}
 .osrs-tab-panel {
+  --c: calc(3 * var(--osrs-px));
   position: relative;
   z-index: 0;
   display: inline-flex; align-items: center; justify-content: center;
   gap: calc(4 * var(--osrs-px));
   flex: 1 0 auto;
   min-width: calc(60 * var(--osrs-px));
-  height: calc(26 * var(--osrs-px));
-  margin-bottom: calc(-1 * var(--osrs-px));
-  padding: 0 calc(10 * var(--osrs-px));
+  height: calc(21 * var(--osrs-px));
+  padding: 0 calc(10 * var(--osrs-px)) var(--osrs-px);
   border: 0;
   cursor: pointer;
   outline: none;
   color: var(--osrs-orange);
+  background: var(--osrs-tab-edge);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% 100%, 0 100%, 0 var(--c));
+}
+/* the fill, inset 1px with the same chamfer; it stops 1px short of the strip's rule */
+.osrs-tab-panel::before {
+  content: ""; position: absolute; z-index: -1;
+  inset: var(--osrs-px) var(--osrs-px) var(--osrs-px);
   background: var(--osrs-tab-idle);
-  clip-path: polygon(calc(3 * var(--osrs-px)) 0, calc(100% - 3 * var(--osrs-px)) 0, 100% calc(3 * var(--osrs-px)), 100% 100%, 0 100%, 0 calc(3 * var(--osrs-px)));
-  box-shadow: inset var(--osrs-px) var(--osrs-px) 0 #6c6050, inset calc(-1 * var(--osrs-px)) 0 0 #1f1a14;
+  clip-path: polygon(calc(var(--c) - var(--osrs-px)) 0, calc(100% - var(--c) + var(--osrs-px)) 0, 100% calc(var(--c) - var(--osrs-px)), 100% 100%, 0 100%, 0 calc(var(--c) - var(--osrs-px)));
 }
-.osrs-tab-panel:hover { background: var(--osrs-tab-hover); color: var(--osrs-white); }
-.osrs-tab-panel[data-active], .osrs-tab-panel:active {
-  z-index: 2;
-  background: var(--osrs-tab-panel);
-  height: calc(27 * var(--osrs-px));
-}
-.osrs-tab-panel[data-active] { color: var(--osrs-white); }
+.osrs-tab-panel::after { content: ""; position: absolute; inset: auto 0 0; height: var(--osrs-px); background: #585040; }
+.osrs-tab-panel:hover { color: var(--osrs-white); }
+.osrs-tab-panel:hover::before { background: var(--osrs-tab-hover); }
+.osrs-tab-panel[data-active]::before, .osrs-tab-panel:active::before { background: var(--osrs-tab-panel); }
+.osrs-tab-panel[data-active] { color: var(--osrs-orange); }
 .osrs-tab-panel:focus-visible { color: var(--osrs-yellow); }
 .osrs-tabs-panel-body {
   position: relative;
   z-index: 1;
   background: var(--osrs-tab-panel);
-  box-shadow: 0 0 0 var(--osrs-px) #1f1a14, inset 0 0 0 var(--osrs-px) #6c6050;
   padding: calc(6 * var(--osrs-px));
 }
 
@@ -831,3 +970,172 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 .osrs-tab-bank:is([data-active], :active) .osrs-tab-bank-selected { display: block; }
 .osrs-tab-bank:is([data-active], :active) :is(.osrs-tab-bank-idle, .osrs-tab-bank-hover) { display: none; }
 .osrs-tab-bank:focus-visible { filter: brightness(1.2); }
+
+/* Field density: more room inside each stripe than the game's own rows */
+.osrs-setting-row[data-density="relaxed"] { padding: calc(6 * var(--osrs-px)) calc(10 * var(--osrs-px)); }
+.osrs-setting-row[data-density="spacious"] { gap: calc(32 * var(--osrs-px)); padding: calc(10 * var(--osrs-px)) calc(16 * var(--osrs-px)); }
+
+/* ---------- Shortcut: a keyboard key, a small light chip with the key in white ---------- */
+.osrs-shortcut-group { display: inline-flex; align-items: center; gap: calc(4 * var(--osrs-px)); }
+.osrs-shortcut {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: calc(18 * var(--osrs-px)); height: calc(18 * var(--osrs-px));
+  padding: 0 calc(4 * var(--osrs-px));
+  background: rgb(255 255 255 / 0.08);
+  font-family: var(--osrs-font-small); font-size: calc(16 * var(--osrs-px)); line-height: 1;
+  color: var(--osrs-white); text-shadow: none;
+}
+
+/* ---------- Search field: the inset input with a pixel magnifier at its end ---------- */
+.osrs-search-field { position: relative; display: flex; align-items: center; }
+.osrs-search-field > .osrs-input { width: 100%; height: calc(30 * var(--osrs-px)); padding: 0 calc(38 * var(--osrs-px)) 0 calc(10 * var(--osrs-px)); }
+.osrs-search-field[data-size="sm"] > .osrs-input { height: calc(20 * var(--osrs-px)); padding: 0 calc(30 * var(--osrs-px)) 0 calc(4 * var(--osrs-px)); }
+.osrs-search-field[data-size="lg"] > .osrs-input { height: calc(36 * var(--osrs-px)); }
+.osrs-search-field[data-size="sm"] > .osrs-search-field-end { right: calc(5 * var(--osrs-px)); }
+.osrs-search-field > .osrs-input::placeholder { color: var(--osrs-orange); opacity: 1; }
+.osrs-search-field > .osrs-input::-webkit-search-cancel-button { appearance: none; }
+.osrs-search-field-end {
+  position: absolute; right: calc(10 * var(--osrs-px)); top: 50%; translate: 0 -50%;
+  display: inline-flex; pointer-events: none; color: var(--osrs-orange);
+}
+.osrs-search-field-end > svg { width: calc(20 * var(--osrs-px)); height: calc(20 * var(--osrs-px)); }
+
+/* ---------- Popover: a small Interface window dropping from its trigger ---------- */
+.osrs-popover {
+  padding: calc(6 * var(--osrs-px));
+  white-space: nowrap;
+  box-shadow: 0 calc(12 * var(--osrs-px)) calc(32 * var(--osrs-px)) rgb(0 0 0 / 0.45);
+  transform-origin: var(--transform-origin);
+  transition: opacity 120ms, scale 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.osrs-popover[data-starting-style], .osrs-popover[data-ending-style] { opacity: 0; scale: 0.94; }
+@media (prefers-reduced-motion: reduce) {
+  .osrs-popover { transition: opacity 120ms; }
+  .osrs-popover[data-starting-style], .osrs-popover[data-ending-style] { scale: none; }
+}
+
+/* ---------- Code block: a flat strip of darkened stone; the copy button in its corner ---------- */
+.osrs-code-block { position: relative; }
+.osrs-code-block > pre {
+  margin: 0; overflow-x: auto;
+  padding: calc(9 * var(--osrs-px)) calc(44 * var(--osrs-px)) calc(9 * var(--osrs-px)) calc(12 * var(--osrs-px));
+  background: linear-gradient(rgb(0 0 0 / 0.32), rgb(0 0 0 / 0.32)), var(--osrs-texture-stone) 0 0 / calc(176 * var(--osrs-px)) calc(120 * var(--osrs-px)), var(--osrs-stone-dark);
+  box-shadow: 0 0 0 var(--osrs-px) #1f1a14;
+  font-family: var(--osrs-font-code, ui-monospace, monospace); font-size: calc(11 * var(--osrs-px)); line-height: calc(22 * var(--osrs-px));
+  color: var(--osrs-white); text-shadow: none;
+}
+.osrs-code-block > .osrs-copy-button { position: absolute; top: calc(6 * var(--osrs-px)); right: calc(6 * var(--osrs-px)); }
+/* the ghost copy button: orange copy icon, white on hover, a green tick once copied */
+.osrs-copy-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: calc(26 * var(--osrs-px)); height: calc(26 * var(--osrs-px));
+  padding: 0; border: 0; background: none; cursor: pointer; color: var(--osrs-orange);
+}
+.osrs-copy-button:hover { color: var(--osrs-white); }
+.osrs-copy-button:active { translate: var(--osrs-px) var(--osrs-px); }
+.osrs-copy-button svg { width: calc(18 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); }
+.osrs-copy-button[data-copied] svg { width: calc(24 * var(--osrs-px)); height: calc(20 * var(--osrs-px)); }
+
+/* ---------- Sprite button: a ghost button drawn by the game's own button sprite, which swaps to
+   its hovered sprite on hover and while pressed or open ---------- */
+.osrs-sprite-button { display: inline-flex; padding: 0; border: 0; background: none; cursor: pointer; line-height: 0; }
+.osrs-sprite-button > .osrs-sprite-button-active { display: none; }
+.osrs-sprite-button:has(> .osrs-sprite-button-active):is(:hover, [aria-pressed="true"], [aria-expanded="true"], [data-popup-open]) > .osrs-sprite-button-rest { display: none; }
+.osrs-sprite-button:is(:hover, [aria-pressed="true"], [aria-expanded="true"], [data-popup-open]) > .osrs-sprite-button-active { display: inline-flex; }
+.osrs-sprite-button:disabled { cursor: default; opacity: 0.5; }
+
+/* ---------- Split button: two halves in one metal frame, a separator between them; hovering a half
+   darkens just its fill ---------- */
+.osrs-split-button {
+  --osrs-frame-image: var(--osrs-frame-equipment-metal);
+  --osrs-frame-slice: 9 9 9 9;
+  --osrs-frame-width: calc(9 * var(--osrs-px));
+  display: flex; align-items: stretch;
+}
+.osrs-split-button > .osrs-button::before { display: none; }
+.osrs-split-button > .osrs-button { background-color: transparent; }
+.osrs-split-button > .osrs-button:first-child { flex: 1; min-width: 0; }
+.osrs-split-button > .osrs-button:is(:hover, :active, [data-popup-open]):not(:disabled) { background-color: rgb(0 0 0 / 0.15); }
+.osrs-split-button > .osrs-separator { margin: calc(4 * var(--osrs-px)) 0; }
+
+/* ---------- Steps: numbered steps down a rail, each number joined to the next by a separator ---------- */
+.osrs-steps { display: flex; flex-direction: column; gap: calc(20 * var(--osrs-px)); margin: 0; padding: 0; list-style: none; }
+.osrs-step { display: grid; grid-template-columns: calc(32 * var(--osrs-px)) minmax(0, 1fr); gap: calc(16 * var(--osrs-px)); }
+.osrs-step-rail { display: flex; flex-direction: column; align-items: center; }
+/* the rule runs the rest of the step and the gap to the next number, stopping short of each */
+.osrs-step-rail > .osrs-separator { flex: 1; align-self: center; margin: calc(4 * var(--osrs-px)) 0 calc(-16 * var(--osrs-px)); }
+.osrs-step:last-child .osrs-step-rail > .osrs-separator { display: none; }
+.osrs-step-number {
+  --osrs-frame-image: var(--osrs-frame-flat);
+  --osrs-frame-slice: 5;
+  --osrs-frame-width: calc(5 * var(--osrs-px));
+  display: flex; flex: none; align-items: center; justify-content: center;
+  width: calc(32 * var(--osrs-px)); height: calc(32 * var(--osrs-px));
+  color: var(--osrs-yellow);
+}
+.osrs-step-body { display: flex; min-width: 0; flex-direction: column; gap: calc(8 * var(--osrs-px)); }
+.osrs-step-title { margin: calc(4 * var(--osrs-px)) 0 0; line-height: calc(24 * var(--osrs-px)); font-family: var(--osrs-font-bold); font-weight: 400; color: var(--osrs-white); }
+
+/* ---------- Notched: the muted card's notched edge and lifted fill on any element (badges, pills,
+   chips); the cut corners follow the element's own scale ---------- */
+.osrs-notched {
+  --osrs-frame-image: var(--osrs-frame-flat-muted);
+  --osrs-frame-slice: 5;
+  --osrs-frame-width: calc(5 * var(--osrs-px));
+  background-color: rgb(255 255 255 / 0.07);
+  clip-path: polygon(calc(3 * var(--osrs-px)) 0, calc(100% - 3 * var(--osrs-px)) 0, calc(100% - 3 * var(--osrs-px)) calc(2 * var(--osrs-px)), calc(100% - 2 * var(--osrs-px)) calc(2 * var(--osrs-px)), calc(100% - 2 * var(--osrs-px)) calc(3 * var(--osrs-px)), 100% calc(3 * var(--osrs-px)), 100% calc(100% - 3 * var(--osrs-px)), calc(100% - 2 * var(--osrs-px)) calc(100% - 3 * var(--osrs-px)), calc(100% - 2 * var(--osrs-px)) calc(100% - 2 * var(--osrs-px)), calc(100% - 3 * var(--osrs-px)) calc(100% - 2 * var(--osrs-px)), calc(100% - 3 * var(--osrs-px)) 100%, calc(3 * var(--osrs-px)) 100%, calc(3 * var(--osrs-px)) calc(100% - 2 * var(--osrs-px)), calc(2 * var(--osrs-px)) calc(100% - 2 * var(--osrs-px)), calc(2 * var(--osrs-px)) calc(100% - 3 * var(--osrs-px)), 0 calc(100% - 3 * var(--osrs-px)), 0 calc(3 * var(--osrs-px)), calc(2 * var(--osrs-px)) calc(3 * var(--osrs-px)), calc(2 * var(--osrs-px)) calc(2 * var(--osrs-px)), calc(3 * var(--osrs-px)) calc(2 * var(--osrs-px)));
+}
+
+/* ---------- Nav link: a nav item that links to a page. The current page's item opens into the page:
+   no fill (it sits on the surface it opens into, --osrs-nav-surface), and a strip of that surface
+   covers the column's divider beside it ---------- */
+a.osrs-nav-item { text-decoration: none; }
+a.osrs-nav-item[aria-current="page"] { margin-right: 0; }
+a.osrs-nav-item[aria-current="page"]::before { border-image-source: var(--osrs-nav-item-image-open); }
+a.osrs-nav-item[aria-current="page"]::after {
+  content: ""; position: absolute; top: calc(3 * var(--osrs-px)); bottom: calc(3 * var(--osrs-px)); right: 0;
+  width: calc(2 * var(--osrs-px));
+  background: var(--osrs-nav-surface, var(--osrs-stone));
+}
+
+/* Dialogue: "Click here to continue" in blue, white when pointed at or focused */
+.osrs-dialogue-continue { color: #0000ff; }
+.osrs-dialogue-continue:hover, .osrs-dialogue-continue:focus-visible { color: var(--osrs-white); }
+
+/* ---------- Native scrollbars, drawn as the game's: put .osrs-scrollbars on an element (or <html>
+   for the page) to give it and everything inside it the dark track, the stone thumb with its
+   capped ends, and the arrow buttons at each end. Horizontal bars use the same pieces turned on
+   their side. Drawn at 1x; set --osrs-scrollbar-px to scale them. (Chromium and Safari; Firefox
+   keeps its own.) ---------- */
+.osrs-scrollbars, .osrs-scrollbars * { scrollbar-width: auto; }
+.osrs-scrollbars::-webkit-scrollbar, .osrs-scrollbars ::-webkit-scrollbar { width: calc(16 * var(--osrs-scrollbar-px, 1px)); height: calc(16 * var(--osrs-scrollbar-px, 1px)); }
+.osrs-scrollbars::-webkit-scrollbar-track, .osrs-scrollbars ::-webkit-scrollbar-track,
+.osrs-scrollbars::-webkit-scrollbar-corner, .osrs-scrollbars ::-webkit-scrollbar-corner { background: var(--osrs-stone-dark); }
+.osrs-scrollbars::-webkit-scrollbar-thumb:vertical, .osrs-scrollbars ::-webkit-scrollbar-thumb:vertical {
+  background:
+    var(--osrs-control-scroll-thumb-top) top / 100% calc(5 * var(--osrs-scrollbar-px, 1px)) no-repeat,
+    var(--osrs-control-scroll-thumb-bottom) bottom / 100% calc(5 * var(--osrs-scrollbar-px, 1px)) no-repeat,
+    var(--osrs-control-scroll-thumb-middle) 0 0 / 100% calc(5 * var(--osrs-scrollbar-px, 1px)) repeat-y;
+}
+.osrs-scrollbars::-webkit-scrollbar-thumb:horizontal, .osrs-scrollbars ::-webkit-scrollbar-thumb:horizontal {
+  background:
+    var(--osrs-control-scroll-thumb-top-x) left / calc(5 * var(--osrs-scrollbar-px, 1px)) 100% no-repeat,
+    var(--osrs-control-scroll-thumb-bottom-x) right / calc(5 * var(--osrs-scrollbar-px, 1px)) 100% no-repeat,
+    var(--osrs-control-scroll-thumb-middle-x) 0 0 / calc(5 * var(--osrs-scrollbar-px, 1px)) 100% repeat-x;
+}
+/* one arrow at each end, as in the game (written out per button: the scrollbar states don't match inside :is()) */
+.osrs-scrollbars::-webkit-scrollbar-button, .osrs-scrollbars ::-webkit-scrollbar-button { display: none; }
+.osrs-scrollbars::-webkit-scrollbar-button:vertical:start:decrement, .osrs-scrollbars ::-webkit-scrollbar-button:vertical:start:decrement { display: block; width: calc(16 * var(--osrs-scrollbar-px, 1px)); height: calc(16 * var(--osrs-scrollbar-px, 1px)); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; background-image: var(--osrs-control-scroll-up); }
+.osrs-scrollbars::-webkit-scrollbar-button:vertical:end:increment, .osrs-scrollbars ::-webkit-scrollbar-button:vertical:end:increment { display: block; width: calc(16 * var(--osrs-scrollbar-px, 1px)); height: calc(16 * var(--osrs-scrollbar-px, 1px)); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; background-image: var(--osrs-control-scroll-down); }
+.osrs-scrollbars::-webkit-scrollbar-button:horizontal:start:decrement, .osrs-scrollbars ::-webkit-scrollbar-button:horizontal:start:decrement { display: block; width: calc(16 * var(--osrs-scrollbar-px, 1px)); height: calc(16 * var(--osrs-scrollbar-px, 1px)); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; background-image: var(--osrs-control-scroll-left); }
+.osrs-scrollbars::-webkit-scrollbar-button:horizontal:end:increment, .osrs-scrollbars ::-webkit-scrollbar-button:horizontal:end:increment { display: block; width: calc(16 * var(--osrs-scrollbar-px, 1px)); height: calc(16 * var(--osrs-scrollbar-px, 1px)); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; background-image: var(--osrs-control-scroll-right); }
+
+/* ---------- Keyboard focus ----------
+   Every control shows keyboard focus the same way: a game-pixel outline in the game's yellow, only
+   for keyboard focus (:focus-visible), never on click. The controls above drop the browser's ring
+   (outline: none) and get this one; menu and list options keep their highlight row instead, which
+   is how the game shows the option you're on. */
+:is(button, a[href], input, textarea, select, summary, [role="tab"], [role="checkbox"], [role="radio"], [role="switch"], [tabindex="0"]):not([role="menuitem"], [role="menuitemcheckbox"], [role="menuitemradio"], [role="option"]):where([class*="osrs-"], .osrs *, [data-osrs-theme] *):focus-visible {
+  outline: max(1px, var(--osrs-px)) solid var(--osrs-yellow);
+  outline-offset: 2px;
+}

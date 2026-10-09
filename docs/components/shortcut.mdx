@@ -1,0 +1,23 @@
+---
+title: Shortcut
+description: "Keyboard shortcuts as small key chips, for hints beside search fields, buttons and menu items."
+---
+
+<Component path="shortcut/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/shortcut.json
+```
+
+## Usage
+
+```tsx
+import { Shortcut } from "@/components/ui/shortcut"
+
+<Shortcut>Esc</Shortcut>
+<Shortcut keys={["⌘", "K"]} />
+```
+
+Each key is its own `<kbd>`, inside one outer `<kbd>` for a combination, so screen readers read it as a keyboard shortcut.

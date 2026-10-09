@@ -1,0 +1,44 @@
+name: Trophy
+kind: item
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+x #3a2f06
+y #4f400a
+z #66530e
+---
+.....555yyyy555
+...55yyyyyzzzyy55
+..5xyyyyzzzzzzyyy5
+..5xyyyyzzzzzzzyy5
+..5xyyyzzzzzzzzy554
+..45yyyzzzzzzzzy5333
+..345yyzzzzzzzz52242
+.643445555555533225
+44.3344444443332252
+43.23333333333222
+.446233333332222
+..33.2223222222
+......22222222
+.......222222
+........3332
+.........33
+.........33
+.........54ddd
+.....dd545425dd
+..cddd45454353d
+..cddd55555543dd
+..ccdd56666554ddd
+..cccddd6665dddddd
+...cccdddddedccccc
+....ccedcccccccccc
+.....cdccccccccccc
+.....cdcccccccc

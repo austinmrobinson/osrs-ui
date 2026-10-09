@@ -1,0 +1,78 @@
+---
+// Blume <Component> override: the live preview and highlighted source of an example file under
+// `examples/`, in the library's own panel Tabs (site/ExampleTabs.tsx) instead of Blume's tab
+// markup. The data plumbing follows Blume's Component.astro: the preview runs in its own route as
+// an iframe (keeping docs CSS out of the example), the source is highlighted with the site's code
+// theme, and the frame reports its rendered height, which both panels follow.
+import data from "blume:data";
+import { examples, examplesBase } from "blume:examples";
+import { highlightCode } from "blume/markdown";
+import { withMountedBase } from "blume/components/islands/base-path.ts";
+import { contentStrings } from "blume/components/content/content-strings.ts";
+import { EXAMPLE_PANE_MIN_PX } from "blume/components/content/example-pane.ts";
+
+import ExampleTabs from "../../site/ExampleTabs.tsx";
+
+interface Props {
+  path: string;
+}
+
+const { path } = Astro.props;
+const entry = examples[path];
+const { content: strings } = contentStrings(data, Astro.currentLocale);
+
+const previewSrc = entry ? withMountedBase(`${examplesBase}/${path.split("/").map(encodeURIComponent).join("/")}`) : "";
+const codeHtml = entry ? await highlightCode(entry.code, entry.lang, { className: "blume-source", themes: data.config.codeThemes }) : "";
+
+// Initial height until the frame reports its own: playgrounds are a fixed 360px; other examples
+// estimate from the source's line count, as Blume does.
+const lineCount = entry ? entry.code.replace(/\n+$/u, "").split("\n").length : 0;
+const height = path.endsWith("/playground") ? 360 : Math.min(400, Math.max(EXAMPLE_PANE_MIN_PX, lineCount * 21 + 32));
+---
+
+{
+  entry ? (
+    // client-only: Blume's own scripts (copy buttons, frame heights) touch this markup before React
+    // would hydrate it; the wrapper holds the space (tab strip + panel) until it renders
+    <div class="my-6" style={`min-height:${height + 21}px`}>
+    <ExampleTabs
+      client:only="react"
+      previewSrc={previewSrc}
+      title={`${strings.preview}: ${path}`}
+      codeHtml={codeHtml}
+      height={height}
+      labels={{ preview: strings.preview, code: strings.code }}
+    />
+    </div>
+  ) : (
+    <div class="my-6 osrs-text">
+      No example found at <code>{path}</code>. Add it under <code>examples/</code>.
+    </div>
+  )
+}
+
+<script>
+  import { EXAMPLE_PANE_MIN_PX } from "blume/components/content/example-pane.ts";
+
+  // Each preview frame reports its rendered height; both panels of its example follow it.
+  const HEIGHT_REPORT = "blume:example-height";
+  const HEIGHT_REQUEST = "blume:example-height-request";
+  const frames = () => document.querySelectorAll<HTMLIFrameElement>("iframe[data-blume-example-frame]");
+
+  window.addEventListener("message", (event) => {
+    if (event.origin !== window.location.origin || event.data?.type !== HEIGHT_REPORT || !Number.isFinite(event.data.height)) return;
+    const frame = Array.from(frames()).find((f) => f.contentWindow === event.source);
+    const example = frame?.closest("[data-osrs-example]");
+    if (!frame || !example) return;
+    // a frame in a hidden tab measures as empty; its report would collapse the pane
+    if (frame.offsetParent === null) return;
+    frame.dataset.blumeReportedHeight = String(event.data.height);
+    // playgrounds are a fixed 360px whatever they report
+    const px = frame.src.includes("/playground") ? 360 : Math.max(EXAMPLE_PANE_MIN_PX, event.data.height);
+    const height = `${px}px`;
+    for (const panel of example.querySelectorAll<HTMLElement>("[data-osrs-example-panel]")) panel.style.height = height;
+  });
+
+  // ask frames that loaded before this script ran to report again
+  for (const frame of frames()) frame.contentWindow?.postMessage({ type: HEIGHT_REQUEST }, window.location.origin);
+</script>

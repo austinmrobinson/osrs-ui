@@ -1,0 +1,21 @@
+---
+title: Stat
+description: "Labelled values: the boxed currency footer of stores, and inline Label: value lines."
+---
+
+<Component path="stat/playground" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/stat.json
+```
+
+## Usage
+
+```tsx
+<Stat label="Slayer Points" value="1,240" />
+<Stat variant="inline" label="Completed" value="214" />
+```
+
+`boxed` (default) is the black inset with an orange bold label and the value under it ("BH Points 0"). `inline` is an orange label and a white value on one line, for footers.

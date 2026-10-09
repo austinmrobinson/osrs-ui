@@ -1,0 +1,31 @@
+name: Cartography (a map and compass)
+kind: skill
+5 #f4f4f0
+6 #c4c4bc
+7 #8c8c84
+8 #5a5a54
+s #e02818
+v #f6e7bd
+w #e4c98e
+x #c9a765
+---
+.....vvxv..........ww
+..vvvvvxvvvv....vwwww
+vvvvvvvxvvvvvvxvwwwww
+vvvvvvvxvvvvvvxwwwwww
+vvvvvvvxvvvvvv55s6www
+vvvvvvvxvvvvv555667ww
+vvvvvvvxvvvvw556s77ww
+vvvvvvsxvvvw55667788x
+vvvvvsvssvwww667s88xx
+vvvvsvvxvssww677888xx
+vvvvsvvxwwwsww78s8xxx
+vvvsvvvxwwwwwwxwxxxxx
+vvsvvvwxwwwwwwxxxxxxx
+vvvvvwwxwwwwwwxxxxxxx
+vvvvwwwxwwwwwxxxxxxxx
+vvvwwwwxwwwwxxxxxxxxx
+vvwwwwwxwwwxxxxxxxxxx
+vwwww..x.wxxxxxxxxx
+ww..........xxxx
+..............x

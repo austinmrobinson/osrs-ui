@@ -3,7 +3,7 @@ title: Number Field
 description: "The Grand Exchange quantity field with \u2212 and + buttons."
 ---
 
-<Component path="number-field/demo" />
+<Component path="number-field/playground" />
 
 ## Installation
 
@@ -15,4 +15,10 @@ npx shadcn@latest add {{registry}}/number-field.json
 
 ```tsx
 <NumberField defaultValue={1000} min={1} />
+```
+
+`variant="inset"` puts − / + buttons inside the field, drawn like a [Select](/components/select)'s arrow button, for settings rows and side panels.
+
+```tsx
+<NumberField variant="inset" defaultValue={0} min={0} />
 ```

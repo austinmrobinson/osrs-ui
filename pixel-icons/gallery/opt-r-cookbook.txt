@@ -1,0 +1,38 @@
+name: Recipes (an open cookbook)
+kind: tab
+p #8a7a58
+q #ab9a72
+r #c8b88e
+s #e0d2aa
+t #f2e8c8
+a #3a2410
+b #55351a
+c #704622
+d #8a5a2c
+e #a46f3a
+u #4a3a22
+v #6e5838
+w #8e7650
+R #931c16
+S #b8281e
+T #d8402e
+---
+.......................c
+................stttttts
+.........ttttttttttttttt
+...ettttttttttttttwwwutt
+tttttttttttttttttttttttte
+ttwwwwwwttttrttttttwwwwte
+ttttttttttttrttttwttttttt
+rttttwwwtttttttttttttwwtt
+etttttttttttttttttwutttttc
+etttttttttttttttttttttttte
+bttwvutttttttqttttwwwutttr
+.ttttttttttttstttttttttttt
+.ettwwwutttttttttttttttttt
+.ettttttttttttttttttttttsr
+.dtttttttttttsTTqqqqqeeeee
+..ttttttsqqqeeRTeeeecbbb
+..stqqqeeeeeecbTb
+..eeeecbbb
+..bb

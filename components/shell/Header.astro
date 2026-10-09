@@ -1,0 +1,74 @@
+---
+// The header bar: a strip of the window's stone with the bevelled divider under it. The menu button
+// (narrow screens), the logo, the search field centred over the content column, the site settings
+// (sound, motion) and the GitHub link. On the home page it waits off-screen until the hero's headline
+// has scrolled away (html[data-home-past], set by site/HomeHero.tsx), and comes in early whenever it
+// takes keyboard focus.
+import { SpriteButton } from "../../registry/osrs/ui/sprite-button";
+import { buttonSprites } from "@/registry/osrs/ui/button-sprites";
+import Logo from "../../site/Logo";
+import Search from "../../site/Search";
+import Settings from "../../site/Settings";
+import { GITHUB_URL, GithubIcon } from "../../site/header-icons";
+import { cx, dividerBelow, stone } from "../../site/styles";
+
+interface Props {
+  route: string;
+  hasSidebar: boolean;
+}
+const { route, hasSidebar } = Astro.props;
+const isHome = route === "/" || route === "";
+
+// hidden at the top of the home page: faded, and slid up when motion is allowed; never while focused
+const homeHidden = cx(
+  "fixed inset-x-1.5 top-1.5 transition-[translate,opacity] duration-300",
+  "[html:not([data-home-past])_&:not(:focus-within)]:pointer-events-none [html:not([data-home-past])_&:not(:focus-within)]:opacity-0",
+  "motion-safe:[html:not([data-home-past])_&:not(:focus-within)]:-translate-y-[calc(100%+12px)]",
+);
+---
+
+<header
+  data-site-header
+  class={cx(
+    "z-40 flex h-12 items-center gap-2 px-4 md:px-6 lg:ps-2 lg:pe-2.5",
+    stone,
+    dividerBelow,
+    isHome ? homeHidden : "sticky top-1.5",
+  )}
+>
+  {/* the nav menu, on every page on narrow screens (the home page included) */}
+  <SpriteButton
+    sprite={buttonSprites.menu}
+    activeSprite={buttonSprites.menuSelected}
+    aria-controls="blume-nav-drawer"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    data-blume-nav-toggle
+    className="shrink-0 [--osrs-px:1px] lg:hidden"
+  />
+  <Logo />
+  <div class="flex-1"></div>
+  {/* the search field: an icon button on narrow screens; from lg a field centred over the content column */}
+  <div
+    class={cx(
+      "lg:absolute lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2",
+      hasSidebar
+        ? "lg:left-[calc(17.5rem+(100%-17.5rem)/2)] lg:w-[min(48rem,calc(100%-17.5rem-64px))] xl:w-[min(48rem,calc(100%-17.5rem-80px))]"
+        : "lg:left-1/2 lg:w-[min(48rem,calc(100%-64px))]",
+    )}
+  >
+    <Search client:load />
+  </div>
+  <div class="flex shrink-0 items-center gap-1">
+    <Settings client:load />
+    <a
+      href={GITHUB_URL}
+      aria-label="GitHub"
+      target="_blank"
+      rel="noreferrer"
+      class="group inline-grid size-7 place-items-center text-rs-orange hover:text-rs-white"
+    >
+      <GithubIcon className="group-active:translate-px" />
+    </a>
+  </div>
+</header>

@@ -1,0 +1,39 @@
+name: Quest journal (a closed book seen from above, pages showing)
+kind: tab
+a #3a1a12
+b #5a2a1c
+c #7a3a26
+d #984a30
+e #b05c3c
+p #9a8a66
+q #c2b28a
+r #e0d2aa
+s #f2e8c8
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+---
+................6
+..............dd4d
+............ddddddd
+.........ddddddddddd
+.......dddddddddddddd5
+....dddddddd2dddddddddd
+..dddddddd5555dddddddddd
+ddddddd554ddd55ddddddddd
+ddddddd55ddddd35dddddddd
+dddddddd65dd5553dddddddd
+edddddddd4555ddddddddddb
+eddddddddddddddddddecbqq
+cdedddddddddddddddbbqqqq
+ccdeddddddddddecbqqqqqqq
+cccceedddddddbqqqqqqqqec
+cccccedddebbqqqqqqqddb
+.cccccddbqqqqqqqqebb
+..cccccbqqqqqqedb
+...ccccbqqqqebb
+....bccbqecb
+......cbbb

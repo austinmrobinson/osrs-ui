@@ -1,0 +1,1997 @@
+[
+  {
+    "route": "/",
+    "title": "OSRS UI",
+    "description": "Pixel-exact, vector Old School RuneScape interface components and icons for shadcn/ui.",
+    "summary": "Pixel-exact, vector Old School RuneScape interface components and icons for shadcn/ui",
+    "section": "Getting Started",
+    "headings": [],
+    "outline": [],
+    "previews": []
+  },
+  {
+    "route": "/theming",
+    "title": "Theming",
+    "description": "One scale for every game pixel, the OSRS palette, and the utility classes the theme adds.",
+    "summary": "One scale for every game pixel, the OSRS palette, and the utility classes the theme adds",
+    "section": "Getting Started",
+    "headings": [
+      "Scale",
+      "Palette",
+      "Utility classes"
+    ],
+    "outline": [
+      {
+        "text": "Scale",
+        "depth": 0
+      },
+      {
+        "text": "Palette",
+        "depth": 0
+      },
+      {
+        "text": "Utility classes",
+        "depth": 0
+      }
+    ],
+    "previews": []
+  },
+  {
+    "route": "/components/card",
+    "title": "Card",
+    "description": "Notched stone cards, Grand Exchange offer slots and outlined boxes.",
+    "summary": "Notched stone cards, Grand Exchange offer slots and outlined boxes",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Muted",
+      "Selected and disabled"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Muted",
+        "depth": 0
+      },
+      {
+        "text": "Selected and disabled",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/card"
+    ],
+    "example": "card/playground"
+  },
+  {
+    "route": "/components/chatbox",
+    "title": "Chatbox",
+    "description": "The parchment chatbox, chat filter tabs, NPC dialogue and Select an Option.",
+    "summary": "The parchment chatbox, chat filter tabs, NPC dialogue and Select an Option",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Size"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Size",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/chatbox"
+    ],
+    "example": "chatbox/playground"
+  },
+  {
+    "route": "/components/code-block",
+    "title": "Code Block",
+    "description": "Code on a flat strip of darkened stone, with a copy button in its corner. The copy button works on its own too.",
+    "summary": "Code on a flat strip of darkened stone",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [],
+    "example": "code-block/demo"
+  },
+  {
+    "route": "/components/dialog",
+    "title": "Dialog",
+    "description": "A modal built on Base UI Dialog, drawn as an OSRS interface window.",
+    "summary": "A modal built on Base UI Dialog",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Notes",
+      "Draggable and resizable"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Notes",
+        "depth": 0
+      },
+      {
+        "text": "Draggable and resizable",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/dialog"
+    ],
+    "example": "dialog/playground"
+  },
+  {
+    "route": "/components/field",
+    "title": "Field",
+    "description": "Field sets and fields with shadcn/ui's Field API, drawn the way the game groups controls: the titled group box, and settings sections of striped rows.",
+    "summary": "Field sets and fields with shadcn/ui's Field API",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Group box",
+      "Settings sections",
+      "Parts",
+      "Labels",
+      "Density"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Group box",
+        "depth": 0
+      },
+      {
+        "text": "Settings sections",
+        "depth": 0
+      },
+      {
+        "text": "Example",
+        "depth": 1
+      },
+      {
+        "text": "Parts",
+        "depth": 0
+      },
+      {
+        "text": "Labels",
+        "depth": 0
+      },
+      {
+        "text": "Density",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/field"
+    ],
+    "example": "field/playground"
+  },
+  {
+    "route": "/components/interface",
+    "title": "Interface",
+    "description": "The standard OSRS window - interface stone inside the iron-rivet steel frame, with a title and close button.",
+    "summary": "The standard OSRS window",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/interface"
+    ],
+    "example": "interface/demo"
+  },
+  {
+    "route": "/components/popover",
+    "title": "Popover",
+    "description": "A small Interface window that drops from a button, with a settings title band over striped rows.",
+    "summary": "A small Interface window that drops from a button",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [],
+    "example": "popover/demo"
+  },
+  {
+    "route": "/components/scroll-area",
+    "title": "Scroll Area",
+    "description": "The in-game scrollbar - arrow buttons, a stone track and a 3-slice thumb.",
+    "summary": "The in-game scrollbar",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/scroll-area"
+    ],
+    "example": "scroll-area/demo"
+  },
+  {
+    "route": "/components/separator",
+    "title": "Separator",
+    "description": "A two-tone interface rule, horizontal or vertical.",
+    "summary": "A two-tone interface rule, horizontal or vertical",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/separator"
+    ],
+    "example": "separator/demo"
+  },
+  {
+    "route": "/components/side-panel",
+    "title": "Side Panel",
+    "description": "The resizable-mode side panel: two rows of tab stones, stone pillars and the content area.",
+    "summary": "The resizable-mode side panel",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Any size"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Any size",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/side-panel"
+    ],
+    "example": "side-panel/demo"
+  },
+  {
+    "route": "/components/steps",
+    "title": "Steps",
+    "description": "Numbered steps down a rail, each number joined to the next by a separator.",
+    "summary": "Numbered steps down a rail, each number joined to the next by a separator",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [],
+    "example": "steps/demo"
+  },
+  {
+    "route": "/components/window",
+    "title": "Window",
+    "description": "Draggable, resizable modern interface window (All Settings, Grand Exchange, Collection Log): thick tan border, header row, close button.",
+    "summary": "Draggable, resizable modern interface window (All Settings, Grand Exchange, Collection Log)",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Dragging, resizing and scrolling",
+      "Frames, menu and dividers"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Dragging, resizing and scrolling",
+        "depth": 0
+      },
+      {
+        "text": "Frames, menu and dividers",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/window"
+    ],
+    "example": "window/playground"
+  },
+  {
+    "route": "/components/button",
+    "title": "Button",
+    "description": "Text and icon buttons in the styles the game uses: metal and tile, each with an orange or white label.",
+    "summary": "Text and icon buttons in the styles the game uses",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Variants and states",
+      "Tone",
+      "Sizes",
+      "Usage",
+      "Notes"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Variants and states",
+        "depth": 0
+      },
+      {
+        "text": "Tone",
+        "depth": 0
+      },
+      {
+        "text": "Sizes",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Notes",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/button"
+    ],
+    "example": "button/playground"
+  },
+  {
+    "route": "/components/checkbox",
+    "title": "Checkbox",
+    "description": "The square settings checkbox, with the game's hover, checked and crossed sprites.",
+    "summary": "The square settings checkbox",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Notes",
+      "Variants"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Notes",
+        "depth": 0
+      },
+      {
+        "text": "Variants",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/checkbox"
+    ],
+    "example": "checkbox/playground"
+  },
+  {
+    "route": "/components/context-menu",
+    "title": "Context Menu",
+    "description": "The right-click menu, with its \"Choose Option\" header and coloured targets.",
+    "summary": "The right-click menu",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Notes"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Notes",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/context-menu"
+    ],
+    "example": "context-menu/playground"
+  },
+  {
+    "route": "/components/dropdown-menu",
+    "title": "Dropdown Menu",
+    "description": "A dropdown menu with shadcn/ui's API, drawn as the game's view menu: stone in the iron-rivet frame.",
+    "summary": "A dropdown menu with shadcn/ui's API",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/dropdown-menu"
+    ],
+    "example": "dropdown-menu/playground"
+  },
+  {
+    "route": "/components/input",
+    "title": "Input",
+    "description": "A sunken text field.",
+    "summary": "A sunken text field",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/input"
+    ],
+    "example": "input/playground"
+  },
+  {
+    "route": "/components/nav-list",
+    "title": "Nav List",
+    "description": "The vertical category buttons from the All Settings window.",
+    "summary": "The vertical category buttons from the All Settings window",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Links"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Links",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/nav-list"
+    ],
+    "example": "nav-list/playground"
+  },
+  {
+    "route": "/components/number-field",
+    "title": "Number Field",
+    "description": "The Grand Exchange quantity field with − and + buttons.",
+    "summary": "The Grand Exchange quantity field with − and + buttons",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/number-field"
+    ],
+    "example": "number-field/playground"
+  },
+  {
+    "route": "/components/radio-group",
+    "title": "Radio Group",
+    "description": "Round settings radio buttons.",
+    "summary": "Round settings radio buttons",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/radio-group"
+    ],
+    "example": "radio-group/playground"
+  },
+  {
+    "route": "/components/search-field",
+    "title": "Search Field",
+    "description": "The inset input with an orange Search… placeholder and the pixel magnifier at its end.",
+    "summary": "The inset input with an orange Search… placeholder and the pixel magnifier at its end",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [],
+    "example": "search-field/demo"
+  },
+  {
+    "route": "/components/select",
+    "title": "Select",
+    "description": "A dropdown on Base UI Select, drawn as a sunken field with the scroll-arrow button.",
+    "summary": "A dropdown on Base UI Select",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/select"
+    ],
+    "example": "select/playground"
+  },
+  {
+    "route": "/components/slider",
+    "title": "Slider",
+    "description": "The settings slider.",
+    "summary": "The settings slider",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Options"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Options",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/slider"
+    ],
+    "example": "slider/playground"
+  },
+  {
+    "route": "/components/split-button",
+    "title": "Split Button",
+    "description": "Two buttons in one metal frame: the main action, and a menu of related ones.",
+    "summary": "Two buttons in one metal frame",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [],
+    "example": "split-button/demo"
+  },
+  {
+    "route": "/components/sprite-button",
+    "title": "Sprite Button",
+    "description": "A button drawn by one of the game's own button sprites, lit on hover and while the window it opens is open.",
+    "summary": "A button drawn by one of the game's own button sprites, lit on hover and while the window it opens is open",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [],
+    "example": "sprite-button/demo"
+  },
+  {
+    "route": "/components/tabs",
+    "title": "Tabs",
+    "description": "Slanted tab stones, in small, medium and large, built on Base UI Tabs.",
+    "summary": "Slanted tab stones, in small, medium and large",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/tabs"
+    ],
+    "example": "tabs/playground"
+  },
+  {
+    "route": "/components/toggle",
+    "title": "Toggle",
+    "description": "A single on/off tile, red while pressed, as in the bank's footer.",
+    "summary": "A single on/off tile, red while pressed, as in the bank's footer",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/toggle"
+    ],
+    "example": "toggle/playground"
+  },
+  {
+    "route": "/components/toggle-group",
+    "title": "Toggle Group",
+    "description": "A row of tiles where the chosen one stays pressed: the bank and store quantity row.",
+    "summary": "A row of tiles where the chosen one stays pressed",
+    "section": "Components · Controls",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/toggle-group"
+    ],
+    "example": "toggle-group/playground"
+  },
+  {
+    "route": "/components/description-list",
+    "title": "Description List",
+    "description": "Label / value rows: orange label left, white value right (equipment bonuses, summaries).",
+    "summary": "Label / value rows",
+    "section": "Components · Data Display",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/description-list"
+    ],
+    "example": "description-list/playground"
+  },
+  {
+    "route": "/components/list",
+    "title": "List",
+    "description": "Striped, selectable rows from the Collection Log and World Switcher, and rich rows from the Skill Guide.",
+    "summary": "Striped, selectable rows from the Collection Log and World Switcher, and rich rows from the Skill Guide",
+    "section": "Components · Data Display",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Rich rows"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Rich rows",
+        "depth": 0
+      },
+      {
+        "text": "Example",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "components/list"
+    ],
+    "example": "list/playground"
+  },
+  {
+    "route": "/components/progress",
+    "title": "Progress",
+    "description": "The textured interface bar, shaded coloured bars, and the Grand Exchange's flat bars.",
+    "summary": "The textured interface bar, shaded coloured bars, and the Grand Exchange's flat bars",
+    "section": "Components · Data Display",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Colours, shading and segments"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Colours, shading and segments",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/progress"
+    ],
+    "example": "progress/playground"
+  },
+  {
+    "route": "/components/shortcut",
+    "title": "Shortcut",
+    "description": "Keyboard shortcuts as small key chips, for hints beside search fields, buttons and menu items.",
+    "summary": "Keyboard shortcuts as small key chips, for hints beside search fields, buttons and menu items",
+    "section": "Components · Data Display",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [],
+    "example": "shortcut/demo"
+  },
+  {
+    "route": "/components/stat",
+    "title": "Stat",
+    "description": "Labelled values: the boxed currency footer of stores, and inline Label: value lines.",
+    "summary": "Labelled values",
+    "section": "Components · Data Display",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/stat"
+    ],
+    "example": "stat/playground"
+  },
+  {
+    "route": "/components/status-icon",
+    "title": "Status Icon",
+    "description": "The game's matched round marks: a green check for done or on, a red cross for not done or off.",
+    "summary": "The game's matched round marks",
+    "section": "Components · Data Display",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/status-icon"
+    ],
+    "example": "status-icon/playground"
+  },
+  {
+    "route": "/components/tooltip",
+    "title": "Tooltip",
+    "description": "The yellow examine-style tooltip.",
+    "summary": "The yellow examine-style tooltip",
+    "section": "Components · Data Display",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/tooltip"
+    ],
+    "example": "tooltip/playground"
+  },
+  {
+    "route": "/components/xp-drop",
+    "title": "XP Drop",
+    "description": "XP drops with one or more skill icons.",
+    "summary": "XP drops with one or more skill icons",
+    "section": "Components · Data Display",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/xp-drop"
+    ],
+    "example": "xp-drop/playground"
+  },
+  {
+    "route": "/components/equipment-slot",
+    "title": "Equipment Slot",
+    "description": "Worn-equipment tiles with slot silhouettes and the full paper-doll grid.",
+    "summary": "Worn-equipment tiles with slot silhouettes and the full paper-doll grid",
+    "section": "Components · Game Elements",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/equipment-slot"
+    ],
+    "example": "equipment-slot/playground"
+  },
+  {
+    "route": "/components/item-slot",
+    "title": "Item Slot",
+    "description": "36×32 item cells with in-game stack colours (yellow, white K, green M) and the 28-slot inventory.",
+    "summary": "36×32 item cells with in-game stack colours (yellow, white K, green M) and the 28-slot inventory",
+    "section": "Components · Game Elements",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/item-slot"
+    ],
+    "example": "item-slot/playground"
+  },
+  {
+    "route": "/components/orb",
+    "title": "Orb",
+    "description": "Minimap orbs for hitpoints, prayer, run energy and special attack, with poison and venom states.",
+    "summary": "Minimap orbs for hitpoints, prayer, run energy and special attack",
+    "section": "Components · Game Elements",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/orb"
+    ],
+    "example": "orb/playground"
+  },
+  {
+    "route": "/components/prayer-button",
+    "title": "Prayer Button",
+    "description": "Prayer-book toggles with the glowing active backing and locked sprites.",
+    "summary": "Prayer-book toggles with the glowing active backing and locked sprites",
+    "section": "Components · Game Elements",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/prayer-button"
+    ],
+    "example": "prayer-button/playground"
+  },
+  {
+    "route": "/components/skill-tile",
+    "title": "Skill Tile",
+    "description": "Stats-tab tiles with current and base levels, plus the total-level tile.",
+    "summary": "Stats-tab tiles with current and base levels",
+    "section": "Components · Game Elements",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/skill-tile"
+    ],
+    "example": "skill-tile/playground"
+  },
+  {
+    "route": "/components/skill-icons",
+    "title": "Skill Icons",
+    "description": "All 24 skills plus total level, as React components.",
+    "summary": "All 24 skills plus total level, as React components",
+    "section": "Components · Icons",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Notes"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Notes",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/skill-icons"
+    ],
+    "example": "skill-icons/demo"
+  },
+  {
+    "route": "/components/sprites",
+    "title": "Sprites",
+    "description": "Every sprite group as generated React components: tabs, prayers, combat styles, bank, orbs, GE, glyphs and chevrons.",
+    "summary": "Every sprite group as generated React components",
+    "section": "Components · Icons",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/sprites"
+    ],
+    "example": "sprites/demo"
+  },
+  {
+    "route": "/components",
+    "title": "Components",
+    "description": "Every component, grouped by what it's for.",
+    "summary": "Every component, grouped by what it's for",
+    "section": "Components",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Containers",
+        "depth": 0
+      },
+      {
+        "text": "Window",
+        "depth": 1
+      },
+      {
+        "text": "Interface",
+        "depth": 1
+      },
+      {
+        "text": "Side Panel",
+        "depth": 1
+      },
+      {
+        "text": "Chatbox",
+        "depth": 1
+      },
+      {
+        "text": "Dialog",
+        "depth": 1
+      },
+      {
+        "text": "Card",
+        "depth": 1
+      },
+      {
+        "text": "Field",
+        "depth": 1
+      },
+      {
+        "text": "Scroll Area",
+        "depth": 1
+      },
+      {
+        "text": "Separator",
+        "depth": 1
+      },
+      {
+        "text": "Popover",
+        "depth": 1
+      },
+      {
+        "text": "Code Block",
+        "depth": 1
+      },
+      {
+        "text": "Steps",
+        "depth": 1
+      },
+      {
+        "text": "Controls",
+        "depth": 0
+      },
+      {
+        "text": "Button",
+        "depth": 1
+      },
+      {
+        "text": "Sprite Button",
+        "depth": 1
+      },
+      {
+        "text": "Split Button",
+        "depth": 1
+      },
+      {
+        "text": "Toggle",
+        "depth": 1
+      },
+      {
+        "text": "Toggle Group",
+        "depth": 1
+      },
+      {
+        "text": "Checkbox",
+        "depth": 1
+      },
+      {
+        "text": "Radio Group",
+        "depth": 1
+      },
+      {
+        "text": "Select",
+        "depth": 1
+      },
+      {
+        "text": "Number Field",
+        "depth": 1
+      },
+      {
+        "text": "Slider",
+        "depth": 1
+      },
+      {
+        "text": "Input",
+        "depth": 1
+      },
+      {
+        "text": "Search Field",
+        "depth": 1
+      },
+      {
+        "text": "Tabs",
+        "depth": 1
+      },
+      {
+        "text": "Nav List",
+        "depth": 1
+      },
+      {
+        "text": "Dropdown Menu",
+        "depth": 1
+      },
+      {
+        "text": "Context Menu",
+        "depth": 1
+      },
+      {
+        "text": "Data Display",
+        "depth": 0
+      },
+      {
+        "text": "List",
+        "depth": 1
+      },
+      {
+        "text": "Description List",
+        "depth": 1
+      },
+      {
+        "text": "Stat",
+        "depth": 1
+      },
+      {
+        "text": "Status Icon",
+        "depth": 1
+      },
+      {
+        "text": "Progress",
+        "depth": 1
+      },
+      {
+        "text": "Tooltip",
+        "depth": 1
+      },
+      {
+        "text": "Shortcut",
+        "depth": 1
+      },
+      {
+        "text": "XP Drop",
+        "depth": 1
+      },
+      {
+        "text": "Game Elements",
+        "depth": 0
+      },
+      {
+        "text": "Item Slot",
+        "depth": 1
+      },
+      {
+        "text": "Equipment Slot",
+        "depth": 1
+      },
+      {
+        "text": "Skill Tile",
+        "depth": 1
+      },
+      {
+        "text": "Prayer Button",
+        "depth": 1
+      },
+      {
+        "text": "Orb",
+        "depth": 1
+      },
+      {
+        "text": "Icons",
+        "depth": 0
+      },
+      {
+        "text": "Skill Icons",
+        "depth": 1
+      },
+      {
+        "text": "Sprites",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "components/button",
+      "components/item-slot",
+      "components/progress"
+    ]
+  },
+  {
+    "route": "/recipes/all-settings",
+    "title": "All Settings",
+    "description": "The modern settings window: category nav, search, sections, toggles, a dropdown and a large metal button.",
+    "summary": "The modern settings window",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/all-settings"
+    ],
+    "example": "recipes/all-settings"
+  },
+  {
+    "route": "/recipes/bank",
+    "title": "Bank",
+    "description": "The Bank of Gielinor: draggable and resizable, with tabs, a scrolling item grid and withdraw options.",
+    "summary": "The Bank of Gielinor",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/bank"
+    ],
+    "example": "recipes/bank"
+  },
+  {
+    "route": "/recipes/chat",
+    "title": "Chatbox",
+    "description": "Chat messages in the parchment chatbox with the filter tabs underneath.",
+    "summary": "Chat messages in the parchment chatbox with the filter tabs underneath",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/chat"
+    ],
+    "example": "recipes/chat"
+  },
+  {
+    "route": "/recipes/collection-log",
+    "title": "Collection Log",
+    "description": "Draggable, resizable window with large tabs, a striped selectable list and an item grid.",
+    "summary": "Draggable, resizable window with large tabs, a striped selectable list and an item grid",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/collection-log"
+    ],
+    "example": "recipes/collection-log"
+  },
+  {
+    "route": "/recipes/combat-achievements",
+    "title": "Combat Achievements",
+    "description": "A draggable, resizable window with tier cards, filter dropdowns and a scrolling task list.",
+    "summary": "A draggable, resizable window with tier cards, filter dropdowns and a scrolling task list",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/combat-achievements"
+    ],
+    "example": "recipes/combat-achievements"
+  },
+  {
+    "route": "/recipes/grand-exchange",
+    "title": "Grand Exchange",
+    "description": "Offer slots as cards, with buy and sell buttons and flat progress bars.",
+    "summary": "Offer slots as cards",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/grand-exchange"
+    ],
+    "example": "recipes/grand-exchange"
+  },
+  {
+    "route": "/recipes/dialogue",
+    "title": "NPC Dialogue",
+    "description": "The chatbox dialogue flow: NPC and player lines, then a Select an Option menu. Click to continue.",
+    "summary": "The chatbox dialogue flow",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/dialogue"
+    ],
+    "example": "recipes/dialogue"
+  },
+  {
+    "route": "/recipes/orbs",
+    "title": "Orbs & XP drops",
+    "description": "Minimap orbs (including poison and venom) and XP drops.",
+    "summary": "Minimap orbs (including poison and venom) and XP drops",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/orbs"
+    ],
+    "example": "recipes/orbs"
+  },
+  {
+    "route": "/recipes",
+    "title": "Recipes",
+    "description": "Whole game screens built only from the library.",
+    "summary": "Whole game screens built only from the library",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "All Settings",
+        "depth": 0
+      },
+      {
+        "text": "Bank",
+        "depth": 0
+      },
+      {
+        "text": "Chatbox",
+        "depth": 0
+      },
+      {
+        "text": "Collection Log",
+        "depth": 0
+      },
+      {
+        "text": "Combat Achievements",
+        "depth": 0
+      },
+      {
+        "text": "NPC Dialogue",
+        "depth": 0
+      },
+      {
+        "text": "Grand Exchange",
+        "depth": 0
+      },
+      {
+        "text": "Orbs & XP drops",
+        "depth": 0
+      },
+      {
+        "text": "Settings (classic)",
+        "depth": 0
+      },
+      {
+        "text": "Side Panel",
+        "depth": 0
+      },
+      {
+        "text": "Skill Guide",
+        "depth": 0
+      },
+      {
+        "text": "World Switcher",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "recipes/bank",
+      "recipes/grand-exchange",
+      "recipes/world-switcher"
+    ]
+  },
+  {
+    "route": "/recipes/settings",
+    "title": "Settings (classic)",
+    "description": "A classic interface window with tabs, checkboxes, radios and sliders.",
+    "summary": "A classic interface window with tabs, checkboxes, radios and sliders",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/settings"
+    ],
+    "example": "recipes/settings"
+  },
+  {
+    "route": "/recipes/side-panel",
+    "title": "Side Panel",
+    "description": "The resizable-mode side panel with working tabs: skills, character summary, inventory, worn equipment, prayer and account management.",
+    "summary": "The resizable-mode side panel with working tabs",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/side-panel"
+    ],
+    "example": "recipes/side-panel"
+  },
+  {
+    "route": "/recipes/skill-guide",
+    "title": "Skill Guide",
+    "description": "An attached category nav opening into its panel, panel tabs over scrolling text with an in-game link, and rich two-column list rows.",
+    "summary": "An attached category nav opening into its panel, panel tabs over scrolling text with an in-game link, and rich two-column list rows",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/skill-guide"
+    ],
+    "example": "recipes/skill-guide"
+  },
+  {
+    "route": "/recipes/world-switcher",
+    "title": "World Switcher",
+    "description": "A dense striped table with the green current-world highlight.",
+    "summary": "A dense striped table with the green current-world highlight",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/world-switcher"
+    ],
+    "example": "recipes/world-switcher"
+  },
+  {
+    "route": "/assets",
+    "title": "Assets",
+    "description": "Download every icon, frame and texture as SVG or pixel-perfect PNG at any size. Free for videos, thumbnails and overlays.",
+    "summary": "Download every icon, frame and texture as SVG or pixel-perfect PNG at any size",
+    "section": "Assets",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Asset browser",
+        "depth": 0
+      }
+    ],
+    "previews": []
+  }
+]

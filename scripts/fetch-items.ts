@@ -19,7 +19,8 @@ const ITEMS = [
   "Yew logs", "Magic logs", "Raw lobster", "Lobster", "Raw shark", "Bones", "Dragon bones",
   "Rune pickaxe", "Dragon axe", "Tinderbox", "Knife", "Hammer", "Ring of dueling(8)", "Games necklace(8)",
   "Bronze bar", "Iron ore", "Coal", "Gold bar", "Uncut diamond", "Cooked karambwan", "Anglerfish",
-  "Twisted bow", "Toxic blowpipe", "Spade", "Clue scroll (elite)",
+  "Twisted bow", "Toxic blowpipe", "Spade", "Clue scroll (elite)", "Grimy ranarr weed", "Grimy snapdragon",
+  "Grimy torstol", "Grimy toadflax", "Grimy avantoe", "Ranarr weed", "Snapdragon", "Torstol", "Weeds", "Supercompost",
 ];
 
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");

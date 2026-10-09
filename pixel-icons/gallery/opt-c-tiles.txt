@@ -1,0 +1,36 @@
+name: Components (four interface tiles)
+kind: tab
+g #3a3833
+h #55524b
+i #6f6b62
+j #8a857a
+k #a6a094
+l #c2bcae
+R #4a0c0a
+S #6e1410
+T #931c16
+U #b8281e
+V #d8402e
+---
+................kkj
+............jkkkkkk
+.........jkkkkkkkkkj
+.....jkk.ikkkkkkkkkk
+.ikkkkkk.hkkkkkkkkkki
+kkkkkkkkj.ikkkkkkkkkk
+kkkkkkkkk.hkkkkkkkkkli
+kkkkkkkkkj.jkkkkklkjhh
+lkkkkkkkkk.hklkjihhhhUS
+kkkkkkkkkkj.ihhhhUUUUUU
+hkkkkklkjih.ihUUUUUUUUU
+.kkljihhhhjj.TUUUUUUUUUU
+.hhhhhikkkkk.SVUUUUUUUUU
+.hhkkkkkkkkki.UUUUUUUUUU
+..ikkkkkkkkkk.SVUUUUUUUU
+..hkkkkkkkkkki.UUUUUUUVU
+...ikkkkkkkkkk.SVUVVUSSS
+...hkkkkkkkkkki.UTSSSSR
+....jkkkkkklkjh.SSS
+....hkkkljihhhh
+.....jjhhhhh
+.....ihh

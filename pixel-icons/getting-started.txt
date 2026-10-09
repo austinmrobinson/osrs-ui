@@ -1,27 +1,41 @@
-name: Getting started (a quest scroll)
+name: Getting started (an upright scroll, sealed)
 kind: tab
-h #f6e7bd
-l #e4c98e
-m #c9a765
-d #957443
-t #7a5a30
+p #8a7a58
+q #ab9a72
+r #c8b88e
+s #e0d2aa
+t #f2e8c8
+u #4a3a22
+v #6e5838
+w #8e7650
+R #6e1410
+S #931c16
+T #b8281e
+U #d8402e
 ---
-.llllllllllllllllll.
-lhhhhhhhhhhhhhhhhhhm
-lmmmmmmmmmmmmmmmmmmd
-.dddddddddddddddddd.
-..lhhhhhhhhhhhhhhm..
-..lhhhhhhhhhhhhhlm..
-..lhtttttttttthhlm..
-..lhhhhhhhhhhhhhlm..
-..lhttttttttthhhlm..
-..lhhhhhhhhhhhhllm..
-..lhtttttttttthllm..
-..lhhhhhhhhhhhhllm..
-..lhttttttthhhhllm..
-..lhhhhhhhhhhhlllm..
-..lhhhhhhhhhhlllmm..
-.llllllllllllllllll.
-lhhhhhhhhhhhhhhhhhhm
-lmmmmmmmmmmmmmmmmmmd
-.dddddddddddddddddd.
+.r
+tttsr
+stttttsr
+qrsstttttsr
+..qqrsstttttsr
+..sssqqrsstttttq
+..ssssssqqrsstqq
+..ssvssssssqqrqq
+..sssvvvssssss
+..ssssssvvvsss
+..ssvvwssssvss
+..sssssvvwssss
+..ssvsssssssss
+..sssvvvssssss
+..ssssssvvvsss
+..ssvvwssssvss
+..sssssvvwssss
+..ssssssssssss
+tttssssssTTTss
+stttttsssTTSss
+rrsstttttTTRss
+..qqrsstttttss
+.....qqrsstttttq
+........qqrsstqq
+...........qqrqq
+..............q

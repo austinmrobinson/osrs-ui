@@ -1,0 +1,37 @@
+name: Envelope (mail)
+kind: item
+p #8a7a58
+q #ab9a72
+r #c8b88e
+s #e0d2aa
+t #f2e8c8
+a #4a0c0a
+b #6e1410
+c #931c16
+d #b8281e
+e #d8402e
+f #ef6a50
+k #6e5f40
+l #8a7a58
+m #a8976e
+n #c2b28a
+o #d6c8a0
+---
+....................ool
+................ooooolts
+............ooooooooottt
+........ooooooooooootttts
+....oooooooooooooootttttt
+.ooooooooooooooooolttttttt
+tmnooooooooooooooltttttttt
+ttttomooooooofffotttttttttt
+qtttttttmmooffffftttttttttt
+.tttttttttttcfffbttttttttttt
+.qtttttttttttccbtttttttttttt
+..ttttttttttttttttttttttttsq
+..qtttttttttttttttttttsqqq
+...ttttttttttttttttqqq
+...qtttttttttttqqq
+....tttttttqqq
+....qttrqq
+.....q

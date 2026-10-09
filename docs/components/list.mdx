@@ -1,9 +1,9 @@
 ---
 title: List
-description: "Striped, selectable rows from the Collection Log and World Switcher."
+description: "Striped, selectable rows from the Collection Log and World Switcher, and rich rows from the Skill Guide."
 ---
 
-<Component path="list/demo" />
+<Component path="list/playground" />
 
 ## Installation
 
@@ -18,4 +18,20 @@ npx shadcn@latest add {{registry}}/list.json
   <ListItem selected onClick={…}>Abyssal Sire</ListItem>
   <ListItem tone="green" selected>World 339</ListItem>
 </List>
+```
+
+## Rich rows
+
+The Skill Guide's rows: item media, a title, and labelled description lines. The parts follow shadcn/ui's Item naming.
+
+<Component path="list/rich" />
+
+```tsx
+<ListItem>
+  <ListItemMedia><Item id="gold-bar" /></ListItemMedia>
+  <ListItemContent>
+    <ListItemTitle>Gold bar</ListItemTitle>
+    <ListItemDescription label="Requires">Level 40 Smithing</ListItemDescription>
+  </ListItemContent>
+</ListItem>
 ```

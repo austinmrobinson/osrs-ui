@@ -1,0 +1,13 @@
+name: General store (a sack)
+kind: map
+a #c88c4c
+b #a06a30
+c #784a1c
+d #4c2e10
+---
+..aa..
+.abbc.
+abbbcd
+bbbccd
+bbccdd
+.cccd.

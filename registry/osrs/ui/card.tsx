@@ -11,7 +11,9 @@ const cardVariants = cva("osrs-card osrs-framed osrs-text", {
       /** Grand Exchange offer slot, with a divided header */
       offer: "osrs-card-offer osrs-frame-ge-offer",
       /** Metal-cornered card (Combat Achievements tiers and bosses) */
-      metal: "osrs-card-metal osrs-frame-metal-button",
+      metal: "osrs-card-metal osrs-frame-equipment-metal",
+      /** Notched edge with the base button's fill: the stone behind, lifted slightly */
+      muted: "osrs-card-flat osrs-frame-flat osrs-card-muted",
       /** Thin tan border */
       outline: "osrs-card-flat osrs-frame-tan-border",
     },
@@ -19,8 +21,27 @@ const cardVariants = cva("osrs-card osrs-framed osrs-text", {
   defaultVariants: { variant: "flat" },
 });
 
-function Card({ className, variant, ...props }: React.ComponentProps<"div"> & VariantProps<typeof cardVariants>) {
-  return <div data-slot="card" className={cn(cardVariants({ variant }), className)} {...props} />;
+/**
+ * `selected` draws the game's orange outline (Greenman mask, store stock); `disabled` greys the
+ * label and fades the art (locked or unavailable options).
+ */
+function Card({
+  className,
+  variant,
+  selected,
+  disabled,
+  ...props
+}: React.ComponentProps<"div"> & VariantProps<typeof cardVariants> & { selected?: boolean; disabled?: boolean }) {
+  return (
+    <div
+      data-slot="card"
+      data-selected={selected || undefined}
+      data-disabled={disabled || undefined}
+      aria-disabled={disabled || undefined}
+      className={cn(cardVariants({ variant }), className)}
+      {...props}
+    />
+  );
 }
 
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {

@@ -26,6 +26,13 @@ export const MODULES: Record<string, [string, string, string]> = {
   icon: ["icon-sprites", "Glyph", "iconSprites"],
   chatbox: ["chatbox-sprites", "Chatbox", "chatboxSprites"],
   option: ["option-sprites", "Option", "optionSprites"],
+  "spell-normal": ["spell-normal-sprites", "Spell", "normalSpellSprites"],
+  "spell-ancient": ["spell-ancient-sprites", "AncientSpell", "ancientSpellSprites"],
+  "spell-lunar": ["spell-lunar-sprites", "LunarSpell", "lunarSpellSprites"],
+  "spell-arceuus": ["spell-arceuus-sprites", "ArceuusSpell", "arceuusSpellSprites"],
+  emote: ["emote-sprites", "Emote", "emoteSprites"],
+  minigame: ["minigame-sprites", "Minigame", "minigameSprites"],
+  sailing: ["sailing-sprites", "Sailing", "sailingSprites"],
 };
 
 const pascal = (s: string) => s.replace(/(^|-)(\w)/g, (_, __, c: string) => c.toUpperCase()).replace(/^(\d)/, "_$1");

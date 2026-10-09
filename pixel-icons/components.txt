@@ -1,22 +1,26 @@
-name: Components (stacked stone blocks)
+name: Components (stacked bricks)
 kind: tab
-h #c4beb0
-l #a29c8e
-m #837d70
-d #5c564b
+R #5a2a1a
+S #7a3a22
+T #9a4c2c
+U #b86238
+V #d27c4a
 ---
-.....hhhhhhhhh.....
-.....hlllllllm.....
-.....hlmmmmmmd.....
-.....hlmmmmmmd.....
-.....hlmmmmmmd.....
-.....hmmmmmmmd.....
-.....mdddddddd.....
-...................
-hhhhhhhhh.hhhhhhhhh
-hlllllllm.hlllllllm
-hlmmmmmmd.hlmmmmmmd
-hlmmmmmmd.hlmmmmmmd
-hlmmmmmmd.hlmmmmmmd
-hmmmmmmmd.hmmmmmmmd
-mdddddddd.mdddddddd
+.............UUUUU
+..........UUUUUUUUU
+......UUUUUUUUUUUUUU
+......UUUUUUUUUUUUUT..T
+......TUUUUUUUVUTTTTUUUU
+......TTTUUVTTTTTTTTUUUUU
+......TTTUTTTTTTTTTTUUUUUU
+......TTTUTTTTTTTTTTUUUVTT
+.....UUTTUTTTTTTTSUVUTTTTT
+.UUUUUUUTUTTTTSUVUTTTTTTTT
+VUUUUUUUUUSUVUSTTTTTTTTTTT
+TUUUUUUUUVUTTTSTTTTTTTTTTT
+TTUUUUUTTTTTTTSTTTTTTTT
+TTTUTTTTTTTTTTSTTTTS
+TTTTTTTTTTTTTTST
+STTTTTTTTTTTS
+..TTTTTTT
+...TTS

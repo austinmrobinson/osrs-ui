@@ -1,0 +1,9 @@
+name: Key rank
+kind: rank
+a #f2cc4a
+b #c8981e
+---
+.aa......
+a..a.....
+a..abbbbb
+.bb...b.b

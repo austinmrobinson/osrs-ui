@@ -1,0 +1,28 @@
+name: Sailing log (a ship's wheel)
+kind: tab
+2 #f2cc4a
+3 #c8981e
+4 #8a6410
+a #c88c4c
+b #a06a30
+c #784a1c
+d #4c2e10
+---
+.....aaaaaaaa
+....aaaabaaabb
+..aaaa..b...bbbc
+..aa....b.....cc
+.aa.b.aaabbb.b.cc
+aaa..baabbbbb..ccd
+aa..aaab22bccc..dd
+aa..aab2223ccc..dd
+aa..ab222334cc..dd
+abbbbb223344cdbbdd
+aa..bbb3344cdd..dd
+aa..bbcc44cddd..dd
+abb..bccccddb..ddd
+.bb.b.cccddd.b.dd
+..bc.....b....dd
+..cccc...b..dddd
+....ccdddddddd
+.....dddddddd

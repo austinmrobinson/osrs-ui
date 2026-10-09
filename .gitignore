@@ -10,3 +10,6 @@ theme.css
 .blume-verify/
 .blume-verify/
 pixel-icons/.preview/
+.artifacts/
+public/gallery-preview.html
+public/icon-preview.html

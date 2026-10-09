@@ -1,0 +1,18 @@
+name: Gust (wind swirls)
+kind: spell
+e #a8d8ff
+f #5aa0f0
+---
+.....fffff
+....ff
+....f
+....f.........e
+....f........fe
+....f......ffff
+....ff....f..e
+.....ff...fee....ee
+......eeeefe.....e
+..........ff....ee
+ffffffffff.fe..ee
+............eeee
+..eeeeeeeeeeeee

@@ -1,0 +1,37 @@
+name: Components (a carved rune block)
+kind: tab
+g #3a3833
+h #55524b
+i #6f6b62
+j #8a857a
+k #a6a094
+l #c2bcae
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+---
+jjjjjjjjjjjjjjjjjjjjji
+jjjjjjjjjjjjjjjjjjjjjj
+jjjjjjjjjjjjjjjjjjjjjj
+kkjjjjjjjjjjjjjjjjjjjj
+ikkjjjjjjjjjjjjjjjjjkk
+iijkjjjjjjjjjjjjjkkjji
+iiijkkjjjjjjjjkkjjiiii
+iiiiijkjjjjjkkjiiiiiii
+iiiiiijkkkkjiiiiiiiiii
+iiiiiiiikiiiiiiiiiiiii
+iiiiiiiijiiiiiii33ii53
+iiiiiiiijiiiiiii33i53i
+iiiiiiiijiiiiiii33i33i
+iiiiiiiijiiiiiii3353ii
+iiiiiiiijiiiiiii333iii
+iiiiiiiijiiiiiii333iii
+iiiiiiiijiiiiiii3333ii
+iiiiiiiijiiiiiii33i333
+iiiiiiiijiiiiiii33ii3i
+iiiiiiiijiiiiiii33iiii
+iiiiiiiijiiiiiii33iiii
+hiiiiiiijiiiiiiiiiiiii

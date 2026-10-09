@@ -1,0 +1,76 @@
+---
+title: Field
+description: "Field sets and fields with shadcn/ui's Field API, drawn the way the game groups controls: the titled group box, and settings sections of striped rows."
+---
+
+<Component path="field/playground" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/field.json
+```
+
+## Group box
+
+The game's main way of grouping controls: a bevelled inset with an orange title centred on top ("Pouch", "Bank Fillers", "Relics"). It's the default `FieldSet`.
+
+```tsx
+<FieldSet>
+  <FieldLegend>Deposit</FieldLegend>
+  <Field>
+    <FieldLabel htmlFor="worn">Worn items</FieldLabel>
+    <Checkbox id="worn" />
+  </Field>
+</FieldSet>
+```
+
+## Settings sections
+
+`variant="section"` gives the All Settings look: a white title band over striped rows. A `Field` is horizontal by default (label left, control right). Use `orientation="vertical"` for a centred title and description above the control, as the game does for sliders.
+
+<Component path="field/settings" />
+
+```tsx
+<FieldSet variant="section">
+  <FieldLegend>Display</FieldLegend>
+  <Field orientation="vertical">
+    <FieldContent className="items-center">
+      <FieldTitle>Screen Brightness</FieldTitle>
+      <FieldDescription>Change the level of brightness…</FieldDescription>
+    </FieldContent>
+    <Slider defaultValue={40} />
+  </Field>
+  <Field>
+    <FieldLabel>Hitsplat tinting</FieldLabel>
+    <Checkbox />
+  </Field>
+</FieldSet>
+```
+
+## Parts
+
+| Part | Use |
+| --- | --- |
+| `FieldSet` | A group: `variant="box"` (group box, default) or `"section"` (settings section) |
+| `FieldLegend` | The group's title |
+| `FieldGroup` | Stacks fields or field sets with a 6px gap |
+| `Field` | One labelled control; `orientation="horizontal"` (default) or `"vertical"`; `density` |
+| `FieldContent` | Wraps a title and description beside the control |
+| `FieldLabel` | The label; it names the control in its `Field`, with no ids to wire up |
+| `FieldTitle` | A bold orange title, for fields with a description |
+| `FieldDescription` | The paler line under a title |
+
+## Labels
+
+A `FieldLabel` names the control in the same `Field`: inputs, selects, checkboxes, radio groups, number fields and sliders are all labelled by it, and clicking the label focuses the control. A `FieldDescription` is read out with the control too.
+
+## Density
+
+`density` gives the label and control more room inside each stripe than the game's own rows, for settings outside a game window.
+
+| Density | Padding (game px) | For |
+| --- | --- | --- |
+| `default` | 2 × 5 | The game's own settings rows |
+| `relaxed` | 6 × 10 | Option lists in a sidebar |
+| `spacious` | 10 × 16, 32 between label and control | A [Popover](/components/popover) of a few settings |

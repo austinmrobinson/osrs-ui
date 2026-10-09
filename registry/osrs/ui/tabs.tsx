@@ -30,7 +30,8 @@ function Tabs({ className, variant = "stone", ...props }: TabsPrimitive.Root.Pro
 
 /**
  * Tabs never squeeze below their label. When they don't fit, the list scrolls
- * horizontally: the mouse wheel scrolls it sideways and the active tab is kept in view.
+ * horizontally (trackpad swipe or shift + wheel; a plain vertical wheel still scrolls the page)
+ * and the active tab is kept in view.
  */
 function TabsList({ className, onWheel, ...props }: TabsPrimitive.List.Props) {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -63,14 +64,7 @@ function TabsList({ className, onWheel, ...props }: TabsPrimitive.List.Props) {
         React.useContext(VariantContext) === "bank" && "osrs-tabs-list-bank",
         className,
       )}
-      onWheel={(e) => {
-        onWheel?.(e);
-        const list = ref.current;
-        // Vertical wheel scrolls the strip sideways when it overflows.
-        if (list && list.scrollWidth > list.clientWidth && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-          list.scrollLeft += e.deltaY;
-        }
-      }}
+      onWheel={onWheel}
       {...props}
     />
   );

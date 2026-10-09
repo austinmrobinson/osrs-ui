@@ -1,0 +1,11 @@
+name: Star rank
+kind: rank
+a #fff2a0
+b #c8981e
+---
+...a...
+..aab..
+aaaabbb
+.aabbb.
+.ab.bb.
+a.....b

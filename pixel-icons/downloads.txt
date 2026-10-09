@@ -1,33 +1,45 @@
 name: Free downloads (an arrow into a pouch)
 kind: item
-e #6af07a
-f #26a834
-F #157020
-p #b07c42
-q #8a5a2c
-r #5e3c1a
-g #f2cc4a
-G #a8801a
+a #3a2410
+b #55351a
+c #704622
+d #8a5a2c
+e #a46f3a
+f #bd864b
+u #2a1a0c
+v #5a3a1c
+w #8c6034
+G #0a4a0a
+H #126a12
+I #1c8c1c
+J #2aae2a
+K #4ccc4c
+L #86ec86
 ---
-........eef........
-........eef........
-........eef........
-........eef........
-.....eeeeeffff.....
-......eeeefff......
-.......eeeff.......
-........eeF........
-.........F.........
-...................
-......pq.qp.qr.....
-.......pqqqqr......
-......gggGGGGG.....
-.....pqqqqqqqqr....
-...ppqqqqqqqqqqrr..
-..ppqqqqqqqqqqqqrr.
-.ppqqqqqqqqqqqqqqrr
-.pqqqqqqqqqqqqqqqrr
-.pqqqqqqqqqqqqqqrrr
-..pqqqqqqqqqqqqqrr.
-...rqqqqqqqqqqqrr..
-....rrrrrrrrrrrr...
+........LLLK
+........LLLK
+......LLLLLLLL
+.......LLLLLL
+.......ILLLLH
+........JLLI
+.........KJ
+.........cc
+.......eefffe
+......ecefffde
+.......eeefee
+.......wbbbbw
+.......vwwwwu
+.....decdddcbdc
+....deeedddceedc
+..cdeeffffffeeddcb
+..deeffffffffeeddc
+.deefffffffffeeeddc
+.deefffffffffeeeddc
+cdeefffffffffeeeddcb
+cdeefffffffffeeeddcb
+.deefffffffffeeeddc
+.cdeefffffffeeeddcb
+..cdeeeeeeeeeeddcb
+...ccdddeeddddcbb
+....bbcccccccbbb
+.......bbbbbb

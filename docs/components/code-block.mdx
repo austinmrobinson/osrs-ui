@@ -1,0 +1,29 @@
+---
+title: Code Block
+description: "Code on a flat strip of darkened stone, with a copy button in its corner. The copy button works on its own too."
+---
+
+<Component path="code-block/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/code-block.json
+```
+
+## Usage
+
+```tsx
+import { CodeBlock, CopyButton } from "@/components/ui/code-block"
+
+<CodeBlock copyLabel="Copy the install command">npx shadcn@latest add …</CodeBlock>
+
+{/* Highlighted code: pass the markup as children */}
+<CodeBlock dangerouslySetInnerHTML={{ __html: html }} />
+
+<CopyButton value="Remember your PIN" label="Copy the hint" />
+```
+
+`CopyButton` copies `value` (a string, or a function that returns one when it's pressed) and shows a green tick for a moment. Its accessible name is `label`, and reads "Copied" while the tick shows.
+
+The code font is `var(--osrs-font-code)`, falling back to the system monospace; the game's fonts have no code face.

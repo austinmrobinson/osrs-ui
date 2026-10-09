@@ -3,6 +3,7 @@
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
 import { cn } from "@/lib/utils";
+import { useAnchorScale } from "@/lib/osrs";
 
 function TooltipProvider({ delay = 0, ...props }: TooltipPrimitive.Provider.Props) {
   return <TooltipPrimitive.Provider data-slot="tooltip-provider" delay={delay} {...props} />;
@@ -28,13 +29,19 @@ function TooltipContent({
   sideOffset = 4,
   align = "center",
   alignOffset,
+  scale,
   ...props
 }: TooltipPrimitive.Popup.Props &
-  Pick<TooltipPrimitive.Positioner.Props, "side" | "sideOffset" | "align" | "alignOffset"> & { variant?: "examine" | "interface" }) {
+  Pick<TooltipPrimitive.Positioner.Props, "side" | "sideOffset" | "align" | "alignOffset"> & {
+    variant?: "examine" | "interface";
+    /** Draw the popup at this scale (CSS px per game pixel) instead of its trigger's. */ scale?: number;
+  }) {
+  const scaleRef = useAnchorScale<HTMLDivElement>(scale);
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Positioner side={side} sideOffset={sideOffset} align={align} alignOffset={alignOffset} className="z-50">
         <TooltipPrimitive.Popup
+          ref={scaleRef}
           data-slot="tooltip-content"
           className={cn("osrs-tooltip osrs-text max-w-[calc(200*var(--osrs-px))]", variant === "interface" && "osrs-tooltip-interface", className)}
           {...props}

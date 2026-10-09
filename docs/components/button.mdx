@@ -1,9 +1,9 @@
 ---
 title: Button
-description: "Text and icon buttons in the styles the game uses: metal and tile, each with an orange or white label. Every state matches in-game screenshots. 9-slice vector frames that fit any size."
+description: "Text and icon buttons in the styles the game uses: metal and tile, each with an orange or white label."
 ---
 
-<Component path="button/demo" />
+<Component path="button/playground" />
 
 ## Installation
 
@@ -13,23 +13,26 @@ npx shadcn@latest add {{registry}}/button.json
 
 ## Variants and states
 
-Each variant was checked against current in-game screenshots.
+| Variant | Use for |
+| --- | --- |
+| `metal` (default) | Actions in modern windows (View DPS, Collection Log headers) |
+| `tile` | Quantity rows and toggles (bank, World Switcher); turns red while `aria-pressed` |
+| `stone` | Older interfaces |
 
-| Variant | Where the game uses it | Default | Hover | Pressed / selected | Disabled |
-| --- | --- | --- | --- | --- | --- |
-| `metal` (default) | View DPS | Light metal corners, lighter fill, orange label | Darker corners, inverted bevel, darker fill, white label | Same as hover | Grey label |
-| `metal` + `tone="white"` | Collection Log, Combat Achievements, Settings header | Same, white label | Same as above | Same as hover | Grey label |
-| `tile` | Bank quantity and toggle buttons, World Switcher | Grey stone tile, orange label | White label | Red tile, orange label; stays red while `aria-pressed` | Dim label |
-| `tile` + `tone="white"` | Account panel | Grey stone tile, white label, icons at both ends | Label dims to grey | Same as hover | Dim label |
-| `stone` | Older interfaces (stone_small sprite) | Stone with bevel | Lighter bevel | Brighter stone, white label | Grey label |
+For window close and menu buttons use [Window](/components/window); for settings categories, [Nav List](/components/nav-list).
 
-Related controls with their own components: the window close and menu buttons (`WindowClose`, `WindowMenu`, "Close" tooltip on hover), settings categories ([Nav list](/components/nav-list): orange, white on hover, "Select …" tooltip) and tabs ([Tabs](/components/tabs): pressed looks the same as selected).
-
-To show a state without interacting (screenshots, videos), set `data-hover` or `aria-pressed` on the button.
+To show a state without interacting, set `data-hover` or `aria-pressed` on the button.
 
 ## Tone
 
 `tone="white"` swaps the orange label for a white one. On `metal` the label is white at rest as well as on hover (Collection Log, Combat Achievements). On `tile` it gives the Account panel's behaviour: a white label that dims on hover, with no red pressed state.
+
+`tone="positive"` and `tone="destructive"` give a green or red label that keeps its colour in every state. Use them for a confirm / cancel pair (trade Accept / Decline, minigame Ready / Leave), keeping both buttons the same variant and width, and for a lone destructive action ("Yes" to destroy, "Delete your PIN").
+
+```tsx
+<Button tone="positive">Accept</Button>
+<Button tone="destructive">Decline</Button>
+```
 
 ## Sizes
 

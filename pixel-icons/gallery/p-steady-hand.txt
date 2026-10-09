@@ -1,0 +1,30 @@
+name: Steady Hand (an open hand)
+kind: prayer
+outline: #c8981e
+v #f6e7bd
+w #e4c98e
+x #c9a765
+y #957443
+---
+...vv.vv
+...vv.vv
+vv.vw.vw.vv
+vv.ww.ww.vv
+vw.ww.ww.vw
+wx.wx.wx.wx
+xx.xx.xx.xx
+xxvxxvxxvxxw..v
+vvvvvvvvwwww.vv
+vvvvvvvwwwwwvvw
+vvvvvvwwwwwvvww
+vvvvvwwwwwxvww
+vvvvwwwwwxxww
+vvvwwwwwxxxw
+vvwwwwwxxxyy
+vwwwwwxxxyyy
+wwwwwxxxyyyy
+wwwwxxxyyyyy
+wwwxxxyyyyyy
+wwxxxyyyyyyy
+wxxxyyyyyyyy
+xxxyyyyyyyyy

@@ -1,0 +1,36 @@
+name: Assets (a treasure chest, higher view)
+kind: tab
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+---
+..............335555dee
+.............3ddd3566eee
+...........cddddeee666eee
+.........cddddeeeee3666ee
+.......cddddeeeeeeee655ddd
+....445dddeeeeeeeeeee555dd
+..3c35555eeeeeeeeeedd655dd
+.cdddd6666eeeeeedddddd44cc
+ccceeee666eeeedddddddc444c
+ccccceee665edddddddccc3333
+ccccceeee555dddddccccc332b
+5ccccceed555dddccc5c53233b
+35cccccddd54dccc55322b333b
+c33ccccddd444ccc4332bb333b
+ccc3dccddc443c534332bb333b
+cccc35cccc33333b4332bb333b
+ccccc35ccc533bbb43bbbb333b
+cccccc3353333bbbbbbbbb333b
+cccccccc2b333bbbbbbbbb332
+ccccccccbb333bbbbbbbb.2
+.cccccccbb333bbbbbb
+...cccccbb333bbbb

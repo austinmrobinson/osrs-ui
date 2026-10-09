@@ -1,0 +1,11 @@
+name: Crown rank
+kind: rank
+a #fff2a0
+b #f2cc4a
+c #c8981e
+---
+a..a..a
+aa.a.aa
+abbbbba
+bbbbbbb
+ccccccc

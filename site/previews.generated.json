@@ -1,0 +1,277 @@
+{
+  "recipes/all-settings": {
+    "src": "/previews/recipes/all-settings.png",
+    "width": 257,
+    "height": 281
+  },
+  "recipes/bank": {
+    "src": "/previews/recipes/bank.png",
+    "width": 245,
+    "height": 169
+  },
+  "recipes/chat": {
+    "src": "/previews/recipes/chat.png",
+    "width": 261,
+    "height": 84
+  },
+  "recipes/collection-log": {
+    "src": "/previews/recipes/collection-log.png",
+    "width": 251,
+    "height": 158
+  },
+  "recipes/combat-achievements": {
+    "src": "/previews/recipes/combat-achievements.png",
+    "width": 241,
+    "height": 164
+  },
+  "recipes/dialogue": {
+    "src": "/previews/recipes/dialogue.png",
+    "width": 261,
+    "height": 72
+  },
+  "recipes/grand-exchange": {
+    "src": "/previews/recipes/grand-exchange.png",
+    "width": 243,
+    "height": 153
+  },
+  "recipes/orbs": {
+    "src": "/previews/recipes/orbs.png",
+    "width": 113,
+    "height": 72
+  },
+  "recipes/settings": {
+    "src": "/previews/recipes/settings.png",
+    "width": 166,
+    "height": 151
+  },
+  "recipes/side-panel": {
+    "src": "/previews/recipes/side-panel.png",
+    "width": 122,
+    "height": 169
+  },
+  "recipes/skill-guide": {
+    "src": "/previews/recipes/skill-guide.png",
+    "width": 256,
+    "height": 171
+  },
+  "recipes/world-switcher": {
+    "src": "/previews/recipes/world-switcher.png",
+    "width": 103,
+    "height": 139
+  },
+  "components/button": {
+    "src": "/previews/components/button.png",
+    "width": 68,
+    "height": 38
+  },
+  "components/card": {
+    "src": "/previews/components/card.png",
+    "width": 76,
+    "height": 48
+  },
+  "components/chatbox": {
+    "src": "/previews/components/chatbox.png",
+    "width": 262,
+    "height": 92
+  },
+  "components/checkbox": {
+    "src": "/previews/components/checkbox.png",
+    "width": 82,
+    "height": 18
+  },
+  "components/context-menu": {
+    "src": "/previews/components/context-menu.png",
+    "width": 115,
+    "height": 83
+  },
+  "components/description-list": {
+    "src": "/previews/components/description-list.png",
+    "width": 152,
+    "height": 62
+  },
+  "components/dialog": {
+    "src": "/previews/components/dialog.png",
+    "width": 202,
+    "height": 104
+  },
+  "components/dropdown-menu": {
+    "src": "/previews/components/dropdown-menu.png",
+    "width": 82,
+    "height": 111
+  },
+  "components/equipment-slot": {
+    "src": "/previews/components/equipment-slot.png",
+    "width": 38,
+    "height": 38
+  },
+  "components/field": {
+    "src": "/previews/components/field.png",
+    "width": 172,
+    "height": 84
+  },
+  "components/input": {
+    "src": "/previews/components/input.png",
+    "width": 162,
+    "height": 22
+  },
+  "components/interface": {
+    "src": "/previews/components/interface.png",
+    "width": 202,
+    "height": 78
+  },
+  "components/item-slot": {
+    "src": "/previews/components/item-slot.png",
+    "width": 35,
+    "height": 33
+  },
+  "components/list": {
+    "src": "/previews/components/list.png",
+    "width": 162,
+    "height": 48
+  },
+  "components/nav-list": {
+    "src": "/previews/components/nav-list.png",
+    "width": 79,
+    "height": 128
+  },
+  "components/number-field": {
+    "src": "/previews/components/number-field.png",
+    "width": 116,
+    "height": 22
+  },
+  "components/orb": {
+    "src": "/previews/components/orb.png",
+    "width": 60,
+    "height": 36
+  },
+  "components/prayer-button": {
+    "src": "/previews/components/prayer-button.png",
+    "width": 33,
+    "height": 33
+  },
+  "components/progress": {
+    "src": "/previews/components/progress.png",
+    "width": 182,
+    "height": 18
+  },
+  "components/radio-group": {
+    "src": "/previews/components/radio-group.png",
+    "width": 178,
+    "height": 20
+  },
+  "components/scroll-area": {
+    "src": "/previews/components/scroll-area.png",
+    "width": 148,
+    "height": 98
+  },
+  "components/select": {
+    "src": "/previews/components/select.png",
+    "width": 112,
+    "height": 22
+  },
+  "components/separator": {
+    "src": "/previews/components/separator.png",
+    "width": 164,
+    "height": 42
+  },
+  "components/side-panel": {
+    "src": "/previews/components/side-panel.png",
+    "width": 244,
+    "height": 338
+  },
+  "components/skill-icons": {
+    "src": "/previews/components/skill-icons.png",
+    "width": 144,
+    "height": 28
+  },
+  "components/skill-tile": {
+    "src": "/previews/components/skill-tile.png",
+    "width": 68,
+    "height": 38
+  },
+  "components/slider": {
+    "src": "/previews/components/slider.png",
+    "width": 182,
+    "height": 18
+  },
+  "components/sprites": {
+    "src": "/previews/components/sprites.png",
+    "width": 138,
+    "height": 26
+  },
+  "components/stat": {
+    "src": "/previews/components/stat.png",
+    "width": 106,
+    "height": 42
+  },
+  "components/status-icon": {
+    "src": "/previews/components/status-icon.png",
+    "width": 20,
+    "height": 20
+  },
+  "components/tabs": {
+    "src": "/previews/components/tabs.png",
+    "width": 202,
+    "height": 84
+  },
+  "components/toggle-group": {
+    "src": "/previews/components/toggle-group.png",
+    "width": 198,
+    "height": 38
+  },
+  "components/toggle": {
+    "src": "/previews/components/toggle.png",
+    "width": 32,
+    "height": 24
+  },
+  "components/tooltip": {
+    "src": "/previews/components/tooltip.png",
+    "width": 186,
+    "height": 61
+  },
+  "components/window": {
+    "src": "/previews/components/window.png",
+    "width": 202,
+    "height": 112
+  },
+  "components/xp-drop": {
+    "src": "/previews/components/xp-drop.png",
+    "width": 54,
+    "height": 20
+  },
+  "components/code-block": {
+    "src": "/previews/components/code-block.png",
+    "width": 242,
+    "height": 42
+  },
+  "components/popover": {
+    "src": "/previews/components/popover.png",
+    "width": 154,
+    "height": 110
+  },
+  "components/search-field": {
+    "src": "/previews/components/search-field.png",
+    "width": 202,
+    "height": 32
+  },
+  "components/shortcut": {
+    "src": "/previews/components/shortcut.png",
+    "width": 80,
+    "height": 20
+  },
+  "components/split-button": {
+    "src": "/previews/components/split-button.png",
+    "width": 152,
+    "height": 38
+  },
+  "components/sprite-button": {
+    "src": "/previews/components/sprite-button.png",
+    "width": 92,
+    "height": 34
+  },
+  "components/steps": {
+    "src": "/previews/components/steps.png",
+    "width": 182,
+    "height": 82
+  }
+}

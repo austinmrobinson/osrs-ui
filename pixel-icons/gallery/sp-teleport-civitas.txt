@@ -1,0 +1,31 @@
+name: Civitas Teleport (rings with a C)
+kind: spell
+r #ff6a50
+s #e02818
+t #a01008
+u #600800
+v #f6e7bd
+w #e4c98e
+x #c9a765
+W #ffffff
+---
+........rrrr
+.....rrrrrrrrrr
+....rrrrrrrrrrrr
+...rrrrvvvvvvrrss
+..rrrvvvvvvvvvvsss
+.rrrvvvssssssvwwsss
+.rrrvvssWWWsttwwsss
+.rrvvssWsssttttwxst
+rrrvvssWssttttuxxttt
+rrrvvssWsttttuuxxttt
+rrrvvssWttttuuuxxttt
+rrrvvsstWWWuuuuxxttt
+.rrvvsttttuuuuuxxtt
+.rrrvvtttuuuuuxxttt
+.rrrvwwtuuuuuxxxttt
+..rsswwwxxxxxxxttt
+...ssssxxxxxxtttt
+....sssstttttttt
+.....sstttttttt
+........tttt

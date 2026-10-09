@@ -1,0 +1,39 @@
+name: Camera
+kind: item
+a #121212
+b #1e1e1e
+c #2c2c2c
+d #3a3a3a
+e #4a4a4a
+g #2e3236
+h #464b50
+i #60666b
+j #7d8388
+k #9ca2a6
+l #c3c8cb
+v #3a5a78
+w #4f7898
+x #6a96b6
+y #8cb6d2
+z #c2dcec
+---
+..................jj
+......jjj....cdddikidc
+...kjjjjjjjdddddddkiddd
+...jkjjjkkjhddddddddddee
+dddjjjjjjjjhddddddeedddc
+ddddjjjjjjdddeedddcccccc
+cdddddddeeedddcccccccccc
+cccdeedddccccckjjicccccc
+ccccdcccccccckkjjjjccccc
+ccccdccccccckkjjyxjjcccc
+ccccdcccccckkjjxxxxjjccc
+ccccdccccccjkjxxxxxxjccc
+ccccdccccccjjjxxxxxxjccc
+ccccdccccccijkxxxxxxjccc
+ccccdccccccijjxxxxxjcccc
+ccccdccccccchjxxxxjcccbb
+ccccdccccccccjjjjjbb
+.cccdccccccccbb
+..bcdcccbbb
+....bb

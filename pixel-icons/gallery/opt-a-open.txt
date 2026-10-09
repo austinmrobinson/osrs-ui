@@ -1,0 +1,38 @@
+name: Assets (an open treasure chest)
+kind: tab
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+---
+.deddddddddddddddddb
+dddddddddddddddddddc
+dddddddddddddddddddd
+dddddddddddddddddddd
+dddddddddddddddddddd
+dddddddddddddddddddcd
+dddddddddddddd34444dcd
+dddddddddd444555555543d
+dddddddd45555555555554cd
+dddddd4555555555555554ccd
+ddd3555555555565555555cccd
+eddd5556666666666554355ded
+cedd5666666666665433de33cc
+cced566666666654ddedcc33cc
+ccced35555443ddedccccc33cc
+cccced33355dedcccccccc33cc
+ccccceddde33cccccccccc33cc
+cccccceccc33cccccccccc33cc
+cccccccccc33cccccccccc33cc
+cccccccccc33cccccccccc33cc
+.ccccccccc33cccccccccc33
+..cccccccc33ccccccccb
+...ccccccc33cccccb
+....cccccc33cc

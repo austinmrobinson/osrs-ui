@@ -1,0 +1,26 @@
+---
+title: Steps
+description: "Numbered steps down a rail, each number joined to the next by a separator."
+---
+
+<Component path="steps/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/steps.json
+```
+
+## Usage
+
+```tsx
+import { Step, StepNumber, Steps } from "@/components/ui/steps"
+
+<Steps>
+  <Step n={1} title="Talk to the Cook">He's in the kitchen of Lumbridge Castle.</Step>
+  <Step n={2} title="Gather the ingredients">…</Step>
+</Steps>
+
+{/* The number on its own, as a badge */}
+<StepNumber>3</StepNumber>
+```

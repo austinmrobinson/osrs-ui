@@ -1,0 +1,39 @@
+name: Getting started (an upright scroll, turned the other way)
+kind: tab
+p #8a7a58
+q #ab9a72
+r #c8b88e
+s #e0d2aa
+t #f2e8c8
+u #4a3a22
+v #6e5838
+w #8e7650
+R #6e1410
+S #931c16
+T #b8281e
+U #d8402e
+---
+...........rsstt
+........rstttsss
+.....rstttsssrqq
+..rstttsssrqqq
+rtttsssrqqqrrr
+rrsrrqqqrrrrrr
+rrqqqrrrrrrvrr
+..rrrrrrvvvrrr
+..rrrvvvrrrrrr
+..rrvrrrrwrrrr
+..rrrrwvvrrrrr
+..rrvvrrrrrvrr
+..rrrrrrvvvrrr
+..rrrvvvrrrrrr
+..rrurrrrwrrrr
+..rrrrwvvrUSSr
+..rrvvrrrsSSSr
+..rrrrrrrrSSrstt
+..rrrrrrrrsttsss
+..rrrrrsttsssrqq
+..rrsttsssrqqq
+rtttsssrqqq
+rrssrqqq
+rrqqq

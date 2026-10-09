@@ -1,0 +1,275 @@
+---
+// The site's page shell (components.ts `layout.Layout`), replacing Blume's RootLayout: our own
+// markup and Tailwind classes throughout, with Blume kept as the content engine (routing, MDX,
+// navigation data, search index, SEO). The whole page is one interface window: the game's stone,
+// a rivet frame round the viewport, a header bar, the nav column, the content and a footer.
+// It takes the same props Blume passes RootLayout; this site uses a subset of them.
+import data from "blume:data";
+import "blume:theme";
+import { ClientRouter } from "astro:transitions";
+import Favicon from "blume/components/layout/Favicon.astro";
+import Fonts from "blume/components/layout/Fonts.astro";
+import SiteMetatags from "blume/components/layout/SiteMetatags.astro";
+import DiscoveryLinks from "blume/components/layout/DiscoveryLinks.astro";
+import Analytics from "blume/components/layout/Analytics.astro";
+import { SWAP_STYLESHEET_INIT_SCRIPT, SIDEBAR_SCROLL_INIT_SCRIPT, THEME_INIT_SCRIPT } from "blume/components/layout/head-scripts.ts";
+import { findBreadcrumbs, flattenPages, getPagination, sidebarForRoute } from "blume/components/layout/nav-utils.ts";
+import { pageModeLayout } from "blume/core/page-modes.ts";
+import type { PageMode } from "blume/core/page-modes.ts";
+import type { Heading, Navigation } from "blume/core/types.ts";
+import { withMountedBase } from "blume/components/islands/base-path.ts";
+import { buildStructuredData } from "../../node_modules/blume/src/seo/jsonld.ts";
+
+import Header from "./Header.astro";
+import PageMenu from "./PageMenu.astro";
+import Sidebar from "../../site/Sidebar";
+import Pagination from "../../site/Pagination";
+import Footer from "../../site/Footer";
+import { cx, stone, textShadow } from "../../site/styles";
+import { PREFS_INIT_SCRIPT } from "../../site/preferences";
+import { CURSOR_INIT_SCRIPT, CURSOR_VARS } from "../../site/cursor";
+
+interface Props {
+  site: { title: string; description?: string };
+  navigation: Navigation;
+  page: { title: string; description?: string; route: string };
+  headings: Heading[];
+  favicon?: unknown;
+  appleIcon?: unknown;
+  analytics?: unknown;
+  themeMode: "system" | "light" | "dark";
+  fontCssVars?: unknown[];
+  indexable: boolean;
+  canonical?: string | null;
+  noindex?: boolean;
+  ogImage?: string | null;
+  pagination?: boolean;
+  pageMode?: PageMode;
+  pageType?: string;
+  siteUrl?: string | null;
+  locale?: string;
+  structuredDataEnabled?: boolean;
+  lastModified?: string | null;
+}
+
+const {
+  site,
+  navigation,
+  page,
+  headings,
+  favicon,
+  appleIcon,
+  analytics,
+  themeMode,
+  fontCssVars,
+  indexable,
+  canonical,
+  noindex,
+  ogImage,
+  pagination = true,
+  pageMode,
+  pageType,
+  siteUrl,
+  locale = "en",
+  structuredDataEnabled,
+  lastModified,
+} = Astro.props;
+
+const mode = pageModeLayout(pageMode);
+const showSidebar = mode.sidebar;
+const showChrome = mode.chrome;
+const isHome = page.route === "/" || page.route === "";
+// "On this page" lists the h2 sections; overview pages are a grid, not a document to jump around in.
+const isOverview = ["/", "/components", "/recipes"].includes(page.route.replace(/\/$/, "") || "/");
+const sections = isOverview ? [] : headings.filter((h) => h.depth === 2);
+
+const sidebar = sidebarForRoute(navigation.sidebar, navigation.tabs, page.route, navigation.root);
+const crumbs = findBreadcrumbs(sidebar, page.route);
+const eyebrow = crumbs.length > 1 ? crumbs[crumbs.length - 2] : null;
+const { prev, next } = getPagination(flattenPages(sidebar), page.route);
+
+const pageTitle = page.title && page.title !== site.title ? `${page.title} - ${site.title}` : site.title;
+const description = page.description ?? site.description;
+const markdownMirror = withMountedBase(isHome ? "/index.md" : `${page.route}.md`);
+const structuredData =
+  structuredDataEnabled === false || noindex
+    ? null
+    : buildStructuredData({
+        base: import.meta.env.BASE_URL,
+        breadcrumbs: crumbs,
+        description,
+        homeRoute: navigation.root,
+        identity: data.config.identity,
+        locale,
+        modified: lastModified,
+        pageType,
+        published: null,
+        route: page.route,
+        siteName: site.title,
+        siteUrl: siteUrl ?? null,
+        title: page.title,
+      });
+const structuredDataJson = structuredData ? JSON.stringify(structuredData).replaceAll("<", "\\u003c") : null;
+
+// The content column: the docs' text measure, or the home page's wider one. The page title Blume
+// renders into it is drawn here (48px Bold, white); its description stays in the page's meta only.
+const measure = mode.width === "full" ? "max-w-none" : mode.width === "center" ? "max-w-[960px]" : "max-w-[48rem]";
+const articleClass = cx(
+  "mx-auto mt-1 w-full",
+  measure,
+  "[&>h1]:mb-1 [&>h1]:font-rs-bold [&>h1]:text-rs-3x [&>h1]:text-rs-white [&>h1]:[text-shadow:1px_1px_0_#000]",
+  "[&>h1+p]:hidden",
+  isHome && "[&>h1]:hidden",
+);
+
+// Keyboard focus anywhere on the site: the game's yellow, only for keyboard focus.
+const focus =
+  "[&_:focus-visible]:outline-1 [&_:focus-visible]:outline-solid [&_:focus-visible]:outline-rs-yellow [&_:focus-visible]:outline-offset-2";
+
+// Copy buttons (site/mdx/Prose.tsx and the examples' Code tab): one delegated handler for the page.
+const copyScript = `(()=>{if(window.__rsCopy)return;window.__rsCopy=true;document.addEventListener("click",async(e)=>{const b=e.target.closest("[data-rs-copy]");if(!b)return;const lit=b.getAttribute("data-rs-copy");const pre=b.parentElement&&b.parentElement.querySelector("pre");const text=lit||(pre?pre.innerText:"");try{await navigator.clipboard.writeText(text);}catch{return;}b.setAttribute("data-copied","");b.setAttribute("aria-label","Copied");clearTimeout(b.__t);b.__t=setTimeout(()=>{b.removeAttribute("data-copied");b.setAttribute("aria-label",b.getAttribute("data-label")||"Copy code");},1500);});})();`;
+
+// The site's own pixel cursors (site/cursor.ts): the white arrow at rest, gold over anything that
+// can be pressed, the system's text cursor in text fields. ?cursor=gold or ?cursor=system for the
+// other takes.
+// (written out in full so Tailwind finds them; "pressable" is links, buttons, tabs, options, menu
+// items, checkboxes, radios, switches, sliders, summaries, labels and selects)
+const cursors = cx(
+  "cursor-(--cursor-white)",
+  "[&_:is(a[href],button:not(:disabled),[role=button],[role=tab],[role=option],[role=menuitem],[role=menuitemradio],[role=checkbox],[role=radio],[role=switch],[role=slider],summary,label,select)]:cursor-(--cursor-gold)",
+  "[&_:is(input:not([type=checkbox],[type=radio],[type=range]),textarea)]:cursor-text",
+  "[html[data-cursor=gold]_&]:cursor-(--cursor-gold-rest)",
+  "[html[data-cursor=gold]_&_:is(a[href],button:not(:disabled),[role=button],[role=tab],[role=option],[role=menuitem],[role=menuitemradio],[role=checkbox],[role=radio],[role=switch],[role=slider],summary,label,select)]:cursor-(--cursor-bright)",
+  "[html[data-cursor=system]_&]:cursor-auto",
+  "[html[data-cursor=system]_&_:is(a[href],button:not(:disabled),[role=button],[role=tab],[role=option],[role=menuitem],[role=menuitemradio],[role=checkbox],[role=radio],[role=switch],[role=slider],summary,label,select)]:cursor-pointer",
+);
+
+// The mobile nav drawer: the header's menu button toggles it; it opens below the header, and
+// crossing into the desktop layout closes it. Focus trapping and Escape come from Blume's
+// drawer-inert (imported below), which follows the same attribute.
+const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;const top=()=>{const h=document.querySelector("[data-site-header]");if(h)document.documentElement.style.setProperty("--blume-drawer-top",h.getBoundingClientRect().bottom+"px");};document.addEventListener("click",(e)=>{if(e.target.closest("[data-blume-nav-toggle]")){if(document.documentElement.toggleAttribute("data-blume-nav-open"))top();}});addEventListener("resize",()=>{const d=document.documentElement;if(!d.hasAttribute("data-blume-nav-open"))return;if(matchMedia("(min-width:64rem)").matches)d.removeAttribute("data-blume-nav-open");else top();});})();`;
+---
+
+<!doctype html>
+<html
+  lang={locale}
+  data-pagefind-ignore={indexable ? undefined : "all"}
+  class="osrs-scrollbars bg-rs-stone [color-scheme:dark] [--osrs-font-code:'Departure_Mono',ui-monospace,monospace]"
+  style={CURSOR_VARS}
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <ClientRouter />
+    <script is:inline set:html={SWAP_STYLESHEET_INIT_SCRIPT} />
+    <title>{pageTitle}</title>
+    <Favicon favicon={favicon} appleIcon={appleIcon} />
+    <Fonts cssVars={fontCssVars ?? []} />
+    {canonical && !noindex && <link rel="canonical" href={canonical} />}
+    {noindex && <meta name="robots" content="noindex" />}
+    {description && <meta name="description" content={description} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:title" content={pageTitle} />
+    {description && <meta property="og:description" content={description} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <meta name="twitter:card" content={ogImage ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={pageTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    <SiteMetatags tags={data.config.metatags} />
+    <DiscoveryLinks discovery={data.config.discovery} markdownMirror={markdownMirror} />
+    {structuredDataJson && <script is:inline type="application/ld+json" set:html={structuredDataJson} />}
+    <script data-mode={themeMode} is:inline set:html={THEME_INIT_SCRIPT} />
+    <script is:inline set:html={PREFS_INIT_SCRIPT} />
+    <script is:inline set:html={CURSOR_INIT_SCRIPT} />
+    <Analytics analytics={analytics} />
+  </head>
+  <body
+    class={cx(
+      "min-h-dvh p-1.5 font-rs text-rs text-rs-orange [-moz-osx-font-smoothing:unset] [-webkit-font-smoothing:none] [font-synthesis:none] [image-rendering:pixelated]",
+      "selection:bg-rs-highlight selection:text-rs-white",
+      stone,
+      focus,
+      cursors,
+      // Settings > Motion off (html[data-still]): every looping animation holds still
+      "[html[data-still]_&_*]:[animation-play-state:paused]",
+    )}
+  >
+    <a
+      href="#blume-content"
+      class="absolute -start-[999px] top-0 z-[100] bg-rs-stone px-4 py-2 text-rs-white focus:start-0"
+    >
+      Skip to content
+    </a>
+    {/* the rivet frame round the whole viewport */}
+    <div
+      aria-hidden="true"
+      class="pointer-events-none fixed inset-0 z-[100] border-[30px_25px] border-solid border-transparent [border-image:var(--osrs-frame-iron-rivets)_30_25_30_25/30px_25px/0_repeat]"
+    ></div>
+    <Header route={page.route} hasSidebar={showSidebar} />
+    <div class={cx("mx-auto grid grid-cols-1 items-start", showSidebar && "lg:grid-cols-[17.5rem_minmax(0,1fr)]")}>
+      <aside
+        id="blume-nav-drawer"
+        data-blume-nav-drawer
+        aria-label="Primary"
+        class={cx(
+          "fixed start-0 top-[var(--blume-drawer-top,54px)] z-[35] h-[calc(100dvh-var(--blume-drawer-top,54px))] w-full -translate-x-[105%] overflow-y-auto transition-transform [:where([data-blume-nav-open])_&]:translate-x-0",
+          stone,
+          "lg:sticky lg:top-[54px] lg:z-auto lg:h-[calc(100dvh-60px)] lg:w-auto lg:max-w-none lg:translate-x-0 lg:bg-none lg:bg-transparent",
+          "lg:shadow-[inset_-1px_0_0_var(--color-rs-separator),inset_-2px_0_0_var(--color-rs-line)]",
+          !showSidebar && "lg:hidden",
+        )}
+      >
+        <div data-blume-nav-tree>
+          <Sidebar items={sidebar} currentRoute={page.route} />
+        </div>
+      </aside>
+      <script is:inline set:html={SIDEBAR_SCROLL_INIT_SCRIPT} />
+      <main id="blume-content" class={cx("@container flex min-h-[calc(100dvh-60px)] flex-col self-stretch px-(--main-pad) pt-6 pb-10 [--main-pad:24px] lg:[--main-pad:32px] xl:[--main-pad:40px]", textShadow)}>
+        {
+          showChrome && (eyebrow || sections.length > 0) && (
+            <div class={cx("relative mx-auto mb-2 flex w-full items-center pe-10 leading-[15px]", measure)}>
+              <nav aria-label="Breadcrumb" class="min-w-0">
+                {eyebrow &&
+                  (eyebrow.route ? (
+                    <a href={withMountedBase(eyebrow.route)} class="text-rs-orange no-underline hover:text-rs-white">
+                      {eyebrow.label}
+                    </a>
+                  ) : (
+                    <span>{eyebrow.label}</span>
+                  ))}
+              </nav>
+              {sections.length > 0 && <PageMenu headings={sections} />}
+            </div>
+          )
+        }
+        <article class={articleClass} data-pagefind-body={indexable ? "" : undefined}>
+          <slot />
+        </article>
+        {
+          showChrome && pagination && (
+            <div class="mt-auto w-full">
+              <Pagination prev={prev} next={next} />
+            </div>
+          )
+        }
+      </main>
+    </div>
+    {showChrome && <Footer />}
+    <button
+      type="button"
+      aria-label="Close navigation"
+      data-blume-nav-toggle
+      class="fixed inset-0 z-[30] hidden cursor-pointer border-0 bg-black/40 [:where([data-blume-nav-open])_&]:block lg:hidden"
+    ></button>
+    <script is:inline set:html={copyScript} />
+    <script is:inline set:html={drawerScript} />
+    <script>
+      import { syncDrawerInert } from "blume/components/layout/drawer-inert.ts";
+      import "blume/components/layout/toc-element.ts";
+      syncDrawerInert();
+    </script>
+  </body>
+</html>

@@ -4,10 +4,10 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { buttonSprites } from "@/components/ui/button-sprites";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { MovableContext, useMovable, type MovableOptions } from "@/lib/movable";
 
 type WindowFrame = "rivets" | "tan";
@@ -127,25 +127,21 @@ function WindowMenu({
   onValueChange: (value: string) => void;
 }) {
   return (
-    <MenuPrimitive.Root>
-      <MenuPrimitive.Trigger aria-label="Menu" className="osrs-window-menu-trigger group">
+    <DropdownMenu>
+      <DropdownMenuTrigger aria-label="Menu" className="group">
         <buttonSprites.menu className="group-hover:hidden group-data-[popup-open]:hidden" />
         <buttonSprites.menuSelected className="hidden group-hover:block group-data-[popup-open]:block" />
-      </MenuPrimitive.Trigger>
-      <MenuPrimitive.Portal>
-        <MenuPrimitive.Positioner className="z-50 outline-none" side="bottom" align="start" sideOffset={2}>
-          <MenuPrimitive.Popup className="osrs-window-menu osrs-framed osrs-frame-iron-rivets osrs-text">
-            <MenuPrimitive.RadioGroup value={value} onValueChange={(v) => onValueChange(String(v))}>
-              {items.map((i) => (
-                <MenuPrimitive.RadioItem key={i.value} value={i.value} className="osrs-window-menu-item" closeOnClick>
-                  {i.label}
-                </MenuPrimitive.RadioItem>
-              ))}
-            </MenuPrimitive.RadioGroup>
-          </MenuPrimitive.Popup>
-        </MenuPrimitive.Positioner>
-      </MenuPrimitive.Portal>
-    </MenuPrimitive.Root>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuRadioGroup value={value} onValueChange={(v) => onValueChange(String(v))}>
+          {items.map((i) => (
+            <DropdownMenuRadioItem key={i.value} value={i.value}>
+              {i.label}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
 

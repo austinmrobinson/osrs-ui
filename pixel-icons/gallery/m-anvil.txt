@@ -1,0 +1,12 @@
+name: Anvil
+kind: map
+a #8c8c84
+b #5a5a54
+c #2a2a26
+---
+aaaaaa..
+.abbbbcc
+..bbcc..
+..bcc...
+.bbccc..
+.ccccc..

@@ -64,9 +64,13 @@ const hcap = (capSrc: string, capWidth: number, middleSrc: string) => {
   for (let y = 0; y < mid.height; y++)
     for (let x = 0; x < capWidth; x++)
       capFull.data.copy(out.data, (y * out.width + out.width - 1 - x) * 4, (y * capWidth + x) * 4, (y * capWidth + x) * 4 + 4);
+  // the top slice covers the cap's slanted shoulder (down to the first row whose outer column is
+  // drawn), so a taller tab repeats only the straight side below it, never the slant
+  let shoulder = 0;
+  while (shoulder < capFull.height && capFull.data[(shoulder * capWidth) * 4 + 3] === 0) shoulder++;
   return {
     bmp: out,
-    slice: [1, capWidth, 1, capWidth] as [number, number, number, number],
+    slice: [shoulder + 1, capWidth, 1, capWidth] as [number, number, number, number],
     border: [0, capWidth, 0, capWidth] as [number, number, number, number],
   };
 };

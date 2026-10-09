@@ -1,0 +1,12 @@
+name: Altar (a cross)
+kind: map
+a #5aa0f0
+b #143880
+---
+..ab..
+..ab..
+aaabbb
+..ab..
+..ab..
+..ab..
+..ab..

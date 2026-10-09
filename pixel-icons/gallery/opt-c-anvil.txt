@@ -1,0 +1,29 @@
+name: Components (an anvil)
+kind: tab
+a #2e3236
+b #464b50
+c #60666b
+d #7d8388
+e #9ca2a6
+f #c3c8cb
+---
+...................eee
+..............eeeeeeeee
+..........eeeeeeeeeeeeee
+.....eeeeeeeeeeeeeeeeeeee
+.eeeeeeeeeeeeeeeeeeeefecc
+.ceeeeeeeeeeeeeefedcccccc
+deeeeeeeeeeefdccccccccccc
+feeceeefeccccccccccccccc
+dddcdccccccccccccccb
+bbbcdccccccccccccc
+...cdcccccbccccccce
+....cc..ccdcccccccee
+.......eccdccccccceee
+....eeeeccdccccccceeee
+....deeeecdcccceeeefed
+....cdeeeedeeeefdccccc
+....ccdeeefedccccccccc
+.....ccdccccccccccb
+......cdcccccb
+.......dc

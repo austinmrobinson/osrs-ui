@@ -1,0 +1,49 @@
+name: Calendar
+kind: item
+p #8a7a58
+q #ab9a72
+r #c8b88e
+s #e0d2aa
+t #f2e8c8
+a #4a0c0a
+b #6e1410
+c #931c16
+d #b8281e
+e #d8402e
+f #ef6a50
+g #2e3236
+h #464b50
+i #60666b
+j #7d8388
+k #9ca2a6
+l #c3c8cb
+m #4a3e2a
+n #6a5a3e
+o #8a7856
+---
+....il.....ddddkeeed
+....liidddeeeddhdddd
+eddeejhddddddddddddd
+dddddddddddddddddddd
+dddddddddddddddddddd
+ddddddddddddddddddbr
+dddddddddddcbrrrrrrr
+dddddcbrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrnnrr
+rrrrrrrrrrrnnnrrnnrr
+rrrrnnrnnnrnnnrrnnrr
+rrrnnnrnnnrnnnrrrrrr
+rrrnnnrnmrrrrrrrrrrr
+rrrrrrrrrrrrrrrrnnrr
+rrrrrrrrrnrnnnrrnnrr
+rrrnnnrnnnrnnnrrnnrr
+rrrnnnrnnnrnnnrrrrrr
+rrrnnnrmrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrnnrr
+rrrrrrrrnnrnnnrrnnrr
+rrrnnnrnnnrnnnrrnnrr
+rrrnnnrnnnrnrrrrrrrr
+rrrnnnrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrq
+rrrrrrrrrrq
+rrrrq

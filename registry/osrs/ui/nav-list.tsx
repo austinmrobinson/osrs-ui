@@ -43,4 +43,15 @@ function NavItem({ className, tooltip, ...props }: TabsPrimitive.Tab.Props & { t
   );
 }
 
-export { NavList, NavItem, NavPanel };
+/**
+ * A nav item that links to a page, for a site's or app's navigation (put them in a `<nav>` styled
+ * with `osrs-nav-list`, rather than in Tabs). Set `current` on the current page's link: it gets
+ * `aria-current="page"` and opens into the page beside the column, its frame unfilled and the
+ * column's divider covered by a strip of the page's surface (`--osrs-nav-surface`, the stone by
+ * default).
+ */
+function NavLink({ className, current, ...props }: React.ComponentProps<"a"> & { current?: boolean }) {
+  return <a data-slot="nav-link" aria-current={current ? "page" : undefined} className={cn("osrs-nav-item osrs-text", className)} {...props} />;
+}
+
+export { NavList, NavItem, NavLink, NavPanel };

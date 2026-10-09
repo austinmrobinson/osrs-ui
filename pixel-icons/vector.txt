@@ -1,32 +1,32 @@
 name: Vector, not screenshots (a quill)
 kind: item
-w #f6f6f1
-l #c9c9c0
-m #93938a
-s #d9c6a0
-n #5a4a32
-k #1a1a1a
+p #8a8a84
+q #b0b0aa
+r #d2d2cc
+s #ececE6
+t #ffffff
+u #2a2a2a
+v #4a4a44
+w #6a6a62
 ---
-....................ws
-...................wsm
-.................wwsm
-...............wwwslm
-..............wwwslm
-.............wwwslm
-...........wwwwslm
-..........wwwwsllm
-.........wwwwsllm
-........wwwwsllm
-........wwwslm
-......wwwwslm
-......wwwslm
-.....wwwslm
-.....wwsm
-.....wsm
-....ws
-....s
-...s
-..s
-.s
-.n
-k
+.......................vu
+....................rswsss
+..................ssswssss
+................ssssvssss
+...............sssvvssss
+.............sssswsssss
+............sssswsssss
+...........ssssvssssr
+..........ssssvssssq
+.........sssvsssss
+........rsswsssss
+........sswsssss
+.......ssvssssr
+.......vvssss
+......wussss
+.....wssssr
+....w.sss
+...v
+.vv
+wu
+v

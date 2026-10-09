@@ -1,0 +1,23 @@
+---
+title: Description List
+description: "Label / value rows: orange label left, white value right (equipment bonuses, summaries)."
+---
+
+<Component path="description-list/playground" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/description-list.json
+```
+
+## Usage
+
+```tsx
+<DescriptionList striped>
+  <DescriptionItem label="Stab">+82</DescriptionItem>
+  <DescriptionItem label="Prayer">+0</DescriptionItem>
+</DescriptionList>
+```
+
+`striped` alternates the row shading, as in summaries and kill-count lists.

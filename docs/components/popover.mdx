@@ -1,0 +1,33 @@
+---
+title: Popover
+description: "A small Interface window that drops from a button, with a settings title band over striped rows."
+---
+
+<Component path="popover/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/popover.json
+```
+
+## Usage
+
+```tsx
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Field, FieldLabel } from "@/components/ui/field"
+
+<Popover>
+  <PopoverTrigger render={<SpriteButton sprite={buttonSprites.wrench} activeSprite={buttonSprites.wrenchHovered} aria-label="Settings" />} />
+  <PopoverContent title="Display">
+    <Field density="spacious">
+      <FieldLabel>Hide roofs</FieldLabel>
+      <Checkbox />
+    </Field>
+  </PopoverContent>
+</Popover>
+```
+
+With a `title`, the window gets the settings section's title band, edge to edge, with the separator under it; put [Field](/components/field) rows after it. Without one, it's an empty Interface frame for your own content.
+
+It closes on Escape or a click outside, moves focus inside when it opens and back to the trigger when it closes. Selects and menus inside it open over it without closing it. Like the other popups it takes its trigger's scale; `scale={1}` draws it at 1x.

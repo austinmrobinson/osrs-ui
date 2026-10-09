@@ -5,7 +5,7 @@ import { Checkbox } from "@/registry/osrs/ui/checkbox";
 import { Input } from "@/registry/osrs/ui/input";
 import { NavItem, NavList } from "@/registry/osrs/ui/nav-list";
 import { ScrollArea } from "@/registry/osrs/ui/scroll-area";
-import { SettingRow, SettingsSection } from "@/registry/osrs/ui/settings";
+import { Field, FieldContent, FieldDescription, FieldLegend, FieldSet, FieldTitle } from "@/registry/osrs/ui/field";
 import { Slider } from "@/registry/osrs/ui/slider";
 import { Tabs, TabsContent } from "@/registry/osrs/ui/tabs";
 import { Window, WindowClose, WindowHeader } from "@/registry/osrs/ui/window";
@@ -20,8 +20,12 @@ export default function AllSettingsRecipe() {
         <WindowHeader
           start={
             <>
-              <Button variant="metal" tone="white" size="sm">Less info</Button>
-              <Button variant="metal" tone="white" size="sm">Hide locked</Button>
+              <Button variant="metal" tone="white" size="sm">
+                Less info
+              </Button>
+              <Button variant="metal" tone="white" size="sm">
+                Hide locked
+              </Button>
             </>
           }
           end={<WindowClose />}
@@ -45,36 +49,56 @@ export default function AllSettingsRecipe() {
             ))}
           </NavList>
           <div className="flex min-w-0 flex-1 flex-col">
-            <div className="flex items-center" style={{ gap: px(10), padding: `${px(6)} ${px(6)} ${px(6)} ${px(12)}` }}>
+            <div
+              className="flex items-center"
+              style={{
+                gap: px(10),
+                padding: `${px(6)} ${px(6)} ${px(6)} ${px(12)}`,
+              }}
+            >
               <span>Search:</span>
               <Input placeholder="*" className="flex-1" />
             </div>
             <TabsContent value="Display" className="min-h-0 flex-1" style={{ boxShadow: `inset 0 ${px(1)} 0 #1f1a14` }}>
               <ScrollArea className="h-full">
-                <SettingsSection title="Graphics" style={{ margin: px(6) }}>
-                  <SettingRow layout="stacked" label="Screen Brightness" description="Change the level of brightness to make the world look lighter or darker.">
+                <FieldSet variant="section" style={{ margin: px(6) }}>
+                  <FieldLegend>Graphics</FieldLegend>
+                  <Field orientation="vertical">
+                    <FieldContent>
+                      <FieldTitle>Screen Brightness</FieldTitle>
+                      <FieldDescription>Change the level of brightness to make the world look lighter or darker.</FieldDescription>
+                    </FieldContent>
                     <Slider defaultValue={40} className="mx-auto" style={{ width: px(260) }} />
-                  </SettingRow>
-                  <SettingRow layout="stacked" label="Camera zoom distance" description="Use the slider to change the camera zoom level.">
+                  </Field>
+                  <Field orientation="vertical">
+                    <FieldContent>
+                      <FieldTitle>Camera zoom distance</FieldTitle>
+                      <FieldDescription>Use the slider to change the camera zoom level.</FieldDescription>
+                    </FieldContent>
                     <Slider defaultValue={30} thumb="green" className="mx-auto" style={{ width: px(260) }} />
-                  </SettingRow>
-                  <SettingRow
-                    layout="stacked"
-                    label="View distance"
-                    description="Change how far you can see the landscape. This does not affect view distance of other players or interact distance."
-                  >
+                  </Field>
+                  <Field orientation="vertical">
+                    <FieldContent>
+                      <FieldTitle>View distance</FieldTitle>
+                      <FieldDescription>Change how far you can see the landscape. This does not affect view distance of other players or interact distance.</FieldDescription>
+                    </FieldContent>
                     <Slider defaultValue={0} className="mx-auto" style={{ width: px(260) }} />
-                  </SettingRow>
-                  <SettingRow
-                    label="Hide roofs"
-                    description="When enabled, hides all roofs. If you are inside a building, the roof will be hidden regardless of the setting being disabled."
-                  >
+                  </Field>
+                  <Field>
+                    <FieldContent>
+                      <FieldTitle>Hide roofs</FieldTitle>
+                      <FieldDescription>When enabled, hides all roofs. If you are inside a building, the roof will be hidden regardless of the setting being disabled.</FieldDescription>
+                    </FieldContent>
                     <Checkbox variant="bordered" />
-                  </SettingRow>
-                  <SettingRow label="Scroll wheel can change zoom distance" description="When enabled, the scroll wheel can change the camera zoom.">
+                  </Field>
+                  <Field>
+                    <FieldContent>
+                      <FieldTitle>Scroll wheel can change zoom distance</FieldTitle>
+                      <FieldDescription>When enabled, the scroll wheel can change the camera zoom.</FieldDescription>
+                    </FieldContent>
                     <Checkbox variant="bordered" defaultChecked />
-                  </SettingRow>
-                </SettingsSection>
+                  </Field>
+                </FieldSet>
               </ScrollArea>
             </TabsContent>
             {CATEGORIES.filter((c) => c !== "Display").map((c) => (

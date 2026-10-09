@@ -4,13 +4,14 @@
   "type": "module",
   "scripts": {
     "dev": "blume dev",
-    "build": "tsx scripts/build-css.ts && tsx scripts/export-assets.ts && pnpm registry:build && blume build",
+    "build": "tsx scripts/build-css.ts && tsx scripts/build-props.ts && tsx scripts/build-search.ts && tsx scripts/export-assets.ts && pnpm registry:build && blume build",
     "doctor": "blume doctor",
-    "assets": "tsx scripts/build-assets.ts && tsx scripts/build-css.ts && tsx scripts/build-sprites.ts && tsx scripts/export-assets.ts && tsx scripts/build-landing.ts",
+    "assets": "tsx scripts/build-assets.ts && tsx scripts/build-css.ts && tsx scripts/build-sprites.ts && tsx scripts/export-assets.ts",
     "verify:pixels": "tsx scripts/verify-pixels.ts",
     "registry:build": "tsx scripts/build-registry.ts && shadcn build -o public/r",
     "typecheck": "tsc -p .",
-    "fetch:reference": "sh scripts/fetch-reference.sh"
+    "fetch:reference": "sh scripts/fetch-reference.sh",
+    "previews": "tsx scripts/build-previews.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -23,15 +24,21 @@
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
+    "@tailwindcss/cli": "4.3.3",
     "@types/node": "^26.6.4",
+    "@types/opentype.js": "^1.3.10",
     "@types/pngjs": "^6.0.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "esbuild": "0.28.2",
     "fflate": "^0.8.3",
+    "opentype.js": "^2.0.0",
     "pixelmatch": "^8.0.0",
+    "playwright-core": "1.57.0",
     "pngjs": "^7.0.0",
     "shadcn": "^4.21.4",
     "tsx": "^4.23.15",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "typescript-api": "npm:typescript@6.0.3"
   }
 }

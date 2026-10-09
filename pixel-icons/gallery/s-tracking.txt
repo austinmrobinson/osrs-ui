@@ -1,0 +1,24 @@
+name: Tracking (footprints)
+kind: skill
+x #c9a765
+y #957443
+---
+.........xxy
+.......xxxyxxy
+.......xyyyxyy
+.........xxx
+........xxxxy
+.......xxxxyyy
+.......xxxyyyy
+.......xxyyyyy
+........yyyyy
+..xxy....yyy
+xxxyxxy
+xyyyxyy
+..xxx
+.xxxxy
+xxxxyyy
+xxxyyyy
+xxyyyyy
+.yyyyy
+..yyy

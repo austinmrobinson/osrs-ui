@@ -20,6 +20,8 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
  * `tone="white"` swaps the orange label for a white one:
  * - on `metal`: white at rest too (Collection Log, Combat Achievements, Settings header).
  * - on `tile`: white label that dims on hover, with no red state (Account panel).
+ * `tone="positive"` / `tone="destructive"`: green / red label for a confirm-or-cancel pair
+ * (trade Accept / Decline, "Yes, drop it"). Keep both buttons of a pair the same variant.
  *
  * Sizes (game pixels): `sm` 26, `default` 36, `lg` 44 for text; `icon-sm`, `icon`, `icon-lg` are
  * square icon-only buttons of the same heights. Icon buttons need an `aria-label`.
@@ -36,6 +38,8 @@ const buttonVariants = cva("osrs-button osrs-framed osrs-text", {
     tone: {
       default: "",
       white: "",
+      positive: "osrs-button-positive",
+      destructive: "osrs-button-destructive",
     },
     size: {
       sm: "osrs-button-sm",

@@ -3,7 +3,7 @@ title: Nav List
 description: "The vertical category buttons from the All Settings window."
 ---
 
-<Component path="nav-list/demo" />
+<Component path="nav-list/playground" />
 
 ## Installation
 
@@ -20,4 +20,15 @@ npx shadcn@latest add {{registry}}/nav-list.json
   </NavList>
   <TabsContent value="audio">…</TabsContent>
 </Tabs>
+```
+
+## Links
+
+For a site's or app's navigation, use `NavLink` instead of `NavItem`: real links in a `<nav>`, styled as the list. Set `current` on the current page's link. It opens into the page beside the column: its frame is unfilled and a strip of the page's surface covers the column's divider. Set `--osrs-nav-surface` to the page's background if it isn't the plain stone.
+
+```tsx
+<nav aria-label="Docs" className="osrs-nav-list">
+  <NavLink href="/components/button" current>Button</NavLink>
+  <NavLink href="/components/tabs">Tabs</NavLink>
+</nav>
 ```

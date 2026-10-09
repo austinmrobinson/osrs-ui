@@ -1,0 +1,35 @@
+name: Brewing (a frothing tankard)
+kind: skill
+2 #f2cc4a
+3 #c8981e
+4 #8a6410
+5 #f4f4f0
+6 #c4c4bc
+7 #8c8c84
+a #c88c4c
+b #a06a30
+c #784a1c
+d #4c2e10
+---
+....555555
+...55555556
+..5555555666
+..5555556666
+.555555666555
+55556566655567
+55566666655677
+55666666756777
+.666666777777
+.aa66677777bbccc
+.222233444444..cc
+.222334444444..cc
+.aaabbbbbbccc...cc
+.aabbbbbbcccd...cc
+.abbbbbbcccdd...cc
+.bbbbbbcccddd...cc
+.bbbbbcccdddd..cc
+.222233444444.ccc
+.222334444444cc
+.bbcccddddddd
+.bcccdddddddd
+.cccddddddddd

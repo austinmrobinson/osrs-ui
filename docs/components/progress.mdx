@@ -1,9 +1,9 @@
 ---
 title: Progress
-description: "The shaded green interface bar, and flat Grand Exchange bars in orange, green and red."
+description: "The textured interface bar, shaded coloured bars, and the Grand Exchange's flat bars."
 ---
 
-<Component path="progress/demo" />
+<Component path="progress/playground" />
 
 ## Installation
 
@@ -16,4 +16,13 @@ npx shadcn@latest add {{registry}}/progress.json
 ```tsx
 <Progress value={64}>64%</Progress>
 <Progress value={30} color="orange" />
+```
+
+## Colours, shading and segments
+
+`color` (`orange`, `green`, `red`, `yellow`, `lime`) gives a shaded bar: a sunken well, and a fill lit along its top. That's the look of minigame, collection and Combat Achievements bars. Add `flat` for the Grand Exchange's plain fill and for thin tier bars of a few pixels. `segments` splits the bar into cells.
+
+```tsx
+<Progress value={80} color="green" segments={5} />
+<Progress value={45} color="orange" flat />
 ```

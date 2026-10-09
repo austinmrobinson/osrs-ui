@@ -1,0 +1,30 @@
+name: Heal Party (a heart on a green disc)
+kind: spell
+r #ff6a50
+s #e02818
+t #a01008
+i #9cf07a
+j #4cc83c
+k #1e8a24
+l #0c5414
+---
+........iiii
+.....iiiiiiijjj
+....iiiiiiijjjjj
+...iiiiiiijjjjjjk
+..iiiiiiijjjjjjkkk
+.iiiirrrrjjrrrskkkk
+.iiirrrrssrrrsttkkk
+.iiirrrsstrrstttkkk
+iiiirrssttrsttttkkll
+iiiirrrrssssstttklll
+iiijjrrssssstttkllll
+iijjjjsssssttkklllll
+.jjjjjjsssttkklllll
+.jjjjjksstttkllllll
+.jjjjkkktttklllllll
+..jjkkkkktklllllll
+...kkkkkkklllllll
+....kkkkklllllll
+.....kkklllllll
+........llll

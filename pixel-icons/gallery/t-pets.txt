@@ -1,0 +1,24 @@
+name: Pets (a paw print)
+kind: tab
+v #f6e7bd
+w #e4c98e
+x #c9a765
+y #957443
+---
+...........v
+.....vvwxvvvwx
+.....vwxxvvwxy
+.....wxxyvwxyy
+.vvvwxxyywxyyyvvw
+.vvwx......y.vvwxx
+vvwxyy.vvvv..vwxxy
+.wxyy.vvvvww.wxxyy
+.xyyyvvvvwwwx.xyy
+....vvvvwwwxxy
+....vvvwwwxxyy
+....vvwwwxxyyy
+....vwwwxxyyyy
+....wwwxxyyyyy
+.....wxxyyyyy
+......xyyyyy
+.......yyyy

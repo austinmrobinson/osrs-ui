@@ -1,0 +1,14 @@
+name: Bank (coins)
+kind: map
+a #fff2a0
+b #f2cc4a
+c #c8981e
+d #8a6410
+---
+..ab...
+.abbc..
+.bbcc..
+..cc...
+.abbc..
+abbccd.
+.ccdd..

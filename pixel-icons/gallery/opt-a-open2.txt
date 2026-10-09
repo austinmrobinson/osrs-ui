@@ -1,0 +1,35 @@
+name: Assets (an open chest of coins)
+kind: tab
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+---
+................ddd
+............dddddddd
+.........dddddddddddd
+.....ddddddddddddddddd
+..ddddddddddddddddddded
+ddddddddddddddddddeccc
+.dddddddddddddedccb543d
+..dddddddddecc55555555cd
+...ddddedcc55555555555cd
+..bedccc56666666666555ccd
+..bceb56666666666654366dcb
+..bccd66666666665dded33bbb
+..bccdd5655665dedcbbb33bbb
+..bccced3356edbbbbbbb33bbb
+..bcccceee43bbbbbbbbb33bbb
+...cccccbb33bbbbbbbbb33bbb
+....ccccbb33bbbbbbbbb33bb
+.....cccbb33bbbbbbbbb3
+.....cccbb33bbbbbb
+......ccbb33bb
+.......cbb32

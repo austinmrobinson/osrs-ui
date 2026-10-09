@@ -21,7 +21,7 @@ npx shadcn@latest add {{registry}}/side-panel.json
 
 ## Any size
 
-The game's panel is 241×335, but `width` and `height` (game pixels) make it any size: the pillars and tab rows stretch with `SlicedSprite`, keeping their caps and tiling the middle. Width snaps to whole tab stones. It also takes `draggable` and `resizable`.
+`width` and `height` (game pixels, default 241×335) set its size; width snaps to whole tab stones. It also takes `draggable` and `resizable`.
 
 ```tsx
 <SidePanel top={TOP_TABS} width={340} height={420} resizable draggable>…</SidePanel>

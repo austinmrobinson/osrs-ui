@@ -1,0 +1,36 @@
+name: Components (hammer and chisel)
+kind: tab
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+f #2e3236
+g #464b50
+h #60666b
+i #7d8388
+j #9ca2a6
+k #c3c8cb
+---
+..............i
+.............ijh
+............ijjjh
+............jjjjjh
+.............jjjjjh
+..............ijjjjh
+....ji.......deijjjjh
+....gji.....dec.ijjjj
+......ji...dec...hjj
+.......ji.dec.....g
+........jjec
+........djj
+.......decij
+......dec..ij
+.....dec....ij
+....dec......iec
+...dec........ddc
+..dec..........ddd
+.dec............ddd
+dec..............cdd
+bb................cdb
+...................b

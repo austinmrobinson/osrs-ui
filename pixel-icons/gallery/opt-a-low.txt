@@ -1,0 +1,32 @@
+name: Assets (a low chest)
+kind: tab
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+---
+................34cdd
+..............cc355dde
+...........cddddd366eee
+.......ccdddddeeee66eee
+...33555ddeeeeeeee365ed
+.cdddd55eeeeeeeeeee55ddd
+ccceee466eeeeeedddd55ddd
+cccceee66eeeddddddd344c5
+5ccccee355ddd555dcc34333
+33cccddd55ddd333533333cc
+cc3ccddd44ccc5333cc333cc
+ccc3cccc44333333ccc333cc
+cccc355334ccccccccc333cc
+ccccc43c33ccccccccc333cb
+.ccccccc33ccccccccc332
+..cccccc33ccccccb
+...ccccc33ccb
+....cccc33

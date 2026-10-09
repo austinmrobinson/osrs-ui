@@ -1,0 +1,27 @@
+name: Shadow Veil (a hooded shade)
+kind: spell
+m #e0a8ff
+n #b064f0
+o #7a2cc0
+p #481478
+K #1a1a1a
+---
+.......nn
+......nnnn
+.....nnnnnn
+....nnnnnnno
+...nnnnKKKooo
+..nnnKKKKKKKop
+.nnnnKKKKKKKppp
+.nnnKKKKKKKKKpp
+.nnnKKKmKmKKKpp
+.nnnKKKKKKKKKpp
+.nnnoKKKKKKKppp
+.nnooKKKKKKKppp
+nnoooopKKKppppp
+nooooppppppppppp
+oooopppppppppppp
+oooppppppppppppp
+oopppppppppppppp
+oppppppppppppppp
+pppppppppppppppp

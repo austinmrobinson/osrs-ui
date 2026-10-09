@@ -1,0 +1,42 @@
+---
+// "On this page": the game's hamburger button at the right of the breadcrumb row, opening the
+// right-click menu (black header strip, white rows that turn yellow when pointed at or when their
+// section is in view). Blume's <blume-toc> marks the section in view with aria-current="location".
+import type { Heading } from "blume/core/types.ts";
+import { buttonSprites } from "../../registry/osrs/ui/button-sprites";
+
+interface Props {
+  headings: Heading[];
+}
+const { headings } = Astro.props;
+---
+
+<details class="group/menu absolute top-1/2 right-0 flex-none -translate-y-1/2 [--osrs-px:1px]" data-silent>
+  <summary
+    aria-label="On this page"
+    title="On this page"
+    class="group/btn inline-flex cursor-pointer list-none [&::-webkit-details-marker]:hidden"
+  >
+    <buttonSprites.menu className="group-open/menu:hidden group-hover/btn:hidden" />
+    <buttonSprites.menuSelected className="hidden group-open/menu:block group-hover/btn:block" />
+  </summary>
+  <div class="osrs-menu osrs-text absolute top-[calc(100%+2px)] right-0 z-30 max-h-[70vh] min-w-[180px] overflow-y-auto text-start [--osrs-px:1px]">
+    <p class="osrs-menu-header m-0">On this page</p>
+    <blume-toc class="block">
+      <ul class="m-0 list-none p-0">
+        {
+          headings.map((h) => (
+            <li>
+              <a
+                class="osrs-menu-item block py-px text-rs-white no-underline hover:text-rs-yellow focus-visible:text-rs-yellow aria-[current=location]:text-rs-yellow"
+                href={`#${h.slug}`}
+              >
+                {h.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </blume-toc>
+  </div>
+</details>

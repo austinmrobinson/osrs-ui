@@ -1,0 +1,34 @@
+name: Getting started (a rolled scroll, tied)
+kind: tab
+p #8a7a58
+q #ab9a72
+r #c8b88e
+s #e0d2aa
+t #f2e8c8
+R #6e1410
+S #931c16
+T #b8281e
+U #d8402e
+---
+..................stt
+.................stttt
+................stttttt
+...............stttttts
+.............rstttttssrr
+............rstttttssrrq
+...........sttttttssrqq
+.........TUUtttttssrqq
+........SUUUUtUUssrqq
+........sttUUUtUsrqq
+......rsttttUUTUUqq
+.....rstttttsTTUUq
+....sttttttssSSSU
+...sttttttssrqSSUU
+..sttttttssrqqR
+.sttttttssrqq
+qqtttttsrrqq
+qqqttssrrqq
+.qqqssrrq
+.qqqqrqq
+..qqqqq
+...qqq

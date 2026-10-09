@@ -52,7 +52,7 @@ export default function GrandExchangeRecipe() {
                       {items[o.item].name}
                     </span>
                   </div>
-                  <Progress value={o.value} color={o.color} />
+                  <Progress value={o.value} color={o.color} flat />
                   <span className="osrs-text-small text-center">{o.price.toLocaleString("en-US")} coins</span>
                 </CardContent>
               ) : (

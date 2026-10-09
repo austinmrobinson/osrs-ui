@@ -1,0 +1,98 @@
+/* Gallery Ratings page chrome. The OSRS look is deliberately single-theme (the game's dark stone),
+   so colours are set explicitly and color-scheme is dark. Layout: one column of rated examples, the
+   live interface centred in each, controls below. */
+:root {
+  --page-bg: #2b251d;
+  --page-panel: #3e3529;
+  --page-line: #1f1a14;
+  --page-line-light: #5d5848;
+  --page-text: #e6dcc5;
+  --page-muted: #b3a68b;
+  --page-accent: #ff981f;
+  --page-yellow: #ffff00;
+  --page-green: #0dc10d;
+  --font-ui: "RuneScape Plain 12", ui-monospace, monospace;
+  --font-bold: "RuneScape Bold 12", ui-monospace, monospace;
+  color-scheme: dark;
+}
+html, body { background: var(--page-bg); color: var(--page-text); }
+body { margin: 0; font-family: var(--font-ui); font-size: 16px; -webkit-font-smoothing: none; }
+.page { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 24px 64px; }
+.page-head h1 { margin: 0 0 8px; font-family: var(--font-bold); font-size: 32px; font-weight: 400; color: var(--page-text); text-shadow: 2px 2px 0 #000; text-wrap: balance; }
+.lede { margin: 0 0 16px; max-width: 65ch; color: var(--page-muted); line-height: 22px; }
+.toolbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 8px 0; background: var(--page-bg); box-shadow: 0 1px 0 var(--page-line), 0 2px 0 var(--page-line-light); }
+.summary { margin: 0 0 0 auto; color: var(--page-muted); font-variant-numeric: tabular-nums; }
+.summary strong { color: var(--page-text); font-weight: 400; }
+.warn { color: #ff7a5c; }
+.list { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 40px; }
+.item { min-width: 0; }
+.item-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.item-head h2 { margin: 0; font-family: var(--font-bold); font-size: 16px; font-weight: 400; color: var(--page-accent); }
+.num { color: var(--page-muted); font-variant-numeric: tabular-nums; min-width: 2ch; }
+.kind { color: var(--page-muted); }
+.done { margin-left: auto; color: var(--page-green); }
+.round { color: var(--page-muted); font-family: var(--font-ui); font-size: 20px; text-shadow: none; }
+.last, .changed { margin: 0 0 8px; max-width: 75ch; line-height: 20px; color: var(--page-muted); }
+.last strong { color: var(--page-text); font-weight: 400; }
+.changed strong { color: var(--page-green); font-weight: 400; }
+.brief { margin: 4px 0 12px; max-width: 75ch; color: var(--page-muted); line-height: 20px; }
+.stage {
+  display: flex; justify-content: center; align-items: center;
+  overflow-x: auto; padding: 24px 16px;
+  background-color: var(--page-panel);
+  box-shadow: inset 0 0 0 1px var(--page-line), inset 0 0 0 2px var(--page-line-light);
+}
+.stage > * { flex: none; }
+.rate-controls { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.rate-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.rate-label { width: 48px; color: var(--page-muted); }
+.rate-tags { flex-wrap: wrap; flex: 1; min-width: 0; }
+.rate-note { align-items: flex-start; }
+.rate-note textarea {
+  flex: 1; min-width: 0; resize: vertical;
+  font: inherit; color: var(--page-text);
+  background: #1c1813; border: 0; padding: 6px 8px;
+  box-shadow: inset 1px 1px 0 #000, inset -1px -1px 0 var(--page-line-light);
+}
+.rate-note textarea:focus-visible { outline: 1px solid var(--page-accent); outline-offset: 1px; }
+.rate-note textarea::placeholder { color: #7d7262; }
+:focus-visible { outline: 1px solid var(--page-yellow); outline-offset: 2px; }
+@media (max-width: 640px) { .rate-label { width: 100%; } .summary { margin-left: 0; } }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+
+/* Icon Ratings: scales strip plus an in-context preview */
+.icon-stage { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 32px; }
+.icon-scales { display: flex; align-items: flex-end; gap: 24px; }
+.icon-scales figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.icon-scales figcaption { color: var(--page-muted); font-variant-numeric: tabular-nums; }
+.icon-context { display: flex; align-items: center; gap: 12px; padding: 12px; box-shadow: inset 0 0 0 1px var(--page-line); }
+.icon-context-spell { background: #2e281d; }
+.icon-context-map { background: #4f6a2a; background-image: radial-gradient(#5b7a31 1px, transparent 1px); background-size: 6px 6px; }
+
+/* Pixel pins: click a pixel on the large icon to comment on it */
+.pin-area { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 16px; margin-top: 12px; }
+.pin-board-wrap { display: flex; flex-direction: column; gap: 6px; }
+.pin-board {
+  position: relative; display: inline-block; line-height: 0; padding: 0;
+  background-color: #2e281d;
+  background-image: linear-gradient(45deg, #332c21 25%, transparent 25%, transparent 75%, #332c21 75%), linear-gradient(45deg, #332c21 25%, transparent 25%, transparent 75%, #332c21 75%);
+  background-size: 16px 16px; background-position: 0 0, 8px 8px;
+  box-shadow: 0 0 0 1px var(--page-line), 0 0 0 2px var(--page-line-light);
+}
+.pin-board:focus-visible { outline: 1px solid var(--page-yellow); outline-offset: 3px; }
+.pin { position: absolute; pointer-events: none; box-shadow: 0 0 0 2px var(--page-yellow), 0 0 0 3px #000; }
+.pin-num, .pin-num.static {
+  display: inline-grid; place-items: center; min-width: 16px; height: 16px; padding: 0 3px;
+  background: var(--page-yellow); color: #000; font-size: 12px; line-height: 16px;
+}
+.pin .pin-num { position: absolute; left: calc(100% + 3px); top: -10px; }
+.pin-hint { margin: 0; color: var(--page-muted); }
+.pin-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 220px; }
+.pin-list li { display: flex; align-items: center; gap: 8px; }
+.pin-list input {
+  flex: 1; min-width: 0; font: inherit; color: var(--page-text); background: #1c1813; border: 0; padding: 4px 8px;
+  box-shadow: inset 1px 1px 0 #000, inset -1px -1px 0 var(--page-line-light);
+}
+.pin-list input:focus-visible { outline: 1px solid var(--page-accent); outline-offset: 1px; }
+.pin-remove { font: inherit; color: var(--page-muted); background: none; border: 0; cursor: pointer; padding: 4px; }
+.pin-remove:hover { color: var(--page-text); }

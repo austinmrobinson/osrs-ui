@@ -1,22 +1,36 @@
-name: Assets (a treasure chest)
+name: Assets (a treasure chest, smaller)
 kind: tab
-w #b67e40
-x #92612d
-y #704720
-z #4c2f13
-g #f2cc4a
-G #b48e1c
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
 ---
-....wwwwwwwwwwww....
-..wwxxxxxxxxxxxxyy..
-.wxxxxxxxxxxxxxxxyy.
-.wxggxxxxxxxxxxggyy.
-wxxggxxxxxxxxxxggyyy
-gggGGGGGGGGGGGGGGGGg
-gGGGGGGGgggGGGGGGGGG
-wxxggxxxgGGgxxxggyyz
-wxxggxxxgGGgxxxggyyz
-wxxggxxxxggxxxxggyyz
-wxxggxxxxxxxxxxggyyz
-wyyggyyyyyyyyyyggyzz
-.zzzzzzzzzzzzzzzzzz.
+...............cdd
+............34555ee
+...........cddd566ee
+.........cdddeee66eee
+.......cdddeeeeee65dd
+....44dddeeeeeeee555dd
+..3c3555eeeeeeeddd54dc
+.ccdde666eeeeddddd44cc
+cccceee66eeddddddc43c3
+cccccee355dddddccc332b
+3ccccced55dddcc5b323bb
+c35cccdd344cc6533b33bb
+cc35ccedc44c5333bb33bb
+cccc3cccc3333333bb33bb
+ccccc3cc533bb32bbb33bb
+cccccc33333bbbbbbb33
+cccccccbb33bbbbbbb3
+.bcccccbb33bbbbb
+...ccccbb33bbb
+....cccbb33b
+.....ccbb32
+.......b

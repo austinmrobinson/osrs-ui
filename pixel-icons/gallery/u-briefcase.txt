@@ -1,0 +1,40 @@
+name: Briefcase
+kind: item
+a #3a2410
+b #55351a
+c #704622
+d #8a5a2c
+e #a46f3a
+f #bd864b
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+u #2a1a0c
+v #3e2814
+w #55381c
+---
+..........wwwvv
+.........wwu.uvv
+........ww....vv...dd
+........wv.....vddddddd
+........wuddddddddddddde
+.....cddddddddddddeeffee
+.ddddddddddddeeffeeedddd
+eedddddddeefeeeddddd4ddd
+deedeeffeeedddddddd44ddd
+ccefeeddddddddddddd44ddd
+ccddddd55ddddddddddddddd
+ccddddd44ddddddddddddddd
+ccddddd2dddddddddddddddd
+ccdddddddddddddddddddddd
+ccdddddddddddddddddddddd
+ccdddddddddddddddddddddd
+ccdddddddddddddddddddddd
+ccdddddddddddddddddddddc
+ccdddddddddddddddddcbb
+ccddddddddddddcbb
+bcddddddddcbb
+..dddcbb

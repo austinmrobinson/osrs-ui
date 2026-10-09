@@ -4,6 +4,7 @@ import * as React from "react";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 
 import { cn } from "@/lib/utils";
+import { useAnchorScale } from "@/lib/osrs";
 
 const Select = SelectPrimitive.Root;
 
@@ -16,11 +17,18 @@ function SelectTrigger({ className, children, ...props }: SelectPrimitive.Trigge
   );
 }
 
-function SelectContent({ className, ...props }: SelectPrimitive.Popup.Props) {
+function SelectContent({
+  className,
+  scale,
+  ...props
+}: SelectPrimitive.Popup.Props & {
+  /** Draw the popup at this scale (CSS px per game pixel) instead of its trigger's. */ scale?: number;
+}) {
+  const scaleRef = useAnchorScale<HTMLDivElement>(scale);
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Positioner className="z-50" alignItemWithTrigger={false} sideOffset={2}>
-        <SelectPrimitive.Popup data-slot="select-content" className={cn("osrs-select-popup osrs-text min-w-(--anchor-width)", className)} {...props} />
+        <SelectPrimitive.Popup ref={scaleRef} data-slot="select-content" className={cn("osrs-select-popup osrs-text min-w-(--anchor-width)", className)} {...props} />
       </SelectPrimitive.Positioner>
     </SelectPrimitive.Portal>
   );

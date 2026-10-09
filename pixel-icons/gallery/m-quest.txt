@@ -1,0 +1,12 @@
+name: Quest start (a question mark)
+kind: map
+a #5aa0f0
+b #143880
+---
+.aaa.
+aa.ab
+...ab
+..ab.
+..b..
+.....
+..a..

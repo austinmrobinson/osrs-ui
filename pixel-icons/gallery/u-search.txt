@@ -1,0 +1,37 @@
+name: Magnifying glass (search)
+kind: item
+g #2e3236
+h #464b50
+i #60666b
+j #7d8388
+k #9ca2a6
+l #c3c8cb
+v #3a5a78
+w #4f7898
+x #6a96b6
+y #8cb6d2
+z #c2dcec
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+---
+......iji
+...jlllllllj
+..klkjzzzjllk
+.kljzzzzzzzklk
+.ljzzzzzzzzzkl
+klizzzzzzzzzjlj
+klizzzzzzzzzjlj
+jljzzzzzzzzzklh
+.kljzzzzzzzjlj
+.illkzzzzzlllj
+..hkllllllkjleeb
+....hjjjjih.ceeed
+.............cdeed
+..............bdeee
+................ceeec
+.................cdeed
+..................bdeeb
+....................cc

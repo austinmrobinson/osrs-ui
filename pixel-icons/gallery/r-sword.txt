@@ -1,0 +1,13 @@
+name: Sword rank
+kind: rank
+a #f4f4f0
+b #8c8c84
+c #a06a30
+---
+.....aa
+....aab
+...aab.
+c.aab..
+.cab...
+..cc...
+.c..c..

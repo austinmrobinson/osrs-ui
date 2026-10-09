@@ -7,13 +7,18 @@ import { cn } from "@/lib/utils";
 import { px } from "@/lib/osrs";
 import { chatboxSprites } from "@/components/ui/chatbox-sprites";
 
-/** The parchment chatbox. Its frame is a 9-slice, so it can be any size. */
-function Chatbox({ className, style, ...props }: React.ComponentProps<"div">) {
+/**
+ * The parchment chatbox. Its frame is a 9-slice, so it can be any size.
+ * `size="game"` (default): the game's own 519 x 142. `size="fit"`: as wide as its container and as
+ * tall as what's in it (a dialogue on a web page, a chat log of any length).
+ */
+function Chatbox({ className, style, size = "game", ...props }: React.ComponentProps<"div"> & { size?: "game" | "fit" }) {
   return (
     <div
       data-slot="chatbox"
+      data-size={size}
       className={cn("osrs-chatbox osrs-framed osrs-frame-chatbox", className)}
-      style={{ width: px(519), height: px(142), ...style }}
+      style={size === "game" ? { width: px(519), height: px(142), ...style } : { width: "100%", minHeight: px(60), ...style }}
       {...props}
     />
   );
@@ -80,7 +85,7 @@ function NpcDialogue({
   children,
   className,
   ...props
-}: React.ComponentProps<"div"> & {
+}: React.ComponentProps<typeof Chatbox> & {
   name: React.ReactNode;
   head?: React.ReactNode;
   side?: "left" | "right";
@@ -102,7 +107,7 @@ function NpcDialogue({
           type="button"
           onClick={onContinue}
           className="osrs-dialogue-continue cursor-pointer border-0 bg-transparent p-0"
-          style={{ font: "inherit", color: "#0000ff" }}
+          style={{ font: "inherit" }}
         >
           {continueLabel}
         </button>
@@ -112,20 +117,41 @@ function NpcDialogue({
   );
 }
 
-/** "Select an Option" dialogue. */
+/**
+ * "Select an Option" dialogue. Options are numbered, and the number keys pick them, as in game;
+ * set `numbered={false}` for the older unnumbered style.
+ */
 function OptionDialogue({
   title = "Select an Option",
   options,
   onSelect,
+  numbered = true,
   className,
+  style,
   ...props
-}: Omit<React.ComponentProps<"div">, "onSelect"> & { title?: React.ReactNode; options: React.ReactNode[]; onSelect?: (index: number) => void }) {
+}: Omit<React.ComponentProps<typeof Chatbox>, "onSelect"> & {
+  title?: React.ReactNode;
+  options: React.ReactNode[];
+  onSelect?: (index: number) => void;
+  numbered?: boolean;
+}) {
+  React.useEffect(() => {
+    if (!numbered || !onSelect) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLElement && e.target.closest("input, textarea, [contenteditable]")) return;
+      const n = Number(e.key);
+      if (n >= 1 && n <= options.length) onSelect(n - 1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [numbered, onSelect, options.length]);
+
   return (
-    <Chatbox className={cn("flex flex-col items-center justify-center", className)} {...props}>
+    <Chatbox className={cn("flex flex-col items-center justify-center", className)} style={{ gap: px(8), ...style }} {...props}>
       <div className="osrs-text osrs-text-quill text-center" style={{ color: "#800000" }}>
         {title}
       </div>
-      <div className="flex flex-col items-center" role="menu">
+      <div className="flex flex-col items-center" style={{ gap: px(2) }} role="menu">
         {options.map((o, i) => (
           <button
             key={i}
@@ -134,6 +160,7 @@ function OptionDialogue({
             onClick={() => onSelect?.(i)}
             className="osrs-text osrs-text-quill osrs-dialogue-option cursor-pointer border-0 bg-transparent p-0"
           >
+            {numbered ? `${i + 1}. ` : null}
             {o}
           </button>
         ))}

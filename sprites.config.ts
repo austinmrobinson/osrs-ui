@@ -12,7 +12,8 @@ export type FrameSpec = {
 
 export type AssetGroup =
   | "skill" | "frame" | "texture" | "control"
-  | "prayer" | "panel" | "ge" | "chevron" | "glyph" | "button" | "orb" | "equipment" | "stats" | "combat" | "bank" | "tab" | "icon" | "chatbox" | "option";
+  | "prayer" | "panel" | "ge" | "chevron" | "glyph" | "button" | "orb" | "equipment" | "stats" | "combat" | "bank" | "tab" | "icon" | "chatbox" | "option"
+  | "spell-normal" | "spell-ancient" | "spell-lunar" | "spell-arceuus" | "emote" | "minigame" | "sailing";
 
 export type SpriteEntry =
   | { kind: "single"; group: AssetGroup; name: string; src: string; label?: string }
@@ -154,7 +155,7 @@ export const sprites: SpriteEntry[] = [
   { kind: "folder", group: "icon", dir: "icon" },
   { kind: "folder", group: "icon", dir: "other", include: /^(plus_icon|minus_icon|orange_.*_arrow|spell_requirement_lock|wilderness_danger_icon|stash_units_green_check_mark|selector_arrow|refresh_icon)/ },
   { kind: "folder", group: "chatbox", dir: "chatbox", include: /^(button|report_button|sword_pointed)/ },
-  { kind: "folder", group: "option", dir: "options", include: /^(round_check_box|square_bordered_checkbox|slider_new|zoom_slider_thumb)/ },
+  { kind: "folder", group: "option", dir: "options", include: /^(round_check_box|square_bordered_checkbox|slider_new|zoom_slider_thumb|master_volume|sound_effect_volume|music_volume)/ },
 
   // Modern-interface frames
   { kind: "frame", group: "frame", name: "flat", label: "Flat button", frame: nine("button/flat_5x5_", { tl: "top_left", t: "top", tr: "top_right", l: "left", m: "middle", r: "right", bl: "bottom_left", b: "bottom", br: "bottom_right" }) },
@@ -168,6 +169,14 @@ export const sprites: SpriteEntry[] = [
   { kind: "folder", group: "ge", dir: "ge", exclude: /^border_offer/ },
   { kind: "folder", group: "ge", dir: "ge", include: /^border_offer_(intersection|horizontal)/ },
   { kind: "folder", group: "chevron", dir: "chevron" },
+  // Spellbooks: each spell and its disabled state (the "_resized" copies are the same art for resizable mode)
+  { kind: "folder", group: "spell-normal", dir: "normal_spell", exclude: /_resized\.png$/ },
+  { kind: "folder", group: "spell-ancient", dir: "ancient_spell", exclude: /_resized\.png$/ },
+  { kind: "folder", group: "spell-lunar", dir: "lunar_spell", exclude: /_resized\.png$/ },
+  { kind: "folder", group: "spell-arceuus", dir: "arceuus_spell", exclude: /_resized\.png$/ },
+  { kind: "folder", group: "emote", dir: "emote" },
+  { kind: "folder", group: "minigame", dir: "minigame_teleport" },
+  { kind: "folder", group: "sailing", dir: "sailing" },
   { kind: "folder", group: "button", dir: "button", include: /^(menu|wrench|options_square|back_arrow|forward_arrow|left_arrow|enter_arrow|tutorial|friends|ignores|large_with_red_x|equipment_stats_icon|equipment_guide_prices|equipment_items_lost_on_death|equipment_call_follower)/ },
   { kind: "folder", group: "glyph", dir: "account_management" },
   { kind: "folder", group: "glyph", dir: "clans_tab" },

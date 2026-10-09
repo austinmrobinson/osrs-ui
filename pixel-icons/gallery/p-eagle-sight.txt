@@ -1,0 +1,27 @@
+name: Eagle Sight (an eye)
+kind: prayer
+outline: #7a2cc0
+5 #f4f4f0
+6 #c4c4bc
+7 #8c8c84
+f #5aa0f0
+g #2860c8
+h #143880
+W #ffffff
+K #1a1a1a
+---
+.......55
+.....555555
+..555555555666
+.5555ffffff6666
+.555fffffffg666
+5555ffWKKfgg6677
+555fffKKKKghh777
+555fffKKKKhhh777
+555fffKKKKhhh777
+5555ffgKKhhh7777
+.556fgghhhhh777
+.5666ghhhhh7777
+..666667777777
+.....677777
+.......77

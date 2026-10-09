@@ -4,6 +4,7 @@ import * as React from "react";
 import { ContextMenu as ContextMenuPrimitive } from "@base-ui/react/context-menu";
 
 import { cn } from "@/lib/utils";
+import { useAnchorScale } from "@/lib/osrs";
 
 function ContextMenu(props: ContextMenuPrimitive.Root.Props) {
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;
@@ -18,12 +19,17 @@ function ContextMenuContent({
   className,
   children,
   header = "Choose Option",
+  scale,
   ...props
-}: ContextMenuPrimitive.Popup.Props & { header?: React.ReactNode }) {
+}: ContextMenuPrimitive.Popup.Props & {
+  header?: React.ReactNode;
+  /** Draw the popup at this scale (CSS px per game pixel) instead of its trigger's. */ scale?: number;
+}) {
+  const scaleRef = useAnchorScale<HTMLDivElement>(scale);
   return (
     <ContextMenuPrimitive.Portal>
       <ContextMenuPrimitive.Positioner className="z-50 outline-none">
-        <ContextMenuPrimitive.Popup data-slot="context-menu-content" className={cn("osrs-menu osrs-text", className)} {...props}>
+        <ContextMenuPrimitive.Popup ref={scaleRef} data-slot="context-menu-content" className={cn("osrs-menu osrs-text", className)} {...props}>
           <ContextMenuPrimitive.Group>
             {header ? <ContextMenuPrimitive.GroupLabel className="osrs-menu-header">{header}</ContextMenuPrimitive.GroupLabel> : null}
             {children}

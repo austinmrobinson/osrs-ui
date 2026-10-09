@@ -3,7 +3,7 @@ title: Chatbox
 description: "The parchment chatbox, chat filter tabs, NPC dialogue and Select an Option."
 ---
 
-<Component path="chatbox/demo" />
+<Component path="chatbox/playground" />
 
 ## Installation
 
@@ -15,5 +15,13 @@ npx shadcn@latest add {{registry}}/chatbox.json
 
 ```tsx
 <NpcDialogue name="Hans" onContinue={next}>Hello. What are you doing here?</NpcDialogue>
-<OptionDialogue options={["Yes", "No"]} onSelect={choose} />
+<OptionDialogue options={["Yes", "No"]} onSelect={choose} />  {/* numbered "1. Yes"; the number keys pick. numbered={false} for the older style */}
+```
+
+## Size
+
+`size="game"` (default) is the game's own 519 × 142. `size="fit"` makes the chatbox as wide as its container and as tall as what's in it: a dialogue in a web page's layout, or a chat log of any length. Dialogues take it too.
+
+```tsx
+<NpcDialogue size="fit" name="Hans" onContinue={next}>…</NpcDialogue>
 ```

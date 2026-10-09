@@ -1,742 +1,99 @@
-/*
- * Docs-site skin: Blume's chrome drawn with the OSRS UI library.
- * build-css.ts prepends the library stylesheet and writes the result to ./theme.css.
- */
+/* The docs site's stylesheet. Everything on the page is styled with Tailwind classes in the markup
+   (site/, components/shell/); this file holds only what classes can't: the theme tokens those
+   classes are built from, the code font, registered properties and keyframes. */
 
+/* Theme tokens: OSRS colours and fonts as Tailwind classes (text-rs-orange, bg-rs-well,
+   font-rs-bold, ...). Each points at the library's own variable, so the site and the library
+   always agree. */
+@theme inline {
+  --color-rs-orange: var(--osrs-orange);
+  --color-rs-yellow: var(--osrs-yellow);
+  --color-rs-white: var(--osrs-white);
+  --color-rs-green: var(--osrs-green);
+  --color-rs-red: var(--osrs-red);
+  --color-rs-cyan: var(--osrs-cyan);
+  --color-rs-stone: var(--osrs-stone);
+  --color-rs-stone-dark: var(--osrs-stone-dark);
+  --color-rs-well: var(--osrs-well);
+  --color-rs-outer: var(--osrs-border-outer);
+  --color-rs-inner: var(--osrs-border-inner);
+  --color-rs-separator: var(--osrs-separator);
+  --color-rs-highlight: var(--osrs-highlight);
+  --color-rs-menu: var(--osrs-menu);
+  --color-rs-tooltip: var(--osrs-tooltip);
+  --color-rs-line: #1f1a14;
+  --color-rs-muted: #c8b28c;
+  --color-rs-dim: #9f9f9f;
+  --font-rs: var(--osrs-font);
+  --font-rs-small: var(--osrs-font-small);
+  --font-rs-bold: var(--osrs-font-bold);
+  --font-rs-quill: var(--osrs-font-quill);
+  --font-code: "Departure Mono", ui-monospace, monospace;
+  /* Bitmap fonts are crisp only at multiples of 16px; code's Departure Mono at its native 11px */
+  --text-rs: 16px;
+  --text-rs--line-height: 1.375;
+  --text-rs-2x: 32px;
+  --text-rs-2x--line-height: 1.2;
+  --text-rs-3x: 48px;
+  --text-rs-3x--line-height: 1.1;
+  --text-rs-code: 11px;
+  --text-rs-code--line-height: 22px;
+}
+
+/* Code: Departure Mono (Helena Zhang, SIL OFL 1.1), a pixel monospace drawn on an 11px grid. */
 @font-face {
   font-family: "Departure Mono";
   src: url("/fonts/DepartureMono-Regular.woff2") format("woff2");
   font-display: swap;
 }
 
-:root, :root[data-theme="dark"], :root[data-theme="light"] {
-  --osrs-px: 2px;
-  --osrs-site-void: #2e281d;
-  /* the interface stone tile at 2x, the scale the game draws its windows at */
-  --osrs-site-stone-size: 176px 120px;
-  --osrs-site-header-h: 48px;
-  --blume-drawer-top: calc(var(--osrs-site-header-h) + 6px);
-  /* The page background: stone with the nav list's darker tint over it */
-  --osrs-site-tint: linear-gradient(rgb(0 0 0 / 0.14), rgb(0 0 0 / 0.14));
-  --osrs-site-line-dark: #1f1a14;
-  --osrs-site-line-light: #5d5848;
-  --osrs-site-stage: #221d15;
-  --blume-background: var(--osrs-site-void);
-  --blume-foreground: var(--osrs-orange);
-  --blume-muted: rgb(255 255 255 / 0.04);
-  --blume-muted-foreground: #c8b28c;
-  --blume-border: #2e271e;
-  --blume-accent: var(--osrs-orange);
-  --blume-accent-foreground: #000;
-  --blume-action: var(--osrs-yellow);
-  --blume-action-foreground: #000;
-  --blume-code-background: var(--osrs-well);
-  --blume-radius: 0px;
-  --blume-content-width: 48rem;
-  --blume-font-display: "RuneScape Bold 12", ui-monospace, monospace;
-  --blume-font-body: "RuneScape Plain 12", ui-monospace, monospace;
-  --blume-font-mono: "Departure Mono", ui-monospace, monospace;
-  color-scheme: dark;
+/* The home hero's loupe (site/HomeHero.tsx): its centre and zoom in game pixels, and its opacity,
+   registered as numbers so the loupe keyframes can animate them. */
+@property --lx { syntax: "<number>"; inherits: true; initial-value: 34; }
+@property --ly { syntax: "<number>"; inherits: true; initial-value: 34; }
+@property --z { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --lo { syntax: "<number>"; inherits: true; initial-value: 0; }
+
+/* Home hero */
+@keyframes osrs-home-rise { from { opacity: 0; transform: translateY(.35em); } }
+@keyframes osrs-home-fade { from { opacity: 0; } }
+@keyframes osrs-home-pop { from { opacity: 0; transform: scale(.6); } }
+@keyframes osrs-home-cue { 0%, 100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(calc(4 * var(--osrs-px))); opacity: .55; } }
+@keyframes osrs-home-ready-pop { 0% { transform: scale(0); } }
+@keyframes osrs-home-ready-word { from { opacity: 0; transform: translateY(.25em); } }
+@keyframes osrs-home-ready-flip { 0% { transform: scaleX(0); } 50% { transform: scaleX(.5); } }
+@keyframes osrs-home-caret { 50% { opacity: 0; } }
+@keyframes osrs-home-loupe {
+  0% { --lx: 34; --ly: 34; --lo: 0; animation-timing-function: cubic-bezier(.2,.75,.25,1.1); }
+  6% { --lo: 1; }
+  34% { --lx: var(--tx); --ly: var(--ty); animation-timing-function: cubic-bezier(.45,0,.55,1); }
+  56% { --lx: calc(var(--tx) - 1.5); --ly: calc(var(--ty) + 1); animation-timing-function: cubic-bezier(.45,0,.55,1); }
+  76% { --lx: var(--tx); --ly: var(--ty); animation-timing-function: cubic-bezier(.55,0,.8,.35); }
+  86% { --lo: 1; }
+  96%, 100% { --lx: 34; --ly: 34; --lo: 0; }
+}
+@keyframes osrs-home-glint {
+  0%, 30% { opacity: 0; background-position: 120% 0, 0 0; }
+  31% { opacity: 1; background-position: 120% 0, 0 0; animation-timing-function: steps(6, jump-none); }
+  38% { opacity: 1; background-position: -20% 0, 0 0; }
+  42%, 100% { opacity: .5; background-position: -20% 0, 0 0; }
+}
+@keyframes osrs-home-stretch {
+  0% { width: calc(28 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); animation-timing-function: linear; }
+  6% { width: calc(28 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); animation-timing-function: steps(8, jump-none); }
+  15% { width: calc(44 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); animation-timing-function: steps(16, jump-none); }
+  26% { width: calc(12 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); animation-timing-function: steps(8, jump-none); }
+  33% { width: calc(28 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); animation-timing-function: linear; }
+  38% { width: calc(28 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); animation-timing-function: steps(4, jump-none); }
+  47% { width: calc(28 * var(--osrs-px)); height: calc(26 * var(--osrs-px)); animation-timing-function: steps(8, jump-none); }
+  58% { width: calc(28 * var(--osrs-px)); height: calc(10 * var(--osrs-px)); animation-timing-function: steps(4, jump-none); }
+  65% { width: calc(28 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); animation-timing-function: linear; }
+  70% { width: calc(28 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); animation-timing-function: steps(8, jump-none); }
+  80% { width: calc(44 * var(--osrs-px)); height: calc(26 * var(--osrs-px)); animation-timing-function: steps(16, jump-none); }
+  91% { width: calc(12 * var(--osrs-px)); height: calc(10 * var(--osrs-px)); animation-timing-function: steps(8, jump-none); }
+  100% { width: calc(28 * var(--osrs-px)); height: calc(18 * var(--osrs-px)); }
 }
 
-/* The whole page is one interface window, like the in-game Settings: stone
-   everywhere, a single rivet frame around the viewport, plain bevelled dividers
-   inside. Previews and code sit in darker panels so components stay legible. */
-html body {
-  background-color: var(--osrs-stone);
-  background-image: var(--osrs-site-tint), var(--osrs-texture-stone) !important;
-  background-size: auto, var(--osrs-site-stone-size) !important;
-  /* Blume draws a single background glow; tile the stone instead, fixed to the viewport */
-  background-repeat: repeat !important;
-  background-attachment: fixed !important;
-  background-position: 0 0 !important;
-  padding: 6px;
-  image-rendering: pixelated;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: unset;
-  font-synthesis: none;
-}
-
-/* Bitmap fonts are only crisp at multiples of 16px: snap Blume's text scale */
-html body :is(.text-xs, .text-sm, .text-base, .text-lg, p, li, td, th, dd, dt, label, input, button, a, span) {
-  font-size: 16px;
-  letter-spacing: 0;
-}
-html body :is(article, main) {
-  line-height: 1.375;
-}
-/* Interface text shadow on the stone */
-html body :is(main, header, aside, nav, footer) :where(:not(pre, pre *, code, .osrs-chatbox, .osrs-chatbox *, iframe)) {
-  text-shadow: 1px 1px 0 #000;
-}
-
-/* Headings: Bold 12 at 2× / 3× */
-html body :is(h1) { font-size: 48px !important; line-height: 1.1 !important; letter-spacing: 0 !important; color: var(--osrs-white); }
-html body :is(h2) { font-size: 32px !important; line-height: 1.2 !important; letter-spacing: 0 !important; color: var(--osrs-orange); }
-html body :is(h3, h4, h5, h6) { font-size: 16px !important; letter-spacing: 0 !important; color: var(--osrs-white); font-family: var(--osrs-font-bold); }
-html body article p, html body article li { color: var(--osrs-orange); }
-html body article strong { color: var(--osrs-white); font-weight: 400; }
-
-/* Links: yellow, white on hover (like menu highlights) */
-html body article a:not([class*="osrs-"]) { color: var(--osrs-yellow); text-decoration: none; }
-html body article a:not([class*="osrs-"]):hover { color: var(--osrs-white); }
-
-/* Code: sunken wells, Plain 12 is not a code font so keep mono */
-html body pre, html body :not(pre) > code {
-  background: var(--osrs-well) !important;
-  border-radius: 0 !important;
-  box-shadow:
-    inset var(--osrs-px) var(--osrs-px) 0 var(--osrs-border-outer),
-    inset calc(-1 * var(--osrs-px)) calc(-1 * var(--osrs-px)) 0 var(--osrs-border-inner),
-    0 0 0 var(--osrs-px) #000;
-  border: 0 !important;
-}
-html body :not(pre) > code { color: var(--osrs-white); padding: 0 4px; }
-html body pre, html body pre * { -webkit-font-smoothing: auto; }
-
-/* Tables: striped rows like the World Switcher */
-html body article table { border-collapse: collapse; }
-html body article :is(th) { background: rgb(0 0 0 / 0.25); color: var(--osrs-white); font-family: var(--osrs-font-bold); font-weight: 400; }
-html body article tbody tr:nth-child(odd) { background: rgb(0 0 0 / 0.1); }
-html body article tbody tr:nth-child(even) { background: rgb(255 255 255 / 0.05); }
-html body article :is(td, th) { border-color: #2a241b; }
-
-/* ---------- Blume tabs (previews, code groups, MDX tabs): the in-game tab panel ----------
-   As in Combat Achievements' Overview/Difficulty: cut-corner tabs sitting on the stone,
-   the selected tab the same colour as its outlined panel so they read as one piece. */
-html body blume-tabs.not-prose {
-  --osrs-tab-panel: #2f2920;
-  --osrs-tab-idle: #221d16;
-  --osrs-tab-line: #6c6050;
-  --osrs-tab-shadow: #1f1a14;
-  overflow: visible !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  padding: 0;
-  background: transparent !important;
-}
-html body blume-tabs [data-blume-tablist],
-html body blume-tabs .overflow-x-auto:has(> [data-blume-tablist]) { overflow: visible !important; }
-html body blume-tabs [data-blume-tablist] {
-  display: flex; align-items: flex-end;
-  gap: 2px !important;
-  padding: 0 !important;
-  border: 0 !important;
-}
-html body blume-tabs [role="tab"] {
-  position: relative;
-  z-index: 0;
-  display: inline-flex; align-items: center; justify-content: center;
-  min-width: 120px; height: 28px;
-  margin: 0 0 -1px !important;
-  padding: 0 18px !important;
-  border: 0 !important;
-  background: var(--osrs-tab-idle) !important;
-  clip-path: polygon(5px 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%, 0 5px);
-  box-shadow: inset 1px 1px 0 var(--osrs-tab-line), inset -1px 0 0 var(--osrs-tab-shadow);
-  font-family: var(--osrs-font) !important; font-size: 16px !important; font-weight: 400 !important;
-  color: var(--osrs-orange) !important;
-  text-shadow: 1px 1px 0 #000;
-}
-html body blume-tabs [role="tab"]::before {
-  /* the cut corners' diagonal edge */
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    linear-gradient(135deg, var(--osrs-tab-line) 0 4px, transparent 4px 100%) left top / 6px 6px no-repeat,
-    linear-gradient(225deg, var(--osrs-tab-shadow) 0 4px, transparent 4px 100%) right top / 6px 6px no-repeat;
-}
-html body blume-tabs [role="tab"]:hover { color: var(--osrs-white) !important; background: #2a241c !important; }
-/* pressed looks the same as selected, as in game */
-html body blume-tabs [role="tab"][aria-selected="true"],
-html body blume-tabs [role="tab"]:active {
-  z-index: 2;
-  height: 30px;
-  background: var(--osrs-tab-panel) !important;
-}
-html body blume-tabs [role="tab"]:focus-visible { color: var(--osrs-yellow) !important; outline: none; }
-/* The panel: thin bevelled outline, one piece with the selected tab */
-html body blume-tabs [data-blume-tab-content] {
-  position: relative;
-  z-index: 1;
-  background: var(--osrs-tab-panel);
-  box-shadow: 0 0 0 1px var(--osrs-tab-shadow), inset 0 0 0 1px var(--osrs-tab-line);
-  padding: 1px;
-}
-html body blume-tabs [data-blume-tab-panel] { background: transparent; }
-html body blume-tabs [data-blume-tab-panel] pre { box-shadow: none !important; margin: 0 !important; background: var(--osrs-well) !important; }
-
-/* Component previews: a dark stage with a faint game-pixel grid, so stone components read clearly. */
-html body :has(> iframe[data-blume-example-frame]) {
-  background-color: var(--osrs-tab-panel, var(--osrs-site-stage));
-  background-image:
-    linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px);
-  background-size: 16px 16px;
-  border-radius: 0 !important;
-}
-
-/* Scrollbars, site-wide */
-html body ::-webkit-scrollbar { width: 16px; height: 16px; }
-html body ::-webkit-scrollbar-track { background: var(--osrs-stone-dark); }
-html body ::-webkit-scrollbar-thumb {
-  background:
-    var(--osrs-control-scroll-thumb-top) top / 100% 5px no-repeat,
-    var(--osrs-control-scroll-thumb-bottom) bottom / 100% 5px no-repeat,
-    var(--osrs-control-scroll-thumb-middle) 0 0 / 100% 5px repeat-y;
-}
-html body ::selection { background: var(--osrs-highlight); color: var(--osrs-white); }
-
-/* Sidebar (site/Sidebar.tsx): the library NavList as-is (darker column, divider, Settings
-   category buttons); only link underlines are removed. */
-.osrs-site-nav { --osrs-px: 1px; background: none; box-shadow: none; }
-.osrs-site-nav .osrs-site-nav-item { text-decoration: none; }
-/* The current page's item takes the page background, so it reads as part of the content */
-.osrs-site-nav .osrs-site-nav-item[aria-current="page"] { margin-right: 0; }
-.osrs-site-nav .osrs-site-nav-item[aria-current="page"]::before { border-image-source: var(--osrs-nav-item-image-open); }
-/* ...and hides the column divider where it opens into the content */
-.osrs-site-nav .osrs-site-nav-item[aria-current="page"]::after {
-  content: ""; position: absolute; right: 0; top: 3px; bottom: 3px; width: 2px;
-  background: var(--osrs-site-tint), var(--osrs-stone);
-}
-.osrs-site-nav .osrs-site-nav-title {
-  margin: 4px 10px 2px 0;
-  min-height: 24px;
-  justify-content: flex-start;
-  padding: 0 8px;
-  background: none;
-  color: var(--osrs-white);
-}
-.osrs-site-callout { --osrs-px: 2px; }
-.osrs-site-callout-body > :first-child { margin-top: 0; }
-.osrs-site-callout-body > :last-child { margin-bottom: 0; }
-.osrs-site-callout-body p { color: inherit !important; }
-
-/* Code: Departure Mono (Helena Zhang, SIL OFL 1.1), a pixel monospace drawn on an 11px grid.
-   11px is its native size: crisp at 1x and 2x, and about the footprint of the 16px body font. */
-html body :is(pre, code, kbd, samp), html body :is(pre, code) * {
-  font-family: "Departure Mono", ui-monospace, monospace !important;
-  font-size: 11px !important;
-  line-height: 22px;
-  letter-spacing: 0;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: unset;
-  text-shadow: none;
-}
-/* Heading self-links take the heading's size and colour */
-html body article :is(h1, h2, h3, h4, h5, h6) a { font-size: inherit !important; color: inherit !important; }
-
-/* Card links (site/Card.tsx) */
-.osrs-site-card { text-decoration: none !important; gap: 4px; }
-.osrs-site-card:hover { filter: brightness(1.15); }
-.osrs-site-card-title { font-family: var(--osrs-font-bold); color: var(--osrs-white); }
-.osrs-site-card-body, .osrs-site-card-body p { color: var(--osrs-orange) !important; margin: 0; }
-
-
-/* =========================================================================
- * Migrated Blume chrome (components/blume/*.astro), drawn with the library
- * ========================================================================= */
-
-/* Header: a stone bar with a riveted steel strip underneath */
-.osrs-site-header {
-  --osrs-px: 1px;
-  background-color: var(--osrs-stone);
-  background-image: var(--osrs-texture-stone);
-  background-size: var(--osrs-site-stone-size);
-  border-bottom: 0;
-  /* the same bevelled divider as the nav column's edge */
-  box-shadow: 0 1px 0 var(--osrs-site-line-dark), 0 2px 0 var(--osrs-site-line-light);
-}
-.osrs-site-icon-button { border: 0; padding: 0; background: transparent; color: var(--osrs-orange); }
-.osrs-site-header-link { color: var(--osrs-orange); text-decoration: none; padding: 0 8px; }
-.osrs-site-header-link:hover { color: var(--osrs-white); }
-
-/* ---------- Buttons Blume renders itself, skinned as library Buttons ----------
-   Audit: header search, code-copy, page actions  -> Button variant="metal" tone="white" (icon / full width)
-          search filter chips                     -> Button variant="stone" (toggle)
-          mobile nav toggle                       -> the game's hamburger sprite (components/blume/Header.astro)
-          pagination                              -> Button variant="metal" tone="white" size="lg" (site/Pagination.tsx) */
-html body :is([data-blume-search-open], [data-blume-copy]) {
-  --osrs-px: 1px;
-  position: relative;
-  isolation: isolate;
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 30px !important; height: 30px !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  color: var(--osrs-white) !important;
-  background: rgb(0 0 0 / 0.15) !important;
-  cursor: pointer;
-}
-html body :is([data-blume-search-open], [data-blume-copy])::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent; border-width: 9px;
-  border-image: var(--osrs-frame-equipment-metal) 9 / 9px / 0 repeat;
-  image-rendering: pixelated;
-}
-html body :is([data-blume-search-open], [data-blume-copy]):hover { color: var(--osrs-white) !important; }
-html body :is([data-blume-search-open], [data-blume-copy]):is(:hover, :active)::before { border-image-source: var(--osrs-frame-equipment-metal-hover); }
-html body :is([data-blume-search-open], [data-blume-copy]) svg { filter: drop-shadow(1px 1px 0 #000); }
-html body [data-blume-copy] svg[class*="text-green"] { color: var(--osrs-green) !important; }
-/* copy buttons keep Blume's placement in the code block's top-right corner */
-html body [data-blume-copy] { position: absolute !important; }
-
-html body [data-blume-search-dialog] {
-  --osrs-px: 1px;
-  isolation: isolate;
-  border: 0 !important;
-  border-radius: 0 !important;
-  padding: 8px !important;
-  background-color: var(--osrs-stone) !important;
-  background-image: var(--osrs-texture-stone);
-  background-size: var(--osrs-site-stone-size);
-  backdrop-filter: none !important;
-  color: var(--osrs-orange) !important;
-}
-html body [data-blume-search-dialog]::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent; border-width: 30px 25px;
-  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
-}
-html body [data-blume-search-dialog]::backdrop { background: rgb(0 0 0 / 0.55); }
-html body [data-blume-search-dialog] > div:first-child {
-  background: var(--osrs-well);
-  box-shadow: inset 1px 1px 0 var(--osrs-border-outer), inset -1px -1px 0 var(--osrs-border-inner), 0 0 0 1px #000;
-  border: 0 !important;
-  margin-bottom: 6px;
-}
-html body [data-blume-search-input] { color: var(--osrs-white) !important; font-family: var(--osrs-font); font-size: 16px !important; }
-html body [data-blume-search-dialog] :is(div, footer) { border-color: #1f1a14 !important; }
-/* Results: nav-list buttons (dark outline, tan edge, brown fill), orange label, white when
-   hovered or keyboard-selected; no icons */
-html body [data-blume-search-dialog] [role="option"] {
-  position: relative; isolation: isolate;
-  margin-bottom: 2px;
-  border: 0 !important; border-radius: 0 !important;
-  background: none !important;
-  padding: 6px 10px !important;
-}
-html body [data-blume-search-dialog] [role="option"]::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent; border-width: 3px;
-  border-image: var(--osrs-nav-item-image) 3 fill / 3px / 0 stretch;
-}
-html body [data-blume-search-dialog] [role="option"] > span:first-child:has(> svg) { display: none; }
-html body [data-blume-search-dialog] [role="option"] :is(span, p) { color: var(--osrs-orange) !important; }
-html body [data-blume-search-dialog] [role="option"]:is([aria-selected="true"], :hover) :is(span, p) { color: var(--osrs-white) !important; }
-
-/* The article is plain content on the window's stone: no frame of its own. */
-html body main > article {
-  --osrs-px: 1px;
-  margin-top: 4px;
-  padding: 0;
-}
-html body main > article > :is(header, div):first-child h1,
-html body main > article h1:first-of-type {
-  margin-bottom: 4px !important;
-}
-/* Sections read like the Settings "Graphics" band: white bold title on a darker strip */
-html body main > article h2 {
-  margin-top: 40px !important;
-  padding: 6px 10px !important;
-  background: rgb(0 0 0 / 0.14);
-  color: var(--osrs-white) !important;
-  font-size: 16px !important;
-  line-height: 20px !important;
-}
-html body main > article h3 { color: var(--osrs-orange); }
-/* Light wells for inline code/tables inside the window */
-html body main > article table { background: rgb(0 0 0 / 0.12); }
-
-/* Breadcrumbs */
-.osrs-site-crumbs { --osrs-px: 1px; color: var(--osrs-orange); }
-.osrs-site-crumb-link { color: var(--osrs-orange); text-decoration: none; }
-.osrs-site-crumb-link:hover { color: var(--osrs-white); }
-
-/* On-this-page rail: striped rows under a section band, no frame */
-.osrs-site-rail { --osrs-px: 1px; }
-.osrs-site-rail .osrs-section-title { margin-bottom: 4px; }
-.osrs-site-toc-link { display: flex; min-height: 22px; color: var(--osrs-orange); text-decoration: none; }
-.osrs-site-toc-link:hover { color: var(--osrs-white); }
-.osrs-site-toc-link[aria-current="location"] { background: rgb(255 255 255 / 0.18) !important; color: var(--osrs-white); }
-html body [data-blume-toc] { font-size: 16px; }
-html body [data-blume-toc] a:not(.osrs-site-toc-link) { color: var(--osrs-orange); }
-html body [data-blume-toc] a:not(.osrs-site-toc-link):hover { color: var(--osrs-white); }
-.osrs-site-toc-mobile { --osrs-px: 1px; }
-.osrs-site-toc-mobile[open] > summary { margin-bottom: 4px; }
-.osrs-site-toc-mobile .osrs-list { background: var(--osrs-well); }
-
-/* Header nav tabs, Tabs triggers outside previews */
-.osrs-site-tab { color: var(--osrs-orange); text-decoration: none; }
-.osrs-site-tab[aria-current="page"] { color: var(--osrs-white); }
-
-/* Steps: riveted rail with stone-button numbers */
-.osrs-site-steps { --osrs-px: 1px; position: relative; padding-left: 44px; }
-.osrs-site-steps::before {
-  content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 6px;
-  background-image: var(--osrs-texture-rivets-vertical);
-  background-size: 36px 36px; background-position: -15px 0; background-repeat: repeat-y;
-}
-.osrs-site-step-marker {
-  position: absolute; left: -44px; top: -2px;
-  width: 30px; min-height: 26px !important; padding: 0 !important;
-  font-size: 16px;
-}
-.osrs-site-step-title { font-family: var(--osrs-font-bold); color: var(--osrs-white); }
-
-/* Badge */
-.osrs-site-badge { --osrs-px: 1px; padding: 2px 8px; color: var(--osrs-yellow); font-size: 16px; }
-
-/* Tiles, frames, accordions */
-.osrs-site-tile { --osrs-px: 2px; text-decoration: none !important; }
-.osrs-site-tile:hover { filter: brightness(1.12); }
-.osrs-site-frame { --osrs-px: 2px; background: var(--osrs-well); }
-.osrs-site-accordion { --osrs-px: 2px; padding: 4px; }
-.osrs-site-accordion > details + details { box-shadow: 0 -1px 0 #1f1a14, inset 0 1px 0 #5d5848; }
-.osrs-site-accordion-summary { padding: 8px 10px; font-family: var(--osrs-font-bold); color: var(--osrs-orange); }
-.osrs-site-accordion-summary:hover { color: var(--osrs-white); }
-.osrs-site-accordion-icon { --osrs-px: 1px; display: inline-flex; }
-details[open] > summary .osrs-site-accordion-plus,
-details:not([open]) > summary .osrs-site-accordion-minus { display: none; }
-.osrs-site-accordion-body { padding: 0 10px 10px; }
-
-/* Page actions in the rail (Copy page, etc.) */
-html body [data-blume-toc] :is(a, button) { font-family: var(--osrs-font); }
-
-/* Search dialog: filter chips are stone toggle buttons; key hints are small wells */
-html body [data-blume-search-dialog] button:not([data-blume-search-open]) {
-  position: relative;
-  isolation: isolate;
-  border-radius: 0 !important;
-  border: 0 !important;
-  padding: 2px 10px !important;
-  background-color: var(--osrs-stone) !important;
-  background-image: var(--osrs-texture-stone) !important;
-  background-size: var(--osrs-site-stone-size) !important;
-  color: var(--osrs-orange) !important;
-  font-family: var(--osrs-font) !important;
-  font-size: 16px !important;
-  text-shadow: 1px 1px 0 #000;
-}
-html body [data-blume-search-dialog] button:not([data-blume-search-open])::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  border-style: solid; border-color: transparent; border-width: 5px;
-  border-image: var(--osrs-frame-stone-button) 5 / 5px / 0 repeat;
-}
-html body [data-blume-search-dialog] button:not([data-blume-search-open]):hover::before { border-image-source: var(--osrs-frame-stone-button-hover); }
-html body [data-blume-search-dialog] button:is(.bg-accent, [aria-pressed="true"], [aria-selected="true"]) {
-  background-image: var(--osrs-texture-stone-bright) !important;
-  color: var(--osrs-white) !important;
-}
-html body [data-blume-search-dialog] kbd {
-  border-radius: 0 !important; border: 0 !important;
-  background: var(--osrs-well) !important;
-  box-shadow: inset 1px 1px 0 var(--osrs-border-outer), inset -1px -1px 0 var(--osrs-border-inner), 0 0 0 1px #000 !important;
-  color: var(--osrs-white) !important;
-}
-html body [data-blume-search-dialog] mark { background: transparent; color: var(--osrs-yellow); }
-/* Page actions (Scroll to top, Copy as Markdown, Open in chat): plain rows like the
-   "On this page" links: orange text, white on hover, striped well, no icons */
-html body [data-blume-page-actions] {
-  --osrs-px: 1px;
-  display: flex; flex-direction: column; gap: 0;
-  border: 0 !important;
-  margin-top: 16px !important;
-  padding-top: 0 !important;
-}
-html body [data-blume-page-actions] > :is(button, details) { margin: 0 !important; }
-html body [data-blume-page-actions] > button,
-html body [data-blume-page-actions] > details > summary {
-  justify-content: flex-start;
-  min-height: 22px;
-  padding: 0 3px !important;
-  background: rgb(0 0 0 / 0.1) !important;
-  color: var(--osrs-orange) !important;
-  font-family: var(--osrs-font) !important;
-  font-size: 16px !important;
-  text-shadow: 1px 1px 0 #000;
-}
-html body [data-blume-page-actions] > :nth-child(even):is(button),
-html body [data-blume-page-actions] > details:nth-child(even) > summary { background: rgb(255 255 255 / 0.06) !important; }
-html body [data-blume-page-actions] > button:hover,
-html body [data-blume-page-actions] > details > summary:hover,
-html body [data-blume-page-actions] > details[open] > summary { background: rgb(255 255 255 / 0.14) !important; color: var(--osrs-white) !important; }
-html body [data-blume-page-actions] > button > svg,
-html body [data-blume-page-actions] > details > summary > svg { display: none !important; }
-
-/* "Open in chat" menu: the game's right-click menu */
-html body [data-blume-menu] {
-  --osrs-px: 1px;
-  right: 0 !important;
-  border-radius: 0 !important;
-  border: 1px solid #000 !important;
-  background: var(--osrs-menu) !important;
-  box-shadow: none !important;
-  padding: 0 0 2px !important;
-}
-html body [data-blume-menu]::before {
-  content: "Choose Option";
-  display: block;
-  margin: 1px;
-  padding: 0 4px;
-  background: #000;
-  color: var(--osrs-menu);
-  font-family: var(--osrs-font);
-  font-size: 16px;
-  line-height: 18px;
-}
-html body [data-blume-menu] a {
-  border-radius: 0 !important;
-  padding: 1px 6px !important;
-  color: var(--osrs-white) !important;
-  background: transparent !important;
-  font-family: var(--osrs-font) !important;
-  font-size: 16px !important;
-  text-shadow: 1px 1px 0 #000;
-}
-html body [data-blume-menu] a:hover, html body [data-blume-menu] a:focus-visible { color: var(--osrs-yellow) !important; }
-
-/* Concept switcher (site/Sidebar.tsx): side-panel tab stones with labels */
-.osrs-site-sidenav { --osrs-px: 1px; display: flex; flex-direction: column; gap: 0; padding-top: 8px; }
-.osrs-site-concepts {
-  /* full column width: the divider spans edge to edge */
-  list-style: none; margin: 0; padding: 0 0 8px;
-  display: flex; flex-direction: column; gap: 2px;
-  box-shadow: 0 1px 0 var(--osrs-site-line-dark), 0 2px 0 var(--osrs-site-line-light);
-}
-.osrs-site-concept {
-  display: flex; align-items: center; gap: 10px;
-  padding: 2px 2px 2px 8px;
-  color: var(--osrs-orange);
-  text-decoration: none;
-}
-.osrs-site-concept:hover { color: var(--osrs-white); }
-.osrs-site-concept[aria-current="true"] { color: var(--osrs-white); }
-.osrs-site-concept-stone { position: relative; display: inline-flex; width: 33px; height: 36px; flex: none; }
-.osrs-site-concept-stone > svg { position: absolute; inset: 0; }
-
-/* "On this page" (below xl): inline at the right of the page title, opening over the content */
-@supports (anchor-name: --a) {
-  @media (min-width: 640px) and (max-width: 1279.98px) {
-    html body main > article { anchor-name: --osrs-article; }
-    html body main { position: relative; }
-    html body main > .osrs-site-toc-mobile {
-      position: absolute;
-      position-anchor: --osrs-article;
-      top: calc(anchor(top) + 34px);
-      right: calc(anchor(right) + 28px);
-      left: auto;
-      width: 180px;
-      max-width: none;
-      margin: 0 !important;
-      z-index: 20;
-    }
-    html body main > .osrs-site-toc-mobile > summary { gap: 8px; }
-    html body main > .osrs-site-toc-mobile[open] {
-      width: 260px;
-      max-height: 70vh;
-      overflow-y: auto;
-      background: var(--osrs-well);
-      box-shadow: 0 0 0 1px #000;
-    }
-    html body main > .osrs-site-toc-mobile[open] > :not(summary) { padding: 2px 6px 6px; }
-    html body main:has(> .osrs-site-toc-mobile) > article h1:first-of-type { padding-right: 200px; }
-    html body main:has(> .osrs-site-toc-mobile) > article h1:first-of-type::after { margin-right: -222px; }
-  }
-}
-
-
-/* ---------- One window: frame, header row, nav column, content, rail ---------- */
-html body::after {
-  content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none;
-  border-style: solid; border-color: transparent; border-width: 30px 25px;
-  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px / 0 repeat;
-}
-/* Header row (keeps its riveted divider underneath) sits on the window stone */
-/* Header: the page background, fixed like the body's so the two line up seamlessly while content scrolls beneath */
-html body .osrs-site-header {
-  background-color: var(--osrs-stone);
-  background-image: var(--osrs-site-tint), var(--osrs-texture-stone);
-  background-size: auto, var(--osrs-site-stone-size);
-  background-repeat: repeat;
-  background-attachment: fixed;
-  background-position: 0 0;
-}
-html body header.osrs-site-header { top: 6px; height: var(--osrs-site-header-h) !important; }
-/* Nav column: a darker strip down the left, divided from the content by a bevelled line */
-@media (min-width: 64rem) {
-  html body #blume-nav-drawer {
-    /* both lines inside the column so the current page's item can cover them */
-    box-shadow: inset -1px 0 0 var(--osrs-site-line-light), inset -2px 0 0 var(--osrs-site-line-dark);
-    padding: 0 !important;
-    top: calc(var(--osrs-site-header-h) + 6px) !important;
-    height: calc(100dvh - var(--osrs-site-header-h) - 12px) !important;
-  }
-  /* Right rail, divided the same way */
-  html body aside[data-blume-toc] {
-    box-shadow: inset 1px 0 0 var(--osrs-site-line-light), -1px 0 0 var(--osrs-site-line-dark);
-    top: calc(var(--osrs-site-header-h) + 6px) !important;
-    height: calc(100dvh - var(--osrs-site-header-h) - 12px) !important;
-  }
-}
-/* Sidebar: shows the page background; the mobile drawer paints it since it slides over content */
-html body #blume-nav-drawer { border: 0 !important; }
-@media (max-width: 63.999rem) {
-  html body #blume-nav-drawer {
-    background-color: var(--osrs-stone) !important;
-    background-image: var(--osrs-site-tint), var(--osrs-texture-stone);
-    background-size: auto, var(--osrs-site-stone-size);
-  }
-}
-@media (min-width: 64rem) {
-  html body #blume-nav-drawer { background: transparent !important; }
-}
-/* Footer: credits under the header's bevelled divider (light line over dark, mirrored) */
-html body footer { --osrs-px: 1px; }
-.osrs-site-footer {
-  display: flex; flex-direction: column; gap: 4px;
-  padding: 16px 20px;
-  color: var(--osrs-orange);
-  box-shadow: 0 -1px 0 var(--osrs-site-line-dark), inset 0 1px 0 var(--osrs-site-line-light);
-}
-.osrs-site-footer a { color: var(--osrs-yellow); }
-.osrs-site-footer a:hover { color: var(--osrs-white); }
-
-/* Page descriptions (frontmatter `description`) stay in the page meta but aren't shown under titles */
-html body article.prose > h1 + p.text-lg { display: none; }
-
-/* Header search: on wide screens the search trigger becomes a search field centred in the
-   header (a sunken well, like the in-game "Search:" boxes); below that it stays an icon button */
-@media (min-width: 64rem) {
-  html body .osrs-site-header [data-blume-search-open] {
-    position: absolute !important;
-    left: 50%; top: 50%;
-    transform: translate(-50%, -50%);
-    width: min(420px, 34vw) !important; height: 30px !important;
-    justify-content: flex-start;
-    gap: 8px;
-    padding: 0 10px !important;
-    background: var(--osrs-well) !important;
-    box-shadow: inset 1px 1px 0 var(--osrs-border-outer), inset -1px -1px 0 var(--osrs-border-inner), 0 0 0 1px #000 !important;
-    color: var(--osrs-orange) !important;
-    font-family: var(--osrs-font);
-    font-size: 16px;
-    text-shadow: 1px 1px 0 #000;
-  }
-  html body .osrs-site-header [data-blume-search-open]::before { display: none; }
-  /* the label replaces Blume's hover tooltip, which also lives on ::after */
-  html body .osrs-site-header [data-blume-search-open]::after {
-    all: unset;
-    content: "Search:";
-    color: inherit; font: inherit; text-shadow: inherit;
-  }
-  html body .osrs-site-header [data-blume-search-open] > svg { order: 1; margin-left: auto; color: #9f9f9f; }
-  html body .osrs-site-header [data-blume-search-open]:hover { color: var(--osrs-white) !important; }
-}
-
-/* Logo: plain site name in Bold 12, lined up with the sidebar's section icons */
-.osrs-site-logo {
-  display: inline-flex; align-items: center;
-  font-family: var(--osrs-font-bold); font-size: 16px !important;
-  color: var(--osrs-orange); text-decoration: none;
-  text-shadow: 1px 1px 0 #000;
-}
-.osrs-site-logo:hover { color: var(--osrs-white); }
-@media (min-width: 64rem) { html body header.osrs-site-header { padding-left: 8px !important; } }
-
-/* ---------- Home page intro (site/Hero.tsx): the login screen ----------
-   --p (0 → 1) is the scroll progress through the section, set by the hero's script. */
-.osrs-hero {
-  --osrs-px: 1px;
-  --p: 0;
-  position: relative;
-  height: 300dvh;
-  margin: -6px -6px 0;           /* edge to edge: cancel the body's 6px gutter (the rivet frame still sits on top) */
-}
-.osrs-hero-stage {
-  position: sticky; top: 0;
-  height: 100dvh;
-  overflow: hidden;
-  background: #000;
-}
-/* The scene covers the stage at its own aspect ratio, then zooms into the doorway. Children are
-   placed in the background's 765 x 503 pixel grid (as % of the scene) and sized in cqw, so they scale
-   and zoom with it. */
-.osrs-hero-scene {
-  position: absolute; left: 50%; top: 50%;
-  width: max(100vw, calc(100dvh * 765 / 503));
-  aspect-ratio: 765 / 503;
-  container-type: size;
-  transform-origin: 50% 56%;
-  transform: translate(-50%, -50%) scale(calc(1 + 7 * var(--p) * var(--p)));
-  will-change: transform;
-}
-.osrs-hero-scene img { display: block; user-select: none; }
-.osrs-hero-bg { width: 100%; height: 100%; }
-/* Brazier fire: a 24-frame vector strip stepped through like the game's 50 fps flame, at ~12 fps */
-.osrs-hero-fire {
-  position: absolute;
-  width: calc(96 / 765 * 100%); height: calc(128 / 503 * 100%);
-  top: calc(146 / 503 * 100%);
-  overflow: hidden; pointer-events: none;
-}
-.osrs-hero-fire[data-side="left"] { left: calc(-3 / 765 * 100%); }
-.osrs-hero-fire[data-side="right"] { left: calc(672 / 765 * 100%); transform: scaleX(-1); }
-.osrs-hero-fire img { width: 2400%; max-width: none; height: 100%; animation: osrs-hero-fire 2s steps(24) infinite; }
-.osrs-hero-fire[data-side="right"] img { animation-delay: -0.9s; }
-@keyframes osrs-hero-fire { to { transform: translateX(-100%); } }
-/* Login panel: the game's marble box (360 x 200 at x 202, y 171); heading and buttons where the game puts them */
-.osrs-hero-box {
-  position: absolute;
-  left: calc(202 / 765 * 100%); top: calc(171 / 503 * 100%);
-  width: calc(360 / 765 * 100%); height: calc(200 / 503 * 100%);
-  background: url("/landing/login-box.svg") 0 0 / 100% 100% no-repeat;
-  opacity: calc(1 - var(--p) * 4);
-  text-align: center;
-}
-.osrs-hero-title {
-  position: absolute; left: 0; right: 0; top: calc(66 / 200 * 100%);
-  margin: 0;
-  font-family: var(--osrs-font-bold); font-size: calc(16 / 765 * 100cqw) !important; line-height: 1.3 !important;
-  color: var(--osrs-yellow); text-shadow: calc(1 / 765 * 100cqw) calc(1 / 765 * 100cqw) 0 #000;
-}
-.osrs-hero-button {
-  position: absolute; top: calc(100 / 200 * 100%);
-  width: calc(147 / 360 * 100%); height: calc(41 / 200 * 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--osrs-font-bold); font-size: calc(16 / 765 * 100cqw) !important;
-  color: var(--osrs-white); text-decoration: none;
-  text-shadow: calc(1 / 765 * 100cqw) calc(1 / 765 * 100cqw) 0 #000;
-}
-.osrs-hero-button[data-slot="left"] { left: calc(27 / 360 * 100%); }
-.osrs-hero-button[data-slot="right"] { left: calc(187 / 360 * 100%); }
-.osrs-hero-button:hover { color: var(--osrs-yellow); }
-.osrs-hero-lead {
-  position: absolute; left: 0; right: 0; top: calc(156 / 200 * 100%);
-  margin: 0;
-  font-size: calc(16 / 765 * 100cqw) !important; line-height: 1.3 !important;
-  color: var(--osrs-white); text-shadow: calc(1 / 765 * 100cqw) calc(1 / 765 * 100cqw) 0 #000;
-}
-/* At the end of the zoom the page background fades in, so the docs below follow on */
-.osrs-hero-fade {
-  position: absolute; inset: 0; pointer-events: none;
-  background-color: var(--osrs-stone);
-  background-image: var(--osrs-site-tint), var(--osrs-texture-stone);
-  background-size: auto, var(--osrs-site-stone-size);
-  background-attachment: fixed;
-  opacity: clamp(0, calc((var(--p) - 0.65) / 0.3), 1);
-}
-.osrs-hero-scroll {
-  position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
-  display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
-  color: var(--osrs-white); text-decoration: none; text-shadow: 1px 1px 0 #000;
-  opacity: calc(1 - var(--p) * 6);
-}
-.osrs-hero-scroll:hover { color: var(--osrs-yellow); }
-.osrs-hero-scroll svg { animation: osrs-hero-bob 1.6s steps(2, jump-none) infinite; }
-@keyframes osrs-hero-bob { 50% { transform: translateY(4px); } }
-@media (prefers-reduced-motion: reduce) {
-  .osrs-hero-scroll svg { animation: none; }
-  .osrs-hero-fire img { animation: none; }
-  .osrs-hero-scene { transform: translate(-50%, -50%); }
-}
+/* Popovers opening (site/ControlWindow.tsx) and asset tiles loading (site/AssetBrowser.tsx) */
+@keyframes osrs-pop-in { from { opacity: 0; transform: scale(0.94) translateY(-4px); } }
+@keyframes osrs-site-skeleton { 50% { opacity: 0.55; } }

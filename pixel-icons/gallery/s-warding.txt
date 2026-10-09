@@ -1,0 +1,32 @@
+name: Warding (a rune-carved shield)
+kind: skill
+a #143880
+b #2050a8
+c #2f6ccc
+d #4c8ee8
+e #78b2f6
+f #b4d8ff
+u #a8c8e8
+v #d8e8f8
+w #ffffff
+---
+cccccccccccccccccc
+deeeeeeeeeeeeeeeec
+deeeeeeeeeeeeeeedc
+deeeeeeeeeeeeeeedc
+deeeeeeevueeeeeedc
+deeeeeeewveeeeeedc
+deeeeeeewweeeeeedc
+deeeeeeewweeeeeedc
+cdeevwwwwwwwwveedb
+bdeeuvwwwwwwvueecb
+.cdeeeeewweeeeedb
+.bdeeeeewweeeeecb
+..ceeeeevveeeedc
+..bdeeeeuueeeedb
+...cdeeeeeeeedb
+....cdeeeeeecb
+.....bdeeedcb
+......bcddcb
+.......bccb
+........bb

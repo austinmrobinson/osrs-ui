@@ -1,0 +1,29 @@
+name: Getting started (a scroll laid open)
+kind: tab
+p #8a7a58
+q #ab9a72
+r #c8b88e
+s #e0d2aa
+t #f2e8c8
+u #4a3a22
+v #6e5838
+w #8e7650
+---
+tts....................tts
+ttstttttttttttttttttttttts
+ttstttttttttttttttttttttts
+ttstttttttttttttttttttttts
+ttstttwwwwwwwwwwwwwwttttts
+ttstttttttttttttttttttttts
+ttstttttttttttttttttttttts
+ttstttwwwwwwwwwwwwwwttttts
+ttstttttttttttttttttttttts
+ttstttttttttttttttttttttts
+ttstttwwwwwwwwwwwwwwttttts
+ttstttttttttttttttttttttts
+ttstttttttttttttttttttttts
+ttstttwwwwwwwwwwttttttttts
+ttstttttttttttttttttttttts
+ttstttttttttttttttttttttts
+ttstttttttttttttttttttttts
+qqq....................qqq

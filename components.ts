@@ -1,37 +1,40 @@
 import { defineComponents } from "blume";
 
-// The docs site is drawn with the library itself: every piece of Blume chrome
-// that renders on a page is either a React override (site/*.tsx) or an ejected
-// Blume component re-skinned with OSRS UI classes and sprites (components/blume/*).
+import { A, Blockquote, Code, H2, H3, H4, Hr, Li, Ol, P, Pre, Strong, Table, Tbody, Td, Th, Thead, Tr, Ul } from "./site/mdx/Prose";
+
+// The docs site is drawn with the library itself, in our own markup: Blume renders the content and
+// supplies the data (routes, navigation, search, SEO), and every element on the page is one of ours,
+// styled with Tailwind classes. The page shell replaces Blume's whole layout; the Markdown elements
+// and the MDX components the docs use are mapped below.
 export default defineComponents({
   mdx: {
-    Callout: "./site/Callout.tsx",
-    Card: "./site/Card.tsx",
-    IconList: "./site/IconList.tsx",
-    IconListItem: "./site/IconListItem.tsx",
+    h2: H2,
+    h3: H3,
+    h4: H4,
+    p: P,
+    a: A,
+    strong: Strong,
+    ul: Ul,
+    ol: Ol,
+    li: Li,
+    hr: Hr,
+    code: Code,
+    pre: Pre,
+    table: Table,
+    thead: Thead,
+    tbody: Tbody,
+    tr: Tr,
+    th: Th,
+    td: Td,
+    blockquote: Blockquote,
+    Component: "./components/blume/Component.astro",
+    ComponentGrid: "./site/ComponentGrid.tsx",
+    RecipeGrid: "./site/RecipeGrid.tsx",
+    LandingHero: { component: "./site/LandingHero.tsx", client: "load" },
+    HomeBelow: { component: "./site/HomeBelow.tsx", client: "load" },
     AssetBrowser: { component: "./site/AssetBrowser.tsx", client: "load" },
-    CardGroup: "./components/blume/CardGroup.astro",
-    Tabs: "./components/blume/Tabs.astro",
-    Tab: "./components/blume/Tab.astro",
-    CodeGroup: "./components/blume/CodeGroup.astro",
-    Steps: "./components/blume/Steps.astro",
-    Step: "./components/blume/Step.astro",
-    Accordion: "./components/blume/Accordion.astro",
-    AccordionItem: "./components/blume/AccordionItem.astro",
-    Expandable: "./components/blume/Expandable.astro",
-    Badge: "./components/blume/Badge.astro",
-    Panel: "./components/blume/Panel.astro",
-    Tooltip: "./components/blume/Tooltip.astro",
-    Tile: "./components/blume/Tile.astro",
-    Frame: "./components/blume/Frame.astro",
   },
   layout: {
-    Header: "./components/blume/Header.astro",
-    Logo: "./site/Logo.tsx",
-    Sidebar: "./site/Sidebar.tsx",
-    Breadcrumbs: "./components/blume/Breadcrumbs.astro",
-    TableOfContents: "./components/blume/TableOfContents.astro",
-    Pagination: "./site/Pagination.tsx",
-    Footer: "./site/Footer.tsx",
+    Layout: "./components/shell/Layout.astro",
   },
 });

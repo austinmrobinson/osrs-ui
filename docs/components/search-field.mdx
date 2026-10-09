@@ -1,0 +1,26 @@
+---
+title: Search Field
+description: "The inset input with an orange Search… placeholder and the pixel magnifier at its end."
+---
+
+<Component path="search-field/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/search-field.json
+```
+
+## Usage
+
+```tsx
+import { SearchField } from "@/components/ui/search-field"
+import { Shortcut } from "@/components/ui/shortcut"
+
+<SearchField aria-label="Search the bank" value={query} onChange={(e) => setQuery(e.target.value)} />
+
+{/* `end` replaces the magnifier: a shortcut hint, a clear button */}
+<SearchField aria-label="Search the docs" end={<Shortcut keys={["⌘", "K"]} />} />
+```
+
+It takes every [Input](/components/input) prop. Give it an `aria-label` when there's no visible label.

@@ -1,0 +1,26 @@
+name: Frost Bind (an ice crystal)
+kind: spell
+e #a8d8ff
+f #5aa0f0
+g #2860c8
+W #ffffff
+---
+.........e
+.........e
+........eee
+........eee
+.......eeWee
+.......eeWee
+......eeeWeef
+.....eeeWWWfff
+..eeeeeeWWWffffff
+eeeeeeeeWWWfffffggg
+..eeeeeefWfffffgg
+.....eeffWffff
+......fffefff
+.......ffeff
+.......ffefg
+........ffg
+........fgg
+.........g
+.........g

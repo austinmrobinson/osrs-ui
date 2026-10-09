@@ -1,0 +1,32 @@
+name: Mystic Ward (a four-point star)
+kind: prayer
+outline: #2860c8
+a #143880
+b #2050a8
+c #2f6ccc
+d #4c8ee8
+e #78b2f6
+f #b4d8ff
+---
+..........cc
+..........dc
+.........cedb
+.........dedc
+........cdeddb
+........deeedc
+........deeedc
+.......deeeeedc
+....cdeeeeeeeeeddc
+..cdeeeeeeeeeeeeeddc
+ddeeeeeeeeeeeeeeeeeddc
+bccddeeeeeeeeeeeedccbb
+..bbccddeeeeeeddccbb
+....bbccdeeeedcbbb
+.......bdeeedcb
+........cdeedc
+........cdeecb
+........bdddcb
+.........cddb
+.........bdcb
+..........cb
+..........cb

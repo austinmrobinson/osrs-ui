@@ -117,7 +117,7 @@ function Overview() {
                 <span style={{ color: t.done === t.total ? GREEN : YELLOW }}>
                   {t.done}/{t.total}
                 </span>
-                <Progress value={(t.done / t.total) * 100} color={t.done === t.total ? "lime" : "yellow"} segments={5} className="w-full" style={{ height: px(6), marginTop: px(1) }} />
+                <Progress value={(t.done / t.total) * 100} color={t.done === t.total ? "lime" : "yellow"} segments={5} flat className="w-full" style={{ height: px(6), marginTop: px(1) }} />
               </Card>
             ))}
           </div>
@@ -227,7 +227,7 @@ function BossesView({ onOpen }: { onOpen: (name: string) => void }) {
               <span style={{ color: ratioColor(b.done, b.total) }}>
                 {b.done}/{b.total}
               </span>
-              <Progress value={(b.done / b.total) * 100} color={b.done === b.total ? "lime" : "yellow"} segments={4} className="w-full" style={{ height: px(9) }} />
+              <Progress value={(b.done / b.total) * 100} color={b.done === b.total ? "lime" : "yellow"} segments={4} flat className="w-full" style={{ height: px(9) }} />
             </Card>
           ))}
         </div>

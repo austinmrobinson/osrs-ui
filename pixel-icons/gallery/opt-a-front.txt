@@ -1,0 +1,32 @@
+name: Assets (a chest, front on)
+kind: tab
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+---
+................344cdd
+.....34..cccddddd55ddd
+.bcdd55ddddddeeeee66ee
+.bbde366eeeeeeeeee66eee
+.bbeee66eeeeeeeeee66eee
+3bbeee66eeeeeeeeee66eee
+.5beee66eeeeeeeeee554dd
+.3bbee662eed565ddd355dd
+.b5bdd355ddd444dd5544442
+.b35dd344644444444344cc
+.bb4444442cc444ccc344cc
+.bbbcc344ccccccccc344cc
+.bbbcc344ccccccccc344cc
+.bbbcc344ccccccccc344cc
+..bbcc344ccccccccc344cc
+..bbcc344ccccccccc344cc
+...bcc344ccccccbb.322
+....cc343

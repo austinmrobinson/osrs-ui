@@ -367,7 +367,7 @@
     "width": 28,
     "height": 21,
     "slice": [
-      1,
+      4,
       4,
       1,
       4
@@ -387,7 +387,7 @@
     "width": 28,
     "height": 21,
     "slice": [
-      1,
+      4,
       4,
       1,
       4
@@ -407,7 +407,7 @@
     "width": 28,
     "height": 21,
     "slice": [
-      1,
+      4,
       4,
       1,
       4
@@ -427,7 +427,7 @@
     "width": 28,
     "height": 21,
     "slice": [
-      1,
+      4,
       4,
       1,
       4
@@ -447,7 +447,7 @@
     "width": 28,
     "height": 21,
     "slice": [
-      1,
+      4,
       4,
       1,
       4
@@ -467,7 +467,7 @@
     "width": 28,
     "height": 21,
     "slice": [
-      1,
+      4,
       4,
       1,
       4
@@ -487,7 +487,7 @@
     "width": 28,
     "height": 26,
     "slice": [
-      1,
+      5,
       4,
       1,
       4
@@ -507,7 +507,7 @@
     "width": 28,
     "height": 26,
     "slice": [
-      1,
+      5,
       4,
       1,
       4
@@ -527,7 +527,7 @@
     "width": 28,
     "height": 26,
     "slice": [
-      1,
+      5,
       4,
       1,
       4
@@ -3128,6 +3128,22 @@
     "height": 13
   },
   {
+    "name": "master-volume",
+    "group": "option",
+    "label": "Master Volume",
+    "file": "option/master-volume.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "music-volume",
+    "group": "option",
+    "label": "Music Volume",
+    "file": "option/music-volume.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
     "name": "round-check-box",
     "group": "option",
     "label": "Round Check Box",
@@ -3270,6 +3286,14 @@
     "file": "option/slider-new-right-caret.svg",
     "width": 16,
     "height": 16
+  },
+  {
+    "name": "sound-effect-volume",
+    "group": "option",
+    "label": "Sound Effect Volume",
+    "file": "option/sound-effect-volume.svg",
+    "width": 32,
+    "height": 32
   },
   {
     "name": "square-bordered-checkbox",
@@ -4076,6 +4100,4494 @@
     "group": "chevron",
     "label": "Yellow Up Stop",
     "file": "chevron/yellow-up-stop.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "ardougne-teleport",
+    "group": "spell-normal",
+    "label": "Ardougne Teleport",
+    "file": "spell-normal/ardougne-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ardougne-teleport-disabled",
+    "group": "spell-normal",
+    "label": "Ardougne Teleport Disabled",
+    "file": "spell-normal/ardougne-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "bind",
+    "group": "spell-normal",
+    "label": "Bind",
+    "file": "spell-normal/bind.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "bind-disabled",
+    "group": "spell-normal",
+    "label": "Bind Disabled",
+    "file": "spell-normal/bind-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "bones-to-bananas",
+    "group": "spell-normal",
+    "label": "Bones To Bananas",
+    "file": "spell-normal/bones-to-bananas.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "bones-to-bananas-disabled",
+    "group": "spell-normal",
+    "label": "Bones To Bananas Disabled",
+    "file": "spell-normal/bones-to-bananas-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "bones-to-peaches",
+    "group": "spell-normal",
+    "label": "Bones To Peaches",
+    "file": "spell-normal/bones-to-peaches.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "bones-to-peaches-disabled",
+    "group": "spell-normal",
+    "label": "Bones To Peaches Disabled",
+    "file": "spell-normal/bones-to-peaches-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "camelot-teleport",
+    "group": "spell-normal",
+    "label": "Camelot Teleport",
+    "file": "spell-normal/camelot-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "camelot-teleport-disabled",
+    "group": "spell-normal",
+    "label": "Camelot Teleport Disabled",
+    "file": "spell-normal/camelot-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge",
+    "group": "spell-normal",
+    "label": "Charge",
+    "file": "spell-normal/charge.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge-air-orb",
+    "group": "spell-normal",
+    "label": "Charge Air Orb",
+    "file": "spell-normal/charge-air-orb.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge-air-orb-disabled",
+    "group": "spell-normal",
+    "label": "Charge Air Orb Disabled",
+    "file": "spell-normal/charge-air-orb-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge-disabled",
+    "group": "spell-normal",
+    "label": "Charge Disabled",
+    "file": "spell-normal/charge-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge-earth-orb",
+    "group": "spell-normal",
+    "label": "Charge Earth Orb",
+    "file": "spell-normal/charge-earth-orb.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge-earth-orb-disabled",
+    "group": "spell-normal",
+    "label": "Charge Earth Orb Disabled",
+    "file": "spell-normal/charge-earth-orb-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge-fire-orb",
+    "group": "spell-normal",
+    "label": "Charge Fire Orb",
+    "file": "spell-normal/charge-fire-orb.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge-fire-orb-disabled",
+    "group": "spell-normal",
+    "label": "Charge Fire Orb Disabled",
+    "file": "spell-normal/charge-fire-orb-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge-water-orb",
+    "group": "spell-normal",
+    "label": "Charge Water Orb",
+    "file": "spell-normal/charge-water-orb.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "charge-water-orb-disabled",
+    "group": "spell-normal",
+    "label": "Charge Water Orb Disabled",
+    "file": "spell-normal/charge-water-orb-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "civitas-illa-fortis-teleport",
+    "group": "spell-normal",
+    "label": "Civitas Illa Fortis Teleport",
+    "file": "spell-normal/civitas-illa-fortis-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "civitas-illa-fortis-teleport-disabled",
+    "group": "spell-normal",
+    "label": "Civitas Illa Fortis Teleport Disabled",
+    "file": "spell-normal/civitas-illa-fortis-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "claws-of-guthic",
+    "group": "spell-normal",
+    "label": "Claws Of Guthic",
+    "file": "spell-normal/claws-of-guthic.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "claws-of-guthic-disabled",
+    "group": "spell-normal",
+    "label": "Claws Of Guthic Disabled",
+    "file": "spell-normal/claws-of-guthic-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "confuse",
+    "group": "spell-normal",
+    "label": "Confuse",
+    "file": "spell-normal/confuse.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "confuse-disabled",
+    "group": "spell-normal",
+    "label": "Confuse Disabled",
+    "file": "spell-normal/confuse-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "crumble-undead",
+    "group": "spell-normal",
+    "label": "Crumble Undead",
+    "file": "spell-normal/crumble-undead.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "crumble-undead-disabled",
+    "group": "spell-normal",
+    "label": "Crumble Undead Disabled",
+    "file": "spell-normal/crumble-undead-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "curse",
+    "group": "spell-normal",
+    "label": "Curse",
+    "file": "spell-normal/curse.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "curse-disabled",
+    "group": "spell-normal",
+    "label": "Curse Disabled",
+    "file": "spell-normal/curse-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-blast",
+    "group": "spell-normal",
+    "label": "Earth Blast",
+    "file": "spell-normal/earth-blast.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-blast-disabled",
+    "group": "spell-normal",
+    "label": "Earth Blast Disabled",
+    "file": "spell-normal/earth-blast-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-bolt",
+    "group": "spell-normal",
+    "label": "Earth Bolt",
+    "file": "spell-normal/earth-bolt.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-bolt-disabled",
+    "group": "spell-normal",
+    "label": "Earth Bolt Disabled",
+    "file": "spell-normal/earth-bolt-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-strike",
+    "group": "spell-normal",
+    "label": "Earth Strike",
+    "file": "spell-normal/earth-strike.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-strike-disabled",
+    "group": "spell-normal",
+    "label": "Earth Strike Disabled",
+    "file": "spell-normal/earth-strike-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-surge",
+    "group": "spell-normal",
+    "label": "Earth Surge",
+    "file": "spell-normal/earth-surge.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-surge-disabled",
+    "group": "spell-normal",
+    "label": "Earth Surge Disabled",
+    "file": "spell-normal/earth-surge-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-wave",
+    "group": "spell-normal",
+    "label": "Earth Wave",
+    "file": "spell-normal/earth-wave.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "earth-wave-disabled",
+    "group": "spell-normal",
+    "label": "Earth Wave Disabled",
+    "file": "spell-normal/earth-wave-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "enchant-crossbow-bolt",
+    "group": "spell-normal",
+    "label": "Enchant Crossbow Bolt",
+    "file": "spell-normal/enchant-crossbow-bolt.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "enchant-crossbow-bolt-disabled",
+    "group": "spell-normal",
+    "label": "Enchant Crossbow Bolt Disabled",
+    "file": "spell-normal/enchant-crossbow-bolt-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "enchant-jewellery",
+    "group": "spell-normal",
+    "label": "Enchant Jewellery",
+    "file": "spell-normal/enchant-jewellery.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "enchant-jewellery-disabled",
+    "group": "spell-normal",
+    "label": "Enchant Jewellery Disabled",
+    "file": "spell-normal/enchant-jewellery-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "enfeeble",
+    "group": "spell-normal",
+    "label": "Enfeeble",
+    "file": "spell-normal/enfeeble.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "enfeeble-disabled",
+    "group": "spell-normal",
+    "label": "Enfeeble Disabled",
+    "file": "spell-normal/enfeeble-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "entangle",
+    "group": "spell-normal",
+    "label": "Entangle",
+    "file": "spell-normal/entangle.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "entangle-disabled",
+    "group": "spell-normal",
+    "label": "Entangle Disabled",
+    "file": "spell-normal/entangle-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "falador-teleport",
+    "group": "spell-normal",
+    "label": "Falador Teleport",
+    "file": "spell-normal/falador-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "falador-teleport-disabled",
+    "group": "spell-normal",
+    "label": "Falador Teleport Disabled",
+    "file": "spell-normal/falador-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-blast",
+    "group": "spell-normal",
+    "label": "Fire Blast",
+    "file": "spell-normal/fire-blast.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-blast-disabled",
+    "group": "spell-normal",
+    "label": "Fire Blast Disabled",
+    "file": "spell-normal/fire-blast-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-bolt",
+    "group": "spell-normal",
+    "label": "Fire Bolt",
+    "file": "spell-normal/fire-bolt.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-bolt-disabled",
+    "group": "spell-normal",
+    "label": "Fire Bolt Disabled",
+    "file": "spell-normal/fire-bolt-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-strike",
+    "group": "spell-normal",
+    "label": "Fire Strike",
+    "file": "spell-normal/fire-strike.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-strike-disabled",
+    "group": "spell-normal",
+    "label": "Fire Strike Disabled",
+    "file": "spell-normal/fire-strike-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-surge",
+    "group": "spell-normal",
+    "label": "Fire Surge",
+    "file": "spell-normal/fire-surge.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-surge-disabled",
+    "group": "spell-normal",
+    "label": "Fire Surge Disabled",
+    "file": "spell-normal/fire-surge-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-wave",
+    "group": "spell-normal",
+    "label": "Fire Wave",
+    "file": "spell-normal/fire-wave.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fire-wave-disabled",
+    "group": "spell-normal",
+    "label": "Fire Wave Disabled",
+    "file": "spell-normal/fire-wave-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "flames-of-zamorak",
+    "group": "spell-normal",
+    "label": "Flames Of Zamorak",
+    "file": "spell-normal/flames-of-zamorak.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "flames-of-zamorak-disabled",
+    "group": "spell-normal",
+    "label": "Flames Of Zamorak Disabled",
+    "file": "spell-normal/flames-of-zamorak-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "high-level-alchemy",
+    "group": "spell-normal",
+    "label": "High Level Alchemy",
+    "file": "spell-normal/high-level-alchemy.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "high-level-alchemy-disabled",
+    "group": "spell-normal",
+    "label": "High Level Alchemy Disabled",
+    "file": "spell-normal/high-level-alchemy-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "iban-blast",
+    "group": "spell-normal",
+    "label": "Iban Blast",
+    "file": "spell-normal/iban-blast.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "iban-blast-disabled",
+    "group": "spell-normal",
+    "label": "Iban Blast Disabled",
+    "file": "spell-normal/iban-blast-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "low-level-alchemy",
+    "group": "spell-normal",
+    "label": "Low Level Alchemy",
+    "file": "spell-normal/low-level-alchemy.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "low-level-alchemy-disabled",
+    "group": "spell-normal",
+    "label": "Low Level Alchemy Disabled",
+    "file": "spell-normal/low-level-alchemy-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lumbridge-home-teleport",
+    "group": "spell-normal",
+    "label": "Lumbridge Home Teleport",
+    "file": "spell-normal/lumbridge-home-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lumbridge-home-teleport-disabled",
+    "group": "spell-normal",
+    "label": "Lumbridge Home Teleport Disabled",
+    "file": "spell-normal/lumbridge-home-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lumbridge-teleport",
+    "group": "spell-normal",
+    "label": "Lumbridge Teleport",
+    "file": "spell-normal/lumbridge-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lumbridge-teleport-disabled",
+    "group": "spell-normal",
+    "label": "Lumbridge Teleport Disabled",
+    "file": "spell-normal/lumbridge-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-1-enchant",
+    "group": "spell-normal",
+    "label": "Lvl 1 Enchant",
+    "file": "spell-normal/lvl-1-enchant.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-1-enchant-disabled",
+    "group": "spell-normal",
+    "label": "Lvl 1 Enchant Disabled",
+    "file": "spell-normal/lvl-1-enchant-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-2-enchant",
+    "group": "spell-normal",
+    "label": "Lvl 2 Enchant",
+    "file": "spell-normal/lvl-2-enchant.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-2-enchant-disabled",
+    "group": "spell-normal",
+    "label": "Lvl 2 Enchant Disabled",
+    "file": "spell-normal/lvl-2-enchant-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-3-enchant",
+    "group": "spell-normal",
+    "label": "Lvl 3 Enchant",
+    "file": "spell-normal/lvl-3-enchant.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-3-enchant-disabled",
+    "group": "spell-normal",
+    "label": "Lvl 3 Enchant Disabled",
+    "file": "spell-normal/lvl-3-enchant-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-4-enchant",
+    "group": "spell-normal",
+    "label": "Lvl 4 Enchant",
+    "file": "spell-normal/lvl-4-enchant.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-4-enchant-disabled",
+    "group": "spell-normal",
+    "label": "Lvl 4 Enchant Disabled",
+    "file": "spell-normal/lvl-4-enchant-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-5-enchant",
+    "group": "spell-normal",
+    "label": "Lvl 5 Enchant",
+    "file": "spell-normal/lvl-5-enchant.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-5-enchant-disabled",
+    "group": "spell-normal",
+    "label": "Lvl 5 Enchant Disabled",
+    "file": "spell-normal/lvl-5-enchant-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-6-enchant",
+    "group": "spell-normal",
+    "label": "Lvl 6 Enchant",
+    "file": "spell-normal/lvl-6-enchant.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-6-enchant-disabled",
+    "group": "spell-normal",
+    "label": "Lvl 6 Enchant Disabled",
+    "file": "spell-normal/lvl-6-enchant-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-7-enchant",
+    "group": "spell-normal",
+    "label": "Lvl 7 Enchant",
+    "file": "spell-normal/lvl-7-enchant.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lvl-7-enchant-disabled",
+    "group": "spell-normal",
+    "label": "Lvl 7 Enchant Disabled",
+    "file": "spell-normal/lvl-7-enchant-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "magic-dart",
+    "group": "spell-normal",
+    "label": "Magic Dart",
+    "file": "spell-normal/magic-dart.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "magic-dart-disabled",
+    "group": "spell-normal",
+    "label": "Magic Dart Disabled",
+    "file": "spell-normal/magic-dart-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "monster-inspect",
+    "group": "spell-normal",
+    "label": "Monster Inspect",
+    "file": "spell-normal/monster-inspect.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "monster-inspect-disabled",
+    "group": "spell-normal",
+    "label": "Monster Inspect Disabled",
+    "file": "spell-normal/monster-inspect-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "saradomin-strike",
+    "group": "spell-normal",
+    "label": "Saradomin Strike",
+    "file": "spell-normal/saradomin-strike.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "saradomin-strike-disabled",
+    "group": "spell-normal",
+    "label": "Saradomin Strike Disabled",
+    "file": "spell-normal/saradomin-strike-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "snare",
+    "group": "spell-normal",
+    "label": "Snare",
+    "file": "spell-normal/snare.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "snare-disabled",
+    "group": "spell-normal",
+    "label": "Snare Disabled",
+    "file": "spell-normal/snare-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "stun",
+    "group": "spell-normal",
+    "label": "Stun",
+    "file": "spell-normal/stun.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "stun-disabled",
+    "group": "spell-normal",
+    "label": "Stun Disabled",
+    "file": "spell-normal/stun-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "superheat-item",
+    "group": "spell-normal",
+    "label": "Superheat Item",
+    "file": "spell-normal/superheat-item.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "superheat-item-disabled",
+    "group": "spell-normal",
+    "label": "Superheat Item Disabled",
+    "file": "spell-normal/superheat-item-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-block",
+    "group": "spell-normal",
+    "label": "Tele Block",
+    "file": "spell-normal/tele-block.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-block-disabled",
+    "group": "spell-normal",
+    "label": "Tele Block Disabled",
+    "file": "spell-normal/tele-block-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "telekinetic-grab",
+    "group": "spell-normal",
+    "label": "Telekinetic Grab",
+    "file": "spell-normal/telekinetic-grab.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "telekinetic-grab-disabled",
+    "group": "spell-normal",
+    "label": "Telekinetic Grab Disabled",
+    "file": "spell-normal/telekinetic-grab-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleother-camelot",
+    "group": "spell-normal",
+    "label": "Teleother Camelot",
+    "file": "spell-normal/teleother-camelot.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleother-camelot-disabled",
+    "group": "spell-normal",
+    "label": "Teleother Camelot Disabled",
+    "file": "spell-normal/teleother-camelot-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleother-falador",
+    "group": "spell-normal",
+    "label": "Teleother Falador",
+    "file": "spell-normal/teleother-falador.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleother-falador-disabled",
+    "group": "spell-normal",
+    "label": "Teleother Falador Disabled",
+    "file": "spell-normal/teleother-falador-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleother-lumbridge",
+    "group": "spell-normal",
+    "label": "Teleother Lumbridge",
+    "file": "spell-normal/teleother-lumbridge.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleother-lumbridge-disabled",
+    "group": "spell-normal",
+    "label": "Teleother Lumbridge Disabled",
+    "file": "spell-normal/teleother-lumbridge-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-boat-to-me",
+    "group": "spell-normal",
+    "label": "Teleport Boat To Me",
+    "file": "spell-normal/teleport-boat-to-me.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-boat-to-me-disabled",
+    "group": "spell-normal",
+    "label": "Teleport Boat To Me Disabled",
+    "file": "spell-normal/teleport-boat-to-me-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-me-to-boat",
+    "group": "spell-normal",
+    "label": "Teleport Me To Boat",
+    "file": "spell-normal/teleport-me-to-boat.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-me-to-boat-disabled",
+    "group": "spell-normal",
+    "label": "Teleport Me To Boat Disabled",
+    "file": "spell-normal/teleport-me-to-boat-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-to-ape-atoll",
+    "group": "spell-normal",
+    "label": "Teleport To Ape Atoll",
+    "file": "spell-normal/teleport-to-ape-atoll.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-to-ape-atoll-disabled",
+    "group": "spell-normal",
+    "label": "Teleport To Ape Atoll Disabled",
+    "file": "spell-normal/teleport-to-ape-atoll-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-to-bounty-target",
+    "group": "spell-normal",
+    "label": "Teleport To Bounty Target",
+    "file": "spell-normal/teleport-to-bounty-target.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-to-bounty-target-disabled",
+    "group": "spell-normal",
+    "label": "Teleport To Bounty Target Disabled",
+    "file": "spell-normal/teleport-to-bounty-target-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-to-house",
+    "group": "spell-normal",
+    "label": "Teleport To House",
+    "file": "spell-normal/teleport-to-house.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-to-house-disabled",
+    "group": "spell-normal",
+    "label": "Teleport To House Disabled",
+    "file": "spell-normal/teleport-to-house-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-to-kourend",
+    "group": "spell-normal",
+    "label": "Teleport To Kourend",
+    "file": "spell-normal/teleport-to-kourend.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "teleport-to-kourend-disabled",
+    "group": "spell-normal",
+    "label": "Teleport To Kourend Disabled",
+    "file": "spell-normal/teleport-to-kourend-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "trollheim-teleport",
+    "group": "spell-normal",
+    "label": "Trollheim Teleport",
+    "file": "spell-normal/trollheim-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "trollheim-teleport-disabled",
+    "group": "spell-normal",
+    "label": "Trollheim Teleport Disabled",
+    "file": "spell-normal/trollheim-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "varrock-teleport",
+    "group": "spell-normal",
+    "label": "Varrock Teleport",
+    "file": "spell-normal/varrock-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "varrock-teleport-disabled",
+    "group": "spell-normal",
+    "label": "Varrock Teleport Disabled",
+    "file": "spell-normal/varrock-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "vulnerability",
+    "group": "spell-normal",
+    "label": "Vulnerability",
+    "file": "spell-normal/vulnerability.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "vulnerability-disabled",
+    "group": "spell-normal",
+    "label": "Vulnerability Disabled",
+    "file": "spell-normal/vulnerability-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "watchtower-teleport",
+    "group": "spell-normal",
+    "label": "Watchtower Teleport",
+    "file": "spell-normal/watchtower-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "watchtower-teleport-disabled",
+    "group": "spell-normal",
+    "label": "Watchtower Teleport Disabled",
+    "file": "spell-normal/watchtower-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-blast",
+    "group": "spell-normal",
+    "label": "Water Blast",
+    "file": "spell-normal/water-blast.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-blast-disabled",
+    "group": "spell-normal",
+    "label": "Water Blast Disabled",
+    "file": "spell-normal/water-blast-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-bolt",
+    "group": "spell-normal",
+    "label": "Water Bolt",
+    "file": "spell-normal/water-bolt.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-bolt-disabled",
+    "group": "spell-normal",
+    "label": "Water Bolt Disabled",
+    "file": "spell-normal/water-bolt-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-strike",
+    "group": "spell-normal",
+    "label": "Water Strike",
+    "file": "spell-normal/water-strike.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-strike-disabled",
+    "group": "spell-normal",
+    "label": "Water Strike Disabled",
+    "file": "spell-normal/water-strike-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-surge",
+    "group": "spell-normal",
+    "label": "Water Surge",
+    "file": "spell-normal/water-surge.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-surge-disabled",
+    "group": "spell-normal",
+    "label": "Water Surge Disabled",
+    "file": "spell-normal/water-surge-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-wave",
+    "group": "spell-normal",
+    "label": "Water Wave",
+    "file": "spell-normal/water-wave.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "water-wave-disabled",
+    "group": "spell-normal",
+    "label": "Water Wave Disabled",
+    "file": "spell-normal/water-wave-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "weaken",
+    "group": "spell-normal",
+    "label": "Weaken",
+    "file": "spell-normal/weaken.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "weaken-disabled",
+    "group": "spell-normal",
+    "label": "Weaken Disabled",
+    "file": "spell-normal/weaken-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-blast",
+    "group": "spell-normal",
+    "label": "Wind Blast",
+    "file": "spell-normal/wind-blast.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-blast-disabled",
+    "group": "spell-normal",
+    "label": "Wind Blast Disabled",
+    "file": "spell-normal/wind-blast-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-bolt",
+    "group": "spell-normal",
+    "label": "Wind Bolt",
+    "file": "spell-normal/wind-bolt.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-bolt-disabled",
+    "group": "spell-normal",
+    "label": "Wind Bolt Disabled",
+    "file": "spell-normal/wind-bolt-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-strike",
+    "group": "spell-normal",
+    "label": "Wind Strike",
+    "file": "spell-normal/wind-strike.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-strike-disabled",
+    "group": "spell-normal",
+    "label": "Wind Strike Disabled",
+    "file": "spell-normal/wind-strike-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-surge",
+    "group": "spell-normal",
+    "label": "Wind Surge",
+    "file": "spell-normal/wind-surge.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-surge-disabled",
+    "group": "spell-normal",
+    "label": "Wind Surge Disabled",
+    "file": "spell-normal/wind-surge-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-wave",
+    "group": "spell-normal",
+    "label": "Wind Wave",
+    "file": "spell-normal/wind-wave.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "wind-wave-disabled",
+    "group": "spell-normal",
+    "label": "Wind Wave Disabled",
+    "file": "spell-normal/wind-wave-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "annakarl-teleport",
+    "group": "spell-ancient",
+    "label": "Annakarl Teleport",
+    "file": "spell-ancient/annakarl-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "annakarl-teleport-disabled",
+    "group": "spell-ancient",
+    "label": "Annakarl Teleport Disabled",
+    "file": "spell-ancient/annakarl-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "blood-barrage",
+    "group": "spell-ancient",
+    "label": "Blood Barrage",
+    "file": "spell-ancient/blood-barrage.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "blood-barrage-disabled",
+    "group": "spell-ancient",
+    "label": "Blood Barrage Disabled",
+    "file": "spell-ancient/blood-barrage-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "blood-blitz",
+    "group": "spell-ancient",
+    "label": "Blood Blitz",
+    "file": "spell-ancient/blood-blitz.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "blood-blitz-disabled",
+    "group": "spell-ancient",
+    "label": "Blood Blitz Disabled",
+    "file": "spell-ancient/blood-blitz-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "blood-burst",
+    "group": "spell-ancient",
+    "label": "Blood Burst",
+    "file": "spell-ancient/blood-burst.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "blood-burst-disabled",
+    "group": "spell-ancient",
+    "label": "Blood Burst Disabled",
+    "file": "spell-ancient/blood-burst-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "blood-rush",
+    "group": "spell-ancient",
+    "label": "Blood Rush",
+    "file": "spell-ancient/blood-rush.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "blood-rush-disabled",
+    "group": "spell-ancient",
+    "label": "Blood Rush Disabled",
+    "file": "spell-ancient/blood-rush-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "carrallangar-teleport",
+    "group": "spell-ancient",
+    "label": "Carrallangar Teleport",
+    "file": "spell-ancient/carrallangar-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "carrallangar-teleport-disabled",
+    "group": "spell-ancient",
+    "label": "Carrallangar Teleport Disabled",
+    "file": "spell-ancient/carrallangar-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "dareeyak-teleport",
+    "group": "spell-ancient",
+    "label": "Dareeyak Teleport",
+    "file": "spell-ancient/dareeyak-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "dareeyak-teleport-disabled",
+    "group": "spell-ancient",
+    "label": "Dareeyak Teleport Disabled",
+    "file": "spell-ancient/dareeyak-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ghorrock-teleport",
+    "group": "spell-ancient",
+    "label": "Ghorrock Teleport",
+    "file": "spell-ancient/ghorrock-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ghorrock-teleport-disabled",
+    "group": "spell-ancient",
+    "label": "Ghorrock Teleport Disabled",
+    "file": "spell-ancient/ghorrock-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-barrage",
+    "group": "spell-ancient",
+    "label": "Ice Barrage",
+    "file": "spell-ancient/ice-barrage.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-barrage-disabled",
+    "group": "spell-ancient",
+    "label": "Ice Barrage Disabled",
+    "file": "spell-ancient/ice-barrage-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-blitz",
+    "group": "spell-ancient",
+    "label": "Ice Blitz",
+    "file": "spell-ancient/ice-blitz.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-blitz-disabled",
+    "group": "spell-ancient",
+    "label": "Ice Blitz Disabled",
+    "file": "spell-ancient/ice-blitz-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-burst",
+    "group": "spell-ancient",
+    "label": "Ice Burst",
+    "file": "spell-ancient/ice-burst.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-burst-disabled",
+    "group": "spell-ancient",
+    "label": "Ice Burst Disabled",
+    "file": "spell-ancient/ice-burst-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-rush",
+    "group": "spell-ancient",
+    "label": "Ice Rush",
+    "file": "spell-ancient/ice-rush.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-rush-disabled",
+    "group": "spell-ancient",
+    "label": "Ice Rush Disabled",
+    "file": "spell-ancient/ice-rush-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "kharyrll-teleport",
+    "group": "spell-ancient",
+    "label": "Kharyrll Teleport",
+    "file": "spell-ancient/kharyrll-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "kharyrll-teleport-disabled",
+    "group": "spell-ancient",
+    "label": "Kharyrll Teleport Disabled",
+    "file": "spell-ancient/kharyrll-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lassar-teleport",
+    "group": "spell-ancient",
+    "label": "Lassar Teleport",
+    "file": "spell-ancient/lassar-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lassar-teleport-disabled",
+    "group": "spell-ancient",
+    "label": "Lassar Teleport Disabled",
+    "file": "spell-ancient/lassar-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "paddewwa-teleport",
+    "group": "spell-ancient",
+    "label": "Paddewwa Teleport",
+    "file": "spell-ancient/paddewwa-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "paddewwa-teleport-disabled",
+    "group": "spell-ancient",
+    "label": "Paddewwa Teleport Disabled",
+    "file": "spell-ancient/paddewwa-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "senntisten-teleport",
+    "group": "spell-ancient",
+    "label": "Senntisten Teleport",
+    "file": "spell-ancient/senntisten-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "senntisten-teleport-disabled",
+    "group": "spell-ancient",
+    "label": "Senntisten Teleport Disabled",
+    "file": "spell-ancient/senntisten-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-barrage",
+    "group": "spell-ancient",
+    "label": "Shadow Barrage",
+    "file": "spell-ancient/shadow-barrage.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-barrage-disabled",
+    "group": "spell-ancient",
+    "label": "Shadow Barrage Disabled",
+    "file": "spell-ancient/shadow-barrage-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-blitz",
+    "group": "spell-ancient",
+    "label": "Shadow Blitz",
+    "file": "spell-ancient/shadow-blitz.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-blitz-disabled",
+    "group": "spell-ancient",
+    "label": "Shadow Blitz Disabled",
+    "file": "spell-ancient/shadow-blitz-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-burst",
+    "group": "spell-ancient",
+    "label": "Shadow Burst",
+    "file": "spell-ancient/shadow-burst.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-burst-disabled",
+    "group": "spell-ancient",
+    "label": "Shadow Burst Disabled",
+    "file": "spell-ancient/shadow-burst-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-rush",
+    "group": "spell-ancient",
+    "label": "Shadow Rush",
+    "file": "spell-ancient/shadow-rush.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-rush-disabled",
+    "group": "spell-ancient",
+    "label": "Shadow Rush Disabled",
+    "file": "spell-ancient/shadow-rush-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "smoke-barrage",
+    "group": "spell-ancient",
+    "label": "Smoke Barrage",
+    "file": "spell-ancient/smoke-barrage.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "smoke-barrage-disabled",
+    "group": "spell-ancient",
+    "label": "Smoke Barrage Disabled",
+    "file": "spell-ancient/smoke-barrage-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "smoke-blitz",
+    "group": "spell-ancient",
+    "label": "Smoke Blitz",
+    "file": "spell-ancient/smoke-blitz.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "smoke-blitz-disabled",
+    "group": "spell-ancient",
+    "label": "Smoke Blitz Disabled",
+    "file": "spell-ancient/smoke-blitz-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "smoke-burst",
+    "group": "spell-ancient",
+    "label": "Smoke Burst",
+    "file": "spell-ancient/smoke-burst.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "smoke-burst-disabled",
+    "group": "spell-ancient",
+    "label": "Smoke Burst Disabled",
+    "file": "spell-ancient/smoke-burst-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "smoke-rush",
+    "group": "spell-ancient",
+    "label": "Smoke Rush",
+    "file": "spell-ancient/smoke-rush.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "smoke-rush-disabled",
+    "group": "spell-ancient",
+    "label": "Smoke Rush Disabled",
+    "file": "spell-ancient/smoke-rush-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "bake-pie",
+    "group": "spell-lunar",
+    "label": "Bake Pie",
+    "file": "spell-lunar/bake-pie.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "bake-pie-disabled",
+    "group": "spell-lunar",
+    "label": "Bake Pie Disabled",
+    "file": "spell-lunar/bake-pie-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "barbarian-teleport",
+    "group": "spell-lunar",
+    "label": "Barbarian Teleport",
+    "file": "spell-lunar/barbarian-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "barbarian-teleport-disabled",
+    "group": "spell-lunar",
+    "label": "Barbarian Teleport Disabled",
+    "file": "spell-lunar/barbarian-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "boost-potion-share",
+    "group": "spell-lunar",
+    "label": "Boost Potion Share",
+    "file": "spell-lunar/boost-potion-share.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "boost-potion-share-disabled",
+    "group": "spell-lunar",
+    "label": "Boost Potion Share Disabled",
+    "file": "spell-lunar/boost-potion-share-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "catherby-teleport",
+    "group": "spell-lunar",
+    "label": "Catherby Teleport",
+    "file": "spell-lunar/catherby-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "catherby-teleport-disabled",
+    "group": "spell-lunar",
+    "label": "Catherby Teleport Disabled",
+    "file": "spell-lunar/catherby-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cure-group",
+    "group": "spell-lunar",
+    "label": "Cure Group",
+    "file": "spell-lunar/cure-group.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cure-group-disabled",
+    "group": "spell-lunar",
+    "label": "Cure Group Disabled",
+    "file": "spell-lunar/cure-group-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cure-me",
+    "group": "spell-lunar",
+    "label": "Cure Me",
+    "file": "spell-lunar/cure-me.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cure-me-disabled",
+    "group": "spell-lunar",
+    "label": "Cure Me Disabled",
+    "file": "spell-lunar/cure-me-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cure-other",
+    "group": "spell-lunar",
+    "label": "Cure Other",
+    "file": "spell-lunar/cure-other.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cure-other-disabled",
+    "group": "spell-lunar",
+    "label": "Cure Other Disabled",
+    "file": "spell-lunar/cure-other-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cure-plant",
+    "group": "spell-lunar",
+    "label": "Cure Plant",
+    "file": "spell-lunar/cure-plant.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cure-plant-disabled",
+    "group": "spell-lunar",
+    "label": "Cure Plant Disabled",
+    "file": "spell-lunar/cure-plant-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "dream",
+    "group": "spell-lunar",
+    "label": "Dream",
+    "file": "spell-lunar/dream.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "dream-disabled",
+    "group": "spell-lunar",
+    "label": "Dream Disabled",
+    "file": "spell-lunar/dream-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "energy-transfer",
+    "group": "spell-lunar",
+    "label": "Energy Transfer",
+    "file": "spell-lunar/energy-transfer.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "energy-transfer-disabled",
+    "group": "spell-lunar",
+    "label": "Energy Transfer Disabled",
+    "file": "spell-lunar/energy-transfer-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fertile-soil",
+    "group": "spell-lunar",
+    "label": "Fertile Soil",
+    "file": "spell-lunar/fertile-soil.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fertile-soil-disabled",
+    "group": "spell-lunar",
+    "label": "Fertile Soil Disabled",
+    "file": "spell-lunar/fertile-soil-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fishing-guild-teleport",
+    "group": "spell-lunar",
+    "label": "Fishing Guild Teleport",
+    "file": "spell-lunar/fishing-guild-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fishing-guild-teleport-disabled",
+    "group": "spell-lunar",
+    "label": "Fishing Guild Teleport Disabled",
+    "file": "spell-lunar/fishing-guild-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "geomancy",
+    "group": "spell-lunar",
+    "label": "Geomancy",
+    "file": "spell-lunar/geomancy.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "geomancy-disabled",
+    "group": "spell-lunar",
+    "label": "Geomancy Disabled",
+    "file": "spell-lunar/geomancy-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "heal-group",
+    "group": "spell-lunar",
+    "label": "Heal Group",
+    "file": "spell-lunar/heal-group.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "heal-group-disabled",
+    "group": "spell-lunar",
+    "label": "Heal Group Disabled",
+    "file": "spell-lunar/heal-group-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "heal-other",
+    "group": "spell-lunar",
+    "label": "Heal Other",
+    "file": "spell-lunar/heal-other.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "heal-other-disabled",
+    "group": "spell-lunar",
+    "label": "Heal Other Disabled",
+    "file": "spell-lunar/heal-other-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "humidify",
+    "group": "spell-lunar",
+    "label": "Humidify",
+    "file": "spell-lunar/humidify.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "humidify-disabled",
+    "group": "spell-lunar",
+    "label": "Humidify Disabled",
+    "file": "spell-lunar/humidify-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "hunter-kit",
+    "group": "spell-lunar",
+    "label": "Hunter Kit",
+    "file": "spell-lunar/hunter-kit.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "hunter-kit-disabled",
+    "group": "spell-lunar",
+    "label": "Hunter Kit Disabled",
+    "file": "spell-lunar/hunter-kit-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-plateau-teleport",
+    "group": "spell-lunar",
+    "label": "Ice Plateau Teleport",
+    "file": "spell-lunar/ice-plateau-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ice-plateau-teleport-disabled",
+    "group": "spell-lunar",
+    "label": "Ice Plateau Teleport Disabled",
+    "file": "spell-lunar/ice-plateau-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "khazard-teleport",
+    "group": "spell-lunar",
+    "label": "Khazard Teleport",
+    "file": "spell-lunar/khazard-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "khazard-teleport-disabled",
+    "group": "spell-lunar",
+    "label": "Khazard Teleport Disabled",
+    "file": "spell-lunar/khazard-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "magic-imbue",
+    "group": "spell-lunar",
+    "label": "Magic Imbue",
+    "file": "spell-lunar/magic-imbue.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "magic-imbue-disabled",
+    "group": "spell-lunar",
+    "label": "Magic Imbue Disabled",
+    "file": "spell-lunar/magic-imbue-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "monster-examine",
+    "group": "spell-lunar",
+    "label": "Monster Examine",
+    "file": "spell-lunar/monster-examine.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "monster-examine-disabled",
+    "group": "spell-lunar",
+    "label": "Monster Examine Disabled",
+    "file": "spell-lunar/monster-examine-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "moonclan-teleport",
+    "group": "spell-lunar",
+    "label": "Moonclan Teleport",
+    "file": "spell-lunar/moonclan-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "moonclan-teleport-disabled",
+    "group": "spell-lunar",
+    "label": "Moonclan Teleport Disabled",
+    "file": "spell-lunar/moonclan-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "npc-contact",
+    "group": "spell-lunar",
+    "label": "Npc Contact",
+    "file": "spell-lunar/npc-contact.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "npc-contact-disabled",
+    "group": "spell-lunar",
+    "label": "Npc Contact Disabled",
+    "file": "spell-lunar/npc-contact-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ourania-teleport",
+    "group": "spell-lunar",
+    "label": "Ourania Teleport",
+    "file": "spell-lunar/ourania-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ourania-teleport-disabled",
+    "group": "spell-lunar",
+    "label": "Ourania Teleport Disabled",
+    "file": "spell-lunar/ourania-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "plank-make",
+    "group": "spell-lunar",
+    "label": "Plank Make",
+    "file": "spell-lunar/plank-make.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "plank-make-disabled",
+    "group": "spell-lunar",
+    "label": "Plank Make Disabled",
+    "file": "spell-lunar/plank-make-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "recharge-dragonstone",
+    "group": "spell-lunar",
+    "label": "Recharge Dragonstone",
+    "file": "spell-lunar/recharge-dragonstone.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "recharge-dragonstone-disabled",
+    "group": "spell-lunar",
+    "label": "Recharge Dragonstone Disabled",
+    "file": "spell-lunar/recharge-dragonstone-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "spellbook-swap",
+    "group": "spell-lunar",
+    "label": "Spellbook Swap",
+    "file": "spell-lunar/spellbook-swap.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "spellbook-swap-disabled",
+    "group": "spell-lunar",
+    "label": "Spellbook Swap Disabled",
+    "file": "spell-lunar/spellbook-swap-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "spin-flax",
+    "group": "spell-lunar",
+    "label": "Spin Flax",
+    "file": "spell-lunar/spin-flax.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "spin-flax-disabled",
+    "group": "spell-lunar",
+    "label": "Spin Flax Disabled",
+    "file": "spell-lunar/spin-flax-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "stat-restore-pot-share",
+    "group": "spell-lunar",
+    "label": "Stat Restore Pot Share",
+    "file": "spell-lunar/stat-restore-pot-share.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "stat-restore-pot-share-disabled",
+    "group": "spell-lunar",
+    "label": "Stat Restore Pot Share Disabled",
+    "file": "spell-lunar/stat-restore-pot-share-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "stat-spy",
+    "group": "spell-lunar",
+    "label": "Stat Spy",
+    "file": "spell-lunar/stat-spy.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "stat-spy-disabled",
+    "group": "spell-lunar",
+    "label": "Stat Spy Disabled",
+    "file": "spell-lunar/stat-spy-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "string-jewellery",
+    "group": "spell-lunar",
+    "label": "String Jewellery",
+    "file": "spell-lunar/string-jewellery.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "string-jewellery-disabled",
+    "group": "spell-lunar",
+    "label": "String Jewellery Disabled",
+    "file": "spell-lunar/string-jewellery-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "superglass-make",
+    "group": "spell-lunar",
+    "label": "Superglass Make",
+    "file": "spell-lunar/superglass-make.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "superglass-make-disabled",
+    "group": "spell-lunar",
+    "label": "Superglass Make Disabled",
+    "file": "spell-lunar/superglass-make-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tan-leather",
+    "group": "spell-lunar",
+    "label": "Tan Leather",
+    "file": "spell-lunar/tan-leather.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tan-leather-disabled",
+    "group": "spell-lunar",
+    "label": "Tan Leather Disabled",
+    "file": "spell-lunar/tan-leather-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-barbarian",
+    "group": "spell-lunar",
+    "label": "Tele Group Barbarian",
+    "file": "spell-lunar/tele-group-barbarian.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-barbarian-disabled",
+    "group": "spell-lunar",
+    "label": "Tele Group Barbarian Disabled",
+    "file": "spell-lunar/tele-group-barbarian-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-catherby",
+    "group": "spell-lunar",
+    "label": "Tele Group Catherby",
+    "file": "spell-lunar/tele-group-catherby.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-catherby-disabled",
+    "group": "spell-lunar",
+    "label": "Tele Group Catherby Disabled",
+    "file": "spell-lunar/tele-group-catherby-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-fishing-guild",
+    "group": "spell-lunar",
+    "label": "Tele Group Fishing Guild",
+    "file": "spell-lunar/tele-group-fishing-guild.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-fishing-guild-disabled",
+    "group": "spell-lunar",
+    "label": "Tele Group Fishing Guild Disabled",
+    "file": "spell-lunar/tele-group-fishing-guild-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-ice-plateau",
+    "group": "spell-lunar",
+    "label": "Tele Group Ice Plateau",
+    "file": "spell-lunar/tele-group-ice-plateau.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-ice-plateau-disabled",
+    "group": "spell-lunar",
+    "label": "Tele Group Ice Plateau Disabled",
+    "file": "spell-lunar/tele-group-ice-plateau-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-khazard",
+    "group": "spell-lunar",
+    "label": "Tele Group Khazard",
+    "file": "spell-lunar/tele-group-khazard.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-khazard-disabled",
+    "group": "spell-lunar",
+    "label": "Tele Group Khazard Disabled",
+    "file": "spell-lunar/tele-group-khazard-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-moonclan",
+    "group": "spell-lunar",
+    "label": "Tele Group Moonclan",
+    "file": "spell-lunar/tele-group-moonclan.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-moonclan-disabled",
+    "group": "spell-lunar",
+    "label": "Tele Group Moonclan Disabled",
+    "file": "spell-lunar/tele-group-moonclan-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-waterbirth",
+    "group": "spell-lunar",
+    "label": "Tele Group Waterbirth",
+    "file": "spell-lunar/tele-group-waterbirth.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tele-group-waterbirth-disabled",
+    "group": "spell-lunar",
+    "label": "Tele Group Waterbirth Disabled",
+    "file": "spell-lunar/tele-group-waterbirth-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "vengeance",
+    "group": "spell-lunar",
+    "label": "Vengeance",
+    "file": "spell-lunar/vengeance.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "vengeance-disabled",
+    "group": "spell-lunar",
+    "label": "Vengeance Disabled",
+    "file": "spell-lunar/vengeance-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "vengeance-other",
+    "group": "spell-lunar",
+    "label": "Vengeance Other",
+    "file": "spell-lunar/vengeance-other.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "vengeance-other-disabled",
+    "group": "spell-lunar",
+    "label": "Vengeance Other Disabled",
+    "file": "spell-lunar/vengeance-other-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "waterbirth-teleport",
+    "group": "spell-lunar",
+    "label": "Waterbirth Teleport",
+    "file": "spell-lunar/waterbirth-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "waterbirth-teleport-disabled",
+    "group": "spell-lunar",
+    "label": "Waterbirth Teleport Disabled",
+    "file": "spell-lunar/waterbirth-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "adept-reanimation",
+    "group": "spell-arceuus",
+    "label": "Adept Reanimation",
+    "file": "spell-arceuus/adept-reanimation.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "adept-reanimation-disabled",
+    "group": "spell-arceuus",
+    "label": "Adept Reanimation Disabled",
+    "file": "spell-arceuus/adept-reanimation-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ape-atoll-teleport",
+    "group": "spell-arceuus",
+    "label": "Ape Atoll Teleport",
+    "file": "spell-arceuus/ape-atoll-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ape-atoll-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Ape Atoll Teleport Disabled",
+    "file": "spell-arceuus/ape-atoll-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "arceuus-library-teleport",
+    "group": "spell-arceuus",
+    "label": "Arceuus Library Teleport",
+    "file": "spell-arceuus/arceuus-library-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "arceuus-library-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Arceuus Library Teleport Disabled",
+    "file": "spell-arceuus/arceuus-library-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "barrows-teleport",
+    "group": "spell-arceuus",
+    "label": "Barrows Teleport",
+    "file": "spell-arceuus/barrows-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "barrows-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Barrows Teleport Disabled",
+    "file": "spell-arceuus/barrows-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "basic-reanimation",
+    "group": "spell-arceuus",
+    "label": "Basic Reanimation",
+    "file": "spell-arceuus/basic-reanimation.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "basic-reanimation-disabled",
+    "group": "spell-arceuus",
+    "label": "Basic Reanimation Disabled",
+    "file": "spell-arceuus/basic-reanimation-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "battlefront-teleport",
+    "group": "spell-arceuus",
+    "label": "Battlefront Teleport",
+    "file": "spell-arceuus/battlefront-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "battlefront-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Battlefront Teleport Disabled",
+    "file": "spell-arceuus/battlefront-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cemetary-teleport",
+    "group": "spell-arceuus",
+    "label": "Cemetary Teleport",
+    "file": "spell-arceuus/cemetary-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cemetary-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Cemetary Teleport Disabled",
+    "file": "spell-arceuus/cemetary-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "dark-demonbane",
+    "group": "spell-arceuus",
+    "label": "Dark Demonbane",
+    "file": "spell-arceuus/dark-demonbane.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "dark-demonbane-disabled",
+    "group": "spell-arceuus",
+    "label": "Dark Demonbane Disabled",
+    "file": "spell-arceuus/dark-demonbane-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "dark-lure",
+    "group": "spell-arceuus",
+    "label": "Dark Lure",
+    "file": "spell-arceuus/dark-lure.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "dark-lure-disabled",
+    "group": "spell-arceuus",
+    "label": "Dark Lure Disabled",
+    "file": "spell-arceuus/dark-lure-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "death-charge",
+    "group": "spell-arceuus",
+    "label": "Death Charge",
+    "file": "spell-arceuus/death-charge.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "death-charge-disabled",
+    "group": "spell-arceuus",
+    "label": "Death Charge Disabled",
+    "file": "spell-arceuus/death-charge-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "degrime",
+    "group": "spell-arceuus",
+    "label": "Degrime",
+    "file": "spell-arceuus/degrime.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "degrime-disabled",
+    "group": "spell-arceuus",
+    "label": "Degrime Disabled",
+    "file": "spell-arceuus/degrime-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "demonic-offering",
+    "group": "spell-arceuus",
+    "label": "Demonic Offering",
+    "file": "spell-arceuus/demonic-offering.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "demonic-offering-disabled",
+    "group": "spell-arceuus",
+    "label": "Demonic Offering Disabled",
+    "file": "spell-arceuus/demonic-offering-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "draynor-manor-teleport",
+    "group": "spell-arceuus",
+    "label": "Draynor Manor Teleport",
+    "file": "spell-arceuus/draynor-manor-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "draynor-manor-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Draynor Manor Teleport Disabled",
+    "file": "spell-arceuus/draynor-manor-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "expert-reanimation",
+    "group": "spell-arceuus",
+    "label": "Expert Reanimation",
+    "file": "spell-arceuus/expert-reanimation.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "expert-reanimation-disabled",
+    "group": "spell-arceuus",
+    "label": "Expert Reanimation Disabled",
+    "file": "spell-arceuus/expert-reanimation-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fenkenstrains-castle-teleport",
+    "group": "spell-arceuus",
+    "label": "Fenkenstrains Castle Teleport",
+    "file": "spell-arceuus/fenkenstrains-castle-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "fenkenstrains-castle-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Fenkenstrains Castle Teleport Disabled",
+    "file": "spell-arceuus/fenkenstrains-castle-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ghostly-grasp",
+    "group": "spell-arceuus",
+    "label": "Ghostly Grasp",
+    "file": "spell-arceuus/ghostly-grasp.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ghostly-grasp-disabled",
+    "group": "spell-arceuus",
+    "label": "Ghostly Grasp Disabled",
+    "file": "spell-arceuus/ghostly-grasp-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "greater-corruption",
+    "group": "spell-arceuus",
+    "label": "Greater Corruption",
+    "file": "spell-arceuus/greater-corruption.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "greater-corruption-disabled",
+    "group": "spell-arceuus",
+    "label": "Greater Corruption Disabled",
+    "file": "spell-arceuus/greater-corruption-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "harmony-island-teleport",
+    "group": "spell-arceuus",
+    "label": "Harmony Island Teleport",
+    "file": "spell-arceuus/harmony-island-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "harmony-island-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Harmony Island Teleport Disabled",
+    "file": "spell-arceuus/harmony-island-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "home-teleport",
+    "group": "spell-arceuus",
+    "label": "Home Teleport",
+    "file": "spell-arceuus/home-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "home-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Home Teleport Disabled",
+    "file": "spell-arceuus/home-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "inferior-demonbane",
+    "group": "spell-arceuus",
+    "label": "Inferior Demonbane",
+    "file": "spell-arceuus/inferior-demonbane.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "inferior-demonbane-disabled",
+    "group": "spell-arceuus",
+    "label": "Inferior Demonbane Disabled",
+    "file": "spell-arceuus/inferior-demonbane-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lesser-corruption",
+    "group": "spell-arceuus",
+    "label": "Lesser Corruption",
+    "file": "spell-arceuus/lesser-corruption.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "lesser-corruption-disabled",
+    "group": "spell-arceuus",
+    "label": "Lesser Corruption Disabled",
+    "file": "spell-arceuus/lesser-corruption-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "mark-of-darkness",
+    "group": "spell-arceuus",
+    "label": "Mark Of Darkness",
+    "file": "spell-arceuus/mark-of-darkness.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "mark-of-darkness-disabled",
+    "group": "spell-arceuus",
+    "label": "Mark Of Darkness Disabled",
+    "file": "spell-arceuus/mark-of-darkness-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "master-reanimation",
+    "group": "spell-arceuus",
+    "label": "Master Reanimation",
+    "file": "spell-arceuus/master-reanimation.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "master-reanimation-disabled",
+    "group": "spell-arceuus",
+    "label": "Master Reanimation Disabled",
+    "file": "spell-arceuus/master-reanimation-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "mind-altar-teleport",
+    "group": "spell-arceuus",
+    "label": "Mind Altar Teleport",
+    "file": "spell-arceuus/mind-altar-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "mind-altar-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Mind Altar Teleport Disabled",
+    "file": "spell-arceuus/mind-altar-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "reanimate-crops",
+    "group": "spell-arceuus",
+    "label": "Reanimate Crops",
+    "file": "spell-arceuus/reanimate-crops.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "reanimate-crops-disabled",
+    "group": "spell-arceuus",
+    "label": "Reanimate Crops Disabled",
+    "file": "spell-arceuus/reanimate-crops-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "respawn-teleport",
+    "group": "spell-arceuus",
+    "label": "Respawn Teleport",
+    "file": "spell-arceuus/respawn-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "respawn-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Respawn Teleport Disabled",
+    "file": "spell-arceuus/respawn-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-greater-ghost",
+    "group": "spell-arceuus",
+    "label": "Ressurect Greater Ghost",
+    "file": "spell-arceuus/ressurect-greater-ghost.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-greater-ghost-disabled",
+    "group": "spell-arceuus",
+    "label": "Ressurect Greater Ghost Disabled",
+    "file": "spell-arceuus/ressurect-greater-ghost-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-greater-skeleton",
+    "group": "spell-arceuus",
+    "label": "Ressurect Greater Skeleton",
+    "file": "spell-arceuus/ressurect-greater-skeleton.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-greater-skeleton-disabled",
+    "group": "spell-arceuus",
+    "label": "Ressurect Greater Skeleton Disabled",
+    "file": "spell-arceuus/ressurect-greater-skeleton-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-greater-zombie",
+    "group": "spell-arceuus",
+    "label": "Ressurect Greater Zombie",
+    "file": "spell-arceuus/ressurect-greater-zombie.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-greater-zombie-disabled",
+    "group": "spell-arceuus",
+    "label": "Ressurect Greater Zombie Disabled",
+    "file": "spell-arceuus/ressurect-greater-zombie-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-lesser-ghost",
+    "group": "spell-arceuus",
+    "label": "Ressurect Lesser Ghost",
+    "file": "spell-arceuus/ressurect-lesser-ghost.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-lesser-ghost-disabled",
+    "group": "spell-arceuus",
+    "label": "Ressurect Lesser Ghost Disabled",
+    "file": "spell-arceuus/ressurect-lesser-ghost-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-lesser-skeleton",
+    "group": "spell-arceuus",
+    "label": "Ressurect Lesser Skeleton",
+    "file": "spell-arceuus/ressurect-lesser-skeleton.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-lesser-skeleton-disabled",
+    "group": "spell-arceuus",
+    "label": "Ressurect Lesser Skeleton Disabled",
+    "file": "spell-arceuus/ressurect-lesser-skeleton-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-lesser-zombie",
+    "group": "spell-arceuus",
+    "label": "Ressurect Lesser Zombie",
+    "file": "spell-arceuus/ressurect-lesser-zombie.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-lesser-zombie-disabled",
+    "group": "spell-arceuus",
+    "label": "Ressurect Lesser Zombie Disabled",
+    "file": "spell-arceuus/ressurect-lesser-zombie-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-superior-ghost",
+    "group": "spell-arceuus",
+    "label": "Ressurect Superior Ghost",
+    "file": "spell-arceuus/ressurect-superior-ghost.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-superior-ghost-disabled",
+    "group": "spell-arceuus",
+    "label": "Ressurect Superior Ghost Disabled",
+    "file": "spell-arceuus/ressurect-superior-ghost-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-superior-skeleton",
+    "group": "spell-arceuus",
+    "label": "Ressurect Superior Skeleton",
+    "file": "spell-arceuus/ressurect-superior-skeleton.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-superior-skeleton-disabled",
+    "group": "spell-arceuus",
+    "label": "Ressurect Superior Skeleton Disabled",
+    "file": "spell-arceuus/ressurect-superior-skeleton-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-superior-zombie",
+    "group": "spell-arceuus",
+    "label": "Ressurect Superior Zombie",
+    "file": "spell-arceuus/ressurect-superior-zombie.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ressurect-superior-zombie-disabled",
+    "group": "spell-arceuus",
+    "label": "Ressurect Superior Zombie Disabled",
+    "file": "spell-arceuus/ressurect-superior-zombie-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "salve-graveyard-teleport",
+    "group": "spell-arceuus",
+    "label": "Salve Graveyard Teleport",
+    "file": "spell-arceuus/salve-graveyard-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "salve-graveyard-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "Salve Graveyard Teleport Disabled",
+    "file": "spell-arceuus/salve-graveyard-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-veil",
+    "group": "spell-arceuus",
+    "label": "Shadow Veil",
+    "file": "spell-arceuus/shadow-veil.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "shadow-veil-disabled",
+    "group": "spell-arceuus",
+    "label": "Shadow Veil Disabled",
+    "file": "spell-arceuus/shadow-veil-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "sinister-offering",
+    "group": "spell-arceuus",
+    "label": "Sinister Offering",
+    "file": "spell-arceuus/sinister-offering.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "sinister-offering-disabled",
+    "group": "spell-arceuus",
+    "label": "Sinister Offering Disabled",
+    "file": "spell-arceuus/sinister-offering-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "skeletal-grasp",
+    "group": "spell-arceuus",
+    "label": "Skeletal Grasp",
+    "file": "spell-arceuus/skeletal-grasp.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "skeletal-grasp-disabled",
+    "group": "spell-arceuus",
+    "label": "Skeletal Grasp Disabled",
+    "file": "spell-arceuus/skeletal-grasp-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "superior-demonbane",
+    "group": "spell-arceuus",
+    "label": "Superior Demonbane",
+    "file": "spell-arceuus/superior-demonbane.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "superior-demonbane-disabled",
+    "group": "spell-arceuus",
+    "label": "Superior Demonbane Disabled",
+    "file": "spell-arceuus/superior-demonbane-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "undead-grasp",
+    "group": "spell-arceuus",
+    "label": "Undead Grasp",
+    "file": "spell-arceuus/undead-grasp.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "undead-grasp-disabled",
+    "group": "spell-arceuus",
+    "label": "Undead Grasp Disabled",
+    "file": "spell-arceuus/undead-grasp-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "vile-vigour",
+    "group": "spell-arceuus",
+    "label": "Vile Vigour",
+    "file": "spell-arceuus/vile-vigour.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "vile-vigour-disabled",
+    "group": "spell-arceuus",
+    "label": "Vile Vigour Disabled",
+    "file": "spell-arceuus/vile-vigour-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ward-of-arceuus",
+    "group": "spell-arceuus",
+    "label": "Ward Of Arceuus",
+    "file": "spell-arceuus/ward-of-arceuus.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "ward-of-arceuus-disabled",
+    "group": "spell-arceuus",
+    "label": "Ward Of Arceuus Disabled",
+    "file": "spell-arceuus/ward-of-arceuus-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "west-ardougne-teleport",
+    "group": "spell-arceuus",
+    "label": "West Ardougne Teleport",
+    "file": "spell-arceuus/west-ardougne-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "west-ardougne-teleport-disabled",
+    "group": "spell-arceuus",
+    "label": "West Ardougne Teleport Disabled",
+    "file": "spell-arceuus/west-ardougne-teleport-disabled.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "air-guitar",
+    "group": "emote",
+    "label": "Air Guitar",
+    "file": "emote/air-guitar.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "air-guitar-locked",
+    "group": "emote",
+    "label": "Air Guitar Locked",
+    "file": "emote/air-guitar-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "angry",
+    "group": "emote",
+    "label": "Angry",
+    "file": "emote/angry.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "beckon",
+    "group": "emote",
+    "label": "Beckon",
+    "file": "emote/beckon.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "blow-kiss",
+    "group": "emote",
+    "label": "Blow Kiss",
+    "file": "emote/blow-kiss.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "blow-kiss-locked",
+    "group": "emote",
+    "label": "Blow Kiss Locked",
+    "file": "emote/blow-kiss-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "bow",
+    "group": "emote",
+    "label": "Bow",
+    "file": "emote/bow.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "cheer",
+    "group": "emote",
+    "label": "Cheer",
+    "file": "emote/cheer.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "clap",
+    "group": "emote",
+    "label": "Clap",
+    "file": "emote/clap.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "climb-rope",
+    "group": "emote",
+    "label": "Climb Rope",
+    "file": "emote/climb-rope.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "climb-rope-locked",
+    "group": "emote",
+    "label": "Climb Rope Locked",
+    "file": "emote/climb-rope-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "crab-dance",
+    "group": "emote",
+    "label": "Crab Dance",
+    "file": "emote/crab-dance.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "crab-dance-locked",
+    "group": "emote",
+    "label": "Crab Dance Locked",
+    "file": "emote/crab-dance-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "crazy-dance",
+    "group": "emote",
+    "label": "Crazy Dance",
+    "file": "emote/crazy-dance.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "crazy-dance-locked",
+    "group": "emote",
+    "label": "Crazy Dance Locked",
+    "file": "emote/crazy-dance-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "cry",
+    "group": "emote",
+    "label": "Cry",
+    "file": "emote/cry.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "dance",
+    "group": "emote",
+    "label": "Dance",
+    "file": "emote/dance.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "explorer",
+    "group": "emote",
+    "label": "Explorer",
+    "file": "emote/explorer.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "explorer-locked",
+    "group": "emote",
+    "label": "Explorer Locked",
+    "file": "emote/explorer-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "flap",
+    "group": "emote",
+    "label": "Flap",
+    "file": "emote/flap.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "flap-locked",
+    "group": "emote",
+    "label": "Flap Locked",
+    "file": "emote/flap-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "flex",
+    "group": "emote",
+    "label": "Flex",
+    "file": "emote/flex.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "flex-locked",
+    "group": "emote",
+    "label": "Flex Locked",
+    "file": "emote/flex-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "fortis-salute",
+    "group": "emote",
+    "label": "Fortis Salute",
+    "file": "emote/fortis-salute.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "fortis-salute-locked",
+    "group": "emote",
+    "label": "Fortis Salute Locked",
+    "file": "emote/fortis-salute-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "glass-box",
+    "group": "emote",
+    "label": "Glass Box",
+    "file": "emote/glass-box.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "glass-box-locked",
+    "group": "emote",
+    "label": "Glass Box Locked",
+    "file": "emote/glass-box-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "glass-wall",
+    "group": "emote",
+    "label": "Glass Wall",
+    "file": "emote/glass-wall.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "glass-wall-locked",
+    "group": "emote",
+    "label": "Glass Wall Locked",
+    "file": "emote/glass-wall-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "goblin-bow",
+    "group": "emote",
+    "label": "Goblin Bow",
+    "file": "emote/goblin-bow.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "goblin-bow-locked",
+    "group": "emote",
+    "label": "Goblin Bow Locked",
+    "file": "emote/goblin-bow-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "goblin-salute",
+    "group": "emote",
+    "label": "Goblin Salute",
+    "file": "emote/goblin-salute.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "goblin-salute-locked",
+    "group": "emote",
+    "label": "Goblin Salute Locked",
+    "file": "emote/goblin-salute-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "headbang",
+    "group": "emote",
+    "label": "Headbang",
+    "file": "emote/headbang.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "hypermobile-drinker",
+    "group": "emote",
+    "label": "Hypermobile Drinker",
+    "file": "emote/hypermobile-drinker.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "hypermobile-drinker-locked",
+    "group": "emote",
+    "label": "Hypermobile Drinker Locked",
+    "file": "emote/hypermobile-drinker-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "idea",
+    "group": "emote",
+    "label": "Idea",
+    "file": "emote/idea.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "idea-locked",
+    "group": "emote",
+    "label": "Idea Locked",
+    "file": "emote/idea-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "jig",
+    "group": "emote",
+    "label": "Jig",
+    "file": "emote/jig.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "jog",
+    "group": "emote",
+    "label": "Jog",
+    "file": "emote/jog.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "jog-locked",
+    "group": "emote",
+    "label": "Jog Locked",
+    "file": "emote/jog-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "jump-for-joy",
+    "group": "emote",
+    "label": "Jump For Joy",
+    "file": "emote/jump-for-joy.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "laugh",
+    "group": "emote",
+    "label": "Laugh",
+    "file": "emote/laugh.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "lean",
+    "group": "emote",
+    "label": "Lean",
+    "file": "emote/lean.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "lean-locked",
+    "group": "emote",
+    "label": "Lean Locked",
+    "file": "emote/lean-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "no",
+    "group": "emote",
+    "label": "No",
+    "file": "emote/no.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "panic",
+    "group": "emote",
+    "label": "Panic",
+    "file": "emote/panic.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "party",
+    "group": "emote",
+    "label": "Party",
+    "file": "emote/party.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "party-locked",
+    "group": "emote",
+    "label": "Party Locked",
+    "file": "emote/party-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "penguin-bow",
+    "group": "emote",
+    "label": "Penguin Bow",
+    "file": "emote/penguin-bow.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "penguin-cheer",
+    "group": "emote",
+    "label": "Penguin Cheer",
+    "file": "emote/penguin-cheer.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "penguin-clap",
+    "group": "emote",
+    "label": "Penguin Clap",
+    "file": "emote/penguin-clap.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "penguin-flap",
+    "group": "emote",
+    "label": "Penguin Flap",
+    "file": "emote/penguin-flap.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "penguin-preen",
+    "group": "emote",
+    "label": "Penguin Preen",
+    "file": "emote/penguin-preen.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "penguin-shiver",
+    "group": "emote",
+    "label": "Penguin Shiver",
+    "file": "emote/penguin-shiver.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "penguin-spin",
+    "group": "emote",
+    "label": "Penguin Spin",
+    "file": "emote/penguin-spin.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "penguin-wave",
+    "group": "emote",
+    "label": "Penguin Wave",
+    "file": "emote/penguin-wave.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "premier-shield",
+    "group": "emote",
+    "label": "Premier Shield",
+    "file": "emote/premier-shield.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "premier-shield-locked",
+    "group": "emote",
+    "label": "Premier Shield Locked",
+    "file": "emote/premier-shield-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "push-up",
+    "group": "emote",
+    "label": "Push Up",
+    "file": "emote/push-up.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "push-up-locked",
+    "group": "emote",
+    "label": "Push Up Locked",
+    "file": "emote/push-up-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "rabbit-hop",
+    "group": "emote",
+    "label": "Rabbit Hop",
+    "file": "emote/rabbit-hop.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "rabbit-hop-locked",
+    "group": "emote",
+    "label": "Rabbit Hop Locked",
+    "file": "emote/rabbit-hop-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "raspberry",
+    "group": "emote",
+    "label": "Raspberry",
+    "file": "emote/raspberry.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "relic-unlock",
+    "group": "emote",
+    "label": "Relic Unlock",
+    "file": "emote/relic-unlock.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "relic-unlock-locked",
+    "group": "emote",
+    "label": "Relic Unlock Locked",
+    "file": "emote/relic-unlock-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "relic-unlock-shattered",
+    "group": "emote",
+    "label": "Relic Unlock Shattered",
+    "file": "emote/relic-unlock-shattered.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "relic-unlock-trailblazer",
+    "group": "emote",
+    "label": "Relic Unlock Trailblazer",
+    "file": "emote/relic-unlock-trailblazer.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "relic-unlock-trailblazer-reloaded",
+    "group": "emote",
+    "label": "Relic Unlock Trailblazer Reloaded",
+    "file": "emote/relic-unlock-trailblazer-reloaded.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "salute",
+    "group": "emote",
+    "label": "Salute",
+    "file": "emote/salute.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "scared",
+    "group": "emote",
+    "label": "Scared",
+    "file": "emote/scared.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "scared-locked",
+    "group": "emote",
+    "label": "Scared Locked",
+    "file": "emote/scared-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "shrug",
+    "group": "emote",
+    "label": "Shrug",
+    "file": "emote/shrug.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "shrug-locked",
+    "group": "emote",
+    "label": "Shrug Locked",
+    "file": "emote/shrug-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "sit-down",
+    "group": "emote",
+    "label": "Sit Down",
+    "file": "emote/sit-down.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "sit-up",
+    "group": "emote",
+    "label": "Sit Up",
+    "file": "emote/sit-up.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "sit-up-locked",
+    "group": "emote",
+    "label": "Sit Up Locked",
+    "file": "emote/sit-up-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "skillcape",
+    "group": "emote",
+    "label": "Skillcape",
+    "file": "emote/skillcape.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "skillcape-locked",
+    "group": "emote",
+    "label": "Skillcape Locked",
+    "file": "emote/skillcape-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "slap-head",
+    "group": "emote",
+    "label": "Slap Head",
+    "file": "emote/slap-head.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "slap-head-locked",
+    "group": "emote",
+    "label": "Slap Head Locked",
+    "file": "emote/slap-head-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "smooth-dance",
+    "group": "emote",
+    "label": "Smooth Dance",
+    "file": "emote/smooth-dance.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "smooth-dance-locked",
+    "group": "emote",
+    "label": "Smooth Dance Locked",
+    "file": "emote/smooth-dance-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "spin",
+    "group": "emote",
+    "label": "Spin",
+    "file": "emote/spin.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "stamp",
+    "group": "emote",
+    "label": "Stamp",
+    "file": "emote/stamp.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "stamp-locked",
+    "group": "emote",
+    "label": "Stamp Locked",
+    "file": "emote/stamp-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "star-jump",
+    "group": "emote",
+    "label": "Star Jump",
+    "file": "emote/star-jump.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "star-jump-locked",
+    "group": "emote",
+    "label": "Star Jump Locked",
+    "file": "emote/star-jump-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "think",
+    "group": "emote",
+    "label": "Think",
+    "file": "emote/think.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "trick",
+    "group": "emote",
+    "label": "Trick",
+    "file": "emote/trick.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "trick-locked",
+    "group": "emote",
+    "label": "Trick Locked",
+    "file": "emote/trick-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "uri-transform",
+    "group": "emote",
+    "label": "Uri Transform",
+    "file": "emote/uri-transform.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "uri-transform-locked",
+    "group": "emote",
+    "label": "Uri Transform Locked",
+    "file": "emote/uri-transform-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "wave",
+    "group": "emote",
+    "label": "Wave",
+    "file": "emote/wave.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "yawn",
+    "group": "emote",
+    "label": "Yawn",
+    "file": "emote/yawn.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "yes",
+    "group": "emote",
+    "label": "Yes",
+    "file": "emote/yes.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "zombie-dance",
+    "group": "emote",
+    "label": "Zombie Dance",
+    "file": "emote/zombie-dance.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "zombie-dance-locked",
+    "group": "emote",
+    "label": "Zombie Dance Locked",
+    "file": "emote/zombie-dance-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "zombie-hand",
+    "group": "emote",
+    "label": "Zombie Hand",
+    "file": "emote/zombie-hand.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "zombie-hand-locked",
+    "group": "emote",
+    "label": "Zombie Hand Locked",
+    "file": "emote/zombie-hand-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "zombie-walk",
+    "group": "emote",
+    "label": "Zombie Walk",
+    "file": "emote/zombie-walk.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "zombie-walk-locked",
+    "group": "emote",
+    "label": "Zombie Walk Locked",
+    "file": "emote/zombie-walk-locked.svg",
+    "width": 48,
+    "height": 48
+  },
+  {
+    "name": "barbarian-assault",
+    "group": "minigame",
+    "label": "Barbarian Assault",
+    "file": "minigame/barbarian-assault.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "blast-furnace",
+    "group": "minigame",
+    "label": "Blast Furnace",
+    "file": "minigame/blast-furnace.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "bounty-hunter",
+    "group": "minigame",
+    "label": "Bounty Hunter",
+    "file": "minigame/bounty-hunter.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "burthorpe-games-room",
+    "group": "minigame",
+    "label": "Burthorpe Games Room",
+    "file": "minigame/burthorpe-games-room.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "castle-wars",
+    "group": "minigame",
+    "label": "Castle Wars",
+    "file": "minigame/castle-wars.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "clan-wars",
+    "group": "minigame",
+    "label": "Clan Wars",
+    "file": "minigame/clan-wars.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "fishing-trawler",
+    "group": "minigame",
+    "label": "Fishing Trawler",
+    "file": "minigame/fishing-trawler.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "giants-foundry",
+    "group": "minigame",
+    "label": "Giants Foundry",
+    "file": "minigame/giants-foundry.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "guardians-of-the-rift",
+    "group": "minigame",
+    "label": "Guardians Of The Rift",
+    "file": "minigame/guardians-of-the-rift.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "icon",
+    "group": "minigame",
+    "label": "Icon",
+    "file": "minigame/icon.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "icon-resized",
+    "group": "minigame",
+    "label": "Icon Resized",
+    "file": "minigame/icon-resized.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "name": "last-man-standing",
+    "group": "minigame",
+    "label": "Last Man Standing",
+    "file": "minigame/last-man-standing.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "leagues-home-teleport",
+    "group": "minigame",
+    "label": "Leagues Home Teleport",
+    "file": "minigame/leagues-home-teleport.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "leagues-home-teleport-resized",
+    "group": "minigame",
+    "label": "Leagues Home Teleport Resized",
+    "file": "minigame/leagues-home-teleport-resized.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "name": "mage-training-arena",
+    "group": "minigame",
+    "label": "Mage Training Arena",
+    "file": "minigame/mage-training-arena.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "mastering-mixology",
+    "group": "minigame",
+    "label": "Mastering Mixology",
+    "file": "minigame/mastering-mixology.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "nightmare-zone",
+    "group": "minigame",
+    "label": "Nightmare Zone",
+    "file": "minigame/nightmare-zone.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "pest-control",
+    "group": "minigame",
+    "label": "Pest Control",
+    "file": "minigame/pest-control.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "rat-pits",
+    "group": "minigame",
+    "label": "Rat Pits",
+    "file": "minigame/rat-pits.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "shades-of-mortton",
+    "group": "minigame",
+    "label": "Shades Of Mortton",
+    "file": "minigame/shades-of-mortton.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "sorceresss-garden",
+    "group": "minigame",
+    "label": "Sorceresss Garden",
+    "file": "minigame/sorceresss-garden.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "soul-wars",
+    "group": "minigame",
+    "label": "Soul Wars",
+    "file": "minigame/soul-wars.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "tithe-farm",
+    "group": "minigame",
+    "label": "Tithe Farm",
+    "file": "minigame/tithe-farm.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "trouble-brewing",
+    "group": "minigame",
+    "label": "Trouble Brewing",
+    "file": "minigame/trouble-brewing.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "tzhaar-fight-pit",
+    "group": "minigame",
+    "label": "Tzhaar Fight Pit",
+    "file": "minigame/tzhaar-fight-pit.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "name": "brazier",
+    "group": "sailing",
+    "label": "Brazier",
+    "file": "sailing/brazier.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "cancel",
+    "group": "sailing",
+    "label": "Cancel",
+    "file": "sailing/cancel.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "cannon",
+    "group": "sailing",
+    "label": "Cannon",
+    "file": "sailing/cannon.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "cargo-hold",
+    "group": "sailing",
+    "label": "Cargo Hold",
+    "file": "sailing/cargo-hold.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "crewmate-adventurer-ada",
+    "group": "sailing",
+    "label": "Crewmate Adventurer Ada",
+    "file": "sailing/crewmate-adventurer-ada.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-bosun-zarah",
+    "group": "sailing",
+    "label": "Crewmate Bosun Zarah",
+    "file": "sailing/crewmate-bosun-zarah.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-captain-boy-jenkins",
+    "group": "sailing",
+    "label": "Crewmate Captain Boy Jenkins",
+    "file": "sailing/crewmate-captain-boy-jenkins.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-captain-said",
+    "group": "sailing",
+    "label": "Crewmate Captain Said",
+    "file": "sailing/crewmate-captain-said.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-empty",
+    "group": "sailing",
+    "label": "Crewmate Empty",
+    "file": "sailing/crewmate-empty.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-jittery-jim",
+    "group": "sailing",
+    "label": "Crewmate Jittery Jim",
+    "file": "sailing/crewmate-jittery-jim.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-jobless-jim",
+    "group": "sailing",
+    "label": "Crewmate Jobless Jim",
+    "file": "sailing/crewmate-jobless-jim.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-jolly-jim",
+    "group": "sailing",
+    "label": "Crewmate Jolly Jim",
+    "file": "sailing/crewmate-jolly-jim.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-oarswoman-olga",
+    "group": "sailing",
+    "label": "Crewmate Oarswoman Olga",
+    "file": "sailing/crewmate-oarswoman-olga.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-player-female",
+    "group": "sailing",
+    "label": "Crewmate Player Female",
+    "file": "sailing/crewmate-player-female.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-player-female-station",
+    "group": "sailing",
+    "label": "Crewmate Player Female Station",
+    "file": "sailing/crewmate-player-female-station.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-player-male",
+    "group": "sailing",
+    "label": "Crewmate Player Male",
+    "file": "sailing/crewmate-player-male.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-player-male-station",
+    "group": "sailing",
+    "label": "Crewmate Player Male Station",
+    "file": "sailing/crewmate-player-male-station.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-sailor-jakob",
+    "group": "sailing",
+    "label": "Crewmate Sailor Jakob",
+    "file": "sailing/crewmate-sailor-jakob.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "crewmate-spotter-virgian",
+    "group": "sailing",
+    "label": "Crewmate Spotter Virgian",
+    "file": "sailing/crewmate-spotter-virgian.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "flag",
+    "group": "sailing",
+    "label": "Flag",
+    "file": "sailing/flag.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "helm",
+    "group": "sailing",
+    "label": "Helm",
+    "file": "sailing/helm.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "hull",
+    "group": "sailing",
+    "label": "Hull",
+    "file": "sailing/hull.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "idle",
+    "group": "sailing",
+    "label": "Idle",
+    "file": "sailing/idle.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "keel",
+    "group": "sailing",
+    "label": "Keel",
+    "file": "sailing/keel.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "lost-boat",
+    "group": "sailing",
+    "label": "Lost Boat",
+    "file": "sailing/lost-boat.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "navigator",
+    "group": "sailing",
+    "label": "Navigator",
+    "file": "sailing/navigator.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "not-steering",
+    "group": "sailing",
+    "label": "Not Steering",
+    "file": "sailing/not-steering.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "raft",
+    "group": "sailing",
+    "label": "Raft",
+    "file": "sailing/raft.svg",
+    "width": 35,
+    "height": 35
+  },
+  {
+    "name": "range",
+    "group": "sailing",
+    "label": "Range",
+    "file": "sailing/range.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "repair",
+    "group": "sailing",
+    "label": "Repair",
+    "file": "sailing/repair.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "reverse",
+    "group": "sailing",
+    "label": "Reverse",
+    "file": "sailing/reverse.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "sails",
+    "group": "sailing",
+    "label": "Sails",
+    "file": "sailing/sails.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "salvage",
+    "group": "sailing",
+    "label": "Salvage",
+    "file": "sailing/salvage.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "set-sails",
+    "group": "sailing",
+    "label": "Set Sails",
+    "file": "sailing/set-sails.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "skiff",
+    "group": "sailing",
+    "label": "Skiff",
+    "file": "sailing/skiff.svg",
+    "width": 35,
+    "height": 35
+  },
+  {
+    "name": "sloop",
+    "group": "sailing",
+    "label": "Sloop",
+    "file": "sailing/sloop.svg",
+    "width": 35,
+    "height": 35
+  },
+  {
+    "name": "stations",
+    "group": "sailing",
+    "label": "Stations",
+    "file": "sailing/stations.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "steering",
+    "group": "sailing",
+    "label": "Steering",
+    "file": "sailing/steering.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "tab-crew",
+    "group": "sailing",
+    "label": "Tab Crew",
+    "file": "sailing/tab-crew.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "name": "tab-facilities",
+    "group": "sailing",
+    "label": "Tab Facilities",
+    "file": "sailing/tab-facilities.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "name": "tab-stats",
+    "group": "sailing",
+    "label": "Tab Stats",
+    "file": "sailing/tab-stats.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "name": "trawling",
+    "group": "sailing",
+    "label": "Trawling",
+    "file": "sailing/trawling.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "trials-cargo",
+    "group": "sailing",
+    "label": "Trials Cargo",
+    "file": "sailing/trials-cargo.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "trials-clock",
+    "group": "sailing",
+    "label": "Trials Clock",
+    "file": "sailing/trials-clock.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "trials-flag",
+    "group": "sailing",
+    "label": "Trials Flag",
+    "file": "sailing/trials-flag.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "trials-reset",
+    "group": "sailing",
+    "label": "Trials Reset",
+    "file": "sailing/trials-reset.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "trials-reset-hovered",
+    "group": "sailing",
+    "label": "Trials Reset Hovered",
+    "file": "sailing/trials-reset-hovered.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "name": "trials-rum",
+    "group": "sailing",
+    "label": "Trials Rum",
+    "file": "sailing/trials-rum.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "name": "trials-rum-holding",
+    "group": "sailing",
+    "label": "Trials Rum Holding",
+    "file": "sailing/trials-rum-holding.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "trials-rum-not-holding",
+    "group": "sailing",
+    "label": "Trials Rum Not Holding",
+    "file": "sailing/trials-rum-not-holding.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "trials-toad-holding",
+    "group": "sailing",
+    "label": "Trials Toad Holding",
+    "file": "sailing/trials-toad-holding.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "trials-toad-not-holding",
+    "group": "sailing",
+    "label": "Trials Toad Not Holding",
+    "file": "sailing/trials-toad-not-holding.svg",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "name": "trim",
+    "group": "sailing",
+    "label": "Trim",
+    "file": "sailing/trim.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "unset-sails-fast",
+    "group": "sailing",
+    "label": "Unset Sails Fast",
+    "file": "sailing/unset-sails-fast.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "unset-sails-slow",
+    "group": "sailing",
+    "label": "Unset Sails Slow",
+    "file": "sailing/unset-sails-slow.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "view-combat-options",
+    "group": "sailing",
+    "label": "View Combat Options",
+    "file": "sailing/view-combat-options.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "name": "view-sailing-options",
+    "group": "sailing",
+    "label": "View Sailing Options",
+    "file": "sailing/view-sailing-options.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "name": "wax-seal-large-blue",
+    "group": "sailing",
+    "label": "Wax Seal Large Blue",
+    "file": "sailing/wax-seal-large-blue.svg",
+    "width": 37,
+    "height": 37
+  },
+  {
+    "name": "wax-seal-large-red",
+    "group": "sailing",
+    "label": "Wax Seal Large Red",
+    "file": "sailing/wax-seal-large-red.svg",
+    "width": 37,
+    "height": 37
+  },
+  {
+    "name": "wax-seal-small-blue",
+    "group": "sailing",
+    "label": "Wax Seal Small Blue",
+    "file": "sailing/wax-seal-small-blue.svg",
+    "width": 27,
+    "height": 27
+  },
+  {
+    "name": "wax-seal-small-red",
+    "group": "sailing",
+    "label": "Wax Seal Small Red",
+    "file": "sailing/wax-seal-small-red.svg",
+    "width": 27,
+    "height": 27
+  },
+  {
+    "name": "wind-catcher",
+    "group": "sailing",
+    "label": "Wind Catcher",
+    "file": "sailing/wind-catcher.svg",
     "width": 16,
     "height": 16
   },

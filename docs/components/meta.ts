@@ -1,6 +1,7 @@
 import { defineMeta } from "blume";
 
+// Grouped by use; the section titles are drawn by site/Sidebar.tsx from site/component-sections.ts.
 export default defineMeta({
   title: "Components",
-  pages: ["window", "interface", "card", "button", "dialog", "tabs", "nav-list", "list", "settings", "tooltip", "context-menu", "checkbox", "radio-group", "select", "number-field", "slider", "progress", "scroll-area", "input", "separator", "item-slot", "orb", "skill-tile", "equipment-slot", "prayer-button", "side-panel", "chatbox", "xp-drop", "skill-icons", "sprites"],
+  pages: ["index", "button", "sprite-button", "split-button", "toggle", "toggle-group", "checkbox", "radio-group", "select", "number-field", "slider", "input", "search-field", "tabs", "nav-list", "dropdown-menu", "context-menu", "window", "interface", "side-panel", "chatbox", "dialog", "card", "field", "scroll-area", "separator", "popover", "code-block", "steps", "list", "description-list", "stat", "status-icon", "progress", "tooltip", "shortcut", "xp-drop", "item-slot", "equipment-slot", "skill-tile", "prayer-button", "orb", "skill-icons", "sprites"],
 });

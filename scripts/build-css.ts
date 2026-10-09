@@ -18,6 +18,14 @@ const CSS_GROUPS = new Set(["frame", "texture", "control"]);
 const dataUri = (svg: string) =>
   `url("data:image/svg+xml,${svg.replace(/"/g, "'").replace(/#/g, "%23").replace(/</g, "%3C").replace(/>/g, "%3E")}")`;
 
+/** The sprite mirrored across its diagonal (x and y swapped), so a vertical piece reads horizontally. */
+const transpose = (svg: string, w: number, h: number) =>
+  svg
+    .replace(/<svg([^>]*)>/, (_, attrs: string) =>
+      `<svg${attrs.replace(/width="\d+"/, `width="${h}"`).replace(/height="\d+"/, `height="${w}"`).replace(/viewBox="[^"]*"/, `viewBox="0 0 ${h} ${w}"`)}><g transform="matrix(0 1 1 0 0 0)">`,
+    )
+    .replace(/<\/svg>\s*$/, "</g></svg>");
+
 const px = (n: number) => `calc(${n} * var(--osrs-px))`;
 const varName = (m: ManifestEntry) => `--osrs-${m.group}-${m.name}`;
 
@@ -28,6 +36,9 @@ for (const m of manifest) {
   if (SKIP_CSS.has(m.name) || !CSS_GROUPS.has(m.group)) continue;
   const svg = fs.readFileSync(path.join(ASSETS, m.file), "utf8");
   vars.push(`  ${varName(m)}: ${dataUri(svg)};`);
+  // The game only draws the scrollbar thumb upright; horizontal scrollbars use the same pieces
+  // transposed (top cap -> left cap), as --osrs-control-scroll-thumb-*-x.
+  if (m.group === "control" && m.name.startsWith("scroll-thumb-")) vars.push(`  ${varName(m)}-x: ${dataUri(transpose(svg, m.width, m.height))};`);
 
   if (m.group === "frame" && m.slice) {
     const [t, r, b, l] = m.slice;
@@ -60,9 +71,9 @@ const baseRaw = fs.readFileSync(path.join(THEME, "base.css"), "utf8");
 const fontFaces = (baseRaw.match(/@font-face \{[^}]*\}\n?/g) ?? []).join("");
 const base = baseRaw.replace(/@font-face \{[^}]*\}\n?/g, "");
 const fonts = fontFaces
-  .replace(/url\("\/fonts\/osrs\/([\w-]+\.ttf)"\)/g, (_, f: string) => {
+  .replace(/url\("\/fonts\/osrs\/([\w-]+\.(ttf|otf))"\)/g, (_, f: string, ext: string) => {
     const b64 = fs.readFileSync(path.join(ROOT, "registry/osrs/fonts", f)).toString("base64");
-    return `url("data:font/ttf;base64,${b64}")`;
+    return `url("data:font/${ext};base64,${b64}")`;
   });
 fs.writeFileSync(
   OUT,

@@ -3,7 +3,7 @@ title: Card
 description: "Notched stone cards, Grand Exchange offer slots and outlined boxes."
 ---
 
-<Component path="card/demo" />
+<Component path="card/playground" />
 
 ## Installation
 
@@ -19,4 +19,22 @@ npx shadcn@latest add {{registry}}/card.json
   <CardHeader>Buy</CardHeader>
   <CardContent>…</CardContent>
 </Card>
+```
+
+## Muted
+
+`variant="muted"` keeps the notched edge but uses the base button's fill instead of the solid brown: the stone behind it, lifted slightly, and darker on hover when the card is a link or button.
+
+```tsx
+<Card variant="muted">Assets</Card>
+<a href="/assets" className={cardVariants({ variant: "muted" })}>Assets</a>
+```
+
+## Selected and disabled
+
+`selected` draws the game's orange outline; on the notched card it follows the notched corners. `disabled` greys the label and fades the art, for locked or unavailable options (store stock you can't afford, titles you haven't earned).
+
+```tsx
+<Card selected>Dragon defender</Card>
+<Card disabled>the Insane</Card>
 ```

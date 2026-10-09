@@ -1,0 +1,38 @@
+name: Shamanism (a feathered totem)
+kind: skill
+a #c88c4c
+b #a06a30
+c #784a1c
+d #4c2e10
+s #e02818
+t #a01008
+u #600800
+e #a8d8ff
+f #5aa0f0
+g #2860c8
+i #9cf07a
+j #4cc83c
+K #1a1a1a
+---
+....ssssssssttt
+....ssssssstttt
+....ssssssttttt
+....sssKKttKKt
+.....ssKKttKKu
+.....sstttttuu
+.....stttttuuu
+........aaaa
+........aaaa.....jj
+........aaab..iijj
+ee......aabb.iijjj
+.eeff...abbb....j
+.efffg..bbbc
+..f.....bbcc
+........bccc
+........cccc
+........cccd
+........ccdd
+........cddd
+........dddd
+........dddd
+........dddd

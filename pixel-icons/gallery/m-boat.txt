@@ -1,0 +1,14 @@
+name: Boat (a sail)
+kind: map
+a #f4f4f0
+b #c4c4bc
+c #a06a30
+d #4c2e10
+---
+...a....
+...ab...
+...abb..
+...abbb.
+...a....
+cccccccc
+.dddddd.

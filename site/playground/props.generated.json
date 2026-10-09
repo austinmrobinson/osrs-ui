@@ -1,0 +1,875 @@
+{
+  "button": {
+    "Button": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      },
+      {
+        "name": "variant",
+        "control": "select",
+        "options": [
+          "metal",
+          "tile",
+          "stone"
+        ],
+        "default": "metal"
+      },
+      {
+        "name": "tone",
+        "control": "select",
+        "options": [
+          "default",
+          "white",
+          "positive",
+          "destructive"
+        ],
+        "default": "default"
+      },
+      {
+        "name": "size",
+        "control": "select",
+        "options": [
+          "default",
+          "sm",
+          "lg",
+          "icon-sm",
+          "icon",
+          "icon-lg"
+        ],
+        "default": "default"
+      },
+      {
+        "name": "tooltip",
+        "control": "text"
+      },
+      {
+        "name": "tooltipSide",
+        "control": "select",
+        "options": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "default": "bottom"
+      }
+    ]
+  },
+  "card": {
+    "Card": [
+      {
+        "name": "variant",
+        "control": "select",
+        "options": [
+          "metal",
+          "flat",
+          "offer",
+          "muted",
+          "outline"
+        ],
+        "default": "flat"
+      },
+      {
+        "name": "selected",
+        "control": "boolean"
+      },
+      {
+        "name": "disabled",
+        "control": "boolean"
+      }
+    ]
+  },
+  "chatbox": {
+    "ChatMessage": [
+      {
+        "name": "color",
+        "control": "text",
+        "default": "#000000"
+      },
+      {
+        "name": "name",
+        "control": "text"
+      },
+      {
+        "name": "nameColor",
+        "control": "text",
+        "default": "#000000"
+      }
+    ],
+    "NpcDialogue": [
+      {
+        "name": "name",
+        "control": "text"
+      },
+      {
+        "name": "head",
+        "control": "text"
+      },
+      {
+        "name": "side",
+        "control": "select",
+        "options": [
+          "right",
+          "left"
+        ],
+        "default": "left"
+      },
+      {
+        "name": "continueLabel",
+        "control": "text",
+        "default": "Click here to continue"
+      }
+    ],
+    "OptionDialogue": [
+      {
+        "name": "title",
+        "control": "text",
+        "default": "Select an Option"
+      },
+      {
+        "name": "options",
+        "control": "text"
+      },
+      {
+        "name": "numbered",
+        "control": "boolean",
+        "default": true
+      }
+    ]
+  },
+  "checkbox": {
+    "Checkbox": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      },
+      {
+        "name": "variant",
+        "control": "select",
+        "options": [
+          "square",
+          "bordered"
+        ],
+        "default": "square"
+      }
+    ]
+  },
+  "context-menu": {
+    "ContextMenu": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ],
+    "ContextMenuContent": [
+      {
+        "name": "header",
+        "control": "text",
+        "default": "Choose Option"
+      }
+    ],
+    "ContextMenuItem": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      },
+      {
+        "name": "target",
+        "control": "text"
+      }
+    ]
+  },
+  "description-list": {
+    "DescriptionList": [
+      {
+        "name": "striped",
+        "control": "boolean"
+      }
+    ],
+    "DescriptionItem": [
+      {
+        "name": "label",
+        "control": "text"
+      }
+    ]
+  },
+  "dialog": {
+    "DialogTrigger": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      }
+    ],
+    "DialogClose": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      }
+    ],
+    "DialogContent": [
+      {
+        "name": "title",
+        "control": "text"
+      },
+      {
+        "name": "showCloseButton",
+        "control": "boolean",
+        "default": true
+      }
+    ]
+  },
+  "dropdown-menu": {
+    "DropdownMenu": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ],
+    "DropdownMenuTrigger": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ],
+    "DropdownMenuItem": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ],
+    "DropdownMenuRadioGroup": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ],
+    "DropdownMenuRadioItem": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ]
+  },
+  "equipment-slot": {
+    "EquipmentSlot": [
+      {
+        "name": "slot",
+        "control": "select",
+        "options": [
+          "body",
+          "head",
+          "cape",
+          "neck",
+          "ammo",
+          "weapon",
+          "shield",
+          "legs",
+          "hands",
+          "feet",
+          "ring"
+        ]
+      },
+      {
+        "name": "selected",
+        "control": "boolean"
+      }
+    ],
+    "EquipmentGrid": [
+      {
+        "name": "items",
+        "control": "text"
+      }
+    ]
+  },
+  "field": {
+    "FieldSet": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      },
+      {
+        "name": "variant",
+        "control": "select",
+        "options": [
+          "section",
+          "box"
+        ],
+        "default": "box"
+      }
+    ],
+    "Field": [
+      {
+        "name": "orientation",
+        "control": "select",
+        "options": [
+          "horizontal",
+          "vertical"
+        ],
+        "default": "horizontal"
+      }
+    ]
+  },
+  "input": {
+    "Input": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      }
+    ]
+  },
+  "interface": {
+    "InterfaceClose": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      },
+      {
+        "name": "tooltip",
+        "control": "text",
+        "default": "Close"
+      }
+    ]
+  },
+  "item-slot": {
+    "ItemSlot": [
+      {
+        "name": "quantity",
+        "control": "number"
+      },
+      {
+        "name": "selected",
+        "control": "boolean"
+      }
+    ]
+  },
+  "list": {
+    "ListItem": [
+      {
+        "name": "selected",
+        "control": "boolean"
+      },
+      {
+        "name": "tone",
+        "control": "select",
+        "options": [
+          "green"
+        ]
+      }
+    ],
+    "ListItemDescription": [
+      {
+        "name": "label",
+        "control": "text"
+      }
+    ]
+  },
+  "nav-list": {
+    "NavList": [
+      {
+        "name": "variant",
+        "control": "select",
+        "options": [
+          "settings",
+          "attached"
+        ],
+        "default": "settings"
+      }
+    ],
+    "NavItem": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the Tab is disabled.\n\nIf a first Tab on a `<Tabs.List>` is disabled, it won't initially be selected.\nInstead, the next enabled Tab will be selected.\nHowever, it does not work like this during server-side rendering, as it is not known\nduring pre-rendering which Tabs are disabled.\nTo work around it, ensure that `defaultValue` or `value` on `<Tabs.Root>` is set to an enabled Tab's value."
+      },
+      {
+        "name": "tooltip",
+        "control": "text"
+      }
+    ]
+  },
+  "number-field": {
+    "NumberField": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      },
+      {
+        "name": "variant",
+        "control": "select",
+        "options": [
+          "ge",
+          "inset"
+        ],
+        "default": "ge"
+      }
+    ]
+  },
+  "orb": {
+    "Orb": [
+      {
+        "name": "kind",
+        "control": "select",
+        "options": [
+          "hitpoints",
+          "prayer",
+          "run",
+          "special"
+        ]
+      },
+      {
+        "name": "value",
+        "control": "number"
+      },
+      {
+        "name": "max",
+        "control": "number",
+        "default": 100
+      },
+      {
+        "name": "active",
+        "control": "boolean"
+      },
+      {
+        "name": "status",
+        "control": "select",
+        "options": [
+          "poison",
+          "venom",
+          "disease"
+        ]
+      }
+    ]
+  },
+  "prayer-button": {
+    "PrayerButton": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      },
+      {
+        "name": "prayer",
+        "control": "select",
+        "options": [
+          "augury",
+          "burstOfStrength",
+          "chivalry",
+          "clarityOfThought",
+          "deadeye",
+          "eagleEye",
+          "hawkEye",
+          "improvedReflexes",
+          "incredibleReflexes",
+          "mysticLore",
+          "mysticMight",
+          "mysticVigour",
+          "mysticWill",
+          "piety",
+          "preserve",
+          "protectFromMagic",
+          "protectFromMelee",
+          "protectFromMissiles",
+          "protectItem",
+          "rapidHeal",
+          "rapidRestore",
+          "redemption",
+          "retribution",
+          "rigour",
+          "rockSkin",
+          "sharpEye",
+          "smite",
+          "steelSkin",
+          "superhumanStrength",
+          "thickSkin",
+          "ultimateStrength"
+        ]
+      },
+      {
+        "name": "locked",
+        "control": "boolean"
+      }
+    ]
+  },
+  "progress": {
+    "Progress": [
+      {
+        "name": "color",
+        "control": "select",
+        "options": [
+          "green",
+          "orange",
+          "red",
+          "yellow",
+          "lime"
+        ]
+      },
+      {
+        "name": "segments",
+        "control": "number",
+        "description": "Split a coloured bar into this many cells."
+      },
+      {
+        "name": "flat",
+        "control": "boolean",
+        "description": "Plain fill without shading (Grand Exchange offers, thin tier bars)."
+      }
+    ]
+  },
+  "radio-group": {
+    "RadioGroup": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ],
+    "RadioGroupItem": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ]
+  },
+  "select": {
+    "Select": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ],
+    "SelectTrigger": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ],
+    "SelectItem": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      }
+    ]
+  },
+  "side-panel": {
+    "SidePanel": [
+      {
+        "name": "width",
+        "control": "number",
+        "default": 241,
+        "description": "Width in game pixels (snapped to whole tab stones)."
+      },
+      {
+        "name": "height",
+        "control": "number",
+        "description": "Height in game pixels."
+      }
+    ]
+  },
+  "skill-tile": {
+    "SkillTile": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      },
+      {
+        "name": "skill",
+        "control": "select",
+        "options": [
+          "hitpoints",
+          "prayer",
+          "attack",
+          "mining",
+          "strength",
+          "agility",
+          "smithing",
+          "defence",
+          "herblore",
+          "fishing",
+          "ranged",
+          "thieving",
+          "cooking",
+          "crafting",
+          "firemaking",
+          "magic",
+          "fletching",
+          "woodcutting",
+          "runecraft",
+          "slayer",
+          "farming",
+          "construction",
+          "hunter",
+          "sailing"
+        ]
+      },
+      {
+        "name": "level",
+        "control": "number"
+      },
+      {
+        "name": "boosted",
+        "control": "number"
+      },
+      {
+        "name": "selected",
+        "control": "boolean"
+      }
+    ],
+    "TotalLevelTile": [
+      {
+        "name": "total",
+        "control": "number"
+      }
+    ]
+  },
+  "slider": {
+    "Slider": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the slider should ignore user interaction."
+      },
+      {
+        "name": "thumb",
+        "control": "select",
+        "options": [
+          "green",
+          "red",
+          "blue",
+          "gray"
+        ],
+        "default": "blue"
+      },
+      {
+        "name": "notches",
+        "control": "number",
+        "default": 5
+      }
+    ]
+  },
+  "stat": {
+    "Stat": [
+      {
+        "name": "variant",
+        "control": "select",
+        "options": [
+          "boxed",
+          "inline"
+        ],
+        "default": "boxed"
+      },
+      {
+        "name": "label",
+        "control": "text"
+      },
+      {
+        "name": "value",
+        "control": "text"
+      }
+    ]
+  },
+  "status-icon": {
+    "StatusIcon": [
+      {
+        "name": "status",
+        "control": "select",
+        "options": [
+          "done",
+          "failed"
+        ]
+      },
+      {
+        "name": "label",
+        "control": "text"
+      }
+    ]
+  },
+  "tabs": {
+    "Tabs": [
+      {
+        "name": "variant",
+        "control": "select",
+        "options": [
+          "stone",
+          "panel",
+          "bank"
+        ],
+        "default": "stone"
+      }
+    ],
+    "TabsTrigger": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the Tab is disabled.\n\nIf a first Tab on a `<Tabs.List>` is disabled, it won't initially be selected.\nInstead, the next enabled Tab will be selected.\nHowever, it does not work like this during server-side rendering, as it is not known\nduring pre-rendering which Tabs are disabled.\nTo work around it, ensure that `defaultValue` or `value` on `<Tabs.Root>` is set to an enabled Tab's value."
+      },
+      {
+        "name": "size",
+        "control": "select",
+        "options": [
+          "small",
+          "medium",
+          "large"
+        ],
+        "default": "small"
+      }
+    ]
+  },
+  "toggle-group": {
+    "ToggleGroup": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the toggle group should ignore user interaction."
+      }
+    ],
+    "ToggleGroupItem": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      },
+      {
+        "name": "size",
+        "control": "select",
+        "options": [
+          "default",
+          "sm",
+          "lg",
+          "icon-sm",
+          "icon",
+          "icon-lg"
+        ],
+        "default": "icon"
+      }
+    ]
+  },
+  "toggle": {
+    "Toggle": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction."
+      },
+      {
+        "name": "size",
+        "control": "select",
+        "options": [
+          "default",
+          "sm",
+          "lg",
+          "icon-sm",
+          "icon",
+          "icon-lg"
+        ],
+        "default": "icon"
+      }
+    ]
+  },
+  "tooltip": {
+    "Tooltip": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the tooltip is disabled."
+      }
+    ],
+    "TooltipTrigger": [
+      {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "If `true`, the tooltip will not open when interacting with this trigger.\nNote that this doesn't apply the `disabled` attribute to the trigger element.\nIf you want to disable the trigger element itself, you can pass the `disabled` prop to the trigger element via the `render` prop."
+      }
+    ],
+    "TooltipContent": [
+      {
+        "name": "variant",
+        "control": "select",
+        "options": [
+          "examine",
+          "interface"
+        ],
+        "default": "examine"
+      }
+    ]
+  },
+  "window": {
+    "Window": [
+      {
+        "name": "frame",
+        "control": "select",
+        "options": [
+          "rivets",
+          "tan"
+        ],
+        "default": "rivets",
+        "description": "`rivets`: steel iron-rivet frame (Combat Achievements, Collection Log, Bank). `tan`: brown border (Grand Exchange, Settings)."
+      }
+    ],
+    "WindowHeader": [
+      {
+        "name": "start",
+        "control": "text"
+      },
+      {
+        "name": "end",
+        "control": "text"
+      }
+    ],
+    "WindowClose": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      },
+      {
+        "name": "tooltip",
+        "control": "text",
+        "default": "Close"
+      }
+    ],
+    "WindowBody": [
+      {
+        "name": "scroll",
+        "control": "boolean"
+      }
+    ],
+    "WindowSeparator": [
+      {
+        "name": "orientation",
+        "control": "select",
+        "options": [
+          "horizontal",
+          "vertical"
+        ],
+        "default": "horizontal"
+      }
+    ],
+    "WindowMenu": [
+      {
+        "name": "value",
+        "control": "text"
+      }
+    ]
+  },
+  "xp-drop": {
+    "XpDrop": [
+      {
+        "name": "amount",
+        "control": "number"
+      }
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+name: Assets (a compact chest)
+kind: tab
+a #3b2610
+b #553819
+c #6e4a22
+d #88602d
+e #a27639
+1 #5b4a09
+2 #7d640c
+3 #a3830f
+4 #c49e14
+5 #ddb41a
+6 #f0d35a
+---
+............3455dd
+...........cdd355ee
+........cddddde366ee
+....445ddddeeeee662e
+...cdd555eeeeeeee55dd
+.cccdde66eeeeeedd55dd
+.ccccee366eeedddd354d
+5cccccee55dddddddd44c5
+33cccccd355ddd56cc4333
+.c3ccccdd54dc4335333c
+.cc35ccdd44cc4333c33c
+.ccc33ccc3353333cc33c
+.ccccc3c5333c3cccc33c
+.cccccc4333ccccccc33c
+.cccccccc33ccccccc33c
+..ccccccc33ccccccc33
+...cccccc33cccccc32
+....ccccc33cccb
+......ccc33b
+.......cc32

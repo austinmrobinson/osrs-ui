@@ -1,0 +1,24 @@
+---
+title: Toggle Group
+description: "A row of tiles where the chosen one stays pressed: the bank and store quantity row."
+---
+
+<Component path="toggle-group/playground" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/toggle-group.json
+```
+
+## Usage
+
+```tsx
+<ToggleGroup defaultValue={["1"]}>
+  <ToggleGroupItem value="1">1</ToggleGroupItem>
+  <ToggleGroupItem value="5">5</ToggleGroupItem>
+  <ToggleGroupItem value="All">All</ToggleGroupItem>
+</ToggleGroup>
+```
+
+Single choice by default; add `multiple` for independent toggles. Lay the items out as a grid for pickers (the XP lamp's skill icons).

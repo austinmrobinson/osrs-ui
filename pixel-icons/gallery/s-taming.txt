@@ -1,0 +1,30 @@
+name: Taming (a collar and tag)
+kind: skill
+1 #fff2a0
+2 #f2cc4a
+3 #c8981e
+4 #8a6410
+s #e02818
+t #a01008
+u #600800
+---
+.......sssss
+.....sssssssss
+...sssssssssssst
+..ssssssssssssttt
+..sssss.....stttt
+.ssss.........tttt
+.ssss.........tttt
+ssss...........ttuu
+ssss...........tuuu
+ssss...........uuuu
+ssss...........uuuu
+ssss...........uuuu
+.ssss.........uuuu
+.ssst.........uuuu
+..stttt11112uuuuu
+..ttttt11123uuuuu
+...tttt11124uuuu
+.....tt11223uu
+.......12234
+.......22344
