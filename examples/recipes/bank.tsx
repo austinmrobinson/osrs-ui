@@ -6,6 +6,7 @@ import { Button } from "@/registry/osrs/ui/button";
 import { Interface, InterfaceClose, InterfaceHeader, InterfaceTitle } from "@/registry/osrs/ui/interface";
 import { ItemSlot } from "@/registry/osrs/ui/item-slot";
 import { ScrollArea } from "@/registry/osrs/ui/scroll-area";
+import { Tabs, TabsList, TabsTrigger } from "@/registry/osrs/ui/tabs";
 import { bankSprites } from "@/registry/osrs/ui/bank-sprites";
 import { buttonSprites } from "@/registry/osrs/ui/button-sprites";
 import { WindowSeparator } from "@/registry/osrs/ui/window";
@@ -29,13 +30,13 @@ const BANK: [ItemId, number][] = [
 function SquareButton({ pressed, onClick, label, children }: { pressed?: boolean; onClick?: () => void; label: string; children: React.ReactNode }) {
   return (
     <Button
-      variant="square"
-      size="icon-lg"
+      variant="tile"
+      size="icon"
       aria-label={label}
       title={label}
       aria-pressed={pressed}
       onClick={onClick}
-      style={{ height: px(32) }}
+      style={{ height: px(32), flexShrink: 1, minWidth: 0 }}
     >
       {children}
     </Button>
@@ -75,23 +76,24 @@ export default function BankRecipe() {
           </div>
           <div className="flex min-w-0 flex-1 flex-col">
             <div className="flex items-end" style={{ gap: px(1) }}>
-              <div className="relative" style={{ width: px(41), height: px(40) }}>
-                <bankSprites.tabSelected className="absolute inset-0" />
-                <bankSprites.tabAllItemsIcon className="absolute" style={{ left: px(3), top: px(4) }} />
-              </div>
-              {(["abyssal-whip", "shark", "nature-rune", "magic-logs", "dragon-bones"] as ItemId[]).map((id) => {
-                const { Icon } = items[id];
-                return (
-                  <div key={id} className="relative flex items-center justify-center" style={{ width: px(41), height: px(40) }}>
-                    <bankSprites.tab className="absolute inset-0" />
-                    <Icon className="relative" />
-                  </div>
-                );
-              })}
-              <div className="relative" style={{ width: px(41), height: px(40) }}>
-                <bankSprites.tabEmpty className="absolute inset-0" />
-                <bankSprites.tabAddIcon className="absolute" style={{ left: px(3), top: px(4) }} />
-              </div>
+              <Tabs variant="bank" defaultValue="all">
+                <TabsList>
+                  <TabsTrigger value="all" aria-label="All items">
+                    <bankSprites.tabAllItemsIcon />
+                  </TabsTrigger>
+                  {(["abyssal-whip", "shark", "nature-rune", "magic-logs", "dragon-bones"] as ItemId[]).map((id) => {
+                    const { Icon, name } = items[id];
+                    return (
+                      <TabsTrigger key={id} value={id} aria-label={name}>
+                        <Icon />
+                      </TabsTrigger>
+                    );
+                  })}
+                  <TabsTrigger value="new" aria-label="New tab">
+                    <bankSprites.tabAddIcon />
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
               <div className="ml-auto">
                 <SquareButton label="Worn items">
                   <bankSprites.wornItems />

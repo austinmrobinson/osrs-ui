@@ -20,8 +20,8 @@ export default function AllSettingsRecipe() {
         <WindowHeader
           start={
             <>
-              <Button variant="metal" size="sm">Less info</Button>
-              <Button variant="metal" size="sm">Hide locked</Button>
+              <Button variant="metal" tone="white" size="sm">Less info</Button>
+              <Button variant="metal" tone="white" size="sm">Hide locked</Button>
             </>
           }
           end={<WindowClose />}

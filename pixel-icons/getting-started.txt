@@ -1,0 +1,27 @@
+name: Getting started (a quest scroll)
+kind: tab
+h #f6e7bd
+l #e4c98e
+m #c9a765
+d #957443
+t #7a5a30
+---
+.llllllllllllllllll.
+lhhhhhhhhhhhhhhhhhhm
+lmmmmmmmmmmmmmmmmmmd
+.dddddddddddddddddd.
+..lhhhhhhhhhhhhhhm..
+..lhhhhhhhhhhhhhlm..
+..lhtttttttttthhlm..
+..lhhhhhhhhhhhhhlm..
+..lhttttttttthhhlm..
+..lhhhhhhhhhhhhllm..
+..lhtttttttttthllm..
+..lhhhhhhhhhhhhllm..
+..lhttttttthhhhllm..
+..lhhhhhhhhhhhlllm..
+..lhhhhhhhhhhlllmm..
+.llllllllllllllllll.
+lhhhhhhhhhhhhhhhhhhm
+lmmmmmmmmmmmmmmmmmmd
+.dddddddddddddddddd.

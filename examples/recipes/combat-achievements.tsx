@@ -273,13 +273,13 @@ function BossView({ name, onBack }: { name: string; onBack: () => void }) {
         </div>
         <div className="flex flex-col items-center" style={{ width: px(160), gap: px(4) }}>
           <div className="flex w-full justify-between">
-            <Button variant="metal" size="icon" aria-label="Task list" style={{ width: px(48), height: px(24) }}>
+            <Button variant="metal" tone="white" size="icon" aria-label="Task list" style={{ width: px(48), height: px(24) }}>
               <glyphSprites.combatAchievementsTasksCompleted />
             </Button>
-            <Button variant="metal" size="icon" aria-label="World map" style={{ width: px(48), height: px(24) }}>
+            <Button variant="metal" tone="white" size="icon" aria-label="World map" style={{ width: px(48), height: px(24) }}>
               <orbSprites.worldMapPlanet />
             </Button>
-            <Button variant="metal" size="icon" aria-label="Wiki" style={{ width: px(48), height: px(24) }}>
+            <Button variant="metal" tone="white" size="icon" aria-label="Wiki" style={{ width: px(48), height: px(24) }}>
               <glyphSprites.wiki />
             </Button>
           </div>
@@ -295,10 +295,10 @@ function BossView({ name, onBack }: { name: string; onBack: () => void }) {
             </span>
           </div>
           <div className="flex w-full justify-between" style={{ marginTop: "auto" }}>
-            <Button variant="metal" onClick={onBack} style={{ width: px(70) }}>
+            <Button variant="metal" tone="white" onClick={onBack} style={{ width: px(70) }}>
               Boss list
             </Button>
-            <Button variant="metal" disabled style={{ width: px(70) }}>
+            <Button variant="metal" tone="white" disabled style={{ width: px(70) }}>
               Reset time
             </Button>
           </div>

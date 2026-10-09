@@ -4,13 +4,15 @@ import * as React from "react";
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 
 import { cn } from "@/lib/utils";
+import { bankSprites } from "@/components/ui/bank-sprites";
 
-type TabsVariant = "stone" | "panel";
+type TabsVariant = "stone" | "panel" | "bank";
 const VariantContext = React.createContext<TabsVariant>("stone");
 
 /**
  * `stone` (default): the slanted tab stones (Collection Log, Settings classic).
  * `panel`: cut-corner tabs joined to a bevelled panel (Account Management, Combat Achievements).
+ * `bank`: the bank's 41×40 tab sprites; put an item icon inside each trigger.
  * In both, pressing a tab looks the same as the selected tab, as in game.
  */
 function Tabs({ className, variant = "stone", ...props }: TabsPrimitive.Root.Props & { variant?: TabsVariant }) {
@@ -55,7 +57,12 @@ function TabsList({ className, onWheel, ...props }: TabsPrimitive.List.Props) {
     <TabsPrimitive.List
       ref={ref}
       data-slot="tabs-list"
-      className={cn("osrs-tabs-list", React.useContext(VariantContext) === "panel" && "osrs-tabs-list-panel", className)}
+      className={cn(
+        "osrs-tabs-list",
+        React.useContext(VariantContext) === "panel" && "osrs-tabs-list-panel",
+        React.useContext(VariantContext) === "bank" && "osrs-tabs-list-bank",
+        className,
+      )}
       onWheel={(e) => {
         onWheel?.(e);
         const list = ref.current;
@@ -71,8 +78,17 @@ function TabsList({ className, onWheel, ...props }: TabsPrimitive.List.Props) {
 
 const sizes = { small: "", medium: "osrs-tab-medium", large: "osrs-tab-large" } as const;
 
-function TabsTrigger({ className, size = "small", ...props }: TabsPrimitive.Tab.Props & { size?: keyof typeof sizes }) {
+function TabsTrigger({ className, size = "small", children, ...props }: TabsPrimitive.Tab.Props & { size?: keyof typeof sizes }) {
   const variant = React.useContext(VariantContext);
+  if (variant === "bank")
+    return (
+      <TabsPrimitive.Tab data-slot="tabs-trigger" className={cn("osrs-tab-bank", className)} {...props}>
+        <bankSprites.tab className="osrs-tab-bank-bg osrs-tab-bank-idle" />
+        <bankSprites.tabHovered className="osrs-tab-bank-bg osrs-tab-bank-hover" />
+        <bankSprites.tabSelected className="osrs-tab-bank-bg osrs-tab-bank-selected" />
+        {children}
+      </TabsPrimitive.Tab>
+    );
   return (
     <TabsPrimitive.Tab
       data-slot="tabs-trigger"
@@ -81,7 +97,9 @@ function TabsTrigger({ className, size = "small", ...props }: TabsPrimitive.Tab.
         className,
       )}
       {...props}
-    />
+    >
+      {children}
+    </TabsPrimitive.Tab>
   );
 }
 

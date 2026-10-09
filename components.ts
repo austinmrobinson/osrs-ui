@@ -7,6 +7,8 @@ export default defineComponents({
   mdx: {
     Callout: "./site/Callout.tsx",
     Card: "./site/Card.tsx",
+    IconList: "./site/IconList.tsx",
+    IconListItem: "./site/IconListItem.tsx",
     AssetBrowser: { component: "./site/AssetBrowser.tsx", client: "load" },
     CardGroup: "./components/blume/CardGroup.astro",
     Tabs: "./components/blume/Tabs.astro",

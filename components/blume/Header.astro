@@ -20,6 +20,7 @@ import NavTabMenu from "blume/components/layout/NavTabMenu.astro";
 import { resolveSlot } from "blume/components/layout/overrides.ts";
 import Search from "blume/components/layout/Search.astro";
 import { buttonSprites } from "@/registry/osrs/ui/button-sprites";
+import Hero, { SHOW_HERO } from "../../site/Hero";
 
 interface Props {
   site: { title: string };
@@ -151,7 +152,7 @@ const switcherClass = showNavToggle ? "hidden shrink-0 lg:block" : "shrink-0";
 const actionClass = "osrs-site-header-link hidden sm:inline-flex";
 const ctaClass = [
   showNavToggle ? "hidden sm:inline-flex" : "inline-flex",
-  "osrs-button osrs-button-metal osrs-framed osrs-frame-metal-button osrs-text items-center gap-1",
+  "osrs-button osrs-button-metal osrs-framed osrs-frame-equipment-metal osrs-text items-center gap-1",
 ].join(" ");
 
 // Delegated handlers for the theme toggle, mobile nav drawer, and banner
@@ -191,6 +192,9 @@ const transparentScript = `(()=>{const sync=()=>{const h=document.querySelector(
 const clickScript = `(()=>{const dr=()=>{const h=document.querySelector("[data-blume-header]");if(h){document.documentElement.style.setProperty("--blume-drawer-top",h.getBoundingClientRect().bottom+"px");}};const save=(k,v)=>{try{localStorage.setItem(k,v);}catch{}};document.addEventListener("click",(e)=>{const t=e.target.closest("[data-blume-theme-toggle]");if(t){const d=document.documentElement;const next=d.dataset.theme==="dark"?"light":"dark";const s=document.createElement("style");s.appendChild(document.createTextNode("*,*::before,*::after{transition:none!important}"));document.head.appendChild(s);d.dataset.theme=next;window.getComputedStyle(d).opacity;setTimeout(()=>document.head.removeChild(s),1);save("blume-theme",next);}const n=e.target.closest("[data-blume-nav-toggle]");if(n){const d=document.documentElement;const open=d.toggleAttribute("data-blume-nav-open");if(open){dr();}}const b=e.target.closest("[data-blume-banner-dismiss]");if(b){document.documentElement.setAttribute("data-blume-banner-hidden","");requestAnimationFrame(dr);const bar=b.closest("[data-blume-banner]");const k=bar&&bar.getAttribute("data-banner-key");if(k){save("blume-banner:"+k,"1");}}});addEventListener("resize",()=>{const d=document.documentElement;if(!d.hasAttribute("data-blume-nav-open")){return;}if(matchMedia("(min-width:64rem)").matches){d.removeAttribute("data-blume-nav-open");}else{dr();}});})();`;
 ---
 
+{/* Home page: a full-screen intro above the docs layout; scrolling down reaches the header and docs */}
+{/* Hidden for now: flip SHOW_HERO in site/Hero.tsx to bring the login-screen intro back */}
+{SHOW_HERO && (route === "/" || route === "") && <Hero />}
 <header
   class="osrs-site-header osrs-text sticky top-0 z-40 flex h-16 items-center gap-2 px-4 sm:gap-3 md:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(max-content,1fr)]"
   data-blume-header

@@ -8,26 +8,34 @@ import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 /**
- * OSRS buttons.
+ * OSRS buttons, matched to the game's interfaces.
  *
- * Variants (by where the game uses them):
- * - `stone`  — default text button on interface stone (bank "Item / Note", dialog "Yes / No").
- * - `metal`  — metal-cornered button of modern windows (header "History", "Show more information", page actions).
- * - `square` — grey metal tile; red when pressed (bank quantity "1 / 5 / All", toggles).
- * - `flat`   — notched flat button (Settings categories, list actions).
+ * Variants:
+ * - `metal` (default): equipment-style metal corners. Orange label that turns white on hover
+ *   ("View DPS"); hover and pressed look the same.
+ * - `tile`: grey stone tile, orange label. Bank quantity buttons and toggles, World Switcher.
+ *   White label on hover; red tile when pressed or selected (`aria-pressed`).
+ * - `stone`: the classic stone_small button of older interfaces.
  *
- * Sizes: `sm`, `default`, `lg` for text; `icon-sm` (20), `icon` (26), `icon-lg` (36) for square
- * icon-only buttons (game pixels). Icon buttons need an `aria-label`.
- * Toggle state: set `aria-pressed` and the button shows its pressed sprite.
- * `tooltip`: the game's dark hover label (e.g. "Close", "Select Audio"); handy for icon buttons.
+ * `tone="white"` swaps the orange label for a white one:
+ * - on `metal`: white at rest too (Collection Log, Combat Achievements, Settings header).
+ * - on `tile`: white label that dims on hover, with no red state (Account panel).
+ *
+ * Sizes (game pixels): `sm` 26, `default` 36, `lg` 44 for text; `icon-sm`, `icon`, `icon-lg` are
+ * square icon-only buttons of the same heights. Icon buttons need an `aria-label`.
+ * Toggles: set `aria-pressed` and the button keeps its pressed look.
+ * `tooltip`: the game's dark hover label (e.g. "Close", "Bond Pouch").
  */
-const buttonVariants = cva("osrs-button osrs-framed osrs-frame-stone-button osrs-text", {
+const buttonVariants = cva("osrs-button osrs-framed osrs-text", {
   variants: {
     variant: {
-      stone: "",
       metal: "osrs-button-metal",
-      square: "osrs-button-square",
-      flat: "osrs-button-flat",
+      tile: "osrs-button-tile",
+      stone: "",
+    },
+    tone: {
+      default: "",
+      white: "",
     },
     size: {
       sm: "osrs-button-sm",
@@ -38,7 +46,11 @@ const buttonVariants = cva("osrs-button osrs-framed osrs-frame-stone-button osrs
       "icon-lg": "osrs-button-icon osrs-button-icon-lg",
     },
   },
-  defaultVariants: { variant: "stone", size: "default" },
+  compoundVariants: [
+    { variant: "metal", tone: "white", className: "osrs-button-metal-white" },
+    { variant: "tile", tone: "white", className: "osrs-button-tile-white" },
+  ],
+  defaultVariants: { variant: "metal", tone: "default", size: "default" },
 });
 
 type ButtonProps = ButtonPrimitive.Props &
@@ -47,13 +59,14 @@ type ButtonProps = ButtonPrimitive.Props &
     tooltipSide?: "top" | "right" | "bottom" | "left";
   };
 
-function Button({ className, variant, size, tooltip, tooltipSide = "bottom", ...props }: ButtonProps) {
+function Button({ className, variant, tone, size, tooltip, tooltipSide = "bottom", ...props }: ButtonProps) {
   const button = (
     <ButtonPrimitive
       data-slot="button"
-      data-variant={variant ?? "stone"}
+      data-variant={variant ?? "metal"}
       data-size={size ?? "default"}
-      className={cn(buttonVariants({ variant, size }), className)}
+      data-tone={tone ?? undefined}
+      className={cn(buttonVariants({ variant, tone, size }), className)}
       {...props}
     />
   );

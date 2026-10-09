@@ -11,7 +11,7 @@ export default function WindowDemo() {
   return (
     <div className="osrs flex h-[calc(260*var(--osrs-px))] items-start justify-start p-6">
       <Window draggable resizable defaultSize={{ width: 440, height: 300 }} minWidth={240} minHeight={140}>
-        <WindowHeader start={<Button variant="metal" size="sm">Filter</Button>} end={<WindowClose />}>
+        <WindowHeader start={<Button variant="metal" tone="white" size="sm">Filter</Button>} end={<WindowClose />}>
           Quest List
         </WindowHeader>
         <WindowBody scroll>

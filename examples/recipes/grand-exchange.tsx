@@ -24,13 +24,13 @@ export default function GrandExchangeRecipe() {
   return (
     <div className="osrs flex justify-center p-6">
       <Window frame="tan" style={{ width: px(484), height: px(304) }}>
-        <WindowHeader start={<Button variant="metal" size="sm">History</Button>} end={<WindowClose />}>
+        <WindowHeader start={<Button variant="metal" tone="white" size="sm">History</Button>} end={<WindowClose />}>
           Grand Exchange
         </WindowHeader>
         <div className="flex items-center justify-between" style={{ marginBottom: px(4) }}>
-          <Button variant="metal" size="sm">Repeat Offer</Button>
+          <Button variant="metal" tone="white" size="sm">Repeat Offer</Button>
           <span className="osrs-text-small">Select an offer slot to set up or view an offer.</span>
-          <Button variant="metal" size="sm" disabled>Collect</Button>
+          <Button variant="metal" tone="white" size="sm" disabled>Collect</Button>
         </div>
         <div className="grid flex-1 grid-cols-4 grid-rows-2" style={{ gap: px(4) }}>
           {OFFERS.map((o, i) => (

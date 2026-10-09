@@ -162,7 +162,7 @@ export default function AssetBrowser() {
         )}
         <div className="ml-auto flex items-end gap-2">
           <span className="osrs-text-small pb-2">{visible.length} assets</span>
-          <Button variant="metal" disabled={!loaded || busy || !visible.length} onClick={downloadPack}>
+          <Button variant="metal" tone="white" disabled={!loaded || busy || !visible.length} onClick={downloadPack}>
             {busy ? "Zipping…" : "Download pack (.zip)"}
           </Button>
         </div>
@@ -198,7 +198,7 @@ export default function AssetBrowser() {
                       {a.width * scale}×{a.height * scale}
                     </div>
                   </div>
-                  <Button variant="metal" size="icon" aria-label={`Download ${a.label}`} onClick={() => downloadOne(svg, `osrs-${a.group}-${a.name}`)}>
+                  <Button variant="metal" tone="white" size="icon" aria-label={`Download ${a.label}`} onClick={() => downloadOne(svg, `osrs-${a.group}-${a.name}`)}>
                     <chevronSprites.yellowDownSingle />
                   </Button>
                 </div>
@@ -310,7 +310,7 @@ function Composer({
         <span>
           Output: {size.width * scale}×{size.height * scale}px {format.toUpperCase()}
         </span>
-        <Button variant="metal" onClick={save}>
+        <Button variant="metal" tone="white" onClick={save}>
           Download
         </Button>
       </div>

@@ -3,23 +3,25 @@
 // All Settings nav style.
 import * as React from "react";
 
-import { tabSprites, type TabSpriteName } from "@/registry/osrs/ui/tab-sprites";
+import { tabSprites } from "@/registry/osrs/ui/tab-sprites";
+import { pixelIcons, type PixelIconName } from "./pixel-icons";
 
 type NavNode =
   | { kind: "page"; label: string; route: string; badge?: string }
   | { kind: "group"; label: string; route?: string; children: NavNode[] };
 
-type Concept = { id: string; label: string; icon: TabSpriteName; nodes: NavNode[] };
+type Concept = { id: string; label: string; icon: PixelIconName; nodes: NavNode[] };
 
 const norm = (r: string) => r.replace(/\/$/, "") || "/";
 const isActive = (route: string, current: string) => norm(route) === norm(current);
 
 /** Concept icons and order. Top-level groups become concepts; loose pages form "Getting Started". */
-const CONCEPTS: Record<string, { icon: TabSpriteName; order: number; label?: string }> = {
-  "getting-started": { icon: "quests", order: 0, label: "Getting Started" },
-  components: { icon: "equipment", order: 1 },
-  recipes: { icon: "inventory", order: 2 },
-  assets: { icon: "magic", order: 3 },
+/** Icons are our own pixel icons (pixel-icons/*.txt, built by scripts/build-pixel-icons.ts). */
+const CONCEPTS: Record<string, { icon: PixelIconName; order: number; label?: string }> = {
+  "getting-started": { icon: "gettingStarted", order: 0, label: "Getting Started" },
+  components: { icon: "components", order: 1 },
+  recipes: { icon: "recipes", order: 2 },
+  assets: { icon: "assets", order: 3 },
 };
 /** Loose pages that are concepts of their own. */
 const STANDALONE = new Set(["/assets"]);
@@ -32,14 +34,14 @@ function buildConcepts(items: NavNode[]): Concept[] {
   for (const n of items) {
     if (n.kind === "page" && STANDALONE.has(norm(n.route))) {
       const id = slug(n.label);
-      concepts.push({ id, label: n.label, icon: CONCEPTS[id]?.icon ?? "options", nodes: [n] });
+      concepts.push({ id, label: n.label, icon: CONCEPTS[id]?.icon ?? "components", nodes: [n] });
     } else if (n.kind === "page") loose.push(n);
     else {
       const id = slug(n.label);
-      concepts.push({ id, label: n.label, icon: CONCEPTS[id]?.icon ?? "options", nodes: n.children });
+      concepts.push({ id, label: n.label, icon: CONCEPTS[id]?.icon ?? "components", nodes: n.children });
     }
   }
-  if (loose.length) concepts.unshift({ id: "getting-started", label: "Getting Started", icon: "quests", nodes: loose });
+  if (loose.length) concepts.unshift({ id: "getting-started", label: "Getting Started", icon: "gettingStarted", nodes: loose });
   return concepts.sort((a, b) => (CONCEPTS[a.id]?.order ?? 99) - (CONCEPTS[b.id]?.order ?? 99));
 }
 
@@ -78,7 +80,7 @@ export default function Sidebar({ items, currentRoute }: { items: NavNode[]; cur
     <nav className="osrs-site-sidenav osrs-text">
       <ul className="osrs-site-concepts">
         {concepts.map((c) => {
-          const Icon = tabSprites[c.icon];
+          const Icon = pixelIcons[c.icon];
           const active = c === current;
           const href = routesOf(c.nodes)[0] ?? "/";
           return (
@@ -95,8 +97,7 @@ export default function Sidebar({ items, currentRoute }: { items: NavNode[]; cur
         })}
       </ul>
       {current && !(current.nodes.length === 1 && current.nodes[0].kind === "page" && STANDALONE.has(norm(current.nodes[0].route))) ? (
-        <div className="osrs-nav-list osrs-site-nav">
-          <div className="osrs-section-title osrs-site-nav-title">{current.label}</div>
+        <div className="osrs-nav-list osrs-site-nav" aria-label={current.label}>
           <Pages nodes={current.nodes} currentRoute={currentRoute} />
         </div>
       ) : null}

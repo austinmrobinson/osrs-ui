@@ -1,0 +1,22 @@
+name: Assets (a treasure chest)
+kind: tab
+w #b67e40
+x #92612d
+y #704720
+z #4c2f13
+g #f2cc4a
+G #b48e1c
+---
+....wwwwwwwwwwww....
+..wwxxxxxxxxxxxxyy..
+.wxxxxxxxxxxxxxxxyy.
+.wxggxxxxxxxxxxggyy.
+wxxggxxxxxxxxxxggyyy
+gggGGGGGGGGGGGGGGGGg
+gGGGGGGGgggGGGGGGGGG
+wxxggxxxgGGgxxxggyyz
+wxxggxxxgGGgxxxggyyz
+wxxggxxxxggxxxxggyyz
+wxxggxxxxxxxxxxggyyz
+wyyggyyyyyyyyyyggyzz
+.zzzzzzzzzzzzzzzzzz.

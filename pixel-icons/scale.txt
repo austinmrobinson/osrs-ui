@@ -1,0 +1,33 @@
+name: One scale knob (a magnifying glass)
+kind: item
+h #e8f6fa
+g #a8d2e2
+G #6fa4bc
+y #f2d266
+Y #c99a2a
+z #8a6414
+b #8a5a2a
+B #5c3a18
+---
+.....yyyyyy
+...yyyyyyyyyy
+..yyyyhgggyyyy
+.yyyhhggggggyyy
+.yyhhggggggGGyy
+yyyhggggggGGGyyy
+yyhggggggGGGGGyy
+yYggggggGGGGGGyy
+YYgggggGGGGGGGyy
+YYggggGGGGGGGGyy
+YYYggGGGGGGGGzyy
+.YYgGGGGGGGGGzz
+.YYYGGGGGGGGzzz
+..YYYYGGGGzzzbB
+...YYYYYzzzzzBbB
+.....YYzzzz...BbB
+...............BbB
+................BbB
+.................BbB
+..................BbB
+...................BbB
+....................B

@@ -751,7 +751,8 @@
       ],
       "registryDependencies": [
         "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils"
+        "utils",
+        "https://osrs-ui.vercel.app/r/bank-sprites.json"
       ],
       "files": [
         {

@@ -1,6 +1,6 @@
 ---
 title: Button
-description: "Text and icon buttons in the four styles the game uses: stone, metal, square and flat. 9-slice vector frames that fit any size."
+description: "Text and icon buttons in the styles the game uses: metal and tile, each with an orange or white label. Every state matches in-game screenshots. 9-slice vector frames that fit any size."
 ---
 
 <Component path="button/demo" />
@@ -11,21 +11,35 @@ description: "Text and icon buttons in the four styles the game uses: stone, met
 npx shadcn@latest add {{registry}}/button.json
 ```
 
-## Variants
+## Variants and states
 
-| Variant | Where the game uses it | Pressed state |
-| --- | --- | --- |
-| `stone` (default) | Text buttons on interface stone: bank Item / Note, dialog Yes / No | Brighter stone, white text |
-| `metal` | Metal-cornered buttons of modern windows: History, Show more information, header actions | Lighter fill |
-| `square` | Grey metal tiles: bank quantity 1 / 5 / All, deposit buttons, toggles | Red tile |
-| `flat` | Notched flat buttons: Settings categories, list actions | White text |
+Each variant was checked against current in-game screenshots.
+
+| Variant | Where the game uses it | Default | Hover | Pressed / selected | Disabled |
+| --- | --- | --- | --- | --- | --- |
+| `metal` (default) | View DPS | Light metal corners, lighter fill, orange label | Darker corners, inverted bevel, darker fill, white label | Same as hover | Grey label |
+| `metal` + `tone="white"` | Collection Log, Combat Achievements, Settings header | Same, white label | Same as above | Same as hover | Grey label |
+| `tile` | Bank quantity and toggle buttons, World Switcher | Grey stone tile, orange label | White label | Red tile, orange label; stays red while `aria-pressed` | Dim label |
+| `tile` + `tone="white"` | Account panel | Grey stone tile, white label, icons at both ends | Label dims to grey | Same as hover | Dim label |
+| `stone` | Older interfaces (stone_small sprite) | Stone with bevel | Lighter bevel | Brighter stone, white label | Grey label |
+
+Related controls with their own components: the window close and menu buttons (`WindowClose`, `WindowMenu`, "Close" tooltip on hover), settings categories ([Nav list](/components/nav-list): orange, white on hover, "Select …" tooltip) and tabs ([Tabs](/components/tabs): pressed looks the same as selected).
+
+To show a state without interacting (screenshots, videos), set `data-hover` or `aria-pressed` on the button.
+
+## Tone
+
+`tone="white"` swaps the orange label for a white one. On `metal` the label is white at rest as well as on hover (Collection Log, Combat Achievements). On `tile` it gives the Account panel's behaviour: a white label that dims on hover, with no red pressed state.
 
 ## Sizes
 
-| Size | Use |
-| --- | --- |
-| `sm`, `default`, `lg` | Text buttons. `lg` wraps to two lines, like "Clear your highlighted NPCs". |
-| `icon-sm` (20px), `icon` (26px), `icon-lg` (36px) | Square icon-only buttons. Sizes are in game pixels and scale with `--osrs-px`. |
+Text and icon sizes share heights (game pixels, scaled by `--osrs-px`), so a row of text and icon buttons lines up.
+
+| Text size | Icon size | Height |
+| --- | --- | --- |
+| `sm` | `icon-sm` | 26 |
+| `default` | `icon` | 36 |
+| `lg` | `icon-lg` | 44; long labels wrap to two lines |
 
 ## Usage
 
@@ -34,11 +48,12 @@ import { Button } from "@/components/ui/button"
 import { bankSprites } from "@/components/ui/bank-sprites"
 
 <Button>Deposit inventory</Button>
-<Button variant="metal" size="sm">History</Button>
-<Button variant="square" aria-pressed={qty === "All"} onClick={() => setQty("All")}>All</Button>
+<Button size="sm">Less <span className="text-[var(--osrs-orange)]">info</span></Button>
+<Button variant="tile" tone="white" tooltip="Bond Pouch">Bond Pouch</Button>
+<Button variant="tile" aria-pressed={qty === "All"} onClick={() => setQty("All")}>All</Button>
 
 {/* Icon buttons: put any sprite (or SVG) inside and always give an aria-label */}
-<Button variant="square" size="icon-lg" aria-label="Deposit inventory">
+<Button variant="tile" size="icon" aria-label="Deposit inventory">
   <bankSprites.depositInventory />
 </Button>
 ```

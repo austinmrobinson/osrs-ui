@@ -49,7 +49,7 @@ export default function CollectionLogRecipe() {
                 value={view}
                 onValueChange={setView}
               />
-              <Button variant="metal" size="sm" style={{ gap: px(4) }}>
+              <Button variant="metal" tone="white" size="sm" style={{ gap: px(4) }}>
                 <geSprites.search />
                 Search
               </Button>
@@ -98,7 +98,7 @@ export default function CollectionLogRecipe() {
                     Artio kills: <span style={{ color: "var(--osrs-white)" }}>4</span>
                   </span>
                 </div>
-                <Button variant="metal" size="icon" aria-label="Open boss log" style={{ width: px(44), height: px(22) }}>
+                <Button variant="metal" tone="white" size="icon" aria-label="Open boss log" style={{ width: px(44), height: px(22) }}>
                   <glyphSprites.combatAchievementsCollectionsLogged />
                 </Button>
               </div>

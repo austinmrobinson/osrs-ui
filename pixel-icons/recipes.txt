@@ -1,0 +1,28 @@
+name: Recipes (a cooking pot)
+kind: tab
+s #f2f2ee
+t #b9b9b2
+o #d8761c
+O #a44e0c
+h #9a9a94
+l #73736d
+m #53534e
+d #34342f
+---
+.....t......t......
+....s......s.......
+....s.......s......
+.....s......s......
+....t......t.......
+...................
+..hhhhhhhhhhhhhhh..
+.hoOoooOooooOoooOm.
+.hhlllllllllllllmd.
+hhlllllllllllllmmdd
+hlhlmmmmmmmmmmmmdmd
+hhlmmmmmmmmmmmmmmdd
+..lmmmmmmmmmmmmmmd.
+..lmmmmmmmmmmmmmdd.
+...mmmmmmmmmmmmmd..
+....mmmmmmmmmmmd...
+.....ddddddddddd...

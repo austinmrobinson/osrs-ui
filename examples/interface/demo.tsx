@@ -12,8 +12,8 @@ export default function InterfaceDemo() {
         <InterfaceContent className="gap-[calc(6*var(--osrs-px))]">
           <p>Interfaces tile the stone texture and repeat the rivet frame, so they can be any size.</p>
           <div className="flex justify-end gap-[calc(4*var(--osrs-px))]">
-            <Button size="sm">Item</Button>
-            <Button size="sm">Note</Button>
+            <Button variant="tile" size="sm">Item</Button>
+            <Button variant="tile" size="sm">Note</Button>
           </div>
         </InterfaceContent>
       </Interface>

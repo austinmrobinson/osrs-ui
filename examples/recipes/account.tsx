@@ -12,7 +12,7 @@ const px = (n: number) => `calc(${n} * var(--osrs-px))`;
 function AccountButton({ label, Icon }: { label: string; Icon: (typeof glyphSprites)[keyof typeof glyphSprites] }) {
   return (
     <Tooltip>
-      <TooltipTrigger render={<Button variant="flat" className="w-full justify-between" style={{ minHeight: px(26) }} />}>
+      <TooltipTrigger render={<Button variant="tile" tone="white" className="w-full justify-between" style={{ minHeight: px(26) }} />}>
         <Icon />
         {label}
         <Icon />

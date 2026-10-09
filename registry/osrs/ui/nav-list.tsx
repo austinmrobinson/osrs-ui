@@ -7,9 +7,26 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
-/** Vertical category nav, as in the All Settings window. Wrap with <Tabs orientation="vertical">. */
-function NavList({ className, ...props }: TabsPrimitive.List.Props) {
-  return <TabsPrimitive.List data-slot="nav-list" className={cn("osrs-nav-list", className)} {...props} />;
+/**
+ * Vertical category nav. Wrap with <Tabs orientation="vertical">.
+ * `settings` (default): centred bevelled buttons in a darker column (All Settings).
+ * `attached`: left-aligned bars attached to the content panel on their right (skill guides);
+ *   pair with <NavPanel> so the selected bar opens into it.
+ */
+function NavList({ className, variant = "settings", ...props }: TabsPrimitive.List.Props & { variant?: "settings" | "attached" }) {
+  return (
+    <TabsPrimitive.List
+      data-slot="nav-list"
+      data-variant={variant}
+      className={cn(variant === "attached" ? "osrs-nav-list-attached" : "osrs-nav-list", className)}
+      {...props}
+    />
+  );
+}
+
+/** The bevelled panel an `attached` NavList opens into. */
+function NavPanel({ className, ...props }: React.ComponentProps<"div">) {
+  return <div data-slot="nav-panel" className={cn("osrs-nav-panel", className)} {...props} />;
 }
 
 /** A category button. Hover and pressed turn the label white; `tooltip` adds the game's hover label ("Select Audio"). */
@@ -26,4 +43,4 @@ function NavItem({ className, tooltip, ...props }: TabsPrimitive.Tab.Props & { t
   );
 }
 
-export { NavList, NavItem };
+export { NavList, NavItem, NavPanel };

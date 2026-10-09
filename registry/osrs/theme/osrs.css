@@ -218,8 +218,8 @@
   align-items: center;
   justify-content: center;
   gap: calc(4 * var(--osrs-px));
-  min-height: calc(20 * var(--osrs-px));
-  padding: calc(3 * var(--osrs-px)) calc(8 * var(--osrs-px));
+  min-height: calc(36 * var(--osrs-px));
+  padding: 0 calc(10 * var(--osrs-px));
   background-image: var(--osrs-texture-stone);
   background-size: calc(88 * var(--osrs-px)) calc(60 * var(--osrs-px));
   background-clip: padding-box;
@@ -228,7 +228,7 @@
   user-select: none;
   outline: none;
 }
-.osrs-button:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-stone-button-hover); }
+.osrs-button:hover:not(:disabled), .osrs-button[data-hover] { --osrs-frame-image: var(--osrs-frame-stone-button-hover); }
 .osrs-button:active:not(:disabled),
 .osrs-button[aria-pressed="true"],
 .osrs-button[data-pressed] {
@@ -238,35 +238,16 @@
 .osrs-button:disabled,
 .osrs-button[data-disabled] { --osrs-frame-image: var(--osrs-frame-stone-button-disabled); cursor: default; color: #9f9f9f; }
 .osrs-button:focus-visible { color: var(--osrs-yellow); }
-.osrs-button-sm { min-height: calc(16 * var(--osrs-px)); padding: calc(1 * var(--osrs-px)) calc(6 * var(--osrs-px)); }
 /* Icon-only buttons: square, centred icon, sizes in game pixels */
 .osrs-button-icon {
-  width: calc(26 * var(--osrs-px)); height: calc(26 * var(--osrs-px));
+  width: calc(36 * var(--osrs-px)); height: calc(36 * var(--osrs-px));
   min-height: 0; padding: 0; flex: none;
 }
-.osrs-button-icon-sm { width: calc(20 * var(--osrs-px)); height: calc(20 * var(--osrs-px)); }
-.osrs-button-icon-lg { width: calc(36 * var(--osrs-px)); height: calc(36 * var(--osrs-px)); }
+.osrs-button-icon-sm { width: calc(26 * var(--osrs-px)); height: calc(26 * var(--osrs-px)); }
+.osrs-button-icon-lg { width: calc(44 * var(--osrs-px)); height: calc(44 * var(--osrs-px)); }
 .osrs-button > svg, .osrs-button > .osrs-icon { flex: none; }
 /* Line icons (non-sprite SVGs) take the text colour with the game's drop shadow */
 .osrs-button > svg:not(.osrs-icon) { width: calc(12 * var(--osrs-px)); height: calc(12 * var(--osrs-px)); filter: drop-shadow(var(--osrs-px) var(--osrs-px) 0 #000); }
-
-/* Square (metal) button: grey, red when selected */
-.osrs-button-square {
-  --osrs-frame-image: var(--osrs-frame-square-button);
-  --osrs-frame-slice: 6 6 6 6;
-  --osrs-frame-width: calc(6 * var(--osrs-px));
-  background-image: none;
-  min-height: calc(24 * var(--osrs-px));
-  padding: calc(4 * var(--osrs-px)) calc(8 * var(--osrs-px));
-}
-/* Square tiles keep their orange label in every state; pressed / selected turns the tile red */
-.osrs-button-square, .osrs-button-square:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-square-button); color: var(--osrs-orange); }
-.osrs-button-square:disabled, .osrs-button-square[data-disabled] { --osrs-frame-image: var(--osrs-frame-square-button); opacity: 0.6; }
-.osrs-button-metal:disabled, .osrs-button-metal[data-disabled] { --osrs-frame-image: var(--osrs-frame-metal-button); color: #9f9f9f; }
-.osrs-button-flat:disabled, .osrs-button-flat[data-disabled] { --osrs-frame-image: var(--osrs-frame-flat); color: #8a8378; }
-.osrs-button-square:active:not(:disabled),
-.osrs-button-square[aria-pressed="true"],
-.osrs-button-square[data-pressed] { --osrs-frame-image: var(--osrs-frame-square-button-selected); background-image: none; color: var(--osrs-orange); }
 
 /* Interface: iron-rivet steel frame on stone */
 .osrs-interface {
@@ -526,41 +507,73 @@
 .osrs-card-flat { padding: calc(4 * var(--osrs-px)) calc(6 * var(--osrs-px)); }
 .osrs-card-offer { padding: calc(3 * var(--osrs-px)); }
 
-/* Button variants */
+/* Button variants (audited against in-game screenshots)
+ *
+ * metal      Equipment-style metal corners, orange label (View DPS); tone="white" for a white
+ *            label (Collection Log, Combat Achievements). Hover and pressed look the same:
+ *            darker corners, inverted bevel, darker fill, white label. Disabled: grey label.
+ * tile       Grey stone tile, orange label (bank quantity / toggles, World Switcher).
+ *            Hover: white label. Pressed or selected (aria-pressed): red tile, orange label.
+ * tile-white Same tile with a white label (Account panel). Hover and pressed dim the label.
+ * stone      Classic stone_small button (older interfaces).
+ */
 .osrs-button-metal {
-  --osrs-frame-image: var(--osrs-frame-metal-button);
+  --osrs-frame-image: var(--osrs-frame-equipment-metal);
   --osrs-frame-slice: 9 9 9 9;
   --osrs-frame-width: calc(9 * var(--osrs-px));
   background-image: none;
-  background-color: rgb(0 0 0 / 0.12);
+  background-color: rgb(255 255 255 / 0.05);
   white-space: normal;
   text-align: center;
   line-height: calc(13 * var(--osrs-px));
-  color: var(--osrs-white);
+  color: var(--osrs-orange);
 }
-/* In game, hover and pressed look the same: the lighter-cornered frame */
-.osrs-button-metal:hover:not(:disabled),
+/* Hover and pressed look the same: darker corners, inverted bevel, darker fill, white label */
+.osrs-button-metal:hover:not(:disabled), .osrs-button-metal[data-hover],
 .osrs-button-metal:active:not(:disabled),
 .osrs-button-metal[aria-pressed="true"],
 .osrs-button-metal[data-pressed] {
-  --osrs-frame-image: var(--osrs-frame-metal-button-hover);
+  --osrs-frame-image: var(--osrs-frame-equipment-metal-hover);
   background-image: none;
-  background-color: rgb(0 0 0 / 0.12);
+  background-color: rgb(0 0 0 / 0.15);
   color: var(--osrs-white);
 }
-.osrs-button-flat {
-  --osrs-frame-image: var(--osrs-frame-flat);
-  --osrs-frame-slice: 5 5 5 5;
-  --osrs-frame-width: calc(5 * var(--osrs-px));
+/* tone="white": white label at rest too (Collection Log, Combat Achievements, Settings header) */
+.osrs-button-metal-white { color: var(--osrs-white); }
+.osrs-button-metal:disabled, .osrs-button-metal[data-disabled] {
+  --osrs-frame-image: var(--osrs-frame-equipment-metal);
+  background-color: rgb(255 255 255 / 0.05);
+  color: #9f9f9f;
+}
+
+.osrs-button-tile, .osrs-button-tile-white {
+  --osrs-frame-image: var(--osrs-frame-square-button);
+  --osrs-frame-slice: 6 6 6 6;
+  --osrs-frame-width: calc(6 * var(--osrs-px));
   background-image: none;
 }
-/* Account-panel buttons: white label that dims on hover; pressed looks the same as hover */
-.osrs-button-flat { color: var(--osrs-white); gap: calc(8 * var(--osrs-px)); }
-.osrs-button-flat:hover:not(:disabled),
-.osrs-button-flat:active:not(:disabled),
-.osrs-button-flat[aria-pressed="true"],
-.osrs-button-flat[data-pressed] { --osrs-frame-image: var(--osrs-frame-flat); background-image: none; color: #bdb5a6; }
-.osrs-button-lg { min-height: calc(36 * var(--osrs-px)); padding: calc(4 * var(--osrs-px)) calc(12 * var(--osrs-px)); }
+.osrs-button-tile { color: var(--osrs-orange); }
+.osrs-button-tile:hover:not(:disabled), .osrs-button-tile[data-hover] { --osrs-frame-image: var(--osrs-frame-square-button); background-image: none; color: var(--osrs-white); }
+.osrs-button-tile:active:not(:disabled),
+.osrs-button-tile[aria-pressed="true"],
+.osrs-button-tile[data-pressed] { --osrs-frame-image: var(--osrs-frame-square-button-selected); background-image: none; color: var(--osrs-orange); }
+
+.osrs-button-tile-white { color: var(--osrs-white); gap: calc(8 * var(--osrs-px)); }
+.osrs-button-tile-white:hover:not(:disabled), .osrs-button-tile-white[data-hover],
+.osrs-button-tile-white:active:not(:disabled),
+.osrs-button-tile-white[aria-pressed="true"],
+.osrs-button-tile-white[data-pressed] { --osrs-frame-image: var(--osrs-frame-square-button); background-image: none; color: #bdb5a6; }
+
+/* Sizes (game px). Text buttons share heights with the icon buttons:
+   sm = icon-sm = 26, default = icon = 36, lg = icon-lg = 44. */
+.osrs-button.osrs-button-sm { min-height: calc(26 * var(--osrs-px)); padding: 0 calc(8 * var(--osrs-px)); }
+.osrs-button.osrs-button-lg { min-height: calc(44 * var(--osrs-px)); padding: calc(2 * var(--osrs-px)) calc(14 * var(--osrs-px)); }
+.osrs-button.osrs-button-icon { padding: 0; min-height: 0; }
+
+.osrs-button-tile:disabled, .osrs-button-tile[data-disabled],
+.osrs-button-tile-white:disabled, .osrs-button-tile-white[data-disabled] {
+  --osrs-frame-image: var(--osrs-frame-square-button); background-image: none; color: #7a7366;
+}
 
 /* Vertical nav (All Settings categories): bevelled buttons in a darker column;
    the selected button runs into the content panel like a tab. */
@@ -572,31 +585,37 @@
   box-shadow: inset calc(-1 * var(--osrs-px)) 0 0 #1f1a14;
 }
 .osrs-nav-item {
+  position: relative; isolation: isolate;
   display: flex; align-items: center; justify-content: center;
   min-height: calc(30 * var(--osrs-px));
   margin-right: calc(6 * var(--osrs-px));
   padding: 0 calc(6 * var(--osrs-px));
-  border: 0; cursor: pointer; outline: none;
+  border: 0; background: none; cursor: pointer; outline: none;
   color: var(--osrs-orange);
-  background: #4b4135;
-  box-shadow:
-    inset var(--osrs-px) var(--osrs-px) 0 #6c6050,
-    inset calc(-1 * var(--osrs-px)) calc(-1 * var(--osrs-px)) 0 #2f281f,
-    0 0 0 var(--osrs-px) #1f1a14;
 }
-.osrs-nav-item:hover, .osrs-nav-item:active { color: var(--osrs-white); }
+/* Settings category button: dark outline, 1px tan edge, notched corners, brown fill */
+:root { --osrs-nav-item-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7' viewBox='0 0 7 7' shape-rendering='crispEdges'%3E%3Cpath fill='%231f1a14' d='M1 0h5v1h-5zM0 1h1v5h-1zM6 1h1v5h-1zM1 6h5v1h-5zM1 1h1v1h-1zM5 1h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1z'/%3E%3Cpath fill='%236a5e4b' d='M2 1h3v1h-3zM1 2h1v3h-1zM5 2h1v3h-1zM2 5h3v1h-3z'/%3E%3Cpath fill='%234b4236' d='M2 2h3v3h-3z'/%3E%3C/svg%3E"); }
+/* Same frame without the fill, for an item that sits on the surface it opens into */
+:root { --osrs-nav-item-image-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7' viewBox='0 0 7 7' shape-rendering='crispEdges'%3E%3Cpath fill='%231f1a14' d='M1 0h5v1h-5zM0 1h1v5h-1zM6 1h1v5h-1zM1 6h5v1h-5zM1 1h1v1h-1zM5 1h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1z'/%3E%3Cpath fill='%236a5e4b' d='M2 1h3v1h-3zM1 2h1v3h-1zM5 2h1v3h-1zM2 5h3v1h-3z'/%3E%3C/svg%3E"); }
+.osrs-nav-item::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent;
+  border-width: calc(3 * var(--osrs-px));
+  border-image: var(--osrs-nav-item-image) 3 fill / calc(3 * var(--osrs-px)) / 0 stretch;
+}
+/* Hover: white label, nothing else changes */
+.osrs-nav-item:hover, .osrs-nav-item[data-hover] { color: var(--osrs-white); }
+/* Active: same fill, right edge removed so it runs into the content panel; label stays orange */
 .osrs-nav-item[data-active], .osrs-nav-item[aria-current="page"] {
-  margin-right: 0;
-  padding-right: calc(12 * var(--osrs-px));
-  background: var(--osrs-stone);
-  box-shadow:
-    inset 0 var(--osrs-px) 0 #6c6050,
-    0 calc(-1 * var(--osrs-px)) 0 #1f1a14,
-    0 var(--osrs-px) 0 #1f1a14,
-    calc(-1 * var(--osrs-px)) 0 0 #1f1a14;
-  position: relative;
+  margin-right: calc(-1 * var(--osrs-px));
+  padding-right: calc(13 * var(--osrs-px));
   z-index: 1;
 }
+.osrs-nav-item[data-active]::before, .osrs-nav-item[aria-current="page"]::before {
+  border-right-width: 0;
+  border-image-width: calc(3 * var(--osrs-px)) 0 calc(3 * var(--osrs-px)) calc(3 * var(--osrs-px));
+}
+.osrs-nav-item[data-active]:not(:hover), .osrs-nav-item[aria-current="page"]:not(:hover) { color: var(--osrs-orange); }
 .osrs-nav-item:focus-visible { color: var(--osrs-yellow); }
 
 /* Striped lists (Collection Log, World Switcher, settings rows) */
@@ -614,6 +633,20 @@ button.osrs-list-item, a.osrs-list-item { cursor: pointer; outline: none; }
 button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 255 / 0.14); }
 .osrs-list-item[data-selected] { background: rgb(255 255 255 / 0.22) !important; }
 .osrs-list-item[data-tone="green"][data-selected] { background: #3e6b2b !important; }
+
+/* Rich rows (Skill Guide): item icon, orange title, "Label: value" details */
+.osrs-list-item:has(> .osrs-list-item-content) {
+  align-items: center;
+  gap: calc(10 * var(--osrs-px));
+  min-height: calc(44 * var(--osrs-px));
+  padding: calc(6 * var(--osrs-px)) calc(6 * var(--osrs-px));
+}
+.osrs-list-item-icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: calc(36 * var(--osrs-px)); height: calc(32 * var(--osrs-px)); }
+.osrs-list-item-content { display: flex; flex-direction: column; min-width: 0; }
+.osrs-list-item-title { color: var(--osrs-orange); }
+.osrs-list-item-detail { color: var(--osrs-orange); }
+.osrs-list-item-detail-value { color: #c9c0ad; }
+.osrs-list-item-detail:not(:has(.osrs-list-item-detail-label)) .osrs-list-item-detail-value { color: inherit; }
 
 /* Settings sections */
 .osrs-section-title {
@@ -661,7 +694,7 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 .osrs-progress-flat { background: #2b2620; box-shadow: inset 0 0 0 var(--osrs-px) #000; }
 .osrs-progress-flat-indicator { background: var(--osrs-progress-color); }
 /* Uniform frames: stretching is lossless and avoids hairline seams between repeated tiles */
-.osrs-frame-flat::before, .osrs-button-flat::before { border-image-repeat: stretch; }
+.osrs-frame-flat::before { border-image-repeat: stretch; }
 
 /* Window drag & resize */
 :is(.osrs-window, .osrs-interface)[data-draggable],
@@ -800,6 +833,66 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
   box-shadow: 0 0 0 var(--osrs-px) #000;
   text-shadow: var(--osrs-px) var(--osrs-px) 0 #000;
 }
+
+/* ---------- Attached nav (skill guides): left-aligned bars opening into a panel ---------- */
+.osrs-nav-list-attached {
+  display: flex; flex-direction: column;
+  gap: calc(2 * var(--osrs-px));
+  padding: calc(4 * var(--osrs-px)) 0 calc(4 * var(--osrs-px)) calc(4 * var(--osrs-px));
+}
+.osrs-nav-list-attached .osrs-nav-item {
+  justify-content: flex-start;
+  min-height: calc(24 * var(--osrs-px));
+  margin-right: 0;
+  padding: 0 calc(10 * var(--osrs-px));
+  background: rgb(0 0 0 / 0.1);
+  box-shadow:
+    inset var(--osrs-px) var(--osrs-px) 0 #6c6050,
+    inset 0 calc(-1 * var(--osrs-px)) 0 #2a241b,
+    0 0 0 var(--osrs-px) #1a1611;
+}
+.osrs-nav-list-attached .osrs-nav-item[data-active] {
+  margin-right: calc(-1 * var(--osrs-px));
+  padding-right: calc(11 * var(--osrs-px));
+  background: var(--osrs-nav-panel-bg, #3d3529);
+  box-shadow:
+    inset var(--osrs-px) var(--osrs-px) 0 #6c6050,
+    0 calc(-1 * var(--osrs-px)) 0 #1a1611,
+    0 var(--osrs-px) 0 #1a1611,
+    calc(-1 * var(--osrs-px)) 0 0 #1a1611;
+  filter: none;
+}
+.osrs-nav-panel {
+  --osrs-nav-panel-bg: #3d3529;
+  position: relative;
+  z-index: 0;
+  min-width: 0;
+  flex: 1;
+  background: var(--osrs-nav-panel-bg);
+  box-shadow: 0 0 0 var(--osrs-px) #1a1611, inset var(--osrs-px) var(--osrs-px) 0 #6c6050;
+  padding: calc(6 * var(--osrs-px));
+}
+/* In-game hyperlink (skill guides): yellow, underlined */
+.osrs-link { color: var(--osrs-yellow); text-decoration: underline; text-underline-offset: calc(2 * var(--osrs-px)); cursor: pointer; }
+.osrs-link:hover { color: var(--osrs-white); }
+
+/* ---------- Bank tabs: cut-corner tab sprites holding an icon ---------- */
+.osrs-tabs-list-bank { gap: calc(1 * var(--osrs-px)); }
+.osrs-tab-bank {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none;
+  width: calc(41 * var(--osrs-px)); height: calc(40 * var(--osrs-px));
+  padding: 0; border: 0; background: transparent; cursor: pointer; outline: none;
+}
+.osrs-tab-bank > .osrs-tab-bank-bg { position: absolute; inset: 0; }
+.osrs-tab-bank > :not(.osrs-tab-bank-bg) { position: relative; }
+.osrs-tab-bank .osrs-tab-bank-hover, .osrs-tab-bank .osrs-tab-bank-selected { display: none; }
+.osrs-tab-bank:hover .osrs-tab-bank-hover { display: block; }
+.osrs-tab-bank:hover .osrs-tab-bank-idle { display: none; }
+.osrs-tab-bank:is([data-active], :active) .osrs-tab-bank-selected { display: block; }
+.osrs-tab-bank:is([data-active], :active) :is(.osrs-tab-bank-idle, .osrs-tab-bank-hover) { display: none; }
+.osrs-tab-bank:focus-visible { filter: brightness(1.2); }
 
 .osrs-frame-iron-rivets {
   --osrs-frame-image: var(--osrs-frame-iron-rivets);
