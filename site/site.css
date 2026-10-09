@@ -5,11 +5,13 @@
 
 :root, :root[data-theme="dark"], :root[data-theme="light"] {
   --osrs-px: 2px;
-  --blume-background: #3e3529;
+  --osrs-site-void: #110e0a;
+  --osrs-site-stage: #1a1611;
+  --blume-background: var(--osrs-site-void);
   --blume-foreground: var(--osrs-orange);
-  --blume-muted: rgb(0 0 0 / 0.18);
+  --blume-muted: rgb(255 255 255 / 0.04);
   --blume-muted-foreground: #c8b28c;
-  --blume-border: #2a241b;
+  --blume-border: #2e271e;
   --blume-accent: var(--osrs-orange);
   --blume-accent-foreground: #000;
   --blume-action: var(--osrs-yellow);
@@ -22,11 +24,10 @@
   color-scheme: dark;
 }
 
-/* The whole site sits on interface stone */
+/* The page is the dark void around the game viewport; stone is reserved for UI
+   (header, sidebar, components) so the components always stand out. */
 html body {
-  background-color: #3e3529;
-  background-image: var(--osrs-texture-side-panel);
-  background-size: calc(88 * var(--osrs-px)) calc(60 * var(--osrs-px));
+  background-color: var(--osrs-site-void);
   image-rendering: pixelated;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: unset;
@@ -87,8 +88,14 @@ html body article tbody tr:nth-child(odd) { background: rgb(0 0 0 / 0.1); }
 html body article tbody tr:nth-child(even) { background: rgb(255 255 255 / 0.05); }
 html body article :is(td, th) { border-color: #2a241b; }
 
-/* Component preview frames sit in an interface well */
-html body [data-blume-example], html body .blume-example {
+/* Component previews: a stage slightly lighter than the void, with a faint
+   game-pixel grid, so stone components read clearly. */
+html body :has(> iframe[data-blume-example-frame]) {
+  background-color: var(--osrs-site-stage);
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px);
+  background-size: 16px 16px;
   border-radius: 0 !important;
 }
 
@@ -103,16 +110,44 @@ html body ::-webkit-scrollbar-thumb {
 }
 html body ::selection { background: var(--osrs-highlight); color: var(--osrs-white); }
 
-/* Sidebar (site/Sidebar.tsx): the All Settings nav */
-.osrs-site-nav { --osrs-px: 1px; min-height: 100%; padding-bottom: 24px; }
-.osrs-site-nav .osrs-site-nav-item { min-height: 28px; justify-content: flex-start; padding-left: 10px; text-decoration: none; }
-.osrs-site-nav .osrs-site-nav-item[aria-current="page"] { background: #3e3529; }
+/* Sidebar (site/Sidebar.tsx): the All Settings nav, as a rivet-framed stone panel.
+   The current page's button opens out of the panel into the page, like the
+   selected settings category joining its content. */
+.osrs-site-nav {
+  --osrs-px: 1px;
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100% - 16px);
+  margin: 8px 0;
+  padding: 10px 0 24px 10px;
+  background-color: var(--osrs-stone);
+  background-image: var(--osrs-texture-side-panel);
+  background-size: 88px 60px;
+  box-shadow: none;
+}
+.osrs-site-nav::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-style: solid; border-color: transparent;
+  border-width: 30px 25px 30px 25px;
+  border-image: var(--osrs-frame-iron-rivets) 30 25 30 25 / 30px 25px 30px 25px / 0 repeat;
+}
+.osrs-site-nav .osrs-site-nav-item { min-height: 28px; justify-content: flex-start; padding-left: 10px; text-decoration: none; margin-right: 10px; }
+.osrs-site-nav .osrs-site-nav-item[aria-current="page"] {
+  margin-right: 0;
+  background: var(--osrs-site-void);
+  color: var(--osrs-white);
+  box-shadow:
+    0 -1px 0 #1f1a14,
+    0 1px 0 #1f1a14,
+    -1px 0 0 #1f1a14,
+    inset 0 1px 0 #2a241c;
+}
 .osrs-site-nav .osrs-site-nav-title {
-  margin: 10px 6px 2px 0;
+  margin: 10px 10px 2px 0;
   min-height: 24px;
   justify-content: flex-start;
   padding: 0 8px;
-  background: transparent;
+  background: rgb(0 0 0 / 0.18);
   color: var(--osrs-white);
 }
 .osrs-site-callout { --osrs-px: 2px; }
