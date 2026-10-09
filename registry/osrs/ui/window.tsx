@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -148,8 +149,20 @@ function WindowMenu({
   );
 }
 
-function WindowClose({ className, ...props }: React.ComponentProps<"button">) {
-  return <button type="button" aria-label="Close" data-slot="window-close" className={cn("osrs-close osrs-sprite", className)} {...props} />;
+/** The close button. Shows the game's "Close" hover label; pass `tooltip={false}` to hide it. */
+function WindowClose({ className, tooltip = "Close", ...props }: React.ComponentProps<"button"> & { tooltip?: React.ReactNode | false }) {
+  const button = (
+    <button type="button" aria-label="Close" data-slot="window-close" className={cn("osrs-close osrs-sprite", className)} {...props} />
+  );
+  if (tooltip === false) return button;
+  return (
+    <Tooltip>
+      <TooltipTrigger render={button} />
+      <TooltipContent variant="interface" side="bottom" align="end" sideOffset={2}>
+        {tooltip}
+      </TooltipContent>
+    </Tooltip>
+  );
 }
 
 /** Window content. `scroll` wraps it in the OSRS scroll area. */

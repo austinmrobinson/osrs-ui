@@ -259,13 +259,14 @@
   min-height: calc(24 * var(--osrs-px));
   padding: calc(4 * var(--osrs-px)) calc(8 * var(--osrs-px));
 }
-.osrs-button-square:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-square-button); color: var(--osrs-white); }
+/* Square tiles keep their orange label in every state; pressed / selected turns the tile red */
+.osrs-button-square, .osrs-button-square:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-square-button); color: var(--osrs-orange); }
 .osrs-button-square:disabled, .osrs-button-square[data-disabled] { --osrs-frame-image: var(--osrs-frame-square-button); opacity: 0.6; }
-.osrs-button-metal:disabled, .osrs-button-metal[data-disabled] { --osrs-frame-image: var(--osrs-frame-metal-button); opacity: 0.6; }
-.osrs-button-flat:disabled, .osrs-button-flat[data-disabled] { --osrs-frame-image: var(--osrs-frame-flat); opacity: 0.6; }
+.osrs-button-metal:disabled, .osrs-button-metal[data-disabled] { --osrs-frame-image: var(--osrs-frame-metal-button); color: #9f9f9f; }
+.osrs-button-flat:disabled, .osrs-button-flat[data-disabled] { --osrs-frame-image: var(--osrs-frame-flat); color: #8a8378; }
 .osrs-button-square:active:not(:disabled),
 .osrs-button-square[aria-pressed="true"],
-.osrs-button-square[data-pressed] { --osrs-frame-image: var(--osrs-frame-square-button-selected); background-image: none; }
+.osrs-button-square[data-pressed] { --osrs-frame-image: var(--osrs-frame-square-button-selected); background-image: none; color: var(--osrs-orange); }
 
 /* Interface: iron-rivet steel frame on stone */
 .osrs-interface {
@@ -301,7 +302,7 @@
   padding: 0;
   background-color: transparent;
 }
-.osrs-close:hover, .osrs-close:focus-visible { --osrs-sprite: var(--osrs-control-close-hover); outline: none; }
+.osrs-close:hover, .osrs-close:active, .osrs-close:focus-visible { --osrs-sprite: var(--osrs-control-close-hover); outline: none; }
 
 /* Tabs: slanted tab stones (3-slice) */
 .osrs-tabs-list {
@@ -330,14 +331,14 @@
   background: transparent;
 }
 .osrs-tab:hover { --osrs-frame-image: var(--osrs-frame-tab-small-hover); }
-.osrs-tab[data-active] { --osrs-frame-image: var(--osrs-frame-tab-small-selected); color: var(--osrs-white); }
+.osrs-tab[data-active], .osrs-tab:active { --osrs-frame-image: var(--osrs-frame-tab-small-selected); color: var(--osrs-white); }
 .osrs-tab:focus-visible { color: var(--osrs-yellow); }
 .osrs-tab-medium { height: calc(21 * var(--osrs-px)); --osrs-frame-image: var(--osrs-frame-tab-medium); }
 .osrs-tab-medium:hover { --osrs-frame-image: var(--osrs-frame-tab-medium-hover); }
-.osrs-tab-medium[data-active] { --osrs-frame-image: var(--osrs-frame-tab-medium-selected); }
+.osrs-tab-medium[data-active], .osrs-tab-medium:active { --osrs-frame-image: var(--osrs-frame-tab-medium-selected); }
 .osrs-tab-large { height: calc(26 * var(--osrs-px)); --osrs-frame-image: var(--osrs-frame-tab-large); }
 .osrs-tab-large:hover { --osrs-frame-image: var(--osrs-frame-tab-large-hover); }
-.osrs-tab-large[data-active] { --osrs-frame-image: var(--osrs-frame-tab-large-selected); }
+.osrs-tab-large[data-active], .osrs-tab-large:active { --osrs-frame-image: var(--osrs-frame-tab-large-selected); }
 
 /* Tooltip: examine-style yellow box */
 .osrs-tooltip {
@@ -535,18 +536,30 @@
   white-space: normal;
   text-align: center;
   line-height: calc(13 * var(--osrs-px));
+  color: var(--osrs-white);
 }
-.osrs-button-metal:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-metal-button-hover); }
+/* In game, hover and pressed look the same: the lighter-cornered frame */
+.osrs-button-metal:hover:not(:disabled),
 .osrs-button-metal:active:not(:disabled),
 .osrs-button-metal[aria-pressed="true"],
-.osrs-button-metal[data-pressed] { background-image: none; background-color: rgb(255 255 255 / 0.08); }
+.osrs-button-metal[data-pressed] {
+  --osrs-frame-image: var(--osrs-frame-metal-button-hover);
+  background-image: none;
+  background-color: rgb(0 0 0 / 0.12);
+  color: var(--osrs-white);
+}
 .osrs-button-flat {
   --osrs-frame-image: var(--osrs-frame-flat);
   --osrs-frame-slice: 5 5 5 5;
   --osrs-frame-width: calc(5 * var(--osrs-px));
   background-image: none;
 }
-.osrs-button-flat:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-flat); color: var(--osrs-white); }
+/* Account-panel buttons: white label that dims on hover; pressed looks the same as hover */
+.osrs-button-flat { color: var(--osrs-white); gap: calc(8 * var(--osrs-px)); }
+.osrs-button-flat:hover:not(:disabled),
+.osrs-button-flat:active:not(:disabled),
+.osrs-button-flat[aria-pressed="true"],
+.osrs-button-flat[data-pressed] { --osrs-frame-image: var(--osrs-frame-flat); background-image: none; color: #bdb5a6; }
 .osrs-button-lg { min-height: calc(36 * var(--osrs-px)); padding: calc(4 * var(--osrs-px)) calc(12 * var(--osrs-px)); }
 
 /* Vertical nav (All Settings categories): bevelled buttons in a darker column;
@@ -571,7 +584,7 @@
     inset calc(-1 * var(--osrs-px)) calc(-1 * var(--osrs-px)) 0 #2f281f,
     0 0 0 var(--osrs-px) #1f1a14;
 }
-.osrs-nav-item:hover { color: var(--osrs-white); }
+.osrs-nav-item:hover, .osrs-nav-item:active { color: var(--osrs-white); }
 .osrs-nav-item[data-active], .osrs-nav-item[aria-current="page"] {
   margin-right: 0;
   padding-right: calc(12 * var(--osrs-px));
@@ -737,6 +750,56 @@ button.osrs-list-item:hover, a.osrs-list-item:hover { background: rgb(255 255 25
 .osrs-muted { color: #9f9f9f; }
 .osrs-setting-row[data-layout="stacked"] > [data-slot="slider"] { margin-top: calc(4 * var(--osrs-px)); }
 .osrs-setting-desc { line-height: calc(16 * var(--osrs-px)); }
+
+
+/* ---------- Panel tabs (Account Management, Combat Achievements boss view) ----------
+   Cut-corner tabs on a bevelled panel. Idle tabs are dark, hover is a mid tone, and
+   pressed looks the same as selected: the panel's colour, merged into the panel. */
+.osrs-tabs-panel { --osrs-tab-panel: #3d3529; --osrs-tab-hover: #332c22; --osrs-tab-idle: #262019; }
+.osrs-tabs-list-panel { gap: calc(2 * var(--osrs-px)); padding-left: calc(2 * var(--osrs-px)); }
+.osrs-tab-panel {
+  position: relative;
+  z-index: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: calc(4 * var(--osrs-px));
+  flex: 1 0 auto;
+  min-width: calc(60 * var(--osrs-px));
+  height: calc(26 * var(--osrs-px));
+  margin-bottom: calc(-1 * var(--osrs-px));
+  padding: 0 calc(10 * var(--osrs-px));
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  color: var(--osrs-orange);
+  background: var(--osrs-tab-idle);
+  clip-path: polygon(calc(3 * var(--osrs-px)) 0, calc(100% - 3 * var(--osrs-px)) 0, 100% calc(3 * var(--osrs-px)), 100% 100%, 0 100%, 0 calc(3 * var(--osrs-px)));
+  box-shadow: inset var(--osrs-px) var(--osrs-px) 0 #6c6050, inset calc(-1 * var(--osrs-px)) 0 0 #1f1a14;
+}
+.osrs-tab-panel:hover { background: var(--osrs-tab-hover); color: var(--osrs-white); }
+.osrs-tab-panel[data-active], .osrs-tab-panel:active {
+  z-index: 2;
+  background: var(--osrs-tab-panel);
+  height: calc(27 * var(--osrs-px));
+}
+.osrs-tab-panel[data-active] { color: var(--osrs-white); }
+.osrs-tab-panel:focus-visible { color: var(--osrs-yellow); }
+.osrs-tabs-panel-body {
+  position: relative;
+  z-index: 1;
+  background: var(--osrs-tab-panel);
+  box-shadow: 0 0 0 var(--osrs-px) #1f1a14, inset 0 0 0 var(--osrs-px) #6c6050;
+  padding: calc(6 * var(--osrs-px));
+}
+
+/* Interface tooltip (hover labels on account/menu buttons): dark, thin-bordered, white text */
+.osrs-tooltip-interface {
+  padding: calc(2 * var(--osrs-px)) calc(4 * var(--osrs-px));
+  background: rgb(46 40 30 / 0.94);
+  color: var(--osrs-white);
+  border: var(--osrs-px) solid #6c6050;
+  box-shadow: 0 0 0 var(--osrs-px) #000;
+  text-shadow: var(--osrs-px) var(--osrs-px) 0 #000;
+}
 
 .osrs-frame-iron-rivets {
   --osrs-frame-image: var(--osrs-frame-iron-rivets);

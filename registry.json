@@ -77,7 +77,8 @@
       ],
       "registryDependencies": [
         "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils"
+        "utils",
+        "https://osrs-ui.vercel.app/r/tooltip.json"
       ],
       "files": [
         {
@@ -336,6 +337,7 @@
       "registryDependencies": [
         "https://osrs-ui.vercel.app/r/osrs-theme.json",
         "utils",
+        "https://osrs-ui.vercel.app/r/tooltip.json",
         "https://osrs-ui.vercel.app/r/osrs-lib.json",
         "https://osrs-ui.vercel.app/r/window.json"
       ],
@@ -389,7 +391,8 @@
       ],
       "registryDependencies": [
         "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils"
+        "utils",
+        "https://osrs-ui.vercel.app/r/tooltip.json"
       ],
       "files": [
         {
@@ -787,6 +790,7 @@
       "registryDependencies": [
         "https://osrs-ui.vercel.app/r/osrs-theme.json",
         "utils",
+        "https://osrs-ui.vercel.app/r/tooltip.json",
         "https://osrs-ui.vercel.app/r/scroll-area.json",
         "https://osrs-ui.vercel.app/r/button-sprites.json",
         "https://osrs-ui.vercel.app/r/osrs-lib.json"

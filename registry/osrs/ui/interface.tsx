@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { MovableContext, useMovable, type MovableOptions } from "@/lib/movable";
 import { WindowResizeHandle } from "@/components/ui/window";
 
@@ -61,15 +62,19 @@ function InterfaceTitle({ className, ...props }: React.ComponentProps<"h2">) {
   return <h2 data-slot="interface-title" className={cn("osrs-interface-title", className)} {...props} />;
 }
 
-function InterfaceClose({ className, ...props }: React.ComponentProps<"button">) {
+/** The close button. Shows the game's "Close" hover label; pass `tooltip={false}` to hide it. */
+function InterfaceClose({ className, tooltip = "Close", ...props }: React.ComponentProps<"button"> & { tooltip?: React.ReactNode | false }) {
+  const button = (
+    <button type="button" aria-label="Close" data-slot="interface-close" className={cn("osrs-close osrs-sprite", className)} {...props} />
+  );
+  if (tooltip === false) return button;
   return (
-    <button
-      type="button"
-      aria-label="Close"
-      data-slot="interface-close"
-      className={cn("osrs-close osrs-sprite", className)}
-      {...props}
-    />
+    <Tooltip>
+      <TooltipTrigger render={button} />
+      <TooltipContent variant="interface" side="bottom" align="end" sideOffset={2}>
+        {tooltip}
+      </TooltipContent>
+    </Tooltip>
   );
 }
 

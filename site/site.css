@@ -137,8 +137,10 @@ html body blume-tabs [role="tab"]::before {
     linear-gradient(135deg, var(--osrs-tab-line) 0 4px, transparent 4px 100%) left top / 6px 6px no-repeat,
     linear-gradient(225deg, var(--osrs-tab-shadow) 0 4px, transparent 4px 100%) right top / 6px 6px no-repeat;
 }
-html body blume-tabs [role="tab"]:hover { color: var(--osrs-white) !important; }
-html body blume-tabs [role="tab"][aria-selected="true"] {
+html body blume-tabs [role="tab"]:hover { color: var(--osrs-white) !important; background: #2a241c !important; }
+/* pressed looks the same as selected, as in game */
+html body blume-tabs [role="tab"][aria-selected="true"],
+html body blume-tabs [role="tab"]:active {
   z-index: 2;
   height: 30px;
   background: var(--osrs-tab-panel) !important;
@@ -277,7 +279,7 @@ html body :is([data-blume-search-open], [data-blume-copy]) {
   padding: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
-  color: var(--osrs-orange) !important;
+  color: var(--osrs-white) !important;
   background: rgb(0 0 0 / 0.15) !important;
   cursor: pointer;
 }
@@ -288,7 +290,7 @@ html body :is([data-blume-search-open], [data-blume-copy])::before {
   image-rendering: pixelated;
 }
 html body :is([data-blume-search-open], [data-blume-copy]):hover { color: var(--osrs-white) !important; }
-html body :is([data-blume-search-open], [data-blume-copy]):hover::before { border-image-source: var(--osrs-frame-metal-button-hover); }
+html body :is([data-blume-search-open], [data-blume-copy]):is(:hover, :active)::before { border-image-source: var(--osrs-frame-metal-button-hover); }
 html body :is([data-blume-search-open], [data-blume-copy]) svg { filter: drop-shadow(1px 1px 0 #000); }
 html body [data-blume-copy] svg[class*="text-green"] { color: var(--osrs-green) !important; }
 /* copy buttons keep Blume's placement in the code block's top-right corner */
@@ -450,7 +452,7 @@ html body [data-blume-page-actions] > details > summary {
   min-height: 30px;
   padding: 4px 14px !important;
   background: rgb(0 0 0 / 0.12) !important;
-  color: var(--osrs-orange) !important;
+  color: var(--osrs-white) !important;
   font-family: var(--osrs-font) !important;
   font-size: 16px !important;
   text-shadow: 1px 1px 0 #000;
@@ -465,8 +467,8 @@ html body [data-blume-page-actions] > details > summary::before {
 html body [data-blume-page-actions] > button:hover,
 html body [data-blume-page-actions] > details > summary:hover,
 html body [data-blume-page-actions] > details[open] > summary { color: var(--osrs-white) !important; }
-html body [data-blume-page-actions] > button:hover::before,
-html body [data-blume-page-actions] > details > summary:hover::before,
+html body [data-blume-page-actions] > button:is(:hover, :active)::before,
+html body [data-blume-page-actions] > details > summary:is(:hover, :active)::before,
 html body [data-blume-page-actions] > details[open] > summary::before { border-image-source: var(--osrs-frame-metal-button-hover); }
 html body [data-blume-page-actions] svg { filter: drop-shadow(1px 1px 0 #000); }
 html body [data-blume-page-actions] > details > summary > svg:last-child { margin-inline-start: 0 !important; }

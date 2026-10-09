@@ -5,8 +5,25 @@ import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 
 import { cn } from "@/lib/utils";
 
-function Tabs({ className, ...props }: TabsPrimitive.Root.Props) {
-  return <TabsPrimitive.Root data-slot="tabs" className={cn("flex flex-col", className)} {...props} />;
+type TabsVariant = "stone" | "panel";
+const VariantContext = React.createContext<TabsVariant>("stone");
+
+/**
+ * `stone` (default): the slanted tab stones (Collection Log, Settings classic).
+ * `panel`: cut-corner tabs joined to a bevelled panel (Account Management, Combat Achievements).
+ * In both, pressing a tab looks the same as the selected tab, as in game.
+ */
+function Tabs({ className, variant = "stone", ...props }: TabsPrimitive.Root.Props & { variant?: TabsVariant }) {
+  return (
+    <VariantContext.Provider value={variant}>
+      <TabsPrimitive.Root
+        data-slot="tabs"
+        data-variant={variant}
+        className={cn("flex flex-col", variant === "panel" && "osrs-tabs-panel", className)}
+        {...props}
+      />
+    </VariantContext.Provider>
+  );
 }
 
 /**
@@ -38,7 +55,7 @@ function TabsList({ className, onWheel, ...props }: TabsPrimitive.List.Props) {
     <TabsPrimitive.List
       ref={ref}
       data-slot="tabs-list"
-      className={cn("osrs-tabs-list", className)}
+      className={cn("osrs-tabs-list", React.useContext(VariantContext) === "panel" && "osrs-tabs-list-panel", className)}
       onWheel={(e) => {
         onWheel?.(e);
         const list = ref.current;
@@ -55,17 +72,28 @@ function TabsList({ className, onWheel, ...props }: TabsPrimitive.List.Props) {
 const sizes = { small: "", medium: "osrs-tab-medium", large: "osrs-tab-large" } as const;
 
 function TabsTrigger({ className, size = "small", ...props }: TabsPrimitive.Tab.Props & { size?: keyof typeof sizes }) {
+  const variant = React.useContext(VariantContext);
   return (
     <TabsPrimitive.Tab
       data-slot="tabs-trigger"
-      className={cn("osrs-tab osrs-framed osrs-text", sizes[size], className)}
+      className={cn(
+        variant === "panel" ? "osrs-tab-panel osrs-text" : cn("osrs-tab osrs-framed osrs-text", sizes[size]),
+        className,
+      )}
       {...props}
     />
   );
 }
 
 function TabsContent({ className, ...props }: TabsPrimitive.Panel.Props) {
-  return <TabsPrimitive.Panel data-slot="tabs-content" className={cn("outline-none", className)} {...props} />;
+  const variant = React.useContext(VariantContext);
+  return (
+    <TabsPrimitive.Panel
+      data-slot="tabs-content"
+      className={cn("outline-none", variant === "panel" && "osrs-tabs-panel-body", className)}
+      {...props}
+    />
+  );
 }
 
 export { Tabs, TabsList, TabsTrigger, TabsContent };

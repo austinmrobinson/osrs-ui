@@ -20,19 +20,23 @@ function TooltipTrigger(props: TooltipPrimitive.Trigger.Props) {
   return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
 }
 
+/** `examine` (default): the yellow examine box. `interface`: the dark hover label of interface buttons. */
 function TooltipContent({
   className,
+  variant = "examine",
   side = "top",
   sideOffset = 4,
   align = "center",
+  alignOffset,
   ...props
-}: TooltipPrimitive.Popup.Props & Pick<TooltipPrimitive.Positioner.Props, "side" | "sideOffset" | "align">) {
+}: TooltipPrimitive.Popup.Props &
+  Pick<TooltipPrimitive.Positioner.Props, "side" | "sideOffset" | "align" | "alignOffset"> & { variant?: "examine" | "interface" }) {
   return (
     <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Positioner side={side} sideOffset={sideOffset} align={align} className="z-50">
+      <TooltipPrimitive.Positioner side={side} sideOffset={sideOffset} align={align} alignOffset={alignOffset} className="z-50">
         <TooltipPrimitive.Popup
           data-slot="tooltip-content"
-          className={cn("osrs-tooltip osrs-text max-w-[calc(200*var(--osrs-px))]", className)}
+          className={cn("osrs-tooltip osrs-text max-w-[calc(200*var(--osrs-px))]", variant === "interface" && "osrs-tooltip-interface", className)}
           {...props}
         />
       </TooltipPrimitive.Positioner>

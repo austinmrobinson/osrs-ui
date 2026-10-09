@@ -31,7 +31,15 @@ export default function AllSettingsRecipe() {
         <Tabs orientation="vertical" defaultValue="Display" className="min-h-0 flex-1 flex-row">
           <NavList style={{ width: px(124) }}>
             {CATEGORIES.map((c) => (
-              <NavItem key={c} value={c}>
+              <NavItem
+                key={c}
+                value={c}
+                tooltip={
+                  <>
+                    Select <span style={{ color: "var(--osrs-orange)" }}>{c}</span>
+                  </>
+                }
+              >
                 {c}
               </NavItem>
             ))}
