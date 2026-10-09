@@ -1,0 +1,27 @@
+---
+title: Button
+description: The stone button from in-game interfaces. A 9-slice vector frame that stretches to any width.
+---
+
+<Component path="button/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/button.json
+```
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+<Button>Deposit inventory</Button>
+<Button variant="square" aria-pressed>Selected</Button>
+```
+
+## Notes
+
+- `variant`: `stone` (default) uses the `stone_small` frame on the interface stone; `square` uses the grey metal frame, which turns red when pressed or `aria-pressed`.
+- `size`: `default`, `sm`, `icon`.
+- Hover and disabled states swap to the game's own hover and disabled sprites.

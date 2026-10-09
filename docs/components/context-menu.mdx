@@ -1,0 +1,30 @@
+---
+title: Context Menu
+description: The right-click menu, with its "Choose Option" header and coloured targets.
+---
+
+<Component path="context-menu/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/context-menu.json
+```
+
+## Usage
+
+```tsx
+import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from "@/components/ui/context-menu"
+
+<ContextMenu>
+  <ContextMenuTrigger>…</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem target="Bank booth">Bank</ContextMenuItem>
+    <ContextMenuItem>Cancel</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
+## Notes
+
+`target` renders in the menu-target orange (`#ff9040`); the highlighted option turns yellow, as in game. Change or remove the header with `header`.

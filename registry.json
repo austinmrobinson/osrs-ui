@@ -1,0 +1,223 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "osrs-ui",
+  "homepage": "https://osrs-ui.vercel.app",
+  "items": [
+    {
+      "name": "osrs-theme",
+      "type": "registry:theme",
+      "title": "OSRS theme",
+      "description": "Tokens, fonts, 9-slice frames and textures (one self-contained stylesheet).",
+      "files": [
+        {
+          "path": "registry/osrs/theme/osrs.css",
+          "type": "registry:file",
+          "target": "styles/osrs.css"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Stone and square buttons.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "interface",
+      "type": "registry:ui",
+      "title": "Interface",
+      "description": "Interface window: stone inside the iron-rivet frame.",
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/interface.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal drawn as an interface window.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Slanted tab stones.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Yellow examine tooltip.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Right-click \"Choose Option\" menu.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Settings checkbox.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "In-game scrollbar.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Sunken text field.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Two-tone interface rule.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skill-icons",
+      "type": "registry:ui",
+      "title": "Skill Icons",
+      "description": "All 24 skill icons plus total level as vector React components.",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/icons/skill-icons.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

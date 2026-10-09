@@ -1,0 +1,370 @@
+/*
+ * OSRS UI theme — hand-written part. scripts/build-css.ts appends the generated
+ * asset variables and writes the combined, self-contained osrs.css.
+ * Fonts: RuneStar fonts (CC0); build-css.ts inlines them as data URIs.
+ */
+
+@font-face { font-family: "RuneScape Plain 11"; src: url("/fonts/osrs/RuneScape-Plain-11.ttf") format("truetype"); font-display: block; }
+@font-face { font-family: "RuneScape Plain 12"; src: url("/fonts/osrs/RuneScape-Plain-12.ttf") format("truetype"); font-display: block; }
+@font-face { font-family: "RuneScape Bold 12"; src: url("/fonts/osrs/RuneScape-Bold-12.ttf") format("truetype"); font-display: block; }
+@font-face { font-family: "RuneScape Quill 8"; src: url("/fonts/osrs/RuneScape-Quill-8.ttf") format("truetype"); font-display: block; }
+
+:root {
+  /* Size of one game pixel. Keep it an integer number of CSS px for crisp output. */
+  --osrs-px: 2px;
+
+  /* Text (JagexColors / in-game) */
+  --osrs-orange: #ff981f;
+  --osrs-yellow: #ffff00;
+  --osrs-white: #ffffff;
+  --osrs-green: #00ff00;
+  --osrs-red: #ff0000;
+  --osrs-cyan: #00ffff;
+  --osrs-menu-target: #ff9040;
+  --osrs-shadow: #000000;
+
+  /* Surfaces */
+  --osrs-stone: #494034;
+  --osrs-stone-dark: #3e3529;
+  --osrs-stone-bright: #544b40;
+  --osrs-border-outer: #383023;
+  --osrs-border-inner: #5a5245;
+  --osrs-well: #2e281d;
+  --osrs-well-border: #544834;
+  --osrs-highlight: #89785e;
+  --osrs-separator: #5d5848;
+  --osrs-menu: #5d5447;
+  --osrs-tooltip: #ffffa0;
+  --osrs-overlay: rgb(70 61 50 / 0.61);
+
+  --osrs-font: "RuneScape Plain 12", ui-monospace, monospace;
+  --osrs-font-small: "RuneScape Plain 11", ui-monospace, monospace;
+  --osrs-font-bold: "RuneScape Bold 12", ui-monospace, monospace;
+  --osrs-font-quill: "RuneScape Quill 8", serif;
+}
+
+/* shadcn tokens, so stock shadcn components pick up the palette too */
+.osrs, [data-osrs-theme] {
+  --background: var(--osrs-stone);
+  --foreground: var(--osrs-orange);
+  --card: var(--osrs-stone);
+  --card-foreground: var(--osrs-orange);
+  --popover: var(--osrs-menu);
+  --popover-foreground: var(--osrs-white);
+  --primary: var(--osrs-orange);
+  --primary-foreground: var(--osrs-shadow);
+  --secondary: var(--osrs-stone-bright);
+  --secondary-foreground: var(--osrs-orange);
+  --muted: var(--osrs-well);
+  --muted-foreground: #c0a886;
+  --accent: var(--osrs-highlight);
+  --accent-foreground: var(--osrs-white);
+  --destructive: var(--osrs-red);
+  --border: var(--osrs-border-outer);
+  --input: var(--osrs-well-border);
+  --ring: var(--osrs-yellow);
+  --radius: 0;
+}
+
+/* ---------- Text ---------- */
+.osrs-text {
+  font-family: var(--osrs-font);
+  font-size: calc(16 * var(--osrs-px));
+  line-height: calc(15 * var(--osrs-px));
+  font-weight: 400;
+  color: var(--osrs-orange);
+  text-shadow: var(--osrs-px) var(--osrs-px) 0 var(--osrs-shadow);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
+  font-synthesis: none;
+  letter-spacing: 0;
+}
+.osrs-text-small { font-family: var(--osrs-font-small); }
+.osrs-text-bold { font-family: var(--osrs-font-bold); }
+.osrs-text-quill { font-family: var(--osrs-font-quill); text-shadow: none; }
+.osrs-text-plain { text-shadow: none; }
+
+/* ---------- Pixel rendering ---------- */
+.osrs-pixelated,
+[class*="osrs-frame-"],
+[class*="osrs-texture-"] {
+  image-rendering: pixelated;
+}
+
+/* ---------- 9-slice frames ----------
+ * .osrs-frame-<name> sets the variables (osrs-assets.css); .osrs-framed paints it.
+ * The frame sits on a ::before overlay above the element's own background,
+ * so textures and frames layer exactly like the game draws them. */
+.osrs-framed {
+  position: relative;
+  isolation: isolate;
+}
+.osrs-framed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-style: solid;
+  border-color: transparent;
+  border-width: var(--osrs-frame-width);
+  border-image-source: var(--osrs-frame-image);
+  border-image-slice: var(--osrs-frame-slice) fill;
+  border-image-width: var(--osrs-frame-width);
+  border-image-repeat: repeat;
+  image-rendering: pixelated;
+}
+.osrs-framed-stretch::before { border-image-repeat: stretch; }
+
+/* ---------- Sprites (single images) ---------- */
+.osrs-sprite {
+  display: inline-block;
+  flex: none;
+  width: calc(var(--osrs-sprite-w) * var(--osrs-px));
+  height: calc(var(--osrs-sprite-h) * var(--osrs-px));
+  background-image: var(--osrs-sprite);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+/* ---------- Bevels (98.css-style box-shadow, for wells and inputs) ---------- */
+.osrs-well {
+  background: var(--osrs-well);
+  box-shadow:
+    inset var(--osrs-px) var(--osrs-px) 0 var(--osrs-border-outer),
+    inset calc(-1 * var(--osrs-px)) calc(-1 * var(--osrs-px)) 0 var(--osrs-border-inner),
+    0 0 0 var(--osrs-px) var(--osrs-shadow);
+}
+.osrs-outline {
+  box-shadow:
+    inset 0 0 0 var(--osrs-px) var(--osrs-border-inner),
+    0 0 0 var(--osrs-px) var(--osrs-border-outer);
+}
+
+/* =========================================================================
+ * Components
+ * ========================================================================= */
+
+/* Button: stone_small 9-slice over the interface stone texture */
+.osrs-button {
+  --osrs-frame-image: var(--osrs-frame-stone-button);
+  --osrs-frame-slice: 5 5 5 5;
+  --osrs-frame-width: calc(5 * var(--osrs-px));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(4 * var(--osrs-px));
+  min-height: calc(20 * var(--osrs-px));
+  padding: calc(3 * var(--osrs-px)) calc(8 * var(--osrs-px));
+  background-image: var(--osrs-texture-stone);
+  background-size: calc(88 * var(--osrs-px)) calc(60 * var(--osrs-px));
+  background-clip: padding-box;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+.osrs-button:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-stone-button-hover); }
+.osrs-button:active:not(:disabled),
+.osrs-button[aria-pressed="true"],
+.osrs-button[data-pressed] {
+  background-image: var(--osrs-texture-stone-bright);
+  color: var(--osrs-white);
+}
+.osrs-button:disabled,
+.osrs-button[data-disabled] { --osrs-frame-image: var(--osrs-frame-stone-button-disabled); cursor: default; color: #9f9f9f; }
+.osrs-button:focus-visible { color: var(--osrs-yellow); }
+.osrs-button-sm { min-height: calc(16 * var(--osrs-px)); padding: calc(1 * var(--osrs-px)) calc(6 * var(--osrs-px)); }
+.osrs-button-icon { padding: calc(3 * var(--osrs-px)); aspect-ratio: 1; }
+
+/* Square (metal) button: grey, red when selected */
+.osrs-button-square {
+  --osrs-frame-image: var(--osrs-frame-square-button);
+  --osrs-frame-slice: 6 6 6 6;
+  --osrs-frame-width: calc(6 * var(--osrs-px));
+  background-image: none;
+  min-height: calc(24 * var(--osrs-px));
+  padding: calc(4 * var(--osrs-px)) calc(8 * var(--osrs-px));
+}
+.osrs-button-square:hover:not(:disabled) { --osrs-frame-image: var(--osrs-frame-square-button); color: var(--osrs-white); }
+.osrs-button-square:active:not(:disabled),
+.osrs-button-square[aria-pressed="true"],
+.osrs-button-square[data-pressed] { --osrs-frame-image: var(--osrs-frame-square-button-selected); background-image: none; }
+
+/* Interface: iron-rivet steel frame on stone */
+.osrs-interface {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--osrs-stone);
+  background-image: var(--osrs-texture-stone);
+  background-size: calc(88 * var(--osrs-px)) calc(60 * var(--osrs-px));
+  padding: calc(10 * var(--osrs-px));
+  /* rivet frame is 6px thick; keep the stone from bleeding past its outer edge */
+  background-clip: padding-box;
+}
+.osrs-interface-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(23 * var(--osrs-px));
+  margin: calc(-4 * var(--osrs-px)) 0 calc(4 * var(--osrs-px));
+  padding: 0 calc(28 * var(--osrs-px));
+}
+.osrs-interface-title { font-family: var(--osrs-font-bold); color: var(--osrs-orange); text-align: center; }
+.osrs-close {
+  --osrs-sprite: var(--osrs-control-close);
+  --osrs-sprite-w: 26;
+  --osrs-sprite-h: 23;
+  position: absolute;
+  right: calc(-4 * var(--osrs-px));
+  top: 50%;
+  translate: 0 -50%;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.osrs-close:hover, .osrs-close:focus-visible { --osrs-sprite: var(--osrs-control-close-hover); outline: none; }
+
+/* Tabs: slanted tab stones (3-slice) */
+.osrs-tabs-list { display: flex; align-items: flex-end; gap: 0; }
+.osrs-tab {
+  --osrs-frame-image: var(--osrs-frame-tab-small);
+  --osrs-frame-slice: 1 4 1 4;
+  --osrs-frame-width: var(--osrs-px) calc(4 * var(--osrs-px));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  height: calc(21 * var(--osrs-px));
+  padding: 0 calc(6 * var(--osrs-px));
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  background: transparent;
+}
+.osrs-tab:hover { --osrs-frame-image: var(--osrs-frame-tab-small-hover); }
+.osrs-tab[data-active] { --osrs-frame-image: var(--osrs-frame-tab-small-selected); color: var(--osrs-white); }
+.osrs-tab:focus-visible { color: var(--osrs-yellow); }
+.osrs-tab-medium { height: calc(21 * var(--osrs-px)); --osrs-frame-image: var(--osrs-frame-tab-medium); }
+.osrs-tab-medium:hover { --osrs-frame-image: var(--osrs-frame-tab-medium-hover); }
+.osrs-tab-medium[data-active] { --osrs-frame-image: var(--osrs-frame-tab-medium-selected); }
+.osrs-tab-large { height: calc(26 * var(--osrs-px)); --osrs-frame-image: var(--osrs-frame-tab-large); }
+.osrs-tab-large:hover { --osrs-frame-image: var(--osrs-frame-tab-large-hover); }
+.osrs-tab-large[data-active] { --osrs-frame-image: var(--osrs-frame-tab-large-selected); }
+
+/* Tooltip: examine-style yellow box */
+.osrs-tooltip {
+  background: var(--osrs-tooltip);
+  color: #000;
+  border: var(--osrs-px) solid #000;
+  padding: var(--osrs-px) calc(3 * var(--osrs-px));
+  text-shadow: none;
+}
+
+/* Right-click menu */
+.osrs-menu {
+  min-width: calc(80 * var(--osrs-px));
+  background: var(--osrs-menu);
+  border: var(--osrs-px) solid #000;
+  padding: 0 0 calc(2 * var(--osrs-px));
+  color: var(--osrs-white);
+  outline: none;
+}
+.osrs-menu-header {
+  background: #000;
+  color: var(--osrs-menu);
+  text-shadow: none;
+  margin: var(--osrs-px);
+  padding: 0 calc(2 * var(--osrs-px));
+  line-height: calc(15 * var(--osrs-px));
+}
+.osrs-menu-item {
+  display: flex;
+  gap: 0.25em;
+  padding: 0 calc(3 * var(--osrs-px));
+  line-height: calc(15 * var(--osrs-px));
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+.osrs-menu-item[data-highlighted] { color: var(--osrs-yellow); }
+.osrs-menu-item[data-disabled] { color: #9f9f9f; cursor: default; }
+.osrs-menu-target { color: var(--osrs-menu-target); }
+.osrs-menu-item[data-highlighted] .osrs-menu-target { color: var(--osrs-yellow); }
+
+/* Checkbox */
+.osrs-checkbox {
+  --osrs-sprite: var(--osrs-control-checkbox);
+  --osrs-sprite-w: 16;
+  --osrs-sprite-h: 16;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.osrs-checkbox:hover, .osrs-checkbox:focus-visible { --osrs-sprite: var(--osrs-control-checkbox-hover); }
+.osrs-checkbox[data-checked] { --osrs-sprite: var(--osrs-control-checkbox-checked); }
+.osrs-checkbox[data-checked]:hover,
+.osrs-checkbox[data-checked]:focus-visible { --osrs-sprite: var(--osrs-control-checkbox-checked-hover); }
+.osrs-checkbox[data-indeterminate] { --osrs-sprite: var(--osrs-control-checkbox-crossed); }
+.osrs-checkbox[data-disabled] { opacity: 0.5; cursor: default; }
+
+/* Scrollbar */
+.osrs-scrollbar {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(16 * var(--osrs-px));
+  padding: calc(16 * var(--osrs-px)) 0;
+  background: var(--osrs-stone-dark);
+  touch-action: none;
+  user-select: none;
+}
+.osrs-scrollbar-thumb {
+  width: 100%;
+  height: var(--scroll-area-thumb-height);
+  background:
+    var(--osrs-control-scroll-thumb-top) top / 100% calc(5 * var(--osrs-px)) no-repeat,
+    var(--osrs-control-scroll-thumb-bottom) bottom / 100% calc(5 * var(--osrs-px)) no-repeat,
+    var(--osrs-control-scroll-thumb-middle) 0 0 / 100% calc(5 * var(--osrs-px)) repeat-y;
+  image-rendering: pixelated;
+}
+.osrs-scroll-arrow {
+  position: absolute;
+  right: 0;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+.osrs-scroll-arrow-up { top: 0; --osrs-sprite: var(--osrs-control-scroll-up); --osrs-sprite-w: 16; --osrs-sprite-h: 16; }
+.osrs-scroll-arrow-down { bottom: 0; --osrs-sprite: var(--osrs-control-scroll-down); --osrs-sprite-w: 16; --osrs-sprite-h: 16; }
+
+/* Input: sunken well */
+.osrs-input {
+  height: calc(20 * var(--osrs-px));
+  padding: 0 calc(4 * var(--osrs-px));
+  color: var(--osrs-white);
+  border: 0;
+  outline: none;
+}
+.osrs-input::placeholder { color: #9f9f9f; }
+.osrs-input:focus-visible { box-shadow:
+  inset var(--osrs-px) var(--osrs-px) 0 var(--osrs-border-outer),
+  inset calc(-1 * var(--osrs-px)) calc(-1 * var(--osrs-px)) 0 var(--osrs-border-inner),
+  0 0 0 var(--osrs-px) var(--osrs-yellow); }
+
+/* Separator: dark line with a lighter line beneath */
+.osrs-separator { flex: none; background: var(--osrs-border-outer); box-shadow: 0 var(--osrs-px) 0 var(--osrs-separator); }
+.osrs-separator[data-orientation="horizontal"] { height: var(--osrs-px); width: 100%; margin-bottom: var(--osrs-px); }
+.osrs-separator[data-orientation="vertical"] { width: var(--osrs-px); align-self: stretch; box-shadow: var(--osrs-px) 0 0 var(--osrs-separator); margin-right: var(--osrs-px); }
+
+/* Skill icon sizing */
+.osrs-icon { display: inline-block; flex: none; shape-rendering: crispEdges; vertical-align: middle; }

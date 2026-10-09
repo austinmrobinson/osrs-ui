@@ -1,0 +1,23 @@
+---
+title: OSRS UI
+description: Pixel-exact, vector Old School RuneScape interface components and icons for shadcn/ui.
+---
+
+OSRS UI recreates the Old School RuneScape interface as a [shadcn/ui](https://ui.shadcn.com) registry. Every frame, texture and icon is a **vector SVG traced pixel for pixel from the game's sprites**. They stay sharp at any integer scale, and a check in CI confirms they still match the original pixels exactly.
+
+<Component path="interface/demo" />
+
+## What's different
+
+- **Vector, not screenshots.** Each sprite is converted to merged SVG rectangles, one path per colour, with no smoothing or tracing guesswork.
+- **Frames that resize.** Buttons, interfaces and tabs are 9-slice and 3-slice frames that repeat the game's own edge sprites, so they work at any width or height.
+- **One scale knob.** `--osrs-px` is the size of one game pixel. Set it to `1px`, `2px`, `3px` and so on; every frame, font and gap follows.
+- **Free downloads.** Every icon and frame can be downloaded as SVG or PNG at any size on the [Assets](/assets) page, which is handy for video thumbnails and overlays.
+
+## Credits
+
+Fonts are the [RuneStar OSRS fonts](https://github.com/RuneStar/fonts) (CC0). Reference sprites come from the vanilla pack in [melkypie/resource-packs](https://github.com/melkypie/resource-packs).
+
+<Callout type="info">
+Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan Content Policy. This content is not endorsed by or affiliated with Jagex.
+</Callout>

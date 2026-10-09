@@ -1,0 +1,742 @@
+[
+  {
+    "name": "attack",
+    "group": "skill",
+    "label": "Attack",
+    "file": "skill/attack.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "hitpoints",
+    "group": "skill",
+    "label": "Hitpoints",
+    "file": "skill/hitpoints.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "mining",
+    "group": "skill",
+    "label": "Mining",
+    "file": "skill/mining.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "strength",
+    "group": "skill",
+    "label": "Strength",
+    "file": "skill/strength.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "agility",
+    "group": "skill",
+    "label": "Agility",
+    "file": "skill/agility.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "smithing",
+    "group": "skill",
+    "label": "Smithing",
+    "file": "skill/smithing.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "defence",
+    "group": "skill",
+    "label": "Defence",
+    "file": "skill/defence.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "herblore",
+    "group": "skill",
+    "label": "Herblore",
+    "file": "skill/herblore.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "fishing",
+    "group": "skill",
+    "label": "Fishing",
+    "file": "skill/fishing.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "ranged",
+    "group": "skill",
+    "label": "Ranged",
+    "file": "skill/ranged.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "thieving",
+    "group": "skill",
+    "label": "Thieving",
+    "file": "skill/thieving.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "cooking",
+    "group": "skill",
+    "label": "Cooking",
+    "file": "skill/cooking.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "prayer",
+    "group": "skill",
+    "label": "Prayer",
+    "file": "skill/prayer.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "crafting",
+    "group": "skill",
+    "label": "Crafting",
+    "file": "skill/crafting.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "firemaking",
+    "group": "skill",
+    "label": "Firemaking",
+    "file": "skill/firemaking.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "magic",
+    "group": "skill",
+    "label": "Magic",
+    "file": "skill/magic.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "fletching",
+    "group": "skill",
+    "label": "Fletching",
+    "file": "skill/fletching.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "woodcutting",
+    "group": "skill",
+    "label": "Woodcutting",
+    "file": "skill/woodcutting.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "runecraft",
+    "group": "skill",
+    "label": "Runecraft",
+    "file": "skill/runecraft.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "slayer",
+    "group": "skill",
+    "label": "Slayer",
+    "file": "skill/slayer.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "farming",
+    "group": "skill",
+    "label": "Farming",
+    "file": "skill/farming.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "construction",
+    "group": "skill",
+    "label": "Construction",
+    "file": "skill/construction.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "hunter",
+    "group": "skill",
+    "label": "Hunter",
+    "file": "skill/hunter.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "sailing",
+    "group": "skill",
+    "label": "Sailing",
+    "file": "skill/sailing.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "total",
+    "group": "skill",
+    "label": "Total",
+    "file": "skill/total.svg",
+    "width": 25,
+    "height": 25
+  },
+  {
+    "name": "iron-rivets",
+    "group": "frame",
+    "label": "Interface frame (iron rivets)",
+    "file": "frame/iron-rivets.svg",
+    "width": 86,
+    "height": 96,
+    "slice": [
+      30,
+      25,
+      30,
+      25
+    ],
+    "border": [
+      6,
+      6,
+      6,
+      6
+    ]
+  },
+  {
+    "name": "stone-button",
+    "group": "frame",
+    "label": "Stone button",
+    "file": "frame/stone-button.svg",
+    "width": 15,
+    "height": 15,
+    "slice": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "border": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  {
+    "name": "stone-button-hover",
+    "group": "frame",
+    "label": "Stone button (hover)",
+    "file": "frame/stone-button-hover.svg",
+    "width": 15,
+    "height": 15,
+    "slice": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "border": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  {
+    "name": "stone-button-disabled",
+    "group": "frame",
+    "label": "Stone button (disabled)",
+    "file": "frame/stone-button-disabled.svg",
+    "width": 15,
+    "height": 15,
+    "slice": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "border": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  {
+    "name": "square-button",
+    "group": "frame",
+    "label": "Square button",
+    "file": "frame/square-button.svg",
+    "width": 24,
+    "height": 24,
+    "slice": [
+      6,
+      6,
+      6,
+      6
+    ],
+    "border": [
+      6,
+      6,
+      6,
+      6
+    ]
+  },
+  {
+    "name": "square-button-selected",
+    "group": "frame",
+    "label": "Square button (selected)",
+    "file": "frame/square-button-selected.svg",
+    "width": 24,
+    "height": 24,
+    "slice": [
+      6,
+      6,
+      6,
+      6
+    ],
+    "border": [
+      6,
+      6,
+      6,
+      6
+    ]
+  },
+  {
+    "name": "tan-border",
+    "group": "frame",
+    "label": "Tan border",
+    "file": "frame/tan-border.svg",
+    "width": 27,
+    "height": 27,
+    "slice": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "border": [
+      9,
+      9,
+      9,
+      9
+    ]
+  },
+  {
+    "name": "tan-border-thick",
+    "group": "frame",
+    "label": "Tan border (thick)",
+    "file": "frame/tan-border-thick.svg",
+    "width": 27,
+    "height": 27,
+    "slice": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "border": [
+      9,
+      9,
+      9,
+      9
+    ]
+  },
+  {
+    "name": "tab-small",
+    "group": "frame",
+    "label": "Tab Small",
+    "file": "frame/tab-small.svg",
+    "width": 28,
+    "height": 21,
+    "slice": [
+      1,
+      4,
+      1,
+      4
+    ],
+    "border": [
+      0,
+      4,
+      0,
+      4
+    ]
+  },
+  {
+    "name": "tab-small-hover",
+    "group": "frame",
+    "label": "Tab Small Hover",
+    "file": "frame/tab-small-hover.svg",
+    "width": 28,
+    "height": 21,
+    "slice": [
+      1,
+      4,
+      1,
+      4
+    ],
+    "border": [
+      0,
+      4,
+      0,
+      4
+    ]
+  },
+  {
+    "name": "tab-small-selected",
+    "group": "frame",
+    "label": "Tab Small Selected",
+    "file": "frame/tab-small-selected.svg",
+    "width": 28,
+    "height": 21,
+    "slice": [
+      1,
+      4,
+      1,
+      4
+    ],
+    "border": [
+      0,
+      4,
+      0,
+      4
+    ]
+  },
+  {
+    "name": "tab-medium",
+    "group": "frame",
+    "label": "Tab Medium",
+    "file": "frame/tab-medium.svg",
+    "width": 28,
+    "height": 21,
+    "slice": [
+      1,
+      4,
+      1,
+      4
+    ],
+    "border": [
+      0,
+      4,
+      0,
+      4
+    ]
+  },
+  {
+    "name": "tab-medium-hover",
+    "group": "frame",
+    "label": "Tab Medium Hover",
+    "file": "frame/tab-medium-hover.svg",
+    "width": 28,
+    "height": 21,
+    "slice": [
+      1,
+      4,
+      1,
+      4
+    ],
+    "border": [
+      0,
+      4,
+      0,
+      4
+    ]
+  },
+  {
+    "name": "tab-medium-selected",
+    "group": "frame",
+    "label": "Tab Medium Selected",
+    "file": "frame/tab-medium-selected.svg",
+    "width": 28,
+    "height": 21,
+    "slice": [
+      1,
+      4,
+      1,
+      4
+    ],
+    "border": [
+      0,
+      4,
+      0,
+      4
+    ]
+  },
+  {
+    "name": "tab-large",
+    "group": "frame",
+    "label": "Tab Large",
+    "file": "frame/tab-large.svg",
+    "width": 28,
+    "height": 26,
+    "slice": [
+      1,
+      4,
+      1,
+      4
+    ],
+    "border": [
+      0,
+      4,
+      0,
+      4
+    ]
+  },
+  {
+    "name": "tab-large-hover",
+    "group": "frame",
+    "label": "Tab Large Hover",
+    "file": "frame/tab-large-hover.svg",
+    "width": 28,
+    "height": 26,
+    "slice": [
+      1,
+      4,
+      1,
+      4
+    ],
+    "border": [
+      0,
+      4,
+      0,
+      4
+    ]
+  },
+  {
+    "name": "tab-large-selected",
+    "group": "frame",
+    "label": "Tab Large Selected",
+    "file": "frame/tab-large-selected.svg",
+    "width": 28,
+    "height": 26,
+    "slice": [
+      1,
+      4,
+      1,
+      4
+    ],
+    "border": [
+      0,
+      4,
+      0,
+      4
+    ]
+  },
+  {
+    "name": "stone",
+    "group": "texture",
+    "label": "Interface stone",
+    "file": "texture/stone.svg",
+    "width": 88,
+    "height": 60
+  },
+  {
+    "name": "stone-bright",
+    "group": "texture",
+    "label": "Interface stone (bright)",
+    "file": "texture/stone-bright.svg",
+    "width": 88,
+    "height": 60
+  },
+  {
+    "name": "side-panel",
+    "group": "texture",
+    "label": "Side panel stone",
+    "file": "texture/side-panel.svg",
+    "width": 190,
+    "height": 261
+  },
+  {
+    "name": "rivets-horizontal",
+    "group": "texture",
+    "label": "Rivet divider (horizontal)",
+    "file": "texture/rivets-horizontal.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "rivets-vertical",
+    "group": "texture",
+    "label": "Rivet divider (vertical)",
+    "file": "texture/rivets-vertical.svg",
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "close",
+    "group": "control",
+    "label": "Close",
+    "file": "control/close.svg",
+    "width": 26,
+    "height": 23
+  },
+  {
+    "name": "close-hover",
+    "group": "control",
+    "label": "Close Hover",
+    "file": "control/close-hover.svg",
+    "width": 26,
+    "height": 23
+  },
+  {
+    "name": "checkbox",
+    "group": "control",
+    "label": "Checkbox",
+    "file": "control/checkbox.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "checkbox-hover",
+    "group": "control",
+    "label": "Checkbox Hover",
+    "file": "control/checkbox-hover.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "checkbox-checked",
+    "group": "control",
+    "label": "Checkbox Checked",
+    "file": "control/checkbox-checked.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "checkbox-checked-hover",
+    "group": "control",
+    "label": "Checkbox Checked Hover",
+    "file": "control/checkbox-checked-hover.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "checkbox-crossed",
+    "group": "control",
+    "label": "Checkbox Crossed",
+    "file": "control/checkbox-crossed.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "scroll-up",
+    "group": "control",
+    "label": "Scroll Up",
+    "file": "control/scroll-up.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "scroll-down",
+    "group": "control",
+    "label": "Scroll Down",
+    "file": "control/scroll-down.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "scroll-left",
+    "group": "control",
+    "label": "Scroll Left",
+    "file": "control/scroll-left.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "scroll-right",
+    "group": "control",
+    "label": "Scroll Right",
+    "file": "control/scroll-right.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "name": "scroll-thumb-top",
+    "group": "control",
+    "label": "Scroll Thumb Top",
+    "file": "control/scroll-thumb-top.svg",
+    "width": 16,
+    "height": 5
+  },
+  {
+    "name": "scroll-thumb-middle",
+    "group": "control",
+    "label": "Scroll Thumb Middle",
+    "file": "control/scroll-thumb-middle.svg",
+    "width": 16,
+    "height": 5
+  },
+  {
+    "name": "scroll-thumb-bottom",
+    "group": "control",
+    "label": "Scroll Thumb Bottom",
+    "file": "control/scroll-thumb-bottom.svg",
+    "width": 16,
+    "height": 5
+  },
+  {
+    "name": "tab-stone-tl",
+    "group": "control",
+    "label": "Tab Stone Tl",
+    "file": "control/tab-stone-tl.svg",
+    "width": 38,
+    "height": 36
+  },
+  {
+    "name": "tab-stone-tr",
+    "group": "control",
+    "label": "Tab Stone Tr",
+    "file": "control/tab-stone-tr.svg",
+    "width": 38,
+    "height": 36
+  },
+  {
+    "name": "tab-stone-mid",
+    "group": "control",
+    "label": "Tab Stone Mid",
+    "file": "control/tab-stone-mid.svg",
+    "width": 38,
+    "height": 36
+  },
+  {
+    "name": "tab-stone-bl",
+    "group": "control",
+    "label": "Tab Stone Bl",
+    "file": "control/tab-stone-bl.svg",
+    "width": 38,
+    "height": 36
+  },
+  {
+    "name": "tab-stone-br",
+    "group": "control",
+    "label": "Tab Stone Br",
+    "file": "control/tab-stone-br.svg",
+    "width": 38,
+    "height": 36
+  },
+  {
+    "name": "separator",
+    "group": "control",
+    "label": "Separator",
+    "file": "control/separator.svg",
+    "width": 12,
+    "height": 12
+  }
+]

@@ -1,0 +1,26 @@
+---
+title: Skill Icons
+description: All 24 skills plus total level, as pixel-exact vector React components.
+---
+
+<Component path="skill-icons/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/skill-icons.json
+```
+
+## Usage
+
+```tsx
+import { AttackIcon, SkillIcon } from "@/components/ui/skill-icons"
+
+<AttackIcon />            {/* follows --osrs-px */}
+<AttackIcon scale={4} />  {/* 100 × 100 */}
+<SkillIcon skill="sailing" size={50} />
+```
+
+## Notes
+
+Each icon is a 25×25 grid of merged rectangles taken pixel-for-pixel from the game sprite, so it's sharp at any integer scale. Download them as SVG or PNG on the [Assets](/assets) page.

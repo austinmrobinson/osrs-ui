@@ -1,0 +1,32 @@
+---
+title: Dialog
+description: A modal built on Base UI Dialog, drawn as an OSRS interface window.
+---
+
+<Component path="dialog/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/dialog.json
+```
+
+## Usage
+
+```tsx
+import { Dialog, DialogTrigger, DialogContent, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog"
+
+<Dialog>
+  <DialogTrigger asChild><Button>Drop item</Button></DialogTrigger>
+  <DialogContent title="Are you sure?">
+    <DialogDescription>…</DialogDescription>
+    <DialogFooter>
+      <DialogClose asChild><Button>Yes</Button></DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+## Notes
+
+Pass `title` for the centred bold header and `showCloseButton={false}` to hide the close button.

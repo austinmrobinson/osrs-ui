@@ -1,0 +1,56 @@
+---
+title: Installation
+description: Add the OSRS theme and components to a shadcn/ui project.
+---
+
+<Steps>
+<Step title="Set up shadcn/ui">
+
+Follow the [shadcn/ui installation](https://ui.shadcn.com/docs/installation) for your framework. Tailwind v4 is assumed.
+
+</Step>
+<Step title="Add the theme">
+
+```bash
+npx shadcn@latest add {{registry}}/osrs-theme.json
+```
+
+This adds `styles/osrs.css` and the RuneStar fonts under `public/fonts/osrs/`. Import the stylesheet after Tailwind:
+
+```css app/globals.css
+@import "tailwindcss";
+@import "../styles/osrs.css";
+```
+
+</Step>
+<Step title="Add components">
+
+```bash
+npx shadcn@latest add {{registry}}/button.json {{registry}}/interface.json
+```
+
+</Step>
+</Steps>
+
+## Scale
+
+`--osrs-px` is the size of one game pixel, and everything is measured in it. Keep it a whole number of CSS pixels so edges stay crisp:
+
+```css
+:root { --osrs-px: 2px; }          /* default */
+.minimap-overlay { --osrs-px: 1px; } /* native size */
+```
+
+## Palette
+
+Add the `osrs` class to a container to map the shadcn tokens (`--background`, `--primary`, …) to the OSRS palette, so stock shadcn components blend in. The raw colours are also available as `--osrs-orange`, `--osrs-yellow`, `--osrs-stone`, `--osrs-menu-target`, and so on.
+
+## Utility classes
+
+| Class | What it does |
+| --- | --- |
+| `osrs-text` | RuneScape Plain 12 with the 1px black drop shadow |
+| `osrs-text-bold` / `osrs-text-small` / `osrs-text-quill` | Bold 12, Plain 11, Quill 8 |
+| `osrs-texture-stone` | Tiled interface stone |
+| `osrs-framed osrs-frame-<name>` | Paints any 9-slice frame, e.g. `osrs-frame-tan-border` |
+| `osrs-well` | Sunken bevel |

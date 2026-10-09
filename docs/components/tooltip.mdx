@@ -1,0 +1,23 @@
+---
+title: Tooltip
+description: The yellow examine-style tooltip.
+---
+
+<Component path="tooltip/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/tooltip.json
+```
+
+## Usage
+
+```tsx
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
+
+<Tooltip>
+  <TooltipTrigger asChild><Button>Hover me</Button></TooltipTrigger>
+  <TooltipContent>A highly polished stone button.</TooltipContent>
+</Tooltip>
+```

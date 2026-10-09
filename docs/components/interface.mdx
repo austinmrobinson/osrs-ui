@@ -1,0 +1,30 @@
+---
+title: Interface
+description: The standard OSRS window - interface stone inside the iron-rivet steel frame, with a title and close button.
+---
+
+<Component path="interface/demo" />
+
+## Installation
+
+```bash
+npx shadcn@latest add {{registry}}/interface.json
+```
+
+## Usage
+
+```tsx
+import { Interface, InterfaceHeader, InterfaceTitle, InterfaceClose, InterfaceContent } from "@/components/ui/interface"
+
+<Interface>
+  <InterfaceHeader>
+    <InterfaceTitle>The Bank of Gielinor</InterfaceTitle>
+    <InterfaceClose onClick={close} />
+  </InterfaceHeader>
+  <InterfaceContent>…</InterfaceContent>
+</Interface>
+```
+
+## Notes
+
+The stone fill is a tiled background and the rivet frame is a separate 9-slice overlay, so the window can be any size without stretching either texture.
