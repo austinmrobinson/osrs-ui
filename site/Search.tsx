@@ -129,8 +129,33 @@ function PagePreview({ page }: { page: Entry | undefined }) {
   );
 }
 
+
+/**
+ * The part of the screen you can see, while `active`. No CSS unit tracks the on-screen keyboard: on
+ * iOS it slides over the page without resizing it (svh, dvh and vh all ignore it), so the visual
+ * viewport is the only measure of the space above it. Returns its height and offset as
+ * --search-h / --search-top, or nothing while it's the full window (so 100svh applies).
+ */
+function useVisibleViewport(active: boolean): React.CSSProperties | undefined {
+  const [box, setBox] = React.useState<{ h: number; top: number } | null>(null);
+  React.useEffect(() => {
+    const vv = window.visualViewport;
+    if (!active || !vv) return setBox(null);
+    const update = () => setBox(vv.height < window.innerHeight - 1 ? { h: vv.height, top: vv.offsetTop } : null);
+    update();
+    vv.addEventListener("resize", update);
+    vv.addEventListener("scroll", update);
+    return () => {
+      vv.removeEventListener("resize", update);
+      vv.removeEventListener("scroll", update);
+    };
+  }, [active]);
+  return box ? ({ ["--search-h" as string]: `${box.h}px`, ["--search-top" as string]: `${box.top}px` } as React.CSSProperties) : undefined;
+}
+
 export default function Search() {
   const [open, setOpen] = React.useState(false);
+  const fit = useVisibleViewport(open);
   // the shortcut hint names the key the platform uses
   const [mac, setMac] = React.useState(true);
   React.useEffect(() => setMac(/Mac|iPhone|iPad/.test(navigator.platform)), []);
@@ -193,7 +218,10 @@ export default function Search() {
       <DialogContent
         showCloseButton={false}
         aria-label="Search"
-        className="flex h-[min(560px,88dvh)] w-[min(960px,94vw)] max-w-[min(960px,94vw)] flex-col gap-1 p-2.5 sm:max-w-[min(960px,94vw)] [--osrs-px:1px]"
+        // phones: the whole screen, from the top, as tall as the visible area (100svh, or the space
+        // above the keyboard while it's open; see useVisibleViewport)
+        style={fit}
+        className="flex h-[min(560px,88dvh)] w-[min(960px,94vw)] max-w-[min(960px,94vw)] flex-col gap-1 p-2.5 sm:max-w-[min(960px,94vw)] [--osrs-px:1px] max-sm:top-(--search-top,0px) max-sm:bottom-auto max-sm:m-0 max-sm:h-(--search-h,100svh) max-sm:w-full max-sm:max-w-full"
       >
         <SearchField
           autoFocus

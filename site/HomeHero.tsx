@@ -6,11 +6,6 @@
 // drives everything: the font, the skill icon, the frame and the React mark step up together, still
 // crisp. Right-click anywhere in the hero for the game's "Choose Option" menu. The site header stays
 // hidden until the hero has scrolled away (html[data-home-past], set here).
-//
-// Three takes on the headline while we choose, picked with ?hero= on the home page:
-//   sentence (default)  the centred sentence with live chips
-//   overhead            the headline as the game's overhead chat, with its chat effects; type your own
-//   dialogue            left-aligned, with an NPC dialogue that walks you to the docs
 import * as React from "react";
 
 import { buttonVariants } from "@/registry/osrs/ui/button";
@@ -26,9 +21,9 @@ import { SpriteButton } from "@/registry/osrs/ui/sprite-button";
 import { ToggleGroup, ToggleGroupItem } from "@/registry/osrs/ui/toggle-group";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/registry/osrs/ui/tooltip";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/registry/osrs/ui/select";
-import { COLOUR_EFFECTS, MOTION_EFFECTS, type ColourEffect, type MotionEffect, colourAt, DialogueHeadline, offsetAt, OverheadHeadline, useTicks } from "./HeroVariants";
+import { COLOUR_EFFECTS, MOTION_EFFECTS, type ColourEffect, type MotionEffect, colourAt, offsetAt, useTicks } from "./chat-effects";
 import { LogoMark } from "./Logo";
-import { LoupeIcon, LoupeRingIcon } from "./loupe-icon";
+import { LoupeRingIcon } from "./loupe-icon";
 import { ClapperIcon, PluginIcon } from "./app-icons";
 import { ReactIcon } from "./react-icon";
 import { play } from "./sound";
@@ -157,10 +152,7 @@ function focusPoint(svg: SVGSVGElement | null): [number, number] {
  */
 function SkillChipArt() {
   const [n, setN] = React.useState(0);
-  // the loupe with or without its handle (?loupe=handle for the handled one), while we choose
-  const [handle, setHandle] = React.useState(false);
-  React.useEffect(() => setHandle(new URLSearchParams(window.location.search).get("loupe") === "handle"), []);
-  const Ring = handle ? LoupeIcon : LoupeRingIcon;
+  const Ring = LoupeRingIcon;
   const [focus, setFocus] = React.useState<[number, number]>([12.5, 12.5]);
   const base = React.useRef<HTMLSpanElement>(null);
   const key = SKILLS[n];
@@ -275,45 +267,16 @@ function FrameChipArt() {
 }
 
 /**
- * Ready for …: where the library goes; click for the next one. Three takes, picked with ?ready= on the home page:
- *   roll (default)  icon and words roll up like a slot, one destination at a time
- *   pop             the icon pops out and the next pops in; the words cross-fade; React's
- *                   electrons orbit while it's showing
- *   type            the destination is typed and deleted like a chat line, the icon flipping per word
+ * Ready for …: where the library goes; click for the next one. The icon and words roll up like a
+ * slot, one destination at a time.
  */
 const TARGETS = [
   { key: "react", word: "React.", Icon: ReactIcon, tip: "Base UI primitives, installed with shadcn" },
   { key: "video", word: "videos.", Icon: ClapperIcon, tip: "Every sprite and frame as SVG or PNG, for edits and thumbnails" },
   { key: "runelite", word: "RuneLite.", Icon: PluginIcon, tip: "On the roadmap: a port for RuneLite plugins" },
 ] as const;
-type ReadyVariant = "roll" | "pop" | "type";
 
-/** React's electrons: one bright pixel pair per orbit, stepping round the sprite's own ellipses. */
-function Electrons() {
-  const [t, setT] = React.useState(0);
-  React.useEffect(() => {
-    if (still()) return;
-    const id = setInterval(() => setT((v) => v + 1), 70);
-    return () => clearInterval(id);
-  }, []);
-  // the orbits of site/react-icon.tsx: centre (15, 12), rx 14, ry 5.2, at 0 and +/-60 degrees
-  const dots = [0, 60, -60].map((deg, k) => {
-    const a = (deg * Math.PI) / 180;
-    const th = (t / 22) * Math.PI * 2 + (k * Math.PI * 2) / 3;
-    const x = 14 * Math.cos(th);
-    const y = 5.2 * Math.sin(th);
-    return [Math.round(15 + x * Math.cos(a) - y * Math.sin(a)), Math.round(12 + x * Math.sin(a) + y * Math.cos(a))];
-  });
-  return (
-    <svg className="absolute inset-0 size-full" viewBox="0 0 32 26" shapeRendering="crispEdges" aria-hidden="true">
-      {dots.map(([x, y], k) => (
-        <rect key={k} x={x} y={y} width={1} height={1} fill="#ffffff" />
-      ))}
-    </svg>
-  );
-}
-
-function TargetIcon({ i, electrons, className }: { i: number; electrons?: boolean; className?: string }) {
+function TargetIcon({ i, className }: { i: number; className?: string }) {
   const { Icon } = TARGETS[i];
   return (
     <span
@@ -323,27 +286,23 @@ function TargetIcon({ i, electrons, className }: { i: number; electrons?: boolea
       )}
     >
       <Icon />
-      {electrons && TARGETS[i].key === "react" ? <Electrons /> : null}
     </span>
   );
 }
 
 /** The icon flips over (in four steps) when the destination changes. */
 const flip = "inline-block motion-safe:animate-[osrs-home-ready-flip_.32s_steps(4)_both]";
-/** Pop and type: the longest entry sizes the badge, so the headline never reflows. */
-const stack = "inline-grid align-baseline *:[grid-area:1/1] *:whitespace-nowrap";
 
 /** Where the badge's word sits in the headline's letters ("Old School … and ready for "). */
 const READY_FROM = 92;
 
-function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) {
+function ReadyChip({ i: order }: { i: number }) {
   // changes only on click
   const [n, setN] = React.useState(0);
   // the badge moves with the text effect as one piece; its word's letters move inside it
   const shift = useChipShift(READY_FROM);
   const target = TARGETS[n];
   const next = () => setN((v) => (v + 1) % TARGETS.length);
-  const longest = TARGETS.reduce((a, b) => (b.word.length > a.length ? b.word : a), "");
 
   // roll position: the track repeats the first entry at the end, so last -> first keeps rolling up
   // onto the copy, then snaps back to the top without a transition
@@ -360,12 +319,11 @@ function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) 
     setPos({ at: n, snap: false });
   }, [n]);
 
-  // roll: only the destination word rolls; its window animates to each word's width, so the badge
+  // only the destination word rolls; its window animates to each word's width, so the badge
   // grows and shrinks with it. Widths are measured from the rolled rows themselves.
   const rowRefs = React.useRef<(HTMLSpanElement | null)[]>([]);
   const [widths, setWidths] = React.useState<number[]>([]);
   React.useLayoutEffect(() => {
-    if (variant !== "roll") return;
     // layout widths (offsetWidth), not on-screen ones: the chip is scaled while it pops in
     const measure = () => setWidths(rowRefs.current.map((r) => r?.offsetWidth ?? 0));
     measure();
@@ -373,13 +331,11 @@ function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) 
     const ro = new ResizeObserver(measure);
     rowRefs.current.forEach((r) => r && ro.observe(r));
     return () => ro.disconnect();
-  }, [variant]);
+  }, []);
 
-  let body: React.ReactNode;
-  if (variant === "roll") {
-    const rows = [...TARGETS.keys(), 0];
-    const snap = pos.snap ? "" : undefined;
-    body = (
+  const rows = [...TARGETS.keys(), 0];
+  const snap = pos.snap ? "" : undefined;
+  const body = (
       <>
         <span key={target.key} className={flip}>
           <TargetIcon i={n} />
@@ -414,35 +370,6 @@ function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) 
         </span>
       </>
     );
-  } else if (variant === "pop") {
-    body = (
-      <span className={stack}>
-        <span className="invisible" aria-hidden="true">
-          <TargetIcon i={0} />
-          {longest}
-        </span>
-        <span key={target.key}>
-          <TargetIcon i={n} electrons className="motion-safe:animate-[osrs-home-ready-pop_.5s_cubic-bezier(.3,1.6,.5,1)_both]" />
-          <span className="inline-block motion-safe:animate-[osrs-home-ready-word_.4s_.08s_cubic-bezier(.2,.8,.2,1)_both]"><Letters text={target.word} from={READY_FROM} /></span>
-        </span>
-      </span>
-    );
-  } else {
-    body = (
-      <span className={stack}>
-        <span className="invisible" aria-hidden="true">
-          <TargetIcon i={0} />
-          {longest}
-        </span>
-        <span>
-          <span key={target.key} className={flip}>
-            <TargetIcon i={n} />
-          </span>
-          <Typed text={target.word} />
-        </span>
-      </span>
-    );
-  }
 
   return (
     <span className={chip} style={{ ...delay(order, 300), ...shift.style }}>
@@ -468,29 +395,6 @@ function ReadyChip({ i: order, variant }: { i: number; variant: ReadyVariant }) 
         </TooltipContent>
       </Tooltip>
     </span>
-  );
-}
-
-/** Types `text` in, holds, then deletes it, like a chat line; a block cursor blinks after it. */
-function Typed({ text }: { text: string }) {
-  const [shown, setShown] = React.useState(text.length);
-  React.useEffect(() => {
-    if (still()) return setShown(text.length);
-    setShown(0);
-    const timers: ReturnType<typeof setTimeout>[] = [];
-    for (let k = 1; k <= text.length; k++) timers.push(setTimeout(() => setShown(k), 120 + k * 70));
-    const typedAt = 120 + text.length * 70;
-    for (let d = 1; d <= text.length; d++) timers.push(setTimeout(() => setShown(text.length - d), typedAt + 2400 + d * 35));
-    return () => timers.forEach(clearTimeout);
-  }, [text]);
-  return (
-    <>
-      {text.slice(0, shown)}
-      <span
-        className="ms-[.06em] inline-block h-[.62em] w-[.4em] bg-current align-baseline shadow-[var(--osrs-px)_var(--osrs-px)_0_#000] motion-safe:animate-[osrs-home-caret_1s_steps(1)_infinite]"
-        aria-hidden="true"
-      />
-    </>
   );
 }
 
@@ -595,7 +499,7 @@ function Words({ text, start, from, rises = true }: { text: string; start: numbe
 }
 
 /** The centred sentence with its three live chips. */
-function SentenceHeadline({ titleRef, ready, style }: { titleRef: React.Ref<HTMLHeadingElement>; ready: ReadyVariant; style: React.CSSProperties }) {
+function SentenceHeadline({ titleRef, style }: { titleRef: React.Ref<HTMLHeadingElement>; style: React.CSSProperties }) {
   return (
     <h1
       ref={titleRef}
@@ -612,7 +516,7 @@ function SentenceHeadline({ titleRef, ready, style }: { titleRef: React.Ref<HTML
         <FrameChipArt />
       </Chip>{" "}
       <Words text="and ready for" start={11} from={78} />
-      <ReadyChip i={14} variant={ready} />
+      <ReadyChip i={14} />
     </h1>
   );
 }
@@ -644,8 +548,6 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
   );
 }
 
-type HeroVariant = "sentence" | "overhead" | "dialogue";
-
 export function HomeHero() {
   // the scale follows the viewport until someone touches the slider
   const [scale, setScale] = React.useState(4);
@@ -657,16 +559,6 @@ export function HomeHero() {
   const [textEffect, setTextEffect] = React.useState<MotionEffect>(null);
   const [toast, setToast] = React.useState<string | null>(null);
   const touched = React.useRef(false);
-  // which hero (?hero=) and which take on the "ready for …" badge (?ready=), while we choose
-  const [hero, setHero] = React.useState<HeroVariant>("sentence");
-  const [ready, setReady] = React.useState<ReadyVariant>("roll");
-  React.useEffect(() => {
-    const q = new URLSearchParams(window.location.search);
-    const h = q.get("hero");
-    if (h === "overhead" || h === "dialogue") setHero(h);
-    const v = q.get("ready");
-    if (v === "pop" || v === "type" || v === "roll") setReady(v);
-  }, []);
   const heroRef = React.useRef<HTMLDivElement>(null);
   const titleRef = React.useRef<HTMLHeadingElement>(null);
 
@@ -713,7 +605,7 @@ export function HomeHero() {
       window.removeEventListener("resize", schedule);
       root.removeAttribute("data-home-past");
     };
-  }, [hero]);
+  }, []);
 
   React.useEffect(() => {
     if (!toast) return;
@@ -752,7 +644,6 @@ export function HomeHero() {
           "-mt-7 mb-0 min-h-[calc(100svh-12px)] w-[calc(100cqw+2*var(--main-pad))] mx-[calc(50%-50cqw-var(--main-pad))] px-(--main-pad) pt-16 pb-[72px] min-[1100px]:pt-[72px]",
           // a big, soft warm glow behind the headline
           "before:pointer-events-none before:absolute before:inset-0 before:-z-1 before:bg-[radial-gradient(ellipse_60%_52%_at_50%_50%,rgb(255_196_120/.11),rgb(255_170_80/.04)_45%,transparent_72%)] before:content-[''] motion-safe:before:animate-[osrs-home-fade_1.2s_both]",
-          hero === "dialogue" && "items-stretch text-start",
           // the scale follows the viewport in CSS, so the first paint (before hydration) is already the
           // right size; the slider overrides it inline once touched. Chips draw at half (rounded down).
           "[--hero-px:2px] [--art-px:1px] min-[560px]:[--hero-px:3px] min-[1100px]:[--hero-px:4px] min-[1100px]:[--art-px:2px] min-[1280px]:[--hero-px:5px]",
@@ -767,27 +658,19 @@ export function HomeHero() {
       >
         {/* full colour, about 1.39x native size, 80px from the top; nudged 3px left because the mark
             reads a little right of centre. Scrolling away, it fades and drifts up with the headline. */}
-        {hero !== "dialogue" ? (
-          <LogoMark
+        <LogoMark
             scale={null}
             className="absolute top-14 left-1/2 block h-[69px] w-[136px] min-[560px]:h-[96px] min-[560px]:w-[189px] translate-x-[calc(-50%-3px)] opacity-[calc(1-var(--out,0))] motion-safe:translate-y-[calc(var(--out,0)*-48px)] motion-safe:animate-[osrs-home-rise_.8s_cubic-bezier(.2,.8,.2,1)_both] min-[1100px]:top-20"
           />
-        ) : null}
 
         {/* the heading's name is the plain sentence, not its controls' labels */}
         <span id="osrs-home-title-text" hidden>
           Old School RuneScape&apos;s interface, traced pixel for pixel, framed at any size, and ready for React, videos and RuneLite.
         </span>
         <div className="relative flex w-full justify-center opacity-[calc(1-var(--out,0))] motion-safe:translate-y-[calc(var(--out,0)*-72px)]">
-          {hero === "overhead" ? (
-            <OverheadHeadline titleRef={titleRef} />
-          ) : hero === "dialogue" ? (
-            <DialogueHeadline titleRef={titleRef} onInstall={scrollPast} />
-          ) : (
-            <ChatEffectClock hero={heroRef} colour={colourEffect} motion={textEffect} restColour={COLOURS[colour].value}>
-              <SentenceHeadline titleRef={titleRef} ready={ready} style={titleStyle} />
-            </ChatEffectClock>
-          )}
+          <ChatEffectClock hero={heroRef} colour={colourEffect} motion={textEffect} restColour={COLOURS[colour].value}>
+            <SentenceHeadline titleRef={titleRef} style={titleStyle} />
+          </ChatEffectClock>
         </div>
 
         <div className="absolute top-3 right-3 z-5 motion-safe:animate-[osrs-home-fade_.6s_1.2s_both]" onContextMenu={(e) => e.stopPropagation()}>
@@ -812,8 +695,6 @@ export function HomeHero() {
               aria-label="Scale"
             />
           </Row>
-          {hero === "sentence" ? (
-            <>
               <Row label="Colour">
                 <ToggleGroup value={[colour]} onValueChange={(v) => v[0] && setColour(v[0] as Colour)} style={{ width: px(132) }} className="*:flex-1" aria-label="Text colour">
                   {(Object.keys(COLOURS) as Colour[]).map((c) => (
@@ -846,8 +727,6 @@ export function HomeHero() {
               <Row label="Shadow">
                 <Checkbox checked={shadow} onCheckedChange={(c) => setShadow(Boolean(c))} aria-label="Shadow" />
               </Row>
-            </>
-          ) : null}
             </PopoverContent>
           </Popover>
         </div>

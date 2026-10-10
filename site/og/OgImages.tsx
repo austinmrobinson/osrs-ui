@@ -23,7 +23,7 @@ import type { SpriteComponent } from "@/registry/osrs/lib/sprite";
 import { HansChathead } from "../demo-data/chatheads";
 import { items, type ItemId } from "../demo-data/items";
 import { LogoMark } from "../Logo";
-import { colourAt, offsetAt } from "../HeroVariants";
+import { colourAt, offsetAt } from "../chat-effects";
 import { cx } from "../styles";
 import { SITE_HOST } from "../site-url";
 

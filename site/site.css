@@ -59,10 +59,7 @@
 @keyframes osrs-home-fade { from { opacity: 0; } }
 @keyframes osrs-home-pop { from { opacity: 0; transform: scale(.6); } }
 @keyframes osrs-home-cue { 0%, 100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(calc(4 * var(--osrs-px))); opacity: .55; } }
-@keyframes osrs-home-ready-pop { 0% { transform: scale(0); } }
-@keyframes osrs-home-ready-word { from { opacity: 0; transform: translateY(.25em); } }
 @keyframes osrs-home-ready-flip { 0% { transform: scaleX(0); } 50% { transform: scaleX(.5); } }
-@keyframes osrs-home-caret { 50% { opacity: 0; } }
 @keyframes osrs-home-loupe {
   0% { --lx: 34; --ly: 34; --lo: 0; animation-timing-function: cubic-bezier(.2,.75,.25,1.1); }
   6% { --lo: 1; }
