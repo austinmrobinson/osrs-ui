@@ -229,11 +229,14 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
     {/* the rivet frame round the whole viewport, as four thin fixed strips (one per edge) rather than
         one full-screen overlay: iOS (Safari and Chrome alike) allocates and drops a full-screen,
         mostly transparent fixed layer, so the frame flashed in and out. Each strip draws its edge of
-        the same 9-slice: top and bottom carry the corners, the sides only the middle runs */}
+        the same 9-slice: top and bottom carry the corners, the sides only the middle runs. On touch
+        screens there's no bottom edge and the sides run to the bottom: phone browsers float their
+        toolbars over the page, so the bottom of the viewport sits above the toolbar while the page
+        shows through below it, and the edge read as a line across the screen */}
     <div aria-hidden="true" class={cx(rivets, "top-0 inset-x-0 h-[30px] border-b-0")}></div>
-    <div aria-hidden="true" class={cx(rivets, "bottom-0 inset-x-0 h-[30px] border-t-0")}></div>
-    <div aria-hidden="true" class={cx(rivets, "top-[30px] bottom-[30px] left-0 w-[25px] border-y-0 border-r-0")}></div>
-    <div aria-hidden="true" class={cx(rivets, "top-[30px] bottom-[30px] right-0 w-[25px] border-y-0 border-l-0")}></div>
+    <div aria-hidden="true" class={cx(rivets, "bottom-0 inset-x-0 h-[30px] border-t-0 pointer-coarse:hidden")}></div>
+    <div aria-hidden="true" class={cx(rivets, "top-[30px] bottom-[30px] left-0 w-[25px] border-y-0 border-r-0 pointer-coarse:bottom-0")}></div>
+    <div aria-hidden="true" class={cx(rivets, "top-[30px] bottom-[30px] right-0 w-[25px] border-y-0 border-l-0 pointer-coarse:bottom-0")}></div>
     <Header route={page.route} hasSidebar={showSidebar} />
     <div class={cx("mx-auto grid grid-cols-1 items-start", showSidebar && "lg:grid-cols-[calc(17.5rem-2px)_auto_minmax(0,1fr)]")}>
       <aside
