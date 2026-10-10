@@ -428,10 +428,6 @@
   outline: none;
 }
 .osrs-input::placeholder { color: #9f9f9f; }
-.osrs-input:focus-visible { box-shadow:
-  inset var(--osrs-px) var(--osrs-px) 0 var(--osrs-border-outer),
-  inset calc(-1 * var(--osrs-px)) calc(-1 * var(--osrs-px)) 0 var(--osrs-border-inner),
-  0 0 0 var(--osrs-px) var(--osrs-yellow); }
 
 /* Separator: dark line with a lighter line beneath */
 .osrs-separator { flex: none; background: var(--osrs-border-outer); box-shadow: 0 var(--osrs-px) 0 var(--osrs-separator); }
@@ -1195,6 +1191,33 @@ a.osrs-nav-item[aria-current="page"]::after {
 .osrs-scrollbars::-webkit-scrollbar-button:horizontal:start:decrement, .osrs-scrollbars ::-webkit-scrollbar-button:horizontal:start:decrement { display: block; width: calc(16 * var(--osrs-scrollbar-px, 1px)); height: calc(16 * var(--osrs-scrollbar-px, 1px)); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; background-image: var(--osrs-control-scroll-left); }
 .osrs-scrollbars::-webkit-scrollbar-button:horizontal:end:increment, .osrs-scrollbars ::-webkit-scrollbar-button:horizontal:end:increment { display: block; width: calc(16 * var(--osrs-scrollbar-px, 1px)); height: calc(16 * var(--osrs-scrollbar-px, 1px)); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; background-image: var(--osrs-control-scroll-right); }
 
+/* ---------- Hit areas: every small control can be hit at least 24px across (WCAG 2.5.8), and 44px on
+   touch screens, without changing how it looks. An invisible ::after, centred on the control, grows
+   past its edges when the control is smaller than that. Add .osrs-hit-area to anything else small
+   you can press. (:where() keeps the position at zero specificity, so a control that is already
+   absolutely positioned stays so.) ---------- */
+:where(.osrs-hit-area, .osrs-sprite-button, .osrs-close, .osrs-checkbox, [data-slot="radio-group-item"], .osrs-copy-button,
+  .osrs-button-icon, .osrs-button-sm, [data-slot="toggle"], [data-slot="toggle-group-item"], [data-slot="tabs-trigger"],
+  .osrs-number-step, .osrs-number-arrow, .osrs-scroll-arrow, .osrs-window-menu-trigger, [data-slot="slider-thumb"],
+  .osrs-dialogue-continue, .osrs-dialogue-option) {
+  --osrs-hit: 24px;
+  position: relative;
+}
+@media (pointer: coarse) {
+  :where(.osrs-hit-area, .osrs-sprite-button, .osrs-close, .osrs-checkbox, [data-slot="radio-group-item"], .osrs-copy-button,
+    .osrs-button-icon, .osrs-button-sm, [data-slot="toggle"], [data-slot="toggle-group-item"], [data-slot="tabs-trigger"],
+    .osrs-number-step, .osrs-number-arrow, .osrs-scroll-arrow, .osrs-window-menu-trigger, [data-slot="slider-thumb"],
+    .osrs-dialogue-continue, .osrs-dialogue-option) { --osrs-hit: 44px; }
+}
+:is(.osrs-hit-area, .osrs-sprite-button, .osrs-close, .osrs-checkbox, [data-slot="radio-group-item"], .osrs-copy-button,
+  .osrs-button-icon, .osrs-button-sm, [data-slot="toggle"], [data-slot="toggle-group-item"], [data-slot="tabs-trigger"],
+  .osrs-number-step, .osrs-number-arrow, .osrs-scroll-arrow, .osrs-window-menu-trigger, [data-slot="slider-thumb"],
+  .osrs-dialogue-continue, .osrs-dialogue-option)::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  width: max(100%, var(--osrs-hit)); height: max(100%, var(--osrs-hit));
+  translate: -50% -50%;
+}
+
 /* ---------- Keyboard focus ----------
    Every control shows keyboard focus the same way: a game-pixel outline in the game's yellow, only
    for keyboard focus (:focus-visible), never on click. The controls above drop the browser's ring
@@ -1204,6 +1227,10 @@ a.osrs-nav-item[aria-current="page"]::after {
   outline: max(1px, var(--osrs-px)) solid var(--osrs-yellow);
   outline-offset: 2px;
 }
+/* Text fields match :focus-visible even when clicked or tapped into. A page that tracks how focus
+   arrived can set data-osrs-focus="pointer" on <html> while the mouse or touch is in use: text fields
+   then show focus by their caret alone, and keep the ring for keyboard focus. */
+html[data-osrs-focus="pointer"] :is(input:not([type="checkbox"], [type="radio"], [type="range"]), textarea):focus-visible { outline: none; }
 
 .osrs-frame-iron-rivets {
   --osrs-frame-image: var(--osrs-frame-iron-rivets);

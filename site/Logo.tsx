@@ -18,18 +18,18 @@ export function LogoMark({ scale = 1, className, style }: { scale?: number | nul
   );
 }
 
-/** Header logo: on wide screens the mark at full size, hanging over the bottom of the header into
- *  the room left at the top of the sidebar; below that, half size inside the header. */
+/** Header logo: the mark hanging over the bottom of the header, at full size on wide screens (into
+ *  the room left at the top of the sidebar), and three-quarters size and centred below that. */
 export default function Logo() {
   return (
     <a
       href="/"
       aria-label="OSRS UI home"
-      className="group relative z-60 inline-flex items-center no-underline lg:mt-1 lg:h-10 lg:w-[136px] lg:self-start"
+      className="group absolute top-1 left-1/2 z-60 inline-flex h-10 w-[102px] -translate-x-1/2 items-center no-underline lg:relative lg:top-auto lg:left-auto lg:mt-1 lg:w-[136px] lg:translate-x-0 lg:self-start"
     >
       <LogoMark
         scale={null}
-        className="h-[34.5px] w-[68px] group-hover:brightness-112 lg:absolute lg:top-0 lg:left-0 lg:h-[69px] lg:w-[136px] lg:drop-shadow-[0_2px_0_rgb(0_0_0/0.35)]"
+        className="absolute top-0 left-0 h-[51.75px] w-[102px] drop-shadow-[0_2px_0_rgb(0_0_0/0.35)] group-hover:brightness-112 lg:h-[69px] lg:w-[136px]"
       />
     </a>
   );

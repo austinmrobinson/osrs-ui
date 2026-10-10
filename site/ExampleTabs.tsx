@@ -11,8 +11,9 @@ import { cx, stage } from "./styles";
 
 /** The panel is the Collection Log's content area: the window's stone a step darker (fixed, so it
  *  lines up with the page's), inside the tab's light edge (#5d5848) and a dark outline; 1px of
- *  padding keeps the preview frame inside the edge. */
-const panel = cx(stage, "overflow-hidden bg-fixed p-px shadow-[inset_0_0_0_1px_#5d5848,0_0_0_1px_var(--color-rs-line)]");
+ *  padding keeps the preview frame inside the edge (outside its height: `box-content`, so the frame
+ *  gets the full height and never scrolls). */
+const panel = cx(stage, "box-content overflow-hidden bg-fixed p-px shadow-[inset_0_0_0_1px_#5d5848,0_0_0_1px_var(--color-rs-line)]");
 
 export default function ExampleTabs({
   previewSrc,

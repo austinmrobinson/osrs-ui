@@ -13,9 +13,8 @@ import { Dialog, DialogContent } from "@/registry/osrs/ui/dialog";
 import { List, ListItem, ListItemContent, ListItemDescription, ListItemTitle } from "@/registry/osrs/ui/list";
 import { PreviewImage } from "./PreviewImage";
 import { NpcDialogue } from "@/registry/osrs/ui/chatbox";
-import { Item } from "./demo-data/game";
-import { Button } from "@/registry/osrs/ui/button";
 import { KeyIcon } from "./key-icons";
+import { HansChathead } from "./demo-data/chatheads";
 import { SearchIcon } from "./header-icons";
 import { SearchField } from "@/registry/osrs/ui/search-field";
 import { Shortcut } from "@/registry/osrs/ui/shortcut";
@@ -173,9 +172,15 @@ export default function Search() {
   );
   return (
     <Dialog open={open} onOpenChange={(o) => (setOpen(o), o || setQuery(""))}>
-      <Button variant="metal" size="icon-sm" aria-label="Search" onClick={() => setOpen(true)} className="size-[30px] text-rs-orange [--osrs-px:1px] hover:text-rs-white lg:hidden [&>svg]:size-5">
-        <SearchIcon />
-      </Button>
+      {/* below lg, a plain pixel icon like the header's other buttons */}
+      <button
+        type="button"
+        aria-label="Search"
+        onClick={() => setOpen(true)}
+        className="osrs-hit-area group inline-grid size-7 cursor-pointer place-items-center border-0 bg-transparent p-0 text-rs-orange hover:text-rs-white lg:hidden"
+      >
+        <SearchIcon className="group-active:translate-px" />
+      </button>
       <button
         type="button"
         aria-label="Search"
@@ -206,11 +211,7 @@ export default function Search() {
           <div className={cx("flex min-h-0 flex-1 items-center justify-center", stage, edge)}>
             <NpcDialogue
               name="Hans"
-              head={
-                <span className="inline-flex [zoom:2]">
-                  <Item id="clue-scroll-elite" />
-                </span>
-              }
+              head={<HansChathead />}
               continueLabel="Click here to search again"
               onContinue={() => setQuery("")}
             >

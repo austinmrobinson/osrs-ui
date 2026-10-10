@@ -30,7 +30,7 @@ const homeHidden = cx(
 <header
   data-site-header
   class={cx(
-    "z-40 flex h-12 items-center gap-2 px-4 md:px-6 lg:ps-2 lg:pe-2.5",
+    "z-40 flex h-12 items-center gap-2 ps-2 pe-4 md:pe-6 lg:ps-2 lg:pe-2.5",
     stone,
     dividerBelow,
     isHome ? homeHidden : "sticky top-1.5",
@@ -44,6 +44,10 @@ const homeHidden = cx(
     aria-expanded="false"
     aria-label="Toggle navigation"
     data-blume-nav-toggle
+    size="md"
+    slice={4}
+    inset={4}
+    fill={[17, 13]}
     className="shrink-0 [--osrs-px:1px] lg:hidden"
   />
   <Logo />
@@ -51,22 +55,25 @@ const homeHidden = cx(
   {/* the search field: an icon button on narrow screens; from lg a field centred over the content column */}
   <div
     class={cx(
-      "lg:absolute lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2",
+      // below lg it sits with the icons after it, 6px apart like them (the header's gap is 8px)
+      "-me-0.5 lg:me-0 lg:absolute lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2",
+      // centred over the content column, and never wider than leaves room for the logo (left) and the
+      // settings and GitHub buttons (right, ~80px): its half-width stays inside the column minus that
       hasSidebar
-        ? "lg:left-[calc(17.5rem+(100%-17.5rem)/2)] lg:w-[min(48rem,calc(100%-17.5rem-64px))] xl:w-[min(48rem,calc(100%-17.5rem-80px))]"
-        : "lg:left-1/2 lg:w-[min(48rem,calc(100%-64px))]",
+        ? "lg:left-[calc(17.5rem+(100%-17.5rem)/2)] lg:w-[min(48rem,calc(100%-17.5rem-208px))]"
+        : "lg:left-1/2 lg:w-[min(48rem,calc(100%-2*176px))]",
     )}
   >
     <Search client:load />
   </div>
-  <div class="flex shrink-0 items-center gap-1">
+  <div class="flex shrink-0 items-center gap-1.5">
     <Settings client:load />
     <a
       href={GITHUB_URL}
       aria-label="GitHub"
       target="_blank"
       rel="noreferrer"
-      class="group inline-grid size-7 place-items-center text-rs-orange hover:text-rs-white"
+      class="osrs-hit-area group inline-grid size-7 place-items-center text-rs-orange hover:text-rs-white"
     >
       <GithubIcon className="group-active:translate-px" />
     </a>

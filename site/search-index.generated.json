@@ -1,5 +1,57 @@
 [
   {
+    "route": "/getting-started",
+    "title": "Getting Started",
+    "description": "Install the theme and components, then set the scale, palette and utility classes.",
+    "summary": "Install the theme and components, then set the scale, palette and utility classes",
+    "section": "Getting Started",
+    "headings": [
+      "Installation",
+      "1. Set up shadcn/ui",
+      "2. Add the theme",
+      "3. Add components",
+      "Theming",
+      "Scale",
+      "Palette",
+      "Utility classes"
+    ],
+    "outline": [
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "1. Set up shadcn/ui",
+        "depth": 1
+      },
+      {
+        "text": "2. Add the theme",
+        "depth": 1
+      },
+      {
+        "text": "3. Add components",
+        "depth": 1
+      },
+      {
+        "text": "Theming",
+        "depth": 0
+      },
+      {
+        "text": "Scale",
+        "depth": 1
+      },
+      {
+        "text": "Palette",
+        "depth": 1
+      },
+      {
+        "text": "Utility classes",
+        "depth": 1
+      }
+    ],
+    "previews": []
+  },
+  {
     "route": "/",
     "title": "OSRS UI",
     "description": "Pixel-exact, vector Old School RuneScape interface components and icons for shadcn/ui.",
@@ -8,439 +60,6 @@
     "headings": [],
     "outline": [],
     "previews": []
-  },
-  {
-    "route": "/theming",
-    "title": "Theming",
-    "description": "One scale for every game pixel, the OSRS palette, and the utility classes the theme adds.",
-    "summary": "One scale for every game pixel, the OSRS palette, and the utility classes the theme adds",
-    "section": "Getting Started",
-    "headings": [
-      "Scale",
-      "Palette",
-      "Utility classes"
-    ],
-    "outline": [
-      {
-        "text": "Scale",
-        "depth": 0
-      },
-      {
-        "text": "Palette",
-        "depth": 0
-      },
-      {
-        "text": "Utility classes",
-        "depth": 0
-      }
-    ],
-    "previews": []
-  },
-  {
-    "route": "/components/card",
-    "title": "Card",
-    "description": "Notched stone cards, Grand Exchange offer slots and outlined boxes.",
-    "summary": "Notched stone cards, Grand Exchange offer slots and outlined boxes",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage",
-      "Muted",
-      "Selected and disabled"
-    ],
-    "outline": [
-      {
-        "text": "Playground",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      },
-      {
-        "text": "Muted",
-        "depth": 0
-      },
-      {
-        "text": "Selected and disabled",
-        "depth": 0
-      }
-    ],
-    "previews": [
-      "components/card"
-    ],
-    "example": "card/playground"
-  },
-  {
-    "route": "/components/chatbox",
-    "title": "Chatbox",
-    "description": "The parchment chatbox, chat filter tabs, NPC dialogue and Select an Option.",
-    "summary": "The parchment chatbox, chat filter tabs, NPC dialogue and Select an Option",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage",
-      "Size"
-    ],
-    "outline": [
-      {
-        "text": "Playground",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      },
-      {
-        "text": "Size",
-        "depth": 0
-      }
-    ],
-    "previews": [
-      "components/chatbox"
-    ],
-    "example": "chatbox/playground"
-  },
-  {
-    "route": "/components/code-block",
-    "title": "Code Block",
-    "description": "Code on a flat strip of darkened stone, with a copy button in its corner. The copy button works on its own too.",
-    "summary": "Code on a flat strip of darkened stone",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage"
-    ],
-    "outline": [
-      {
-        "text": "Example",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      }
-    ],
-    "previews": [],
-    "example": "code-block/demo"
-  },
-  {
-    "route": "/components/dialog",
-    "title": "Dialog",
-    "description": "A modal built on Base UI Dialog, drawn as an OSRS interface window.",
-    "summary": "A modal built on Base UI Dialog",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage",
-      "Notes",
-      "Draggable and resizable"
-    ],
-    "outline": [
-      {
-        "text": "Playground",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      },
-      {
-        "text": "Notes",
-        "depth": 0
-      },
-      {
-        "text": "Draggable and resizable",
-        "depth": 0
-      }
-    ],
-    "previews": [
-      "components/dialog"
-    ],
-    "example": "dialog/playground"
-  },
-  {
-    "route": "/components/field",
-    "title": "Field",
-    "description": "Field sets and fields with shadcn/ui's Field API, drawn the way the game groups controls: the titled group box, and settings sections of striped rows.",
-    "summary": "Field sets and fields with shadcn/ui's Field API",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Group box",
-      "Settings sections",
-      "Parts",
-      "Labels",
-      "Density"
-    ],
-    "outline": [
-      {
-        "text": "Playground",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Group box",
-        "depth": 0
-      },
-      {
-        "text": "Settings sections",
-        "depth": 0
-      },
-      {
-        "text": "Example",
-        "depth": 1
-      },
-      {
-        "text": "Parts",
-        "depth": 0
-      },
-      {
-        "text": "Labels",
-        "depth": 0
-      },
-      {
-        "text": "Density",
-        "depth": 0
-      }
-    ],
-    "previews": [
-      "components/field"
-    ],
-    "example": "field/playground"
-  },
-  {
-    "route": "/components/interface",
-    "title": "Interface",
-    "description": "The standard OSRS window - interface stone inside the iron-rivet steel frame, with a title and close button.",
-    "summary": "The standard OSRS window",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage"
-    ],
-    "outline": [
-      {
-        "text": "Example",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      }
-    ],
-    "previews": [
-      "components/interface"
-    ],
-    "example": "interface/demo"
-  },
-  {
-    "route": "/components/popover",
-    "title": "Popover",
-    "description": "A small Interface window that drops from a button, with a settings title band over striped rows.",
-    "summary": "A small Interface window that drops from a button",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage"
-    ],
-    "outline": [
-      {
-        "text": "Example",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      }
-    ],
-    "previews": [],
-    "example": "popover/demo"
-  },
-  {
-    "route": "/components/scroll-area",
-    "title": "Scroll Area",
-    "description": "The in-game scrollbar - arrow buttons, a stone track and a 3-slice thumb.",
-    "summary": "The in-game scrollbar",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage"
-    ],
-    "outline": [
-      {
-        "text": "Example",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      }
-    ],
-    "previews": [
-      "components/scroll-area"
-    ],
-    "example": "scroll-area/demo"
-  },
-  {
-    "route": "/components/separator",
-    "title": "Separator",
-    "description": "A two-tone interface rule, horizontal or vertical.",
-    "summary": "A two-tone interface rule, horizontal or vertical",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage"
-    ],
-    "outline": [
-      {
-        "text": "Example",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      }
-    ],
-    "previews": [
-      "components/separator"
-    ],
-    "example": "separator/demo"
-  },
-  {
-    "route": "/components/side-panel",
-    "title": "Side Panel",
-    "description": "The resizable-mode side panel: two rows of tab stones, stone pillars and the content area.",
-    "summary": "The resizable-mode side panel",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage",
-      "Any size"
-    ],
-    "outline": [
-      {
-        "text": "Example",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      },
-      {
-        "text": "Any size",
-        "depth": 0
-      }
-    ],
-    "previews": [
-      "components/side-panel"
-    ],
-    "example": "side-panel/demo"
-  },
-  {
-    "route": "/components/steps",
-    "title": "Steps",
-    "description": "Numbered steps down a rail, each number joined to the next by a separator.",
-    "summary": "Numbered steps down a rail, each number joined to the next by a separator",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage"
-    ],
-    "outline": [
-      {
-        "text": "Example",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      }
-    ],
-    "previews": [],
-    "example": "steps/demo"
-  },
-  {
-    "route": "/components/window",
-    "title": "Window",
-    "description": "Draggable, resizable modern interface window (All Settings, Grand Exchange, Collection Log): thick tan border, header row, close button.",
-    "summary": "Draggable, resizable modern interface window (All Settings, Grand Exchange, Collection Log)",
-    "section": "Components · Containers",
-    "headings": [
-      "Installation",
-      "Usage",
-      "Dragging, resizing and scrolling",
-      "Frames, menu and dividers"
-    ],
-    "outline": [
-      {
-        "text": "Playground",
-        "depth": 0
-      },
-      {
-        "text": "Installation",
-        "depth": 0
-      },
-      {
-        "text": "Usage",
-        "depth": 0
-      },
-      {
-        "text": "Dragging, resizing and scrolling",
-        "depth": 0
-      },
-      {
-        "text": "Frames, menu and dividers",
-        "depth": 0
-      }
-    ],
-    "previews": [
-      "components/window"
-    ],
-    "example": "window/playground"
   },
   {
     "route": "/components/button",
@@ -738,7 +357,9 @@
         "depth": 0
       }
     ],
-    "previews": [],
+    "previews": [
+      "components/search-field"
+    ],
     "example": "search-field/demo"
   },
   {
@@ -828,7 +449,9 @@
         "depth": 0
       }
     ],
-    "previews": [],
+    "previews": [
+      "components/split-button"
+    ],
     "example": "split-button/demo"
   },
   {
@@ -855,7 +478,9 @@
         "depth": 0
       }
     ],
-    "previews": [],
+    "previews": [
+      "components/sprite-button"
+    ],
     "example": "sprite-button/demo"
   },
   {
@@ -944,6 +569,418 @@
       "components/toggle-group"
     ],
     "example": "toggle-group/playground"
+  },
+  {
+    "route": "/components/card",
+    "title": "Card",
+    "description": "Notched stone cards, Grand Exchange offer slots and outlined boxes.",
+    "summary": "Notched stone cards, Grand Exchange offer slots and outlined boxes",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Muted",
+      "Selected and disabled"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Muted",
+        "depth": 0
+      },
+      {
+        "text": "Selected and disabled",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/card"
+    ],
+    "example": "card/playground"
+  },
+  {
+    "route": "/components/chatbox",
+    "title": "Chatbox",
+    "description": "The parchment chatbox, chat filter tabs, NPC dialogue and Select an Option.",
+    "summary": "The parchment chatbox, chat filter tabs, NPC dialogue and Select an Option",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Size"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Size",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/chatbox"
+    ],
+    "example": "chatbox/playground"
+  },
+  {
+    "route": "/components/code-block",
+    "title": "Code Block",
+    "description": "Code on a flat strip of darkened stone, with a copy button in its corner. The copy button works on its own too.",
+    "summary": "Code on a flat strip of darkened stone",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/code-block"
+    ],
+    "example": "code-block/demo"
+  },
+  {
+    "route": "/components/dialog",
+    "title": "Dialog",
+    "description": "A modal built on Base UI Dialog, drawn as an OSRS interface window.",
+    "summary": "A modal built on Base UI Dialog",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Notes",
+      "Draggable and resizable"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Notes",
+        "depth": 0
+      },
+      {
+        "text": "Draggable and resizable",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/dialog"
+    ],
+    "example": "dialog/playground"
+  },
+  {
+    "route": "/components/field",
+    "title": "Field",
+    "description": "Field sets and fields with shadcn/ui's Field API, drawn the way the game groups controls: the titled group box, and settings sections of striped rows.",
+    "summary": "Field sets and fields with shadcn/ui's Field API",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Group box",
+      "Settings sections",
+      "Parts",
+      "Labels",
+      "Density"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Group box",
+        "depth": 0
+      },
+      {
+        "text": "Settings sections",
+        "depth": 0
+      },
+      {
+        "text": "Example",
+        "depth": 1
+      },
+      {
+        "text": "Parts",
+        "depth": 0
+      },
+      {
+        "text": "Labels",
+        "depth": 0
+      },
+      {
+        "text": "Density",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/field"
+    ],
+    "example": "field/playground"
+  },
+  {
+    "route": "/components/interface",
+    "title": "Interface",
+    "description": "The standard OSRS window - interface stone inside the iron-rivet steel frame, with a title and close button.",
+    "summary": "The standard OSRS window",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/interface"
+    ],
+    "example": "interface/demo"
+  },
+  {
+    "route": "/components/popover",
+    "title": "Popover",
+    "description": "A small Interface window that drops from a button, with a settings title band over striped rows.",
+    "summary": "A small Interface window that drops from a button",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/popover"
+    ],
+    "example": "popover/demo"
+  },
+  {
+    "route": "/components/scroll-area",
+    "title": "Scroll Area",
+    "description": "The in-game scrollbar - arrow buttons, a stone track and a 3-slice thumb.",
+    "summary": "The in-game scrollbar",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/scroll-area"
+    ],
+    "example": "scroll-area/demo"
+  },
+  {
+    "route": "/components/separator",
+    "title": "Separator",
+    "description": "A two-tone interface rule, horizontal or vertical.",
+    "summary": "A two-tone interface rule, horizontal or vertical",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/separator"
+    ],
+    "example": "separator/demo"
+  },
+  {
+    "route": "/components/side-panel",
+    "title": "Side Panel",
+    "description": "The resizable-mode side panel: two rows of tab stones, stone pillars and the content area.",
+    "summary": "The resizable-mode side panel",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Any size"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Any size",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/side-panel"
+    ],
+    "example": "side-panel/demo"
+  },
+  {
+    "route": "/components/steps",
+    "title": "Steps",
+    "description": "Numbered steps down a rail, each number joined to the next by a separator.",
+    "summary": "Numbered steps down a rail, each number joined to the next by a separator",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage"
+    ],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/steps"
+    ],
+    "example": "steps/demo"
+  },
+  {
+    "route": "/components/window",
+    "title": "Window",
+    "description": "Draggable, resizable modern interface window (All Settings, Grand Exchange, Collection Log): thick tan border, header row, close button.",
+    "summary": "Draggable, resizable modern interface window (All Settings, Grand Exchange, Collection Log)",
+    "section": "Components · Containers",
+    "headings": [
+      "Installation",
+      "Usage",
+      "Dragging, resizing and scrolling",
+      "Frames, menu and dividers"
+    ],
+    "outline": [
+      {
+        "text": "Playground",
+        "depth": 0
+      },
+      {
+        "text": "Installation",
+        "depth": 0
+      },
+      {
+        "text": "Usage",
+        "depth": 0
+      },
+      {
+        "text": "Dragging, resizing and scrolling",
+        "depth": 0
+      },
+      {
+        "text": "Frames, menu and dividers",
+        "depth": 0
+      }
+    ],
+    "previews": [
+      "components/window"
+    ],
+    "example": "window/playground"
   },
   {
     "route": "/components/description-list",
@@ -1070,7 +1107,9 @@
         "depth": 0
       }
     ],
-    "previews": [],
+    "previews": [
+      "components/shortcut"
+    ],
     "example": "shortcut/demo"
   },
   {
@@ -1406,58 +1445,6 @@
     "headings": [],
     "outline": [
       {
-        "text": "Containers",
-        "depth": 0
-      },
-      {
-        "text": "Window",
-        "depth": 1
-      },
-      {
-        "text": "Interface",
-        "depth": 1
-      },
-      {
-        "text": "Side Panel",
-        "depth": 1
-      },
-      {
-        "text": "Chatbox",
-        "depth": 1
-      },
-      {
-        "text": "Dialog",
-        "depth": 1
-      },
-      {
-        "text": "Card",
-        "depth": 1
-      },
-      {
-        "text": "Field",
-        "depth": 1
-      },
-      {
-        "text": "Scroll Area",
-        "depth": 1
-      },
-      {
-        "text": "Separator",
-        "depth": 1
-      },
-      {
-        "text": "Popover",
-        "depth": 1
-      },
-      {
-        "text": "Code Block",
-        "depth": 1
-      },
-      {
-        "text": "Steps",
-        "depth": 1
-      },
-      {
         "text": "Controls",
         "depth": 0
       },
@@ -1523,6 +1510,58 @@
       },
       {
         "text": "Context Menu",
+        "depth": 1
+      },
+      {
+        "text": "Containers",
+        "depth": 0
+      },
+      {
+        "text": "Window",
+        "depth": 1
+      },
+      {
+        "text": "Interface",
+        "depth": 1
+      },
+      {
+        "text": "Side Panel",
+        "depth": 1
+      },
+      {
+        "text": "Chatbox",
+        "depth": 1
+      },
+      {
+        "text": "Dialog",
+        "depth": 1
+      },
+      {
+        "text": "Card",
+        "depth": 1
+      },
+      {
+        "text": "Field",
+        "depth": 1
+      },
+      {
+        "text": "Scroll Area",
+        "depth": 1
+      },
+      {
+        "text": "Separator",
+        "depth": 1
+      },
+      {
+        "text": "Popover",
+        "depth": 1
+      },
+      {
+        "text": "Code Block",
+        "depth": 1
+      },
+      {
+        "text": "Steps",
         "depth": 1
       },
       {

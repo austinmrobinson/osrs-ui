@@ -59,7 +59,7 @@ function Slider({
         {/* positioned inline: Base UI gives the track its own inline `position: relative`, which beat the
             classes and left it zero-height, so the thumb sat half above the bar */}
         <SliderPrimitive.Track style={{ position: "absolute", top: 0, bottom: 0, left: px(first), right: px(first) }}>
-          <SliderPrimitive.Thumb className="block outline-none" style={{ width: px(16), height: px(16) }} aria-label="Value">
+          <SliderPrimitive.Thumb data-slot="slider-thumb" className="block outline-none" style={{ width: px(16), height: px(16) }} aria-label="Value">
             <Thumb className="block" />
           </SliderPrimitive.Thumb>
         </SliderPrimitive.Track>

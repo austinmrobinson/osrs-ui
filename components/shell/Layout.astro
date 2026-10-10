@@ -21,7 +21,9 @@ import { withMountedBase } from "blume/components/islands/base-path.ts";
 import { buildStructuredData } from "../../node_modules/blume/src/seo/jsonld.ts";
 
 import Header from "./Header.astro";
-import PageMenu from "./PageMenu.astro";
+import { Separator } from "@/registry/osrs/ui/separator";
+import PageMenu from "../../site/PageMenu";
+import { SITE_URL } from "../../site/site-url";
 import Sidebar from "../../site/Sidebar";
 import Pagination from "../../site/Pagination";
 import Footer from "../../site/Footer";
@@ -90,6 +92,8 @@ const { prev, next } = getPagination(flattenPages(sidebar), page.route);
 
 const pageTitle = page.title && page.title !== site.title ? `${page.title} - ${site.title}` : site.title;
 const description = page.description ?? site.description;
+// the share card (site/og/OgImages.tsx, concept 6), absolute so crawlers can fetch it
+const shareImage = ogImage ?? `${SITE_URL}/og.png`;
 const markdownMirror = withMountedBase(isHome ? "/index.md" : `${page.route}.md`);
 const structuredData =
   structuredDataEnabled === false || noindex
@@ -123,8 +127,12 @@ const articleClass = cx(
 );
 
 // Keyboard focus anywhere on the site: the game's yellow, only for keyboard focus.
-const focus =
-  "[&_:focus-visible]:outline-1 [&_:focus-visible]:outline-solid [&_:focus-visible]:outline-rs-yellow [&_:focus-visible]:outline-offset-2";
+// Text fields count as focus-visible even when clicked into: while the pointer is in use
+// (html[data-osrs-focus=pointer], kept by focusSourceScript) they show focus by their caret alone.
+const focus = cx(
+  "[&_:focus-visible]:outline-1 [&_:focus-visible]:outline-solid [&_:focus-visible]:outline-rs-yellow [&_:focus-visible]:outline-offset-2",
+  "[html[data-osrs-focus=pointer]_&_:is(input:not([type=checkbox],[type=radio],[type=range]),textarea):focus-visible]:outline-none",
+);
 
 // Copy buttons (site/mdx/Prose.tsx and the examples' Code tab): one delegated handler for the page.
 const copyScript = `(()=>{if(window.__rsCopy)return;window.__rsCopy=true;document.addEventListener("click",async(e)=>{const b=e.target.closest("[data-rs-copy]");if(!b)return;const lit=b.getAttribute("data-rs-copy");const pre=b.parentElement&&b.parentElement.querySelector("pre");const text=lit||(pre?pre.innerText:"");try{await navigator.clipboard.writeText(text);}catch{return;}b.setAttribute("data-copied","");b.setAttribute("aria-label","Copied");clearTimeout(b.__t);b.__t=setTimeout(()=>{b.removeAttribute("data-copied");b.setAttribute("aria-label",b.getAttribute("data-label")||"Copy code");},1500);});})();`;
@@ -147,6 +155,11 @@ const cursors = cx(
 // The mobile nav drawer: the header's menu button toggles it; it opens below the header, and
 // crossing into the desktop layout closes it. Focus trapping and Escape come from Blume's
 // drawer-inert (imported below), which follows the same attribute.
+// How focus last arrived, for the text fields' focus ring (registry/osrs/theme/base.css): the pointer
+// until Tab or an arrow key is pressed, the keyboard until the next click or tap. Kept across
+// client-side navigation, which replaces <html>'s attributes.
+const focusSourceScript = `(()=>{if(window.__rsFocus)return;window.__rsFocus=true;let m="pointer";const set=()=>{document.documentElement.dataset.osrsFocus=m;};set();addEventListener("pointerdown",()=>{m="pointer";set();},true);addEventListener("keydown",(e)=>{if(e.key==="Tab"||e.key.startsWith("Arrow")){m="keyboard";set();}},true);document.addEventListener("astro:after-swap",set);})();`;
+
 const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;const top=()=>{const h=document.querySelector("[data-site-header]");if(h)document.documentElement.style.setProperty("--blume-drawer-top",h.getBoundingClientRect().bottom+"px");};document.addEventListener("click",(e)=>{if(e.target.closest("[data-blume-nav-toggle]")){if(document.documentElement.toggleAttribute("data-blume-nav-open"))top();}});addEventListener("resize",()=>{const d=document.documentElement;if(!d.hasAttribute("data-blume-nav-open"))return;if(matchMedia("(min-width:64rem)").matches)d.removeAttribute("data-blume-nav-open");else top();});})();`;
 ---
 
@@ -173,9 +186,11 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
     <meta property="og:title" content={pageTitle} />
     {description && <meta property="og:description" content={description} />}
     {canonical && <meta property="og:url" content={canonical} />}
-    {ogImage && <meta property="og:image" content={ogImage} />}
-    {ogImage && <meta name="twitter:image" content={ogImage} />}
-    <meta name="twitter:card" content={ogImage ? "summary_large_image" : "summary"} />
+    <meta property="og:image" content={shareImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content={shareImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     {description && <meta name="twitter:description" content={description} />}
     <SiteMetatags tags={data.config.metatags} />
@@ -184,6 +199,7 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
     <script data-mode={themeMode} is:inline set:html={THEME_INIT_SCRIPT} />
     <script is:inline set:html={PREFS_INIT_SCRIPT} />
     <script is:inline set:html={CURSOR_INIT_SCRIPT} />
+    <script is:inline set:html={focusSourceScript} />
     <Analytics analytics={analytics} />
   </head>
   <body
@@ -209,7 +225,7 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
       class="pointer-events-none fixed inset-0 z-[100] border-[30px_25px] border-solid border-transparent [border-image:var(--osrs-frame-iron-rivets)_30_25_30_25/30px_25px/0_repeat]"
     ></div>
     <Header route={page.route} hasSidebar={showSidebar} />
-    <div class={cx("mx-auto grid grid-cols-1 items-start", showSidebar && "lg:grid-cols-[17.5rem_minmax(0,1fr)]")}>
+    <div class={cx("mx-auto grid grid-cols-1 items-start", showSidebar && "lg:grid-cols-[calc(17.5rem-2px)_auto_minmax(0,1fr)]")}>
       <aside
         id="blume-nav-drawer"
         data-blume-nav-drawer
@@ -218,7 +234,6 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
           "fixed start-0 top-[var(--blume-drawer-top,54px)] z-[35] h-[calc(100dvh-var(--blume-drawer-top,54px))] w-full -translate-x-[105%] overflow-y-auto transition-transform [:where([data-blume-nav-open])_&]:translate-x-0",
           stone,
           "lg:sticky lg:top-[54px] lg:z-auto lg:h-[calc(100dvh-60px)] lg:w-auto lg:max-w-none lg:translate-x-0 lg:bg-none lg:bg-transparent",
-          "lg:shadow-[inset_-1px_0_0_var(--color-rs-separator),inset_-2px_0_0_var(--color-rs-line)]",
           !showSidebar && "lg:hidden",
         )}
       >
@@ -227,10 +242,12 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
         </div>
       </aside>
       <script is:inline set:html={SIDEBAR_SCROLL_INIT_SCRIPT} />
+      {/* the column divider: the library separator, in its own grid column so it stays outside the nav's scrollbar */}
+      {showSidebar && <Separator orientation="vertical" className="sticky top-[54px] hidden h-[calc(100dvh-60px)] [--osrs-px:1px] lg:block" />}
       <main id="blume-content" class={cx("@container flex min-h-[calc(100dvh-60px)] flex-col self-stretch px-(--main-pad) pt-6 pb-10 [--main-pad:24px] lg:[--main-pad:32px] xl:[--main-pad:40px]", textShadow)}>
         {
           showChrome && (eyebrow || sections.length > 0) && (
-            <div class={cx("relative mx-auto mb-2 flex w-full items-center pe-10 leading-[15px]", measure)}>
+            <div class={cx("relative mx-auto mb-2 flex min-h-[15px] w-full items-center pe-12 leading-[15px]", measure)}>
               <nav aria-label="Breadcrumb" class="min-w-0">
                 {eyebrow &&
                   (eyebrow.route ? (
@@ -241,7 +258,7 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
                     <span>{eyebrow.label}</span>
                   ))}
               </nav>
-              {sections.length > 0 && <PageMenu headings={sections} />}
+              {sections.length > 0 && <PageMenu client:load headings={sections.map((h) => ({ slug: h.slug, text: h.text }))} />}
             </div>
           )
         }
@@ -249,7 +266,7 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
           <slot />
         </article>
         {
-          showChrome && pagination && (
+          showChrome && pagination && page.route !== "/" && (
             <div class="mt-auto w-full">
               <Pagination prev={prev} next={next} />
             </div>
@@ -268,7 +285,6 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
     <script is:inline set:html={drawerScript} />
     <script>
       import { syncDrawerInert } from "blume/components/layout/drawer-inert.ts";
-      import "blume/components/layout/toc-element.ts";
       syncDrawerInert();
     </script>
   </body>

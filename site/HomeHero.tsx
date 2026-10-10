@@ -33,9 +33,10 @@ import { ClapperIcon, PluginIcon } from "./app-icons";
 import { ReactIcon } from "./react-icon";
 import { play } from "./sound";
 import { cx } from "./styles";
+import { REGISTRY_URL } from "./site-url";
 
 const px = (n: number) => `calc(${n} * var(--osrs-px))`;
-export const INSTALL = "npx shadcn@latest add https://osrs-ui.vercel.app/r/osrs-theme.json";
+export const INSTALL = `npx shadcn@latest add ${REGISTRY_URL}/osrs-theme.json`;
 
 const COLOURS = {
   orange: { label: "Orange", value: "var(--osrs-orange)" },
@@ -68,7 +69,7 @@ export const delay = (i: number, base = 250): React.CSSProperties => ({ animatio
  *  the words around it; the pill sits 1 headline pixel lower than the line box, because the font's
  *  glyphs ride low in it. */
 const chip =
-  "relative isolate mx-[.06em] inline-block whitespace-nowrap leading-[.85] pt-[calc(2.5*var(--art-px))] pb-[calc(2.5*var(--art-px))] ps-[calc(4*var(--art-px))] pe-[calc(7*var(--art-px))] motion-safe:animate-[osrs-home-pop_.6s_cubic-bezier(.3,1.5,.5,1)_both]";
+  "relative isolate mx-[.06em] inline-block whitespace-nowrap leading-[.85] pt-[calc(4*var(--art-px))] pb-[calc(3*var(--art-px))] ps-[calc(4*var(--art-px))] pe-[calc(7*var(--art-px))] motion-safe:animate-[osrs-home-pop_.6s_cubic-bezier(.3,1.5,.5,1)_both]";
 
 /** The chips' pill: the library's notched edge (cut corners) at the chips' scale. */
 function Pill() {
@@ -175,7 +176,7 @@ function SkillChipArt() {
       onClick={next}
       style={{ ["--tx" as string]: focus[0], ["--ty" as string]: focus[1], ["--r" as string]: LENS_R, ["--zmax" as string]: LENS_Z } as React.CSSProperties}
     >
-      <span ref={base} className="block">
+      <span ref={base} className="flex">
         <Icon key={key} />
       </span>
       <span
@@ -603,11 +604,11 @@ function SentenceHeadline({ titleRef, ready, style }: { titleRef: React.Ref<HTML
       style={style}
     >
       <Words text="Old School RuneScape's interface, traced" start={0} from={0} />
-      <Chip i={5} from={41} label={<Words text="pixel for pixel," start={0} from={41} rises={false} />} tip="Every sprite is traced from the game, one SVG rectangle per run of pixels, so it stays crisp at any size. Click for the next skill.">
+      <Chip i={5} from={41} label={<Words text="pixel for pixel," start={0} from={41} rises={false} />} tip="Every sprite is traced from the game, one SVG rectangle per run of pixels, so it stays crisp at any size.">
         <SkillChipArt />
       </Chip>{" "}
       <Words text="framed at" start={7} from={58} />
-      <Chip i={9} from={68} label={<Words text="any size," start={0} from={68} rises={false} />} tip="Frames are built from the game’s own edge sprites and tile to any width or height. Drag an edge or a corner.">
+      <Chip i={9} from={68} label={<Words text="any size," start={0} from={68} rises={false} />} tip="Frames are built from the game’s own edge sprites and tile to any width or height.">
         <FrameChipArt />
       </Chip>{" "}
       <Words text="and ready for" start={11} from={78} />
@@ -804,15 +805,15 @@ export function HomeHero() {
                 touched.current = true;
                 setScale(Array.isArray(v) ? v[0] : (v as number));
               }}
-              style={{ width: px(132) }}
+              // the caret sprites carry 8 transparent pixels each side: hang them out so the bar lines up
+              style={{ width: px(148), marginInline: px(-8) }}
               aria-label="Scale"
             />
-            <span className="min-w-[2ch] text-rs-yellow">{scale}×</span>
           </Row>
           {hero === "sentence" ? (
             <>
               <Row label="Colour">
-                <ToggleGroup value={[colour]} onValueChange={(v) => v[0] && setColour(v[0] as Colour)} aria-label="Text colour">
+                <ToggleGroup value={[colour]} onValueChange={(v) => v[0] && setColour(v[0] as Colour)} style={{ width: px(132) }} className="*:flex-1" aria-label="Text colour">
                   {(Object.keys(COLOURS) as Colour[]).map((c) => (
                     <ToggleGroupItem key={c} value={c} size="icon-sm" aria-label={COLOURS[c].label}>
                       <span style={{ color: COLOURS[c].value }}>Aa</span>
@@ -832,7 +833,7 @@ export function HomeHero() {
                 <EffectSelect label="Text effect" value={textEffect} onChange={(v) => setTextEffect(v as MotionEffect)} options={MOTION_EFFECTS} />
               </Row>
               <Row label="Font">
-                <ToggleGroup value={[font]} onValueChange={(v) => v[0] && setFont(v[0] as Font)} aria-label="Font">
+                <ToggleGroup value={[font]} onValueChange={(v) => v[0] && setFont(v[0] as Font)} style={{ width: px(132) }} className="*:flex-1" aria-label="Font">
                   {(Object.keys(FONTS) as Font[]).map((f) => (
                     <ToggleGroupItem key={f} value={f} size="sm">
                       {FONTS[f].label}

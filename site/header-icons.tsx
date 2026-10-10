@@ -12,11 +12,56 @@ export function GithubIcon({ className }: { className?: string }) {
   );
 }
 
-export function SearchIcon({ className }: { className?: string }) {
+/** A 12 x 12 pixel glyph drawn like the GitHub mark: the shape in currentColor over its own 1px black
+ *  shadow, at 2x. Rows are strings, "#" for a pixel. */
+function Glyph({ rows, className, offset = 0 }: { rows: string[]; className?: string; offset?: number }) {
+  const cells = rows.flatMap((r, y) => [...r].flatMap((c, x) => (c === "#" ? [[x, y]] : [])));
+  const path = (dx: number) => cells.map(([x, y]) => `M${x + dx} ${y + dx}h1v1h-1z`).join("");
   return (
-    <svg aria-hidden="true" viewBox="0 0 10 10" width={20} height={20} shapeRendering="crispEdges" className={className}>
-      <path fill="currentColor" d="M2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM1 2h1v1h-1zM6 2h1v1h-1zM1 3h1v1h-1zM6 3h1v1h-1zM1 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM6 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM8 8h1v1h-1z" />
-      <path fill="#000001" d="M3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM2 3h1v1h-1zM7 3h1v1h-1zM2 4h1v1h-1zM7 4h1v1h-1zM2 5h1v1h-1zM7 5h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM9 8h1v1h-1zM9 9h1v1h-1z" />
+    // `offset` moves the drawing right and down by whole pixels within its box (it may run past the
+    // box's edge, which stays visible)
+    <svg aria-hidden="true" viewBox={`${-offset} ${-offset} 12 12`} overflow="visible" width={24} height={24} shapeRendering="crispEdges" className={className}>
+      <path fill="#000001" d={path(1)} />
+      <path fill="currentColor" d={path(0)} />
     </svg>
   );
+}
+
+// drawn two pixels in from the top and left (one here, one by `offset`), so it sits centred in its box like the other icons
+const SEARCH = [
+  "...........",
+  "...####....",
+  "..#....#...",
+  ".#......#..",
+  ".#......#..",
+  ".#......#..",
+  ".#......#..",
+  "..#....#...",
+  "...######..",
+  "........##.",
+  ".........##",
+];
+
+/** The magnifier: a thin ring and handle. */
+export function SearchIcon({ className }: { className?: string }) {
+  return <Glyph rows={SEARCH} offset={1} className={className} />;
+}
+
+const SLIDERS = [
+  "..##.......",
+  "..##.......",
+  "###########",
+  "..##.......",
+  "..##.......",
+  "...........",
+  ".......##..",
+  ".......##..",
+  "###########",
+  ".......##..",
+  ".......##..",
+];
+
+/** Two sliders, for the site's settings (sound, motion). */
+export function SettingsIcon({ className }: { className?: string }) {
+  return <Glyph rows={SLIDERS} className={className} />;
 }

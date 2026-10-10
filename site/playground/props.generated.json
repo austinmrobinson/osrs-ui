@@ -81,6 +81,17 @@
     ]
   },
   "chatbox": {
+    "Chatbox": [
+      {
+        "name": "size",
+        "control": "select",
+        "options": [
+          "game",
+          "fit"
+        ],
+        "default": "game"
+      }
+    ],
     "ChatMessage": [
       {
         "name": "color",
@@ -98,6 +109,14 @@
       }
     ],
     "NpcDialogue": [
+      {
+        "name": "size",
+        "control": "select",
+        "options": [
+          "game",
+          "fit"
+        ]
+      },
       {
         "name": "name",
         "control": "text"
@@ -122,6 +141,14 @@
       }
     ],
     "OptionDialogue": [
+      {
+        "name": "size",
+        "control": "select",
+        "options": [
+          "game",
+          "fit"
+        ]
+      },
       {
         "name": "title",
         "control": "text",
@@ -156,6 +183,26 @@
       }
     ]
   },
+  "code-block": {
+    "CodeBlock": [
+      {
+        "name": "copyLabel",
+        "control": "text",
+        "default": "Copy code"
+      }
+    ],
+    "CopyButton": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      },
+      {
+        "name": "label",
+        "control": "text",
+        "default": "Copy"
+      }
+    ]
+  },
   "context-menu": {
     "ContextMenu": [
       {
@@ -169,6 +216,11 @@
         "name": "header",
         "control": "text",
         "default": "Choose Option"
+      },
+      {
+        "name": "scale",
+        "control": "number",
+        "description": "Draw the popup at this scale (CSS px per game pixel) instead of its trigger's."
       }
     ],
     "ContextMenuItem": [
@@ -235,6 +287,13 @@
         "name": "disabled",
         "control": "boolean",
         "description": "Whether the component should ignore user interaction."
+      }
+    ],
+    "DropdownMenuContent": [
+      {
+        "name": "scale",
+        "control": "number",
+        "description": "Draw the popup at this scale (CSS px per game pixel) instead of its trigger's."
       }
     ],
     "DropdownMenuItem": [
@@ -308,6 +367,11 @@
     ],
     "Field": [
       {
+        "name": "disabled",
+        "control": "boolean",
+        "description": "Whether the component should ignore user interaction.\nTakes precedence over the `disabled` prop on the `<Field.Control>` component."
+      },
+      {
         "name": "orientation",
         "control": "select",
         "options": [
@@ -315,6 +379,16 @@
           "vertical"
         ],
         "default": "horizontal"
+      },
+      {
+        "name": "density",
+        "control": "select",
+        "options": [
+          "default",
+          "relaxed",
+          "spacious"
+        ],
+        "default": "default"
       }
     ]
   },
@@ -394,6 +468,12 @@
         "name": "tooltip",
         "control": "text"
       }
+    ],
+    "NavLink": [
+      {
+        "name": "current",
+        "control": "boolean"
+      }
     ]
   },
   "number-field": {
@@ -402,6 +482,11 @@
         "name": "disabled",
         "control": "boolean",
         "description": "Whether the component should ignore user interaction."
+      },
+      {
+        "name": "aria-label",
+        "control": "text",
+        "description": "Defines a string value that labels the current element."
       },
       {
         "name": "variant",
@@ -447,6 +532,32 @@
           "venom",
           "disease"
         ]
+      }
+    ]
+  },
+  "popover": {
+    "PopoverTrigger": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      }
+    ],
+    "PopoverContent": [
+      {
+        "name": "title",
+        "control": "text",
+        "description": "The title band; also the window's accessible name."
+      },
+      {
+        "name": "scale",
+        "control": "number",
+        "description": "Draw the popup at this scale (CSS px per game pixel) instead of its trigger's."
+      }
+    ],
+    "PopoverClose": [
+      {
+        "name": "disabled",
+        "control": "boolean"
       }
     ]
   },
@@ -541,6 +652,28 @@
       }
     ]
   },
+  "search-field": {
+    "SearchField": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      },
+      {
+        "name": "end",
+        "control": "text"
+      },
+      {
+        "name": "size",
+        "control": "select",
+        "options": [
+          "default",
+          "sm",
+          "lg"
+        ],
+        "default": "default"
+      }
+    ]
+  },
   "select": {
     "Select": [
       {
@@ -556,11 +689,26 @@
         "description": "Whether the component should ignore user interaction."
       }
     ],
+    "SelectContent": [
+      {
+        "name": "scale",
+        "control": "number",
+        "description": "Draw the popup at this scale (CSS px per game pixel) instead of its trigger's."
+      }
+    ],
     "SelectItem": [
       {
         "name": "disabled",
         "control": "boolean",
         "description": "Whether the component should ignore user interaction."
+      }
+    ]
+  },
+  "shortcut": {
+    "Shortcut": [
+      {
+        "name": "keys",
+        "control": "text"
       }
     ]
   },
@@ -660,6 +808,32 @@
       }
     ]
   },
+  "sprite-button": {
+    "SpriteButton": [
+      {
+        "name": "disabled",
+        "control": "boolean"
+      },
+      {
+        "name": "size",
+        "control": "select",
+        "options": [
+          "sm",
+          "lg",
+          "md"
+        ]
+      },
+      {
+        "name": "slice",
+        "control": "number",
+        "default": 4
+      },
+      {
+        "name": "inset",
+        "control": "number"
+      }
+    ]
+  },
   "stat": {
     "Stat": [
       {
@@ -693,6 +867,22 @@
       },
       {
         "name": "label",
+        "control": "text"
+      }
+    ]
+  },
+  "steps": {
+    "Step": [
+      {
+        "name": "n",
+        "control": "number"
+      },
+      {
+        "name": "number",
+        "control": "text"
+      },
+      {
+        "name": "title",
         "control": "text"
       }
     ]
@@ -803,6 +993,11 @@
           "interface"
         ],
         "default": "examine"
+      },
+      {
+        "name": "scale",
+        "control": "number",
+        "description": "Draw the popup at this scale (CSS px per game pixel) instead of its trigger's."
       }
     ]
   },

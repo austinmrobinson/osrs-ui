@@ -178,6 +178,21 @@
       ]
     },
     {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "combat-sprites",
       "type": "registry:ui",
       "title": "Combat Sprites",
@@ -323,8 +338,8 @@
       "title": "Field",
       "description": "Field sets and fields (shadcn Field API): the game's group box and settings rows.",
       "dependencies": [
-        "class-variance-authority",
-        "@base-ui/react"
+        "@base-ui/react",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "https://osrs-ui.vercel.app/r/osrs-theme.json",
@@ -572,6 +587,27 @@
       ]
     },
     {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json",
+        "https://osrs-ui.vercel.app/r/field.json",
+        "https://osrs-ui.vercel.app/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "prayer-button",
       "type": "registry:ui",
       "title": "Prayer Button",
@@ -682,6 +718,22 @@
       ]
     },
     {
+      "name": "search-field",
+      "type": "registry:ui",
+      "title": "Search Field",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/search-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
@@ -716,6 +768,21 @@
       "files": [
         {
           "path": "registry/osrs/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shortcut",
+      "type": "registry:ui",
+      "title": "Shortcut",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/shortcut.tsx",
           "type": "registry:ui"
         }
       ]
@@ -859,6 +926,41 @@
       ]
     },
     {
+      "name": "split-button",
+      "type": "registry:ui",
+      "title": "Split Button",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/split-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sprite-button",
+      "type": "registry:ui",
+      "title": "Sprite Button",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/osrs-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/sprite-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "stat",
       "type": "registry:ui",
       "title": "Stat",
@@ -905,6 +1007,22 @@
       "files": [
         {
           "path": "registry/osrs/ui/status-icon.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "registry:ui",
+      "title": "Steps",
+      "registryDependencies": [
+        "https://osrs-ui.vercel.app/r/osrs-theme.json",
+        "utils",
+        "https://osrs-ui.vercel.app/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/osrs/ui/steps.tsx",
           "type": "registry:ui"
         }
       ]
@@ -1038,138 +1156,6 @@
       "files": [
         {
           "path": "registry/osrs/ui/xp-drop.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "shortcut",
-      "type": "registry:ui",
-      "title": "Shortcut",
-      "description": "Keyboard shortcut keys as small chips.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/shortcut.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "search-field",
-      "type": "registry:ui",
-      "title": "Search Field",
-      "description": "Inset search input with the pixel magnifier.",
-      "dependencies": [
-        "@base-ui/react"
-      ],
-      "registryDependencies": [
-        "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils",
-        "https://osrs-ui.vercel.app/r/input.json"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/search-field.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "popover",
-      "type": "registry:ui",
-      "title": "Popover",
-      "description": "Small Interface window that drops from a button, with a settings title band.",
-      "dependencies": [
-        "@base-ui/react"
-      ],
-      "registryDependencies": [
-        "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils",
-        "https://osrs-ui.vercel.app/r/osrs-lib.json",
-        "https://osrs-ui.vercel.app/r/field.json",
-        "https://osrs-ui.vercel.app/r/separator.json"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/popover.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "code-block",
-      "type": "registry:ui",
-      "title": "Code Block",
-      "description": "Code on darkened stone with a copy button; CopyButton on its own.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/code-block.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "sprite-button",
-      "type": "registry:ui",
-      "title": "Sprite Button",
-      "description": "Button drawn by a game button sprite, lit on hover and while open.",
-      "dependencies": [
-        "@base-ui/react"
-      ],
-      "registryDependencies": [
-        "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/sprite-button.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "split-button",
-      "type": "registry:ui",
-      "title": "Split Button",
-      "description": "Two buttons in one metal frame: a main action and a menu.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils",
-        "https://osrs-ui.vercel.app/r/separator.json",
-        "https://osrs-ui.vercel.app/r/button.json"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/split-button.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "steps",
-      "type": "registry:ui",
-      "title": "Steps",
-      "description": "Numbered steps down a rail joined by separators.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://osrs-ui.vercel.app/r/osrs-theme.json",
-        "utils",
-        "https://osrs-ui.vercel.app/r/separator.json"
-      ],
-      "files": [
-        {
-          "path": "registry/osrs/ui/steps.tsx",
           "type": "registry:ui"
         }
       ]

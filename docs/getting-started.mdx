@@ -1,9 +1,40 @@
 ---
-title: Theming
-description: "One scale for every game pixel, the OSRS palette, and the utility classes the theme adds."
+title: Getting Started
+description: "Install the theme and components, then set the scale, palette and utility classes."
 ---
 
-## Scale
+## Installation
+
+The theme brings the tokens, frames, textures and fonts in one CSS file. Components install one at a time and are yours to edit.
+
+### 1. Set up shadcn/ui
+
+Any framework works, as long as it uses Tailwind v4. Follow the [shadcn/ui installation](https://ui.shadcn.com/docs/installation).
+
+### 2. Add the theme
+
+```bash
+npx shadcn@latest add {{registry}}/osrs-theme.json
+```
+
+Then import it after Tailwind in your global CSS:
+
+```css
+@import "tailwindcss";
+@import "../styles/osrs.css";
+```
+
+### 3. Add components
+
+```bash
+npx shadcn@latest add {{registry}}/button.json
+```
+
+Each component page has its own install command. Browse them in [Components](/components).
+
+## Theming
+
+### Scale
 
 `--osrs-px` is the size of one game pixel, and everything is measured in it. Keep it a whole number of CSS pixels so edges stay crisp:
 
@@ -12,11 +43,11 @@ description: "One scale for every game pixel, the OSRS palette, and the utility 
 .minimap-overlay { --osrs-px: 1px; } /* native size */
 ```
 
-## Palette
+### Palette
 
 Add the `osrs` class to a container to map the shadcn tokens (`--background`, `--primary`, …) to the OSRS palette, so stock shadcn components blend in. The raw colours are also available as `--osrs-orange`, `--osrs-yellow`, `--osrs-stone`, `--osrs-menu-target`, and so on.
 
-## Utility classes
+### Utility classes
 
 | Class | What it does |
 | --- | --- |

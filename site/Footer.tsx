@@ -19,10 +19,13 @@ export default function Footer() {
           <p className="osrs-muted m-0">
             Created using intellectual property belonging to Jagex Limited under the terms of Jagex&apos;s Fan Content Policy.
           </p>
+          <p className="osrs-muted m-0">The code is MIT; the traced art is Jagex&apos;s.</p>
           <p className="m-0">
-            Fonts: <a className={link} href="https://github.com/RuneStar/fonts">RuneStar</a> (CC0) · Sprites:{" "}
-            <a className={link} href="https://github.com/melkypie/resource-packs">melkypie/resource-packs</a> · Item icons:{" "}
-            <a className={link} href="https://oldschool.runescape.wiki">OSRS Wiki</a>
+            Made by <a className={link} href="https://github.com/austinmrobinson">Austin Robinson</a> · Fonts:{" "}
+            <a className={link} href="https://github.com/RuneStar/fonts">RuneStar</a> (CC0) · Sprites:{" "}
+            <a className={link} href="https://github.com/melkypie/resource-packs">melkypie/resource-packs</a> · Item icons and data:{" "}
+            <a className={link} href="https://oldschool.runescape.wiki">OSRS Wiki</a> · Code font:{" "}
+            <a className={link} href="https://departuremono.com">Departure Mono</a> by Helena Zhang (SIL OFL)
           </p>
         </div>
       </details>

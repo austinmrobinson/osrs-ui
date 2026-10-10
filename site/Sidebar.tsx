@@ -35,6 +35,8 @@ function buildConcepts(items: NavNode[]): Concept[] {
   const loose: NavNode[] = [];
   const concepts: Concept[] = [];
   for (const n of items) {
+    // the home page lives on the logo, not in the nav
+    if (n.kind === "page" && norm(n.route) === "/") continue;
     if (n.kind === "page" && STANDALONE.has(norm(n.route))) {
       const id = slug(n.label);
       concepts.push({ id, label: n.label, icon: CONCEPTS[id]?.icon ?? "components", nodes: [n] });
@@ -121,7 +123,8 @@ export default function Sidebar({ items, currentRoute }: { items: NavNode[]; cur
       </ul>
       {/* page-specific controls (the Assets page's export options) portal in here */}
       <div id="osrs-site-sidebar-slot" />
-      {current && !(current.nodes.length === 1 && current.nodes[0].kind === "page" && STANDALONE.has(norm(current.nodes[0].route))) ? (
+      {/* a concept with one page is that page: no list */}
+      {current && !(current.nodes.length === 1 && current.nodes[0].kind === "page") ? (
         <div className="osrs-nav-list bg-transparent bg-none shadow-none" aria-label={current.label}>
           <Pages nodes={current.nodes} currentRoute={currentRoute} />
         </div>

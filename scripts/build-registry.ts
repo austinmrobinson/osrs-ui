@@ -3,10 +3,11 @@
 // derived from its imports. REGISTRY_URL is where /r/*.json is served.
 import fs from "node:fs";
 import path from "node:path";
+import { REGISTRY_URL as SITE_REGISTRY_URL } from "../site/site-url";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const UI = path.join(ROOT, "registry/osrs/ui");
-const REGISTRY_URL = process.env.REGISTRY_URL ?? "https://osrs-ui.vercel.app/r";
+const REGISTRY_URL = process.env.REGISTRY_URL ?? SITE_REGISTRY_URL;
 const url = (name: string) => `${REGISTRY_URL}/${name}.json`;
 
 const DESCRIPTIONS: Record<string, string> = {
