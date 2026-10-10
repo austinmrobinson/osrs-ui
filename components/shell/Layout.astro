@@ -101,6 +101,8 @@ const description = page.description ?? site.description;
 // (it only showed during page transitions). The image covers the colour completely.
 const rivets =
   "pointer-events-none fixed z-[100] border-[30px_25px] border-solid border-[#0e0e0c] [border-image:var(--osrs-frame-iron-rivets)_30_25_30_25/1/0_repeat]";
+// touch screens: the side rails run to the bottom and fade out over the last 64px
+const fadeOut = "pointer-coarse:bottom-0 pointer-coarse:[mask-image:linear-gradient(to_bottom,black_calc(100%-64px),transparent)]";
 // the share card (site/og/OgImages.tsx, concept 6), absolute so crawlers can fetch it
 const shareImage = ogImage ?? `${SITE_URL}/og.png`;
 const markdownMirror = withMountedBase(isHome ? "/index.md" : `${page.route}.md`);
@@ -176,7 +178,7 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
 <html
   lang={locale}
   data-pagefind-ignore={indexable ? undefined : "all"}
-  class={cx("osrs-scrollbars [color-scheme:dark] [--osrs-font-code:'Departure_Mono',ui-monospace,monospace]", stone)}
+  class={cx("osrs-scrollbars [color-scheme:dark] [--osrs-font-code:'Departure_Mono',ui-monospace,monospace]", stone, "pointer-coarse:bg-scroll")}
   style={CURSOR_VARS}
 >
   <head>
@@ -230,15 +232,15 @@ const drawerScript = `(()=>{if(window.__rsDrawer)return;window.__rsDrawer=true;c
     {/* the rivet frame round the whole viewport, as four thin fixed strips (one per edge) rather than
         one full-screen overlay: iOS (Safari and Chrome alike) allocates and drops a full-screen,
         mostly transparent fixed layer, so the frame flashed in and out. Each strip draws its edge of
-        the same 9-slice: top and bottom carry the corners, the sides only the middle runs. On touch
-        screens there's no bottom edge and the sides run on 200px past the bottom: phone browsers float
-        their toolbars over the page, so the bottom of the viewport sits above the toolbar while the
-        page shows through below it; the edge read as a line across the screen and the rails stopped
-        short of it */}
+        the same 9-slice: top and bottom carry the corners, the sides only the middle runs. Phone
+        browsers that float a toolbar over the page put the viewport's bottom above it, and never paint
+        fixed elements past it, so the frame closes there: a clean edge above the toolbar */}
     <div aria-hidden="true" class={cx(rivets, "top-0 inset-x-0 h-[30px] border-b-0")}></div>
     <div aria-hidden="true" class={cx(rivets, "bottom-0 inset-x-0 h-[30px] border-t-0 pointer-coarse:hidden")}></div>
-    <div aria-hidden="true" class={cx(rivets, "top-[30px] bottom-[30px] left-0 w-[25px] border-y-0 border-r-0 pointer-coarse:-bottom-[200px]")}></div>
-    <div aria-hidden="true" class={cx(rivets, "top-[30px] bottom-[30px] right-0 w-[25px] border-y-0 border-l-0 pointer-coarse:-bottom-[200px]")}></div>
+    <div aria-hidden="true" class={cx(rivets, "top-[30px] bottom-[30px] left-0 w-[25px] border-y-0 border-r-0", fadeOut)}></div>
+    {/* touch screens: instead of a bottom edge, the page and the rails fade out into the stone */}
+    <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 bottom-0 z-[99] hidden h-16 bg-linear-to-b from-transparent to-[#3f372d] pointer-coarse:block"></div>
+    <div aria-hidden="true" class={cx(rivets, "top-[30px] bottom-[30px] right-0 w-[25px] border-y-0 border-l-0", fadeOut)}></div>
     <Header route={page.route} hasSidebar={showSidebar} />
     <div class={cx("mx-auto grid grid-cols-1 items-start", showSidebar && "lg:grid-cols-[calc(17.5rem-2px)_auto_minmax(0,1fr)]")}>
       <aside
