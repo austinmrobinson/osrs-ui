@@ -93,9 +93,12 @@ const { prev, next } = getPagination(flattenPages(sidebar), page.route);
 const pageTitle = page.title && page.title !== site.title ? `${page.title} - ${site.title}` : site.title;
 const description = page.description ?? site.description;
 // one edge of the iron rivet frame (see the four strips in the body); the image width follows each
-// strip's own border widths (1 = 1x), so a strip draws only its own edge
+// strip's own border widths (1 = 1x), so a strip draws only its own edge. The border colour is the
+// frame's own black, not transparent: iOS composites fixed elements on their own layer and, seeing
+// a transparent border and no background, judged the layer empty and never painted the border image
+// (it only showed during page transitions). The image covers the colour completely.
 const rivets =
-  "pointer-events-none fixed z-[100] border-[30px_25px] border-solid border-transparent [border-image:var(--osrs-frame-iron-rivets)_30_25_30_25/1/0_repeat]";
+  "pointer-events-none fixed z-[100] border-[30px_25px] border-solid border-[#0e0e0c] [border-image:var(--osrs-frame-iron-rivets)_30_25_30_25/1/0_repeat]";
 // the share card (site/og/OgImages.tsx, concept 6), absolute so crawlers can fetch it
 const shareImage = ogImage ?? `${SITE_URL}/og.png`;
 const markdownMirror = withMountedBase(isHome ? "/index.md" : `${page.route}.md`);
