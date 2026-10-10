@@ -90,7 +90,9 @@ const crumbs = findBreadcrumbs(sidebar, page.route);
 const eyebrow = crumbs.length > 1 ? crumbs[crumbs.length - 2] : null;
 const { prev, next } = getPagination(flattenPages(sidebar), page.route);
 
-const pageTitle = page.title && page.title !== site.title ? `${page.title} - ${site.title}` : site.title;
+// the home page's title carries the one-line pitch; every other page is "Page - OSRS UI"
+const pageTitle =
+  page.title && page.title !== site.title ? `${page.title} - ${site.title}` : `${site.title}: Old School RuneScape components for shadcn/ui`;
 const description = page.description ?? site.description;
 // one edge of the iron rivet frame (see the four strips in the body); the image width follows each
 // strip's own border widths (1 = 1x), so a strip draws only its own edge. The border colour is the
