@@ -1076,16 +1076,20 @@ button.osrs-card:hover:not([data-disabled]), a.osrs-card:hover:not([data-disable
 }
 
 /* ---------- Code block: a flat strip of darkened stone; the copy button in its corner ---------- */
-.osrs-code-block { position: relative; }
-.osrs-code-block > pre {
-  margin: 0; overflow-x: auto;
-  padding: calc(9 * var(--osrs-px)) calc(44 * var(--osrs-px)) calc(9 * var(--osrs-px)) calc(12 * var(--osrs-px));
+/* the strip holds the code and the copy button side by side, so long lines scroll beside the button
+   rather than under it */
+.osrs-code-block {
+  position: relative; display: flex; align-items: flex-start;
   background: linear-gradient(rgb(0 0 0 / 0.32), rgb(0 0 0 / 0.32)), var(--osrs-texture-stone) 0 0 / calc(176 * var(--osrs-px)) calc(120 * var(--osrs-px)), var(--osrs-stone-dark);
   box-shadow: 0 0 0 var(--osrs-px) #1f1a14;
+}
+.osrs-code-block > pre {
+  flex: 1; min-width: 0; margin: 0; overflow-x: auto;
+  padding: calc(9 * var(--osrs-px)) calc(12 * var(--osrs-px));
   font-family: var(--osrs-font-code, ui-monospace, monospace); font-size: calc(11 * var(--osrs-px)); line-height: calc(22 * var(--osrs-px));
   color: var(--osrs-white); text-shadow: none;
 }
-.osrs-code-block > .osrs-copy-button { position: absolute; top: calc(6 * var(--osrs-px)); right: calc(6 * var(--osrs-px)); }
+.osrs-code-block > .osrs-copy-button { flex: none; margin: calc(6 * var(--osrs-px)) calc(6 * var(--osrs-px)) 0 calc(2 * var(--osrs-px)); }
 /* the ghost copy button: orange copy icon, white on hover, a green tick once copied */
 .osrs-copy-button {
   display: inline-flex; align-items: center; justify-content: center;
