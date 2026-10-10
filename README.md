@@ -2,7 +2,7 @@
 
 Old School RuneScape's interface as a [shadcn/ui](https://ui.shadcn.com) registry: buttons, windows, tabs, the chatbox, orbs, skill tiles and more, traced pixel for pixel into vector SVG and built on [Base UI](https://base-ui.com).
 
-**Docs and live examples: [osrs-ui.vercel.app](https://osrs-ui.vercel.app)**
+**Docs and live examples: [osrsui.com](https://osrsui.com)**
 
 ![OSRS UI](public/og.png)
 
@@ -21,7 +21,7 @@ You need a project that already uses shadcn/ui with Tailwind v4 ([setup guide](h
 Add the theme. It brings the tokens, frames, textures and fonts in one CSS file:
 
 ```bash
-npx shadcn@latest add https://osrs-ui.vercel.app/r/osrs-theme.json
+npx shadcn@latest add https://osrsui.com/r/osrs-theme.json
 ```
 
 Import it after Tailwind in your global CSS:
@@ -34,7 +34,7 @@ Import it after Tailwind in your global CSS:
 Then add components one at a time. They're copied into your project and are yours to edit:
 
 ```bash
-npx shadcn@latest add https://osrs-ui.vercel.app/r/button.json
+npx shadcn@latest add https://osrsui.com/r/button.json
 ```
 
 Every component page in the docs has its own install command.
@@ -48,7 +48,7 @@ Every component page in the docs has its own install command.
 .minimap-overlay { --osrs-px: 1px; } /* native size */
 ```
 
-Add the `osrs` class to a container to map the shadcn tokens (`--background`, `--primary`, …) to the game's palette. See [Getting Started](https://osrs-ui.vercel.app/getting-started#theming) for the palette and utility classes.
+Add the `osrs` class to a container to map the shadcn tokens (`--background`, `--primary`, …) to the game's palette. See [Getting Started](https://osrsui.com/getting-started#theming) for the palette and utility classes.
 
 ## Developing
 
