@@ -753,11 +753,13 @@ export function HomeHero() {
           // a big, soft warm glow behind the headline
           "before:pointer-events-none before:absolute before:inset-0 before:-z-1 before:bg-[radial-gradient(ellipse_60%_52%_at_50%_50%,rgb(255_196_120/.11),rgb(255_170_80/.04)_45%,transparent_72%)] before:content-[''] motion-safe:before:animate-[osrs-home-fade_1.2s_both]",
           hero === "dialogue" && "items-stretch text-start",
+          // the scale follows the viewport in CSS, so the first paint (before hydration) is already the
+          // right size; the slider overrides it inline once touched. Chips draw at half (rounded down).
+          "[--hero-px:2px] [--art-px:1px] min-[560px]:[--hero-px:3px] min-[1100px]:[--hero-px:4px] min-[1100px]:[--art-px:2px] min-[1280px]:[--hero-px:5px]",
         )}
         style={
           {
-            ["--hero-px"]: `${scale}px`,
-            ["--art-px"]: `${artPx}px`,
+            ...(touched.current ? { ["--hero-px"]: `${scale}px`, ["--art-px"]: `${artPx}px` } : null),
             ["--hero-colour"]: COLOURS[colour].value,
             ["--hero-font"]: FONTS[font].value,
           } as React.CSSProperties
