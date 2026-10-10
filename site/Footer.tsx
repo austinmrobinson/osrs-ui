@@ -6,8 +6,9 @@ import { cx, dividerAbove, link } from "./styles";
 
 export default function Footer() {
   return (
-    // touch screens: room under the last line for the 64px fade at the bottom of the screen (Layout)
-    <footer className={cx("osrs-text flex flex-col gap-1 px-5 py-4 text-rs-orange [--osrs-px:1px] pointer-coarse:pb-20", dividerAbove)}>
+    // iOS (the only browser with -webkit-touch-callout): room under the last line for the 64px fade at
+    // the bottom of the screen (Layout)
+    <footer className={cx("osrs-text flex flex-col gap-1 px-5 py-4 text-rs-orange [--osrs-px:1px] supports-[-webkit-touch-callout:none]:pb-20", dividerAbove)}>
       <details className="group">
         <summary className="flex cursor-pointer list-none items-center justify-between gap-3 [&::-webkit-details-marker]:hidden">
           <span>Unofficial fan content, not endorsed by or affiliated with Jagex.</span>
