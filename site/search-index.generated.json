@@ -1904,6 +1904,10 @@
         "depth": 0
       },
       {
+        "text": "World Map",
+        "depth": 0
+      },
+      {
         "text": "World Switcher",
         "depth": 0
       }
@@ -1991,6 +1995,32 @@
       "recipes/skill-guide"
     ],
     "example": "recipes/skill-guide"
+  },
+  {
+    "route": "/recipes/world-map",
+    "title": "World Map",
+    "description": "The World Map: drag to pan, zoom, search for a place, and open the key. Bring your own map tiles.",
+    "summary": "The World Map",
+    "section": "Recipes",
+    "headings": [],
+    "outline": [
+      {
+        "text": "Example",
+        "depth": 0
+      },
+      {
+        "text": "Preview",
+        "depth": 1
+      },
+      {
+        "text": "Code",
+        "depth": 1
+      }
+    ],
+    "previews": [
+      "recipes/world-map"
+    ],
+    "example": "recipes/world-map"
   },
   {
     "route": "/recipes/world-switcher",

@@ -273,5 +273,10 @@
     "src": "/previews/components/steps.png",
     "width": 182,
     "height": 82
+  },
+  "recipes/world-map": {
+    "src": "/previews/recipes/world-map.png",
+    "width": 257,
+    "height": 168
   }
 }

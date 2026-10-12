@@ -133,7 +133,8 @@
         "https://osrsui.com/r/osrs-theme.json",
         "utils",
         "https://osrsui.com/r/osrs-lib.json",
-        "https://osrsui.com/r/chatbox-sprites.json"
+        "https://osrsui.com/r/chatbox-sprites.json",
+        "https://osrsui.com/r/scroll-area.json"
       ],
       "files": [
         {

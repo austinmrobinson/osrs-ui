@@ -20,6 +20,7 @@ const RECIPES: [string, string][] = [
   ["collection-log", "Collection Log"],
   ["combat-achievements", "Combat Achievements"],
   ["world-switcher", "World Switcher"],
+  ["world-map", "World Map"],
   ["skill-guide", "Skill Guide"],
   ["dialogue", "NPC Dialogue"],
   ["chat", "Chatbox"],

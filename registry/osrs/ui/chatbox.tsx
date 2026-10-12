@@ -6,6 +6,7 @@ import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 import { cn } from "@/lib/utils";
 import { px } from "@/lib/osrs";
 import { chatboxSprites } from "@/components/ui/chatbox-sprites";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 /**
  * The parchment chatbox. Its frame is a 9-slice, so it can be any size.
@@ -29,10 +30,17 @@ type ChatTab = { value: string; label: string; status?: React.ReactNode; statusC
 /** The stone strip of chat filter buttons under the chatbox. */
 function ChatboxTabs({
   tabs,
+  report,
+  onReport,
   className,
   style,
   ...props
-}: TabsPrimitive.Root.Props & { tabs: ChatTab[] }) {
+}: TabsPrimitive.Root.Props & {
+  tabs: ChatTab[];
+  /** The red Report button at the strip's end: its label, or `true` for "Report". */
+  report?: React.ReactNode;
+  onReport?: () => void;
+}) {
   return (
     <TabsPrimitive.Root data-slot="chatbox-tabs" className={cn("relative", className)} style={{ width: px(519), height: px(23), ...style }} {...props}>
       <chatboxSprites.buttonsBackgroundStones className="absolute inset-0" />
@@ -54,6 +62,20 @@ function ChatboxTabs({
           </TabsPrimitive.Tab>
         ))}
       </TabsPrimitive.List>
+      {report ? (
+        <button
+          type="button"
+          onClick={onReport}
+          className="group absolute cursor-pointer border-0 bg-transparent p-0"
+          style={{ left: px(437), top: 0, width: px(79), height: px(22) }}
+        >
+          <chatboxSprites.reportButton className="absolute inset-0 group-hover:opacity-0" />
+          <chatboxSprites.reportButtonHovered className="absolute inset-0 opacity-0 group-hover:opacity-100" />
+          <span className="osrs-text osrs-text-small absolute inset-0 flex items-center justify-center" style={{ color: "var(--osrs-white)" }}>
+            {report === true ? "Report" : report}
+          </span>
+        </button>
+      ) : null}
     </TabsPrimitive.Root>
   );
 }
@@ -71,6 +93,36 @@ function ChatMessage({
     <div data-slot="chat-message" className={cn("osrs-text osrs-text-plain", className)} style={{ color }} {...props}>
       {name ? <span style={{ color: nameColor }}>{name}: </span> : null}
       {children}
+    </div>
+  );
+}
+
+/**
+ * The chat log of a game-size Chatbox: messages stacked from the bottom (the newest last), above the
+ * input line, with the game's scrollbar down the right.
+ */
+function ChatboxMessages({ className, style, children, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div data-slot="chatbox-messages" className={cn("absolute", className)} style={{ left: px(10), right: px(7), top: px(6), height: px(114), ...style }} {...props}>
+      <ScrollArea className="size-full">
+        <div className="flex flex-col justify-end" style={{ minHeight: px(114), lineHeight: px(14) }}>
+          {children}
+        </div>
+      </ScrollArea>
+    </div>
+  );
+}
+
+/** The input line under a game-size Chatbox's messages: the player's name in black, what they're
+ *  typing in blue, then the blue `*` caret. */
+function ChatboxInput({ name, children, caret = true, className, style, ...props }: React.ComponentProps<"div"> & { name: React.ReactNode; caret?: boolean }) {
+  return (
+    <div data-slot="chatbox-input" className={cn("absolute", className)} style={{ left: px(10), right: px(7), top: px(120), ...style }} {...props}>
+      <div style={{ marginLeft: px(-3), height: px(1), background: "#807660" }} />
+      <div className="osrs-text whitespace-pre" style={{ color: "#000000", lineHeight: px(14) }}>
+        {name}: <span style={{ color: "#0000ff" }}>{children}</span>
+        <span style={{ color: "#0000ff", visibility: caret ? undefined : "hidden" }}>*</span>
+      </div>
     </div>
   );
 }
@@ -169,5 +221,5 @@ function OptionDialogue({
   );
 }
 
-export { Chatbox, ChatboxTabs, ChatMessage, NpcDialogue, OptionDialogue };
+export { Chatbox, ChatboxInput, ChatboxMessages, ChatboxTabs, ChatMessage, NpcDialogue, OptionDialogue };
 export type { ChatTab };

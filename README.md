@@ -9,7 +9,7 @@ Old School RuneScape's interface as a [shadcn/ui](https://ui.shadcn.com) registr
 ## What's in it
 
 - **Components.** Every control from the game, each with a live playground: buttons, sprite buttons, toggles, checkboxes, sliders, selects, tabs, windows, side panels, the chatbox and NPC dialogue, context menus, tooltips, orbs, XP drops, item and equipment slots, skill tiles and more.
-- **Recipes.** Whole screens assembled from the components (the Bank, Grand Exchange, All Settings, Collection Log, World Switcher and others), ready to copy into your app.
+- **Recipes.** Whole screens assembled from the components (the Bank, Grand Exchange, All Settings, Collection Log, World Switcher, a traced World Map and others), ready to copy into your app.
 - **Assets.** Over a thousand sprites, frames and textures. Download any of them as SVG or as a crisp PNG at any whole-number scale, free for videos, thumbnails and stream overlays.
 
 Everything is vector and drawn on a pixel grid, so it stays sharp at 1x, 2x, 3x and beyond. Frames are 9-slice, so windows and panels resize without stretching their corners.

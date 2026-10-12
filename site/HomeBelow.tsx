@@ -14,7 +14,7 @@ import { cx, link, textShadow } from "./styles";
 import { REGISTRY_URL } from "./site-url";
 
 const REGISTRY = REGISTRY_URL;
-const COUNTS = { components: 37, recipes: 12, assets: "1,124" };
+const COUNTS = { components: 37, recipes: 13, assets: "1,124" };
 
 /** A section of the page: full width of the main column, content centred, 120px apart. */
 const screen =

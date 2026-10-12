@@ -92,6 +92,24 @@
         "default": "game"
       }
     ],
+    "ChatboxInput": [
+      {
+        "name": "name",
+        "control": "text"
+      },
+      {
+        "name": "caret",
+        "control": "boolean",
+        "default": true
+      }
+    ],
+    "ChatboxTabs": [
+      {
+        "name": "report",
+        "control": "text",
+        "description": "The red Report button at the strip's end: its label, or `true` for \"Report\"."
+      }
+    ],
     "ChatMessage": [
       {
         "name": "color",

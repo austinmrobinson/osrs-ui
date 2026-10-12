@@ -51,7 +51,7 @@ export default function BankRecipe() {
     <div className="osrs flex items-start justify-start p-6">
       <Interface draggable resizable style={{ width: px(488), height: px(335) }} minWidth={420} minHeight={240}>
         <InterfaceHeader>
-          <span className="absolute left-0 flex items-center" style={{ gap: px(4) }}>
+          <span className="absolute flex items-center" style={{ left: px(3), gap: px(4) }}>
             <span className="osrs-text-small flex flex-col" style={{ lineHeight: px(11) }}>
               <span>{BANK.length}</span>
               <span>1160</span>
