@@ -9,7 +9,7 @@ import { cardVariants } from "@/registry/osrs/ui/card";
 import { CodeBlock } from "@/registry/osrs/ui/code-block";
 import { Separator } from "@/registry/osrs/ui/separator";
 import { GITHUB_URL, GithubIcon } from "./header-icons";
-import { StageArt } from "./StageArt";
+import { BankArt, ButtonArt, CollectionArt, ScaleArt, StatArt } from "./StageArt";
 import { cx, link, textShadow } from "./styles";
 import { REGISTRY_URL } from "./site-url";
 
@@ -54,29 +54,51 @@ function Heading({
 
 /* ---------- Contents ---------- */
 
-/** A card per section; the whole card is one link: the real thing, a separator, its name and one
- *  line on what's there. */
+/** One bento tile; the whole tile is one link: its picture, a separator, then a bold lead and one
+ *  line, left-aligned on the tile's gutter. */
+function Tile({
+  href,
+  lead,
+  body,
+  art,
+  artHeight,
+  className,
+}: {
+  href: string;
+  lead: string;
+  body: React.ReactNode;
+  art: React.ReactNode;
+  /** the picture's height, as Tailwind classes */
+  artHeight: string;
+  className?: string;
+}) {
+  return (
+    <a
+      href={href}
+      // the muted card's cut corners on a solid fill, so the page's stone pattern doesn't show
+      // through (the orange body text is ~4.7:1 on it; the card's own 5%-lifted fill is ~4.1:1)
+      className={cx(
+        cardVariants({ variant: "muted" }),
+        "bg-rs-stone",
+        "group/card flex min-w-0 flex-col p-2.5 text-start no-underline [--osrs-px:1px]",
+        className,
+      )}
+    >
+      <span className={cx("relative block overflow-hidden", artHeight)} aria-hidden="true" inert>
+        {art}
+      </span>
+      <Separator className="[--osrs-px:2px]" />
+      <span className={cx("block px-2 pt-3.5 pb-1.5 text-balance text-rs-orange", textShadow)}>
+        <span className="font-rs-bold text-rs-white group-hover/card:text-rs-yellow">{lead}</span> {body}
+      </span>
+    </a>
+  );
+}
+
+/** The library's contents as a bento: the Bank leads (the one tile that moves through a story), a
+ *  big number beside it, then a control, a collection and a diagram, so no two neighbours are the
+ *  same kind. Stacks hero-first on narrow screens. */
 function Contents() {
-  const cols = [
-    {
-      section: "components",
-      title: "Components",
-      body: "Every control from the game, built on Base UI, each with a live playground.",
-      href: "/components",
-    },
-    {
-      section: "recipes",
-      title: "Recipes",
-      body: "Whole screens assembled from the components, ready to copy into your app.",
-      href: "/recipes",
-    },
-    {
-      section: "assets",
-      title: "Assets",
-      body: "Every sprite, frame and texture as SVG or crisp PNG at any scale, free for videos and overlays.",
-      href: "/assets",
-    },
-  ] as const;
   return (
     <section className={cx(screen, "pt-0")}>
       <Heading title="Everything on the game's screen" next>
@@ -84,38 +106,42 @@ function Contents() {
         and {COUNTS.assets} sprites, frames and textures.
       </Heading>
       <div className="grid w-full max-w-[1120px] grid-cols-1 gap-3 min-[900px]:grid-cols-3">
-        {cols.map((c) => (
-          <a
-            key={c.href}
-            href={c.href}
-            // the muted card's cut corners on a solid fill, so the page's stone pattern doesn't show
-            // through (the orange body text is ~4.7:1 on it; the card's own 5%-lifted fill is ~4.1:1)
-            className={cx(
-              cardVariants({ variant: "muted" }),
-              "bg-rs-stone",
-              "group/card flex min-w-0 flex-col p-2.5 text-start no-underline [--osrs-px:1px]",
-            )}
-          >
-            <span className="flex h-60 items-center justify-center overflow-hidden" aria-hidden="true">
-              <span
-                className="flex max-h-full max-w-full items-center justify-center transition-transform duration-200 group-hover/card:motion-safe:scale-103"
-                inert
-              >
-                <StageArt section={c.section} />
-              </span>
-            </span>
-            <Separator className="[--osrs-px:2px]" />
-            <span className="flex flex-col items-center gap-1.5 px-2 pt-3.5 pb-1.5 text-center">
-              {/* Bold 12 at 1x until the cards are wide enough for Plain 12 at 2x */}
-              <span className="font-rs-bold text-rs leading-[1.1] text-rs-white [text-shadow:1px_1px_0_#000] group-hover/card:text-rs-yellow min-[1100px]:font-rs min-[1100px]:text-[length:32px] min-[1100px]:[text-shadow:2px_2px_0_#000]">
-                {c.title}
-              </span>
-              <span className={cx("text-balance text-rs-orange", textShadow)}>
-                {c.body}
-              </span>
-            </span>
-          </a>
-        ))}
+        <Tile
+          className="min-[900px]:col-span-2"
+          href="/recipes"
+          lead="Recipes."
+          body="Whole screens assembled from the components, ready to copy into your app."
+          art={<BankArt />}
+          artHeight="h-60 min-[900px]:h-80"
+        />
+        <Tile
+          href="/components"
+          lead="Components."
+          body="Every control from the game, built on Base UI, each with a live playground."
+          art={<StatArt value={String(COUNTS.components)} unit="controls" />}
+          artHeight="h-50 min-[900px]:h-80"
+        />
+        <Tile
+          href="/components/button"
+          lead="Buttons."
+          body="Metal, stone and tile, with the game's own pressed and hover looks."
+          art={<ButtonArt />}
+          artHeight="h-50"
+        />
+        <Tile
+          href="/assets"
+          lead="Assets."
+          body="Every sprite, frame and texture as SVG or crisp PNG, free for videos and overlays."
+          art={<CollectionArt />}
+          artHeight="h-50"
+        />
+        <Tile
+          href="/getting-started"
+          lead="Any size."
+          body="One variable scales every frame, font and sprite together, still pixel-sharp."
+          art={<ScaleArt />}
+          artHeight="h-50"
+        />
       </div>
     </section>
   );

@@ -1,11 +1,12 @@
 "use client";
 
-// The Recipes card's art: the Bank, built from the library, at the game's own 1x, cropped off the
-// card's right and bottom edges. Made with Stageshow (site/stageshow, MIT). One beat, played once
+// The Recipes tile's art (the bento's hero): the Bank, built from the library, cropped off the tile's
+// right and bottom edges. Drawn at 2x where the tile is wide enough, else at the game's own 1x; the
+// stage takes the tile's measured width so nothing is scaled. Made with Stageshow (site/stageshow, MIT). One beat, played once
 // when the card scrolls into view: the cursor right-clicks the Twisted bow, the game's "Choose
 // Option" menu opens under it, Withdraw-1 lights up yellow, and the bow is left behind as a
 // placeholder (faded, quantity 0), as the game does with placeholders on. The menu opens and
-// closes instantly, as it does in game. The poster (reduced motion, first paint) is the open menu.
+// closes instantly and is kept inside the view, as it is in game. The poster (reduced motion, first paint) is the open menu.
 import { Interface, InterfaceHeader, InterfaceTitle, InterfaceClose } from "@/registry/osrs/ui/interface";
 import { ItemSlot } from "@/registry/osrs/ui/item-slot";
 import { Tabs, TabsList, TabsTrigger } from "@/registry/osrs/ui/tabs";
@@ -31,23 +32,31 @@ const BANK: [ItemId, number][] = [
 ];
 const TABS: ItemId[] = ["abyssal-whip", "shark", "nature-rune", "magic-logs", "dragon-bones"];
 const OPTIONS = ["Withdraw-1", "Withdraw-5", "Withdraw-All", "Examine"] as const;
+// The menu's height in game pixels: the header and four options
+const MENU_H = 79;
 
-type S = { menu: { x: number; y: number } | null; lit: string | null; withdrawn: boolean };
+type S = { menu: boolean; lit: string | null; withdrawn: boolean };
 
-const initial: S = { menu: null, lit: null, withdrawn: false };
+const initial: S = { menu: false, lit: null, withdrawn: false };
 // The frame that tells the story on its own: the menu open on the bow, Withdraw-1 lit
-const MENU_AT = { x: 176, y: 128 };
-const poster: S = { menu: MENU_AT, lit: "Withdraw-1", withdrawn: false };
+const poster: S = { menu: true, lit: "Withdraw-1", withdrawn: false };
+// The bank's width in game pixels: its usual 488, narrowed on a small stage so the centred title
+// ("The Bank of Gielinor", about 112 wide) stays whole with a gutter to its right
+const bankWidth = (stage: number, scale: number) => Math.min(488, 2 * Math.floor((stage - 24 - 12) / scale - 60));
+// Where the pointer right-clicks the bow: a pixel past its middle
+const pointAt = (r: { x: number; y: number; width: number; height: number }) => ({
+  x: Math.round(r.x + r.width / 2 + 1),
+  y: Math.round(r.y + r.height / 2 + 1),
+});
 
 async function script(a: Act<S>) {
   await a.wait(700);
-  const bow = a.rect("bow");
-  const at = { x: Math.round(bow.x + bow.width / 2 + 1), y: Math.round(bow.y + bow.height / 2 + 1) };
+  const at = pointAt(a.rect("bow"));
   await a.move(at);
   await a.wait(250);
   a.mark("menu");
   await a.click(undefined, { right: true });
-  a.set({ menu: at });
+  a.set({ menu: true });
   await a.wait(500);
   const opt = a.rect("opt-Withdraw-1");
   await a.move({ x: opt.x + 30, y: opt.y + opt.height / 2 }, { duration: 420 });
@@ -55,28 +64,28 @@ async function script(a: Act<S>) {
   await a.wait(450);
   a.mark("withdraw");
   await a.click();
-  a.set({ menu: null, lit: null, withdrawn: true });
+  a.set({ menu: false, lit: null, withdrawn: true });
   await a.wait(600);
   await a.move({ x: at.x + 70, y: at.y + 66 }, { duration: 700 });
   await a.wait(2400);
 }
 
-export function BankStage() {
+export function BankStage({ width, height, scale }: { width: number; height: number; scale: 1 | 2 }) {
   return (
     <Stage
-      width={360}
-      height={240}
+      width={width}
+      height={height}
       initial={initial}
       poster={poster}
       script={script}
       play="once"
-      cursor={{ at: { x: 300, y: 214 } }}
+      cursor={{ at: { x: width - 48, y: height - 28 }, style: scale === 2 ? "large" : "real" }}
       className="bank-stage"
     >
-      {(s) => (
-        // the library's own type and scale, at the game's 1x
-        <div className="osrs absolute inset-0 [--osrs-px:1px]">
-          <Interface style={{ position: "absolute", left: 24, top: 24, width: px(488), height: px(335) }}>
+      {(s, rect) => (
+        // the library's own type, at the tile's scale
+        <div className="osrs absolute inset-0" style={{ ["--osrs-px" as string]: `${scale}px` }}>
+          <Interface style={{ position: "absolute", left: 24, top: 24, width: px(bankWidth(width, scale)), height: px(335) }}>
             <InterfaceHeader>
               <span className="absolute flex items-center" style={{ left: px(3), gap: px(4) }}>
                 <span className="osrs-text-small flex flex-col" style={{ lineHeight: px(11) }}>
@@ -135,10 +144,16 @@ export function BankStage() {
           </Interface>
           {s.menu ? (
             // the context menu's own classes, drawn in place (the component portals to the body);
-            // the game centres it on the pointer, its top a few pixels above it
+            // the game centres it on the pointer, its top a few pixels above it, and pushes it up
+            // when it would run off the bottom of the view
             <div
               className="osrs-menu osrs-text absolute"
-              style={{ left: s.menu.x, top: s.menu.y - 3, transform: "translateX(-50%)", whiteSpace: "nowrap" }}
+              style={{
+                left: pointAt(rect("bow")).x,
+                top: Math.min(pointAt(rect("bow")).y - 3 * scale, height - MENU_H * scale - 12),
+                transform: "translateX(-50%)",
+                whiteSpace: "nowrap",
+              }}
             >
               <div className="osrs-menu-header">Choose Option</div>
               {OPTIONS.map((o) => (
